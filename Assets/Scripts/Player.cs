@@ -5,9 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator anim;
 
     //No tocar >:(
-    [Header("Debug bools (No tocar)")]
+    [Header("Debug (No tocar)")]
     public bool onGround;
     public bool onWall;
     public bool onRightWall;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
 
     [Header("Ajustes")]
     public float speed = 10f;
+    bool fRight = true;
 
     [Space]
     public LayerMask groundLayer;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -59,11 +62,36 @@ public class Player : MonoBehaviour
             x = 0;
         }
         
-        //Vector2 dir = new Vector2(x, 0);
-
-        //Moverse
+       //Moverse
         rb.velocity = new Vector2(x * speed, rb.velocity.y);
 
+        SetAnimations(x);
+    }
+
+    void SetAnimations(float xInput)
+    {
+        if(xInput != 0)
+        {
+            anim.SetBool("Run", true);
+            //Ajuste de la velocidad para que no "resbale los pies" al principio
+            anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);           
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
+
+        //voltear, con rotate asi tambien se voltean todos los hijos si decidimos usarlos
+        if (xInput > 0 && !fRight)
+        {
+            fRight = true;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        else if (xInput < 0 && fRight)
+        {
+            fRight = false;
+            transform.Rotate(0f, 180f, 0f);
+        }
     }
 
     void DetectCollisions()
