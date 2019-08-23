@@ -44,6 +44,25 @@ public class Player : MonoBehaviour
     void Update()
     {
         DetectCollisions();
+        
+        //inputs de movimiento
+
+        float x;
+        float xRaw = Input.GetAxisRaw("Horizontal");
+
+        if (xRaw != 0)
+        {
+            x = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            x = 0;
+        }
+        
+        //Vector2 dir = new Vector2(x, 0);
+
+        //Moverse
+        rb.velocity = new Vector2(x * speed, rb.velocity.y);
 
     }
 
