@@ -30,6 +30,11 @@ public class Player : MonoBehaviour
     public Vector2 bottomOffset, rightOffset, leftOffset;
     private Color debugCollisionColor = Color.red;
 
+    //animaciones
+    //Idle
+    private bool isIdleCount = false;
+    float idleTimer = 5f;
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -95,6 +100,19 @@ public class Player : MonoBehaviour
 
     void SetAnimations(float xInput)
     {
+        //Idle        
+        IEnumerator idleTrigger = IdleTrigger(idleTimer);
+        if (xInput == 0 && onGround && !Input.anyKeyDown && !isIdleCount)
+        {
+            isIdleCount = true;
+            idleTimer = Random.Range(3.5f, 16f);            
+            StartCoroutine(idleTrigger);            
+        }
+        else if(xInput != 0 || !onGround || Input.anyKeyDown)
+        {
+            StopCoroutine(idleTrigger);
+        }
+
         //voltear, con rotate asi tambien se voltean todos los hijos si decidimos usarlos
         if (xInput > 0 && !fRight)
         {
@@ -138,4 +156,14 @@ public class Player : MonoBehaviour
 
         //wallSide = onRightWall ? -1 : 1;
     }
+
+    //Corutinas
+    IEnumerator IdleTrigger(float timer)
+    {
+        //Debug.Log(timer);
+        yield return new WaitForSeconds(timer);
+        anim.SetTrigger("IdleAlt");
+        isIdleCount = false;
+    }
+
 }
