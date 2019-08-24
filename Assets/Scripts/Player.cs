@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
+    GameManager gm;
 
     //No tocar >:(
     [Header("Debug (No tocar)")]
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        gm = GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -96,6 +98,15 @@ public class Player : MonoBehaviour
         }
 
         SetAnimations(x);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Choco con un Abismo
+        if (collision.tag == "Fall")
+        {
+            gm.Respawn();
+        }
     }
 
     void SetAnimations(float xInput)
