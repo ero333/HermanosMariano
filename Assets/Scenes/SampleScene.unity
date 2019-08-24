@@ -243,6 +243,9 @@ MonoBehaviour:
   onLeftWall: 0
   wallSide: 0
   speed: 10
+  jumpForce: 14
+  fallMultiplier: 3
+  lowJumpMultiplier: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -623,19 +626,19 @@ CompositeCollider2D:
   - m_Collider: {fileID: 766110194}
     m_ColliderPaths:
     - - X: 7792351
-        Y: -19776800
+        Y: -16928942
       - X: 7792351
-        Y: 19776800
+        Y: 16928942
       - X: -7792380
-        Y: 19776771
+        Y: 16928913
       - X: -7792351
-        Y: -19776800
+        Y: -16928942
   m_CompositePaths:
     m_Paths:
-    - - {x: 0.7792322, y: -1.97768}
-      - {x: 0.7792322, y: 1.97768}
-      - {x: -0.779238, y: 1.9776742}
-      - {x: -0.7792322, y: -1.97768}
+    - - {x: 0.7792322, y: -1.6928942}
+      - {x: 0.7792322, y: 1.6928942}
+      - {x: -0.779238, y: 1.6928884}
+      - {x: -0.7792322, y: -1.6928942}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!61 &766110194
@@ -742,8 +745,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766110192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.087, y: -0.41, z: 0}
-  m_LocalScale: {x: 1.558476, y: 3.9553602, z: 1}
+  m_LocalPosition: {x: -5.087, y: -0.696, z: 0}
+  m_LocalScale: {x: 1.558476, y: 3.3857884, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -943,19 +946,19 @@ CompositeCollider2D:
   - m_Collider: {fileID: 1714564449}
     m_ColliderPaths:
     - - X: 95253099
-        Y: -5000000
+        Y: -5159999
       - X: 95253099
-        Y: 5000000
+        Y: 5159999
       - X: -95253128
-        Y: 4999971
+        Y: 5159970
       - X: -95253099
-        Y: -5000000
+        Y: -5159999
   m_CompositePaths:
     m_Paths:
-    - - {x: 9.525308, y: -0.5}
-      - {x: 9.525308, y: 0.5}
-      - {x: -9.525313, y: 0.49999422}
-      - {x: -9.525308, y: -0.5}
+    - - {x: 9.525308, y: -0.5159999}
+      - {x: 9.525308, y: 0.5159999}
+      - {x: -9.525313, y: 0.51599413}
+      - {x: -9.525308, y: -0.5159999}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!61 &1714564449
@@ -1062,8 +1065,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714564447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.663, y: -2.54, z: 0}
-  m_LocalScale: {x: 19.050625, y: 1, z: 1}
+  m_LocalPosition: {x: 3.663, y: -2.524, z: 0}
+  m_LocalScale: {x: 19.050625, y: 1.032, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
