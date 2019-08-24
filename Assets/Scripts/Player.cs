@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        gm = GetComponent<GameManager>();
+        gm = GameObject.FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -100,11 +100,13 @@ public class Player : MonoBehaviour
         SetAnimations(x);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         //Choco con un Abismo
-        if (collision.tag == "Fall")
+        if (collision.gameObject.tag == "Fall")
         {
+            Debug.Log("hit");
+            
             gm.Respawn();
         }
     }
