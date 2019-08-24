@@ -73,6 +73,8 @@ public class Player : MonoBehaviour
         {
             if (onGround)
             {
+                anim.SetTrigger("JumpInput");
+
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.velocity += Vector2.up * jumpForce;
             }            
@@ -93,17 +95,6 @@ public class Player : MonoBehaviour
 
     void SetAnimations(float xInput)
     {
-        if(xInput != 0)
-        {
-            anim.SetBool("Run", true);
-            //Ajuste de la velocidad para que no "resbale los pies" al principio
-            anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);           
-        }
-        else
-        {
-            anim.SetBool("Run", false);
-        }
-
         //voltear, con rotate asi tambien se voltean todos los hijos si decidimos usarlos
         if (xInput > 0 && !fRight)
         {
@@ -115,6 +106,25 @@ public class Player : MonoBehaviour
             fRight = false;
             transform.Rotate(0f, 180f, 0f);
         }
+
+        //correr
+        if (xInput != 0)
+        {
+            anim.SetBool("Run", true);
+            //Ajuste de la velocidad para que no "resbale los pies" al principio
+            if (onGround)
+            {
+                anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);
+            }                       
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }        
+
+        //saltar
+        anim.SetFloat("yVelocity", rb.velocity.y);
+        anim.SetBool("onGround", onGround);
     }
 
     void DetectCollisions()
@@ -126,6 +136,6 @@ public class Player : MonoBehaviour
         onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
-        wallSide = onRightWall ? -1 : 1;
+        //wallSide = onRightWall ? -1 : 1;
     }
 }
