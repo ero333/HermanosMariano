@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Death");
             
-            gm.Respawn();
+            gm.Reset();
         }
     }
 
