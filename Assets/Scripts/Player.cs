@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [Header("Detector de Collisiones")]
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
+    public Vector2 bottomSize;
     private Color debugCollisionColor = Color.red;
 
     //animaciones
@@ -41,8 +42,9 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.red;
 
         var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
+        var sizes = new Vector2[] { bottomSize };
 
-        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, collisionRadius);
+        Gizmos.DrawWireCube((Vector2) transform.position + bottomOffset, (Vector2) bottomSize);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
     }
@@ -160,7 +162,7 @@ public class Player : MonoBehaviour
 
     void DetectCollisions()
     {
-        onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
+        onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
         onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
             || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
