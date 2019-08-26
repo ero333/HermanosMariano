@@ -250,9 +250,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   collisionRadius: 0.3
-  bottomOffset: {x: 0, y: -1.2}
+  bottomOffset: {x: 0, y: -1.22}
   rightOffset: {x: 0.5, y: -0.2}
   leftOffset: {x: -0.5, y: -0.2}
+  bottomSize: {x: 0.8, y: 0.2}
 --- !u!61 &9147362
 BoxCollider2D:
   m_ObjectHideFlags: 0
