@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
 
     int levelIndex;
 
-    [Header("Datos Permanentes")]
+    [Header("Datos que se mantienen")]
     public int maxEnergy = 6;
     public int maxLives = 3;
 
     [Header("Datos del nivel")]
-    int energy;
-    int lives;
+    int energy = 10;
+    int lives = 3;
 
     private void Awake()
     {
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
+        
         //Si hay una, Buscar condicion de victoria
 
     }
