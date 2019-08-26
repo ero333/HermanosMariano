@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int maxLives = 3;
 
     [Header("Datos del nivel")]
+    int resetCount = 0;
     int energy = 10;
     int lives = 3;
 
@@ -37,10 +38,16 @@ public class GameManager : MonoBehaviour
     }
 
     private void OnLevelWasLoaded(int level)
-    {
+    {       
         levelIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (resetCount == 0)
+        {
+            lives = GameManager.instance.maxLives;
+            energy = GameManager.instance.energy;
+        }
         
-        //Si hay una, Buscar condicion de victoria
+        //Si hay una, Buscar condicion de victoria. Cuando gano --> resetCount = 0;
 
     }
 
@@ -60,7 +67,9 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+        resetCount += 1;
         SceneManager.LoadScene(levelIndex);
         
+        //Si toco un checkpoint...
     }
 }
