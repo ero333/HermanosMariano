@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [Header("Datos que se mantienen")]
     public int maxEnergy = 6;
     public int maxLives = 3;
+    public int ahorros;
 
     [Header("Datos del nivel")]
     int resetCount = 0;
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
             energy = GameManager.instance.energy;
         }
         
-        //Si hay una, Buscar condicion de victoria. Cuando gano --> resetCount = 0;
+        //Si hay una, Buscar condicion de victoria. Cuando gano o salgo del nivel --> resetCount = 0;
 
     }
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         if (lives <= 0)
         {
             //game over
+            resetCount = 0;
         }
 
         if (energy <= 0)
@@ -63,6 +65,8 @@ public class GameManager : MonoBehaviour
             lives -= 1;
             Reset();
         }
+
+        //UI
     }    
 
     public void Reset()
