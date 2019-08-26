@@ -23,10 +23,10 @@ public class Player : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    [Space]
-    public LayerMask groundLayer;
+    [Space]    
 
     [Header("Detector de Collisiones")]
+    public LayerMask groundLayer;
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
     public Vector2 bottomSize;
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetTrigger("JumpInput");
 
-                rb.velocity = new Vector2(rb.velocity.x, 0f);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
                 rb.velocity += Vector2.up * jumpForce;
             }            
         }
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         //Choco con un Abismo
         if (collision.gameObject.tag == "Fall")
         {
-            Debug.Log("hit");
+            Debug.Log("Death");
             
             gm.Respawn();
         }
