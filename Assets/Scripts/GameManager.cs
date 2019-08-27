@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
     public int ahorros;
 
     [Header("Datos del nivel")]
-    int resetCount = 0;
+    public int resetCount = 0;
     int energy = 10;
     int lives = 3;
+    public Vector2 lastCheckpos;
 
     private void Awake()
     {

@@ -54,6 +54,15 @@ public class Player : MonoBehaviour
         gm = GameObject.FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        if (gm.resetCount == 0)
+        {
+            gm.lastCheckpos = transform.position;
+        }
+        else if (gm.resetCount > 0)
+        {
+            transform.position = gm.lastCheckpos;
+        }
     }
 
     void Update()
