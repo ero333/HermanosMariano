@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     public float speed = 10f;
     public Vector2 minTriggerRange;
     public bool ShowRange;
+    bool trigger = false;
 
     private void OnDrawGizmos()
     {
@@ -68,8 +69,17 @@ public class Enemy : MonoBehaviour
 
         getPlayerDir();
 
+        if (playerDistanceAbs.x <= minTriggerRange.x && playerDistanceAbs.y < minTriggerRange.y)
+        {
+            trigger = true;
+        }
+
         //Comportamientos
 
+        if (trigger)
+        {
+            rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+        }
 
         SetAnim();
     }
