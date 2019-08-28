@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public int wallSide;
 
     [Header("Ajustes")]
-    bool fRight = true;
+    public bool fRight = true;
     public float speed = 10f;
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f;
@@ -109,6 +109,11 @@ public class Player : MonoBehaviour
         }
 
         SetAnimations(x);
+    }
+
+    public void TakeDamage (int damage)
+    {
+        gm.energy -= 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -13,39 +13,56 @@ public class Enemy : MonoBehaviour
     public Vector2 playerDirection;
     public bool onGround;
     //public bool onWall;
+    public bool fRight = true;    
 
     //Con esto sabe si se va a caer si continua caminando
     public bool onRightFloor;
-    public bool onLeftFloor;    
+    public bool onLeftFloor;
 
     [Header("Detector de colisiones")]
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
     public Vector2 bottomSize;
     private Color debugCollisionColor = Color.red;
 
-    [Header("Ajustes")]
-    public bool fRight = true;
-    public float speed = 10f;
-    public Vector2 minTriggerRange;
+    [Space]
+    public bool trigger = false;
+    public Vector2 minTriggerRange, triggerOffset, triggerSize;
     public bool ShowRange;
     bool trigger = false;
+
+    [Header("Perseguir")]    
+    public float speed = 10f;   
+
+    [Header("Ataque")]
+    public int meleeDamage = 2;
+    public int shootDamage = 1;
+    public Vector2 meleeHitBoxSize;
+    public Vector2 meleeHitBoxOffset;
+    bool canAttack = false;
+    bool hit = false;
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
-        var sizes = new Vector2[] { bottomSize };
+        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset, triggerOffset, meleeHitBoxOffset };
+        var sizes = new Vector2[] { bottomSize, minTriggerRange, meleeHitBoxSize };
 
+        //Colisiones
         Gizmos.DrawWireCube((Vector2)transform.position + bottomOffset, (Vector2)bottomSize);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
 
+        //Trigger size
         if (ShowRange)
         {
-            Gizmos.DrawWireCube((Vector2)transform.position, (Vector2) minTriggerRange * 2);
+            Gizmos.DrawWireCube((Vector2)transform.position + triggerOffset, (Vector2) triggerSize);
         }
+
+        //Melee
+        Gizmos.DrawWireCube((Vector2)transform.position + meleeHitBoxOffset, (Vector2) meleeHitBoxSize);
     }
 
     void Start()
@@ -63,10 +80,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         DetectCollisions();
+    }
 
+    void Update()
+    {
         getPlayerDir();
 
         if (playerDistanceAbs.x <= minTriggerRange.x && playerDistanceAbs.y < minTriggerRange.y)
@@ -100,26 +120,68 @@ public class Enemy : MonoBehaviour
 
     void DetectCollisions()
     {
+        //Colisiones con el piso:
         onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
         //onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
         //    || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
         onRightFloor = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         onLeftFloor = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+
+        //trigger
+        if (!trigger)
+        {
+            trigger = Physics2D.OverlapBox((Vector2)transform.position + triggerOffset, (Vector2)triggerSize, 0f, playerLayer);
+        }        
+
+        //Atacks        
+        Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
+
+        if (hitBox.Length > 0 && !hit)
+        {
+            Debug.Log("Player Hit");
+            hit = true;
+
+            //do damage
+            hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage);
+        }
+        else if (hitBox.Length == 0 && hit)
+        {
+            hit = false;
+        }
+        
+        
     }
 
     void SetAnim()
     {
-        //voltear segun donde este el jugador
-        if (playerDirection.x > 0 && !fRight)
+        IEnumerator Flip = DelayFlip();
+
+        if (trigger)
         {
-            fRight = true;
-            transform.Rotate(0f, 180f, 0f);
+            //voltear segun donde este el jugador
+            if (playerDirection.x > 0 && !fRight)
+            {                
+                fRight = true;
+
+                StartCoroutine(Flip);
+
+            }
+            else if (playerDirection.x < 0 && fRight)
+            {                
+                fRight = false;
+
+                StartCoroutine(Flip);
+            }
         }
-        else if (playerDirection.x < 0 && fRight)
+
+        IEnumerator DelayFlip()
         {
-            fRight = false;
+            yield return new WaitForSeconds(0.5f);
             transform.Rotate(0f, 180f, 0f);
+
+            //volteo del hitbox
+            meleeHitBoxOffset.x *= -1;
         }
-    }
+    }    
 }
