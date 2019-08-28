@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 9147363}
   - component: {fileID: 9147358}
   - component: {fileID: 9147362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -242,6 +242,7 @@ MonoBehaviour:
   onRightWall: 0
   onLeftWall: 0
   wallSide: 0
+  fRight: 1
   speed: 10
   jumpForce: 14
   fallMultiplier: 3
@@ -2092,7 +2093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6224582, y: 0.52000034, z: -10}
+  m_LocalPosition: {x: 0.51357937, y: 0.52000034, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2145,6 +2146,7 @@ MonoBehaviour:
   maxLives: 3
   ahorros: 0
   resetCount: 0
+  energy: 10
   lastCheckpos: {x: 0, y: 0}
 --- !u!1 &1023906958
 GameObject:
@@ -4237,7 +4239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640286159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6224582, y: 0.52000034, z: -10}
+  m_LocalPosition: {x: 0.51357937, y: 0.52000034, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1578386137}
@@ -4257,8 +4259,9 @@ GameObject:
   - component: {fileID: 1745498341}
   - component: {fileID: 1745498340}
   - component: {fileID: 1745498339}
+  - component: {fileID: 1745498344}
   m_Layer: 0
-  m_Name: EnemigoIdle1
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4390,20 +4393,48 @@ MonoBehaviour:
   playerDistanceAbs: {x: 0, y: 0}
   playerDirection: {x: 0, y: 0}
   onGround: 0
+  fRight: 1
   onRightFloor: 0
   onLeftFloor: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   collisionRadius: 0.2
   bottomOffset: {x: 0, y: -1.05}
   rightOffset: {x: 0.6, y: -1.2}
   leftOffset: {x: -0.6, y: -1.2}
   bottomSize: {x: 0.6, y: 0.1}
-  fRight: 1
-  speed: 6
-  minTriggerRange: {x: 5, y: 3}
+  triggerOffset: {x: 2.25, y: 0.34}
+  triggerSize: {x: 6, y: 3}
   ShowRange: 1
+  trigger: 0
+  speed: 6
+  meleeDamage: 2
+  shootDamage: 1
+  meleeHitBoxSize: {x: 1, y: 1}
+  meleeHitBoxOffset: {x: 1, y: 0}
+--- !u!95 &1745498344
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745498338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eae6036e6cc02f9408266def17b5dbcf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1960321208
 GameObject:
   m_ObjectHideFlags: 0

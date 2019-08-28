@@ -28,10 +28,9 @@ public class Enemy : MonoBehaviour
     private Color debugCollisionColor = Color.red;
 
     [Space]
-    public bool trigger = false;
-    public Vector2 minTriggerRange, triggerOffset, triggerSize;
+    public Vector2 triggerOffset, triggerSize;
     public bool ShowRange;
-    bool trigger = false;
+    public bool trigger = false;
 
     [Header("Perseguir")]    
     public float speed = 10f;   
@@ -48,7 +47,7 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
         var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset, triggerOffset, meleeHitBoxOffset };
-        var sizes = new Vector2[] { bottomSize, minTriggerRange, meleeHitBoxSize };
+        var sizes = new Vector2[] { bottomSize, meleeHitBoxSize, triggerSize };
 
         //Colisiones
         Gizmos.DrawWireCube((Vector2)transform.position + bottomOffset, (Vector2)bottomSize);
@@ -88,14 +87,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         getPlayerDir();
-
-        if (playerDistanceAbs.x <= minTriggerRange.x && playerDistanceAbs.y < minTriggerRange.y)
-        {
-            trigger = true;
-        }
-
+        
         //Comportamientos
-
         if (trigger)
         {
             rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
@@ -122,9 +115,7 @@ public class Enemy : MonoBehaviour
     {
         //Colisiones con el piso:
         onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
-        //onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
-        //    || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-
+        
         onRightFloor = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         onLeftFloor = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
@@ -148,9 +139,7 @@ public class Enemy : MonoBehaviour
         else if (hitBox.Length == 0 && hit)
         {
             hit = false;
-        }
-        
-        
+        }       
     }
 
     void SetAnim()
