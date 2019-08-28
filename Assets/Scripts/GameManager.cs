@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//【◉ᴥ◉】
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Datos del nivel")]
     public int resetCount = 0;
-    int energy = 10;
+    public int energy = 10;
     int lives = 3;
     public Vector2 lastCheckpos;
 
@@ -27,10 +28,45 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             instance = this;
+
+            //gameObject.SendMessage("OnLevelWasLoaded", Application.loadedLevel);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    //private void OnLevelWasLoaded(int level)
+    //{
+        
+    //    levelIndex = SceneManager.GetActiveScene().buildIndex;
+
+    //    if (resetCount == 0)
+    //    {
+    //        Debug.Log("Level loaded for the first time");
+    //        lives = GameManager.instance.maxLives;
+    //        energy = maxEnergy;
+    //    }
+        
+    //    //Si hay una, Buscar condicion de victoria. Cuando gano o salgo del nivel --> resetCount = 0;
+
+    //}
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        levelIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (resetCount == 0)
+        {
+            Debug.Log("Level loaded for the first time");
+            lives = GameManager.instance.maxLives;
+            energy = maxEnergy;
+        }
+        else
+        {
+            Debug.Log("Level loaded");
         }
     }
 
@@ -39,42 +75,29 @@ public class GameManager : MonoBehaviour
         //levelIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
-    private void OnLevelWasLoaded(int level)
-    {       
-        levelIndex = SceneManager.GetActiveScene().buildIndex;
-
-        if (resetCount == 0)
-        {
-            lives = GameManager.instance.maxLives;
-            energy = GameManager.instance.energy;
-        }
-        
-        //Si hay una, Buscar condicion de victoria. Cuando gano o salgo del nivel --> resetCount = 0;
-
-    }
-
     void Update()
     {
-        if (lives <= 0)
-        {
-            //game over
-            resetCount = 0;
-        }
-
         if (energy <= 0)
         {
             lives -= 1;
             Reset();
-        }
-
-        //UI
+        }        
     }    
 
     public void Reset()
     {
-        resetCount += 1;
-        SceneManager.LoadScene(levelIndex);
-        
-        //Si toco un checkpoint...
+        if (lives <= 0)
+        {
+            resetCount = 0;
+            //Game over
+
+        }
+        else
+        {
+            resetCount += 1;
+            SceneManager.LoadScene(levelIndex);
+
+            energy = maxEnergy;
+        }        
     }
 }
