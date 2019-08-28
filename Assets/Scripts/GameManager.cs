@@ -11,9 +11,6 @@ public class GameManager : MonoBehaviour
 
     int levelIndex;
 
-    public Text LiveText;
-    public Image[] EnergyBar;
-
    [Header("Datos que se mantienen")]
     public int maxEnergy = 6;
     public int maxLives = 3;

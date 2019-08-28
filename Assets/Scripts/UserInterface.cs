@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class NewBehaviourScript : MonoBehaviour
 {
     GameManager gm;
-   
+    public Text LiveText;
+    public Image[] EnergyBar;
 
     // Start is called before the first frame update
     void Start()
