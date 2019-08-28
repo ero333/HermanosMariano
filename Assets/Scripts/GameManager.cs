@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //【◉ᴥ◉】
 public class GameManager : MonoBehaviour
@@ -10,7 +11,10 @@ public class GameManager : MonoBehaviour
 
     int levelIndex;
 
-    [Header("Datos que se mantienen")]
+    public Text LiveText;
+    public Image[] EnergyBar;
+
+   [Header("Datos que se mantienen")]
     public int maxEnergy = 6;
     public int maxLives = 3;
     public int ahorros;
