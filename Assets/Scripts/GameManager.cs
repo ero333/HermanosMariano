@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("Datos del nivel")]
     public int resetCount = 0;
     public int energy = 10;
-    int lives = 3;
+    public int lives = 3;
     public Vector2 lastCheckpos;
 
     private void Awake()

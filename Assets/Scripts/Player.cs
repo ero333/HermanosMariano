@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage (int damage)
     {
-        gm.energy -= 1;
+        gm.energy -= damage;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Fall")
         {
             Debug.Log("Death");
-            
+            gm.lives -= 1;
             gm.Reset();
         }
     }

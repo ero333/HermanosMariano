@@ -6,46 +6,50 @@ using UnityEngine.UI;
 public class UserInterface : MonoBehaviour
 {
     GameManager gm;
-    public Text LiveText;
 
-
-    public int Energy;
-    public int AllEnergy;
-    public Image[] EnergyBar;
-    public Sprite EnergyComplete;
-    public Sprite EnergyEmpty;
+    public Text LivesText;
+    public Image[] EnergyBars;
+    //public Sprite EnergyComplete;
+    //public Sprite EnergyEmpty;
     
     void Start()
     {
-        gm = GetComponent<GameManager>();
+        gm = GameObject.FindObjectOfType<GameManager>();
+
+        for (int i = 0; i < EnergyBars.Length; i++)
+        {
+            if (i < gm.maxEnergy)
+            {
+                EnergyBars[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                EnergyBars[i].gameObject.SetActive(false);
+            }
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Energy > AllEnergy)
-        {
-            Energy = AllEnergy;
-        } 
+        //if (gm.energy > gm.maxEnergy)
+        //{
+        //    gm.energy = gm.maxEnergy;
+        //} 
 
-        for (int i = 0; i < EnergyBar.Length; i++)
+        LivesText.text = "" + gm.lives;
+
+        for (int i = 0; i < EnergyBars.Length; i++)
         {
-            if (i < Energy)
+            if (i < gm.energy)
             {
-                EnergyBar[i].sprite = EnergyComplete;
+                EnergyBars[i].enabled = true;
             }
-            else{
-                EnergyBar[i].sprite = EnergyEmpty;
-            }
-
-
-            if (i < AllEnergy) {
-                EnergyBar[i].enabled = true;
-            }
-            else {
-                EnergyBar[i].enabled = false;
-            }
+            else
+            {
+                EnergyBars[i].enabled = false;
+            }            
         }
     }
 
