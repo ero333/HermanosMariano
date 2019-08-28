@@ -235,7 +235,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 289bafae19a7db24ba3d2def39072082, type: 3}
-  m_Name: 
+  m_Name:
+  m_EditorClassIdentifier:
   onGround: 0
   onWall: 0
   onRightWall: 0
@@ -295,6 +296,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2138,6 +2140,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2118d2d63a486f142b26882323bddbae, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
   maxEnergy: 6
   maxLives: 3
   ahorros: 0
@@ -4171,7 +4175,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
-  m_Name: 
   m_Name:
   m_EditorClassIdentifier:
 --- !u!1 &1640286159
