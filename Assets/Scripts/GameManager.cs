@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int energy = 10;
     public int lives = 3;
     public Vector2 lastCheckpos;
+    public int money;
 
     private void Awake()
     {
@@ -100,5 +101,59 @@ public class GameManager : MonoBehaviour
 
             energy = maxEnergy;
         }        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void GainMoney(int gain)
+    {
+        money += gain;
     }
 }

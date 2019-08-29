@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1939942560983783920}
   - component: {fileID: 1939942560983783927}
   - component: {fileID: 1939942560983783932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   playerDistanceAbs: {x: 0, y: 0}
   playerDirection: {x: 0, y: 0}
   onGround: 0
-  fRight: 1
+  fRight: 0
   onRightFloor: 0
   onLeftFloor: 0
   groundLayer:
@@ -69,6 +69,7 @@ MonoBehaviour:
   triggerSize: {x: 6, y: 3}
   ShowRange: 1
   trigger: 0
+  lives: 2
   chase: 1
   speed: 5
   meleeDamage: 2

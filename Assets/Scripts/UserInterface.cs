@@ -9,6 +9,7 @@ public class UserInterface : MonoBehaviour
 
     public Text LivesText;
     public Image[] EnergyBars;
+    public Text MoneyText;
     //public Sprite EnergyComplete;
     //public Sprite EnergyEmpty;
     
@@ -34,6 +35,7 @@ public class UserInterface : MonoBehaviour
     void Update()
     {
         LivesText.text = "" + gm.lives;
+        MoneyText.text = "" + gm.money;
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {

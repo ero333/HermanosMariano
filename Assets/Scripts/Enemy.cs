@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour
     public bool ShowRange;
     public bool trigger = false;
 
+    [Header("Vida")]
+    public int lives;
+
     [Header("Perseguir")]
     public bool chase = true;
     public float speed = 10f;
@@ -40,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Ataque")]
     public int meleeDamage = 2;
+    public float meleeDelay = 1;
+    
     public int shootDamage = 1;
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
@@ -72,13 +77,19 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
 
-        if (transform.rotation.y == 0)
-        {
-            fRight = true;
-        }
-        else if (transform.rotation.y == 180)
+        if (transform.rotation.y == 180)
         {
             fRight = false;
+        }
+
+        //que comience volteado
+        if (fRight == false)
+        {
+            transform.Rotate(0f, 180f, 0f);
+
+            //volteo del hitbox y trigger
+            meleeHitBoxOffset.x *= -1;
+            triggerOffset.x *= -1;
         }
     }
 
@@ -94,7 +105,7 @@ public class Enemy : MonoBehaviour
         //Comportamientos
         if (trigger)
         {
-            if (chase)
+            if (chase && canChase)
             {
                 rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
                 anim.SetBool("Run", true);
@@ -102,8 +113,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 anim.SetBool("Run", false);
-            }
-            
+            }            
         }
 
         SetAnim();
@@ -140,11 +150,15 @@ public class Enemy : MonoBehaviour
         //Atacks        
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
+        IEnumerator actionsDelay = ActionsDelay(meleeDelay);
         //evento de colision con el jugador
         if (hitBox.Length > 0 && !hit)
         {
             Debug.Log("Player Hit");
             hit = true;
+            canChase = false;
+
+            StartCoroutine(actionsDelay);
 
             anim.SetTrigger("MeleeAttack");
             //do damage
@@ -154,6 +168,21 @@ public class Enemy : MonoBehaviour
         {
             hit = false;
         }       
+    }
+
+    IEnumerator ActionsDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canChase = true;
+        hit = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Fall")
+        {
+            Destroy(gameObject);
+        }
     }
 
     void SetAnim()
@@ -185,8 +214,14 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             transform.Rotate(0f, 180f, 0f);
 
-            //volteo del hitbox
+            //volteo del hitbox y trigger
             meleeHitBoxOffset.x *= -1;
+            triggerOffset.x *= -1;
         }
-    }    
+    }
+
+    public void TakeDamage(int damage)
+    {
+        lives -= damage;
+    }
 }
