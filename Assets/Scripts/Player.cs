@@ -23,6 +23,13 @@ public class Player : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
+    [Header("Ataque")]
+    public LayerMask EnemyLayer;
+    public int meleeDamage = 2;
+    public Vector2 meleeHitBoxSize;
+    public Vector2 meleeHitBoxOffset;
+    bool hit = false;
+
     [Header("Detector de Collisiones")]
     public LayerMask groundLayer;
     public float collisionRadius = 0.25f;
@@ -45,6 +52,8 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireCube((Vector2) transform.position + bottomOffset, (Vector2) bottomSize);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
+
+        Gizmos.DrawWireCube((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize);
     }
 
     void Start()
@@ -182,6 +191,23 @@ public class Player : MonoBehaviour
         onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
         //wallSide = onRightWall ? -1 : 1;
+
+        Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, EnemyLayer);
+
+        //evento de colision con el jugador
+        if (hitBox.Length > 0 && !hit)
+        {
+            Debug.Log("enemy Hit");
+            hit = true;
+
+            anim.SetTrigger("MeleeAttack");
+            //do damage
+            //hitBox[0].GetComponent<Enemy>().TakeDamage(meleeDamage);
+        }
+        else if (hitBox.Length == 0 && hit)
+        {
+            hit = false;
+        }
     }
 
     //Corutinas

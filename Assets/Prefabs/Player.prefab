@@ -57,6 +57,12 @@ MonoBehaviour:
   jumpForce: 14
   fallMultiplier: 3
   lowJumpMultiplier: 8
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  meleeDamage: 1
+  meleeHitBoxSize: {x: 0.93, y: 1.42}
+  meleeHitBoxOffset: {x: 0.91, y: -0.22}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
