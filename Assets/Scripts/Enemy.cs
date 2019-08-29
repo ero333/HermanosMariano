@@ -219,4 +219,9 @@ public class Enemy : MonoBehaviour
             triggerOffset.x *= -1;
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        lives -= damage;
+    }
 }
