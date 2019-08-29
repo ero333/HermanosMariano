@@ -33,11 +33,6 @@ public class UserInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (gm.energy > gm.maxEnergy)
-        //{
-        //    gm.energy = gm.maxEnergy;
-        //} 
-
         LivesText.text = "" + gm.lives;
 
         for (int i = 0; i < EnergyBars.Length; i++)

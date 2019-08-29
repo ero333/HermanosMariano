@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator anim;
     Player player;
 
     [Header("Debug, no tocar")]
@@ -32,7 +33,8 @@ public class Enemy : MonoBehaviour
     public bool ShowRange;
     public bool trigger = false;
 
-    [Header("Perseguir")]    
+    [Header("Perseguir")]
+    public bool chase = true;
     public float speed = 10f;   
 
     [Header("Ataque")]
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
 
         if (transform.rotation.y == 0)
@@ -91,7 +94,16 @@ public class Enemy : MonoBehaviour
         //Comportamientos
         if (trigger)
         {
-            rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+            if (chase)
+            {
+                rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+                anim.SetBool("Run", true);
+            }
+            else
+            {
+                anim.SetBool("Run", false);
+            }
+            
         }
 
         SetAnim();
@@ -128,11 +140,13 @@ public class Enemy : MonoBehaviour
         //Atacks        
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
+        //evento de colision con el jugador
         if (hitBox.Length > 0 && !hit)
         {
             Debug.Log("Player Hit");
             hit = true;
 
+            anim.SetTrigger("MeleeAttack");
             //do damage
             hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage);
         }
@@ -145,6 +159,8 @@ public class Enemy : MonoBehaviour
     void SetAnim()
     {
         IEnumerator Flip = DelayFlip();
+
+        anim.SetBool("OnGround", onGround);
 
         if (trigger)
         {

@@ -23,8 +23,6 @@ public class Player : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    [Space]    
-
     [Header("Detector de Collisiones")]
     public LayerMask groundLayer;
     public float collisionRadius = 0.25f;
