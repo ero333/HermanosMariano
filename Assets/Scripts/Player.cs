@@ -115,6 +115,14 @@ public class Player : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
+        //golpear
+        if (Input.GetButtonDown("Fire1") && onGround)
+        {
+            hit = true;
+            anim.SetTrigger("MeleeInput");
+            
+        }
+
         SetAnimations(x);
     }
 
@@ -192,21 +200,31 @@ public class Player : MonoBehaviour
 
         //wallSide = onRightWall ? -1 : 1;
 
+
+        //Hitbox
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, EnemyLayer);
 
         //evento de colision con el jugador
-        if (hitBox.Length > 0 && !hit)
-        {
-            Debug.Log("enemy Hit");
-            hit = true;
-
-            anim.SetTrigger("MeleeAttack");
-            //do damage
-            //hitBox[0].GetComponent<Enemy>().TakeDamage(meleeDamage);
-        }
-        else if (hitBox.Length == 0 && hit)
+        if (hitBox.Length > 0 && hit)
         {
             hit = false;
+
+            //do damage
+            for (int i = 0; i < hitBox.Length; i++)
+            {
+                int dir;
+                if (transform.position.x < hitBox[i].transform.position.x)
+                {
+                    dir = 1;
+                }
+                else
+                {
+                    dir = -1;
+                }
+
+                hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
+                Debug.Log("enemy Hit");
+            }
         }
     }
 
@@ -219,4 +237,8 @@ public class Player : MonoBehaviour
         isIdleCount = false;
     }
 
+    IEnumerator HitDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
 }
