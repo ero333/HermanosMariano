@@ -5314,8 +5314,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.09606564}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    pivot: {x: 0.26785713, y: 0.5}
+    oldSize: {x: 1.75, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5402,7 +5402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745498338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.14, y: -0.44, z: 0}
+  m_LocalPosition: {x: 13.113, y: -0.387, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5438,16 +5438,16 @@ MonoBehaviour:
   rightOffset: {x: 0.6, y: -1.2}
   leftOffset: {x: -0.6, y: -1.2}
   bottomSize: {x: 0.6, y: 0.1}
-  triggerOffset: {x: 2.25, y: 0.34}
+  triggerOffset: {x: 2.24, y: 0.34}
   triggerSize: {x: 6, y: 3}
   ShowRange: 1
   trigger: 0
   chase: 1
-  speed: 6
+  speed: 5
   meleeDamage: 2
   shootDamage: 1
-  meleeHitBoxSize: {x: 1, y: 1}
-  meleeHitBoxOffset: {x: 1, y: 0}
+  meleeHitBoxSize: {x: 0.91, y: 0.78}
+  meleeHitBoxOffset: {x: 0.82, y: 0.15}
 --- !u!95 &1745498344
 Animator:
   serializedVersion: 3

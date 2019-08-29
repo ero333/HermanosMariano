@@ -35,14 +35,14 @@ public class Enemy : MonoBehaviour
 
     [Header("Perseguir")]
     public bool chase = true;
-    public float speed = 10f;   
+    public float speed = 10f;
+    bool canChase = true;
 
     [Header("Ataque")]
     public int meleeDamage = 2;
     public int shootDamage = 1;
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
-    bool canAttack = false;
     bool hit = false;
 
     private void OnDrawGizmos()
