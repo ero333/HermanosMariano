@@ -12,11 +12,12 @@ public class Checkpoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && !active)
-            gm.lastCheckpos = transform.position;
-        active = true;
-        anim.SetTrigger("CheckpointColl");
-
-    }
+        {
+            active = true;
+            anim.SetTrigger("CheckpointColl");
+        }
+        gm.lastCheckpos = transform.position;
+    }   
     void Start()
     {
         gm = GameObject.FindObjectOfType<GameManager>();
