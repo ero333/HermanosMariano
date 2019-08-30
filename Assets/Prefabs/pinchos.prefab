@@ -77,8 +77,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 2
+  m_Size: {x: 1.4999294, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e7d4180a35aeb4090cc0576067c35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 1
 --- !u!61 &144429160511926974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,9 +115,9 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.4999294, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
@@ -164,19 +164,19 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 144429160511926974}
     m_ColliderPaths:
-    - - X: 4999971
+    - - X: 7499618
         Y: -5000000
-      - X: 4999971
+      - X: 7499618
         Y: 5000000
-      - X: -5000000
+      - X: -7499647
         Y: 4999971
-      - X: -4999971
+      - X: -7499618
         Y: -5000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 0.49999422, y: -0.5}
-      - {x: 0.49999422, y: 0.5}
-      - {x: -0.5, y: 0.49999422}
-      - {x: -0.49999422, y: -0.5}
+    - - {x: 0.74995893, y: -0.5}
+      - {x: 0.74995893, y: 0.5}
+      - {x: -0.7499647, y: 0.49999422}
+      - {x: -0.74995893, y: -0.5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
