@@ -5,9 +5,14 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     GameManager gm;
+    Animator anim;
     bool active = false;
-    public Animator anim;
 
+    void Start()
+    {
+        gm = GameObject.FindObjectOfType<GameManager>();
+        anim = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,10 +22,5 @@ public class Checkpoint : MonoBehaviour
             anim.SetTrigger("CheckpointColl");
         }
         gm.lastCheckpos = transform.position;
-    }   
-    void Start()
-    {
-        gm = GameObject.FindObjectOfType<GameManager>();
-        anim = GetComponent<Animator>();
-    }
+    }    
 }

@@ -69,10 +69,11 @@ MonoBehaviour:
   triggerSize: {x: 6, y: 3}
   ShowRange: 1
   trigger: 0
-  lives: 2
+  lives: 3
   chase: 1
   speed: 5
-  meleeDamage: 2
+  meleeDamage: 1
+  meleeDelay: 1
   shootDamage: 1
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}

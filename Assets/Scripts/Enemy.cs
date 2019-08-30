@@ -106,10 +106,7 @@ public class Enemy : MonoBehaviour
         {
             anim.SetBool("Death", true);
 
-            if (onGround)
-            {
-                Destroy(gameObject, 1.5f);
-            }
+            StartCoroutine(DeathDelay(1f));
         }
 
         //Comportamientos
@@ -190,6 +187,12 @@ public class Enemy : MonoBehaviour
         canChase = true;
         canAttack = true;
         hit = false;
+    }
+
+    IEnumerator DeathDelay (float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

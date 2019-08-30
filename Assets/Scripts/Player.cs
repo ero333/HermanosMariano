@@ -162,11 +162,13 @@ public class Player : MonoBehaviour
         {
             fRight = true;
             transform.Rotate(0f, 180f, 0f);
+            meleeHitBoxOffset.x *= -1;
         }
         else if (xInput < 0 && fRight)
         {
             fRight = false;
             transform.Rotate(0f, 180f, 0f);
+            meleeHitBoxOffset.x *= -1;
         }
 
         //correr
@@ -174,7 +176,7 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("Run", true);
             //Ajuste de la velocidad para que no "resbale los pies" al principio
-            if (onGround)
+            if (onGround && anim.GetBool("Run"))
             {
                 anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);
             }                       
