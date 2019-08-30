@@ -193,7 +193,6 @@ public class Enemy : MonoBehaviour
         {
             player.TakeDamage(meleeDamage, playerDirection.x);
             hited = true;
-            anim.SetTrigger("TookDamage");
         }
                       
     }
