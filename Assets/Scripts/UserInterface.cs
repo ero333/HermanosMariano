@@ -12,10 +12,13 @@ public class UserInterface : MonoBehaviour
     public Text MoneyText;
     //public Sprite EnergyComplete;
     //public Sprite EnergyEmpty;
-    
+
+    public GameObject GameOverScreen;
+
     void Start()
     {
         gm = GameObject.FindObjectOfType<GameManager>();
+        GameOverScreen.SetActive(false);
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {
@@ -34,8 +37,15 @@ public class UserInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         LivesText.text = "" + gm.lives;
         MoneyText.text = "" + gm.money;
+
+        if (gm.lives == 0)
+        {
+            GameOverScreen.SetActive(true);
+        }
+
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {
