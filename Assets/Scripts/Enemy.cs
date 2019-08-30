@@ -104,11 +104,16 @@ public class Enemy : MonoBehaviour
         
         if (lives <= 0)
         {
-            Destroy(gameObject);
+            anim.SetBool("Death", true);
+
+            if (onGround)
+            {
+                Destroy(gameObject, 1.5f);
+            }
         }
 
         //Comportamientos
-        if (trigger)
+        if (trigger && lives > 0)
         {
             if (chase && canChase && onGround)
             {
