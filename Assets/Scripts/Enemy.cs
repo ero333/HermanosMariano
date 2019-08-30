@@ -44,11 +44,11 @@ public class Enemy : MonoBehaviour
     [Header("Ataque")]
     public int meleeDamage = 2;
     public float meleeDelay = 1;
-    
     public int shootDamage = 1;
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
     bool hit = false;
+    bool canAttack = true;
 
     private void OnDrawGizmos()
     {
@@ -102,10 +102,15 @@ public class Enemy : MonoBehaviour
     {
         getPlayerDir();
         
+        if (lives <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         //Comportamientos
         if (trigger)
         {
-            if (chase && canChase)
+            if (chase && canChase && onGround)
             {
                 rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
                 anim.SetBool("Run", true);
@@ -150,30 +155,35 @@ public class Enemy : MonoBehaviour
         //Atacks        
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
-        IEnumerator actionsDelay = ActionsDelay(meleeDelay);
+        IEnumerator MeleeDelay = ActionsDelay(meleeDelay);
         //evento de colision con el jugador
-        if (hitBox.Length > 0 && !hit)
-        {
-            Debug.Log("Player Hit");
-            hit = true;
-            canChase = false;
 
-            StartCoroutine(actionsDelay);
-
-            anim.SetTrigger("MeleeAttack");
-            //do damage
-            hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage);
-        }
-        else if (hitBox.Length == 0 && hit)
+        if (canAttack)
         {
-            hit = false;
-        }       
+            if (hitBox.Length > 0 && !hit)
+            {
+                //Debug.Log("Player Hit");
+                hit = true;
+                canChase = false;
+
+                StartCoroutine(MeleeDelay);
+
+                anim.SetTrigger("MeleeAttack");
+                //do damage
+                hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage);
+            }
+            else if (hitBox.Length == 0 && hit)
+            {
+                hit = false;
+            }
+        }               
     }
 
     IEnumerator ActionsDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         canChase = true;
+        canAttack = true;
         hit = false;
     }
 
@@ -220,8 +230,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int dir)
     {
         lives -= damage;
+        canChase = false;
+        canAttack = false;
+
+        anim.SetTrigger("GetHit");
+
+        rb.AddForce(new Vector2(dir * 150, 200));
+
+        StopAllCoroutines();
+
+        IEnumerator GotHitDelay = ActionsDelay(1);
+        StartCoroutine(GotHitDelay);
     }
 }
