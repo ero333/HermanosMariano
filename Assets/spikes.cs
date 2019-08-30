@@ -16,7 +16,8 @@ public class spikes : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.GetComponent<Player>().TakeDamage(damage);
+            float dir = Mathf.FloorToInt(Mathf.Clamp(collision.transform.position.x - gameObject.transform.position.x, -1, 1));
+            collision.GetComponent<Player>().TakeDamage(damage, dir);
         }
     }
     

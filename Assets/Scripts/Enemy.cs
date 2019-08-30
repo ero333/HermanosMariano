@@ -47,8 +47,11 @@ public class Enemy : MonoBehaviour
     public int shootDamage = 1;
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
-    bool hit = false;
+    public bool hit = false;
+    bool hited = false;
     bool canAttack = true;
+    
+    public bool frameDamage = false;
 
     private void OnDrawGizmos()
     {
@@ -160,25 +163,39 @@ public class Enemy : MonoBehaviour
         IEnumerator MeleeDelay = ActionsDelay(meleeDelay);
         //evento de colision con el jugador
 
-        if (canAttack)
+        
+        if (hitBox.Length > 0 )
         {
-            if (hitBox.Length > 0 && !hit)
+            //Debug.Log("Player Hit");
+            hit = true;
+            if (canAttack)
             {
-                //Debug.Log("Player Hit");
-                hit = true;
                 canChase = false;
-
+                
                 StartCoroutine(MeleeDelay);
-
                 anim.SetTrigger("MeleeAttack");
-                //do damage
-                hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage);
-            }
-            else if (hitBox.Length == 0 && hit)
-            {
+                
+                //hacer daño
+                //if (frameDamage)
+                //{
+                //    hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage, playerDirection.x);
+                //}
+                canAttack = false;
+            }               
+                               
+        }
+        else if (hitBox.Length == 0)
+        {
                 hit = false;
-            }
-        }               
+        }
+
+        if (hit && frameDamage && !hited)
+        {
+            player.TakeDamage(meleeDamage, playerDirection.x);
+            hited = true;
+            anim.SetTrigger("TookDamage");
+        }
+                      
     }
 
     IEnumerator ActionsDelay(float delay)
@@ -186,7 +203,8 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(delay);
         canChase = true;
         canAttack = true;
-        hit = false;
+        hited = false;
+        //hit = false;
     }
 
     IEnumerator DeathDelay (float delay)

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public bool onWall;
     public bool onRightWall;
     public bool onLeftWall;
-    public int wallSide;
+    //public int wallSide;
 
     [Header("Ajustes")]
     public bool fRight = true;
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+    
 
     [Header("Ataque")]
     public LayerMask EnemyLayer;
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
     bool hit = false;
+    bool attackLock;
+    
 
     [Header("Detector de Collisiones")]
     public LayerMask groundLayer;
@@ -50,8 +53,8 @@ public class Player : MonoBehaviour
         var sizes = new Vector2[] { bottomSize };
 
         Gizmos.DrawWireCube((Vector2) transform.position + bottomOffset, (Vector2) bottomSize);
-        Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
-        Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
+        //Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
+        //Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
 
         Gizmos.DrawWireCube((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize);
     }
@@ -90,20 +93,24 @@ public class Player : MonoBehaviour
             x = 0;
         }
         
-       //Moverse
-        rb.velocity = new Vector2(x * speed, rb.velocity.y);
-
-        //Saltar
-        if (Input.GetButtonDown("Jump"))
+        if (!attackLock)
         {
-            if (onGround)
-            {
-                anim.SetTrigger("JumpInput");
+            //Moverse
+            rb.velocity = new Vector2(x * speed, rb.velocity.y);
 
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
-                rb.velocity += Vector2.up * jumpForce;
-            }            
+            //Saltar
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (onGround)
+                {
+                    anim.SetTrigger("JumpInput");
+
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+                    rb.velocity += Vector2.up * jumpForce;
+                }
+            }
         }
+               
 
         //Ajustar salto y gravedad para que dependan del Input (si mantengo, más alto y más lento caigo)
         if (rb.velocity.y < 0)
@@ -116,19 +123,31 @@ public class Player : MonoBehaviour
         }
 
         //golpear
-        if (Input.GetButtonDown("Fire1") && onGround)
+        if (Input.GetButtonDown("Fire1") && onGround && !attackLock)
         {
             hit = true;
             anim.SetTrigger("MeleeInput");
-            
+            attackLock = true;
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+            rb.AddForce(new Vector2(xRaw * 30, 0f));
+            IEnumerator hitDelay = HitDelay(0.3f);
+            StopCoroutine(hitDelay);
+            StartCoroutine(hitDelay);
         }
 
         SetAnimations(x);
     }
 
-    public void TakeDamage (int damage)
+    public void TakeDamage (int damage, float dir)
     {
         gm.energy -= damage;
+        anim.SetTrigger("TookDamage");
+        attackLock = true;
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        rb.AddForce(new Vector2(dir * 150, 100f));
+        IEnumerator hitDelay = HitDelay(0.3f);
+        StopCoroutine(hitDelay);
+        StartCoroutine(hitDelay);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -172,14 +191,14 @@ public class Player : MonoBehaviour
         }
 
         //correr
-        if (xInput != 0)
+        if (xInput != 0 && !attackLock)
         {
             anim.SetBool("Run", true);
             //Ajuste de la velocidad para que no "resbale los pies" al principio
-            if (onGround && anim.GetBool("Run"))
+            if (onGround && anim.GetBool("Run") && !hit)
             {
                 anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);
-            }                       
+            }                   
         }
         else
         {
@@ -231,6 +250,8 @@ public class Player : MonoBehaviour
     }
 
     //Corutinas
+
+    //activar la idle alternativa
     IEnumerator IdleTrigger(float timer)
     {
         //Debug.Log(timer);
@@ -239,8 +260,11 @@ public class Player : MonoBehaviour
         isIdleCount = false;
     }
 
+
     IEnumerator HitDelay(float delay)
-    {
+    {        
         yield return new WaitForSeconds(delay);
+        attackLock = false;
     }
+
 }
