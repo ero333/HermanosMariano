@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3096031962022177754}
   - component: {fileID: 8139432974259446952}
   - component: {fileID: 6802526377444728690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlataformaFall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FallDelay: 1
+  RespawnDelay: 5
 --- !u!60 &6802526377444728690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
