@@ -112,6 +112,15 @@ public class Enemy : MonoBehaviour
             StartCoroutine(DeathDelay(1f));
         }
 
+        if (playerDirection.y == 1 && playerDirection.x == 0)
+        {
+            canChase = false;
+            canAttack = false;
+            IEnumerator moonwalk = ActionsDelay(0.6f);
+            StopCoroutine(moonwalk);
+            StartCoroutine(moonwalk);
+        }
+
         //Comportamientos
         if (trigger && lives > 0)
         {
