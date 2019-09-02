@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Vida")]
     public int lives;
+    public float hitStunTimer = 1f;
 
     [Header("Perseguir")]
     public bool chase = true;
@@ -52,6 +53,9 @@ public class Enemy : MonoBehaviour
     bool canAttack = true;
     
     public bool frameDamage = false;
+
+    IEnumerator generalActionsDelay;
+    
 
     private void OnDrawGizmos()
     {
@@ -112,27 +116,51 @@ public class Enemy : MonoBehaviour
             StartCoroutine(DeathDelay(1f));
         }
 
+        //si el jugador me salta por arriba, freno
         if (playerDirection.y == 1 && playerDirection.x == 0)
         {
-            canChase = false;
-            canAttack = false;
-            IEnumerator moonwalk = ActionsDelay(0.6f);
-            StopCoroutine(moonwalk);
-            StartCoroutine(moonwalk);
+            generalActionsDelay = ActionsDelay(0.6f);
+
+            StopCoroutine(generalActionsDelay);
+            StartCoroutine(generalActionsDelay);
         }
+
 
         //Comportamientos
         if (trigger && lives > 0)
         {
-            if (chase && canChase && onGround)
+            //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR
+            if(onGround && (!onLeftFloor || !onRightFloor))
+            {
+                generalActionsDelay = ActionsDelay(0.6f);
+
+                if (chase)
+                {
+                    if ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor))
+                    {
+                        //saltar
+
+                        playerDirection.x = 0;
+                    }                   
+                }
+
+                if (meleeDamage > 0)
+                {
+                    canAttack = false;
+                }
+            }
+
+            //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
+            if (chase && canChase && onGround && playerDirection.x != 0)
             {
                 rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+
                 anim.SetBool("Run", true);
             }
             else
             {
                 anim.SetBool("Run", false);
-            }            
+            }
         }
 
         SetAnim();
@@ -169,19 +197,20 @@ public class Enemy : MonoBehaviour
         //Atacks        
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
-        IEnumerator MeleeDelay = ActionsDelay(meleeDelay);
+        
         //evento de colision con el jugador
 
         
-        if (hitBox.Length > 0 )
+        if (hitBox.Length > 0 && meleeDamage >0)
         {
             //Debug.Log("Player Hit");
             hit = true;
             if (canAttack)
             {
-                canChase = false;
-                
-                StartCoroutine(MeleeDelay);
+                generalActionsDelay = ActionsDelay(meleeDelay);
+
+                StopCoroutine(generalActionsDelay);
+                StartCoroutine(generalActionsDelay);
                 anim.SetTrigger("MeleeAttack");
                 
                 //hacer daño
@@ -193,40 +222,17 @@ public class Enemy : MonoBehaviour
             }               
                                
         }
-        else if (hitBox.Length == 0)
+        else if (hitBox.Length == 0 && meleeDamage > 0)
         {
                 hit = false;
         }
 
-        if (hit && frameDamage && !hited)
+        if (hit && frameDamage && !hited && meleeDamage > 0)
         {
             player.TakeDamage(meleeDamage, playerDirection.x);
             hited = true;
         }
                       
-    }
-
-    IEnumerator ActionsDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        canChase = true;
-        canAttack = true;
-        hited = false;
-        //hit = false;
-    }
-
-    IEnumerator DeathDelay (float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Fall")
-        {
-            Destroy(gameObject);
-        }
     }
 
     void SetAnim()
@@ -239,14 +245,14 @@ public class Enemy : MonoBehaviour
         {
             //voltear segun donde este el jugador
             if (playerDirection.x > 0 && !fRight)
-            {                
+            {
                 fRight = true;
 
                 StartCoroutine(Flip);
 
             }
             else if (playerDirection.x < 0 && fRight)
-            {                
+            {
                 fRight = false;
 
                 StartCoroutine(Flip);
@@ -264,19 +270,64 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, int dir)
+    //con que me muero
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Fall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    IEnumerator ActionsDelay(float delay)
+    {
+        bool chse = false;
+        bool atk = false;
+
+        if (canChase)
+        {
+            canChase = false;
+            chse = true;
+        }
+
+        if (meleeDamage > 0)
+        {
+            canAttack = false;
+            atk = true;
+        }            
+
+        yield return new WaitForSeconds(delay);
+
+        if (chse)
+        {
+            canChase = true;
+        }
+        
+        if (atk)
+        {
+            canAttack = true;
+            hited = false;
+        }
+        
+        //hit = false;
+    }
+
+    IEnumerator DeathDelay (float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(int damage, float dir)
     {
         lives -= damage;
-        canChase = false;
-        canAttack = false;
-
         anim.SetTrigger("GetHit");
 
         rb.AddForce(new Vector2(dir * 150, 200));
 
-        StopAllCoroutines();
+        generalActionsDelay = ActionsDelay(hitStunTimer);
 
-        IEnumerator GotHitDelay = ActionsDelay(1);
-        StartCoroutine(GotHitDelay);
+        StopCoroutine(generalActionsDelay);
+        StartCoroutine(generalActionsDelay);
     }
 }

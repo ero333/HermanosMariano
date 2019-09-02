@@ -51,7 +51,6 @@ MonoBehaviour:
   onWall: 0
   onRightWall: 0
   onLeftWall: 0
-  wallSide: 0
   fRight: 1
   speed: 10
   jumpForce: 14
@@ -70,7 +69,7 @@ MonoBehaviour:
   bottomOffset: {x: 0, y: -1.22}
   rightOffset: {x: 0.5, y: -0.2}
   leftOffset: {x: -0.5, y: -0.2}
-  bottomSize: {x: 0.8, y: 0.2}
+  bottomSize: {x: 0.78, y: 0.2}
 --- !u!212 &8956051031731710435
 SpriteRenderer:
   m_ObjectHideFlags: 0
