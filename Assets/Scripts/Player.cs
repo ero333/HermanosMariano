@@ -198,7 +198,11 @@ public class Player : MonoBehaviour
             if (onGround && anim.GetBool("Run") && !hit)
             {
                 anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);
-            }                   
+            }
+            else
+            {
+                anim.speed = 1;
+            }                 
         }
         else
         {
