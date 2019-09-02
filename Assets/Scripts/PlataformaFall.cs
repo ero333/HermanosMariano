@@ -10,13 +10,13 @@ public class PlataformaFall : MonoBehaviour
     //y de reaparicionde la plataforma
 
     private Rigidbody2D rb2d;
-    private PolygonCollider2D pc2d;
+    private CompositeCollider2D cc2d;
     private Vector2 start;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        pc2d = GetComponent<PolygonCollider2D>();
+        cc2d = GetComponent<CompositeCollider2D>();
         start = transform.position;
 
     }
@@ -37,7 +37,7 @@ public class PlataformaFall : MonoBehaviour
     void Fall()
     {
         rb2d.isKinematic = false;
-        pc2d.isTrigger = true;
+        cc2d.isTrigger = true;
     }
 
     void Respawn()
@@ -45,6 +45,6 @@ public class PlataformaFall : MonoBehaviour
         transform.position = start;
         rb2d.isKinematic = true;
         rb2d.velocity = Vector2.zero;
-        pc2d.isTrigger = false;
+        cc2d.isTrigger = false;
     }
 }
