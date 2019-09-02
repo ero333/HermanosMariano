@@ -14,10 +14,15 @@ public class spikes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        float dir = Mathf.FloorToInt(Mathf.Clamp(collision.transform.position.x - gameObject.transform.position.x, -1, 1));
+
         if (collision.gameObject.tag == "Player")
+        {            
+            collision.GetComponent<Player>().TakeDamage(damage, dir * 2);
+        }
+        if (collision.gameObject.tag == "Enemy")
         {
-            float dir = Mathf.FloorToInt(Mathf.Clamp(collision.transform.position.x - gameObject.transform.position.x, -1, 1));
-            collision.GetComponent<Player>().TakeDamage(damage, dir);
+            collision.GetComponent<Enemy>().TakeDamage(damage, dir * 2);
         }
     }
     

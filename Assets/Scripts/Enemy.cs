@@ -318,7 +318,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void TakeDamage(int damage, int dir)
+    public void TakeDamage(int damage, float dir)
     {
         lives -= damage;
         anim.SetTrigger("GetHit");

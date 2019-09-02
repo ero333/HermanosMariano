@@ -237,7 +237,7 @@ public class Player : MonoBehaviour
             //do damage
             for (int i = 0; i < hitBox.Length; i++)
             {
-                int dir;
+                float dir;
                 if (transform.position.x < hitBox[i].transform.position.x)
                 {
                     dir = 1;
