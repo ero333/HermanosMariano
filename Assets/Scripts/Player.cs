@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
         {
             //Moverse
             rb.velocity = new Vector2(x * speed, rb.velocity.y);
+            
 
             //Saltar
             if (Input.GetButtonDown("Jump"))
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour
             hit = true;
             anim.SetTrigger("MeleeInput");
             attackLock = true;
-            rb.velocity = new Vector2(0f, rb.velocity.y);
+            rb.velocity = new Vector2(0f, 0f);
             rb.AddForce(new Vector2(xRaw * 30, 0f));
             IEnumerator hitDelay = HitDelay(0.3f);
             StopCoroutine(hitDelay);
@@ -143,7 +144,7 @@ public class Player : MonoBehaviour
         gm.energy -= damage;
         anim.SetTrigger("TookDamage");
         attackLock = true;
-        rb.velocity = new Vector2(0f, rb.velocity.y);
+        rb.velocity = new Vector2(0f, 0f);
         rb.AddForce(new Vector2(dir * 150, 100f));
         IEnumerator hitDelay = HitDelay(0.3f);
         StopCoroutine(hitDelay);
@@ -168,7 +169,8 @@ public class Player : MonoBehaviour
         if (xInput == 0 && onGround && !Input.anyKeyDown && !isIdleCount)
         {
             isIdleCount = true;
-            idleTimer = Random.Range(3.5f, 16f);            
+            idleTimer = Random.Range(3.5f, 16f);
+            StopCoroutine(idleTrigger);
             StartCoroutine(idleTrigger);            
         }
         else if(xInput != 0 || !onGround || Input.anyKeyDown)
@@ -207,10 +209,19 @@ public class Player : MonoBehaviour
         else
         {
             anim.SetBool("Run", false);
-        }        
+            anim.speed = 1;
+        }
 
         //saltar
-        anim.SetFloat("yVelocity", rb.velocity.y);
+        if (onGround)
+        {
+            anim.SetFloat("yVelocity", 0f);
+        }
+        else
+        {
+            anim.SetFloat("yVelocity", rb.velocity.y);
+        }
+        
         anim.SetBool("onGround", onGround);
     }
 
