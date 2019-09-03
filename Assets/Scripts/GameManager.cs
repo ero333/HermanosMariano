@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
    [Header("Datos que se mantienen")]
     public int maxEnergy = 6;
     public int maxLives = 3;
+    public int zoneProgress;
     public int ahorros;
 
     [Header("Datos del nivel")]
