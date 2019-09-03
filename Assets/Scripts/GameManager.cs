@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int maxLives = 3;
     public int zoneProgress;
     public int ahorros;
+    public bool sound;
 
     [Header("Datos del nivel")]
     public int resetCount = 0;
@@ -107,5 +108,13 @@ public class GameManager : MonoBehaviour
     public void GainMoney(int gain)
     {
         money += gain;
+    }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("CurrentZone", zoneProgress);
+        PlayerPrefs.SetInt("Ahorros", ahorros);
+        PlayerPrefs.SetInt("MaxLives", maxLives);
+        PlayerPrefs.SetInt("MaxEnergy", maxEnergy);
     }
 }
