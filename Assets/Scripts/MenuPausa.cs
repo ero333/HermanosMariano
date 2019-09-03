@@ -38,7 +38,7 @@ public class MenuPausa : MonoBehaviour
     }
     public void MenuPrincipal()
     {
-        SceneManager.LoadScene("MenuPrincipal");
+        SceneManager.LoadScene("MenuInicio");
     }
     public void VolverAlMapa()
     {

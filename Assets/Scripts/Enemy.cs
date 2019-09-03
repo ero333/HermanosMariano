@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Perseguir")]
     public bool chase = true;
+    public bool flee = true;
     public float speed = 10f;
     bool canChase = true;
 
@@ -161,6 +162,10 @@ public class Enemy : MonoBehaviour
             {
                 anim.SetBool("Run", false);
             }
+
+            //evitar o FLEE
+            
+
         }
 
         SetAnim();

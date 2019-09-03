@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1939942560983783932}
   m_Layer: 10
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,13 +70,17 @@ MonoBehaviour:
   ShowRange: 1
   trigger: 0
   lives: 3
+  hitStunTimer: 1
   chase: 1
+  flee: 0
   speed: 5
   meleeDamage: 1
   meleeDelay: 1
   shootDamage: 1
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
+  hit: 0
+  frameDamage: 0
 --- !u!212 &1939942560983783921
 SpriteRenderer:
   m_ObjectHideFlags: 0
