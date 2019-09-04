@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
             gm.maxLives = PlayerPrefs.GetInt("MaxLives");
             gm.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("NivelIntroductorio");
         }        
     }
 

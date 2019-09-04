@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void BackToMap()
     {
-        SceneManager.LoadScene("Mapa");
+        SceneManager.LoadScene("MapaZonas");
         SaveData();
     }
 }
