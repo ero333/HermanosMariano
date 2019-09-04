@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 5059706993980372570}
   - component: {fileID: 944687420808294443}
   m_Layer: 0
-  m_Name: BotonSonido
+  m_Name: BotonMenuPrincipal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 3858281288367673205}
   - component: {fileID: 7620680546111839227}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: TitGanan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 7997913496436957549}
   - component: {fileID: 5539110032239458578}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: GananciasText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1582,6 +1582,10 @@ MonoBehaviour:
   - {fileID: 4271781040478599142}
   MoneyText: {fileID: 3824354368681803912}
   GameOverScreen: {fileID: 4561329336221901182}
+  VictoryScreen: {fileID: 57036445598976043}
+  ganancias: {fileID: 5539110032239458578}
+  impuestos: {fileID: 3778800451669840858}
+  total: {fileID: 5087220223869698431}
 --- !u!223 &4271781039972550985
 Canvas:
   m_ObjectHideFlags: 0
@@ -2677,7 +2681,7 @@ GameObject:
   - component: {fileID: 6406737827029886495}
   - component: {fileID: 2446712446548482701}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: dots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2699,8 +2703,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.51599, y: -82.212524}
-  m_SizeDelta: {x: -707.7, y: -593.01}
+  m_AnchoredPosition: {x: -10.900024, y: -82.212524}
+  m_SizeDelta: {x: -666.6, y: -593}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6406737827029886495
 CanvasRenderer:
@@ -2731,19 +2735,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 35
+    m_Font: {fileID: 12800000, guid: 11b33992434437749b390b3e2da93140, type: 3}
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 1
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '..................................'
+  m_Text: '-----------------------------------------------------------------'
 --- !u!1 &5100138760398408458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,7 +2968,7 @@ GameObject:
   - component: {fileID: 1960029179665767036}
   - component: {fileID: 7233976584067218720}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3390,7 +3394,7 @@ GameObject:
   - component: {fileID: 971795630518279263}
   - component: {fileID: 5087220223869698431}
   m_Layer: 5
-  m_Name: Text (7)
+  m_Name: TotalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3681,7 +3685,7 @@ GameObject:
   - component: {fileID: 1863755353910985206}
   - component: {fileID: 1029195968438551483}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: TitImpuestos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3703,7 +3707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -243.4187, y: -4.874878}
+  m_AnchoredPosition: {x: -243.41882, y: -4.874878}
   m_SizeDelta: {x: -990, y: -616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1863755353910985206
@@ -3999,7 +4003,7 @@ GameObject:
   - component: {fileID: 8180639420753731362}
   - component: {fileID: 3778800451669840858}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: ImpuestosText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Datos del nivel")]
     public int resetCount = 0;
+    public bool victory = false;
     public int energy = 10;
     public int lives = 3;
     public Vector2 lastCheckpos;
@@ -65,6 +66,8 @@ public class GameManager : MonoBehaviour
         if (resetCount == 0)
         {
             Debug.Log("Level loaded for the first time");
+
+            victory = false;
             lives = GameManager.instance.maxLives;
             energy = maxEnergy;
         }
@@ -123,5 +126,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MapaZonas");
         SaveData();
+    }
+
+    public void VictoryCondition()
+    {
+        Debug.Log("Llego a la meta");
+        victory = true;
     }
 }

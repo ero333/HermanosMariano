@@ -14,6 +14,10 @@ public class UserInterface : MonoBehaviour
     //public Sprite EnergyEmpty;
 
     public GameObject GameOverScreen;
+    public GameObject VictoryScreen;
+    public Text ganancias;
+    public Text impuestos;
+    public Text total;
 
     void Start()
     {
@@ -60,5 +64,29 @@ public class UserInterface : MonoBehaviour
         }
     }
 
+    public void Victory(int gananciaMaxima)
+    {
+        int impuesto = 0;
+
+        VictoryScreen.SetActive(true);
+        ganancias.text = "" + gm.money;
+
+        if (gm.money > gananciaMaxima)
+        {
+            impuesto = gm.money - gananciaMaxima;
+        }
+        else if(gm.money == gananciaMaxima)
+        {
+            impuesto = gananciaMaxima - ((gananciaMaxima * 5) / 100);
+        }
+        else
+        {
+            impuesto = gananciaMaxima - ((gananciaMaxima * 10) / 100);
+        }
+
+        impuestos.text = "" + impuesto;
+
+        total.text = "" + (gm.money - impuesto);
+    }
     
 }
