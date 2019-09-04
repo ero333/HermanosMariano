@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         {
             gm.lastCheckpos = transform.position;
         }
-        else if (gm.resetCount > 0)
+        else if (gm.resetCount > 0) //ya no sirve, pero dejemoslo por las dudas
         {
             transform.position = gm.lastCheckpos;
         }

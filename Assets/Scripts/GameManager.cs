@@ -99,10 +99,11 @@ public class GameManager : MonoBehaviour
         else
         {
             resetCount += 1;
-            SceneManager.LoadScene(levelIndex);
-
-            energy = maxEnergy;
-        }        
+            //SceneManager.LoadScene(levelIndex);
+            Player player = GameObject.FindObjectOfType<Player>();
+            player.transform.position = lastCheckpos;
+        }
+        energy = maxEnergy;
     }
     
     public void GainMoney(int gain)
@@ -116,5 +117,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Ahorros", ahorros);
         PlayerPrefs.SetInt("MaxLives", maxLives);
         PlayerPrefs.SetInt("MaxEnergy", maxEnergy);
+    }
+
+    public void BackToMap()
+    {
+        SceneManager.LoadScene("Mapa");
+        SaveData();
     }
 }
