@@ -38,10 +38,17 @@ public class Enemy : MonoBehaviour
     public float hitStunTimer = 1f;
 
     [Header("Perseguir")]
-    public bool chase = true;
-    public bool flee = true;
-    public float speed = 10f;
+    public bool chase = true;    
+    public float speed = 10f;    
     bool canChase = true;
+
+    [Header("Huir")]
+    public bool flee = false;
+    public float speedFlee = 5f;
+    public float safeDistance = 10f;
+    bool canFlee = true;
+    bool fleeActive = false;
+    bool cornered = false;
 
     [Header("Ataque")]
     public int meleeDamage = 2;
@@ -130,49 +137,61 @@ public class Enemy : MonoBehaviour
         //Comportamientos
         if (trigger && lives > 0)
         {
-            //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR
+            //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
             if(onGround && (!onLeftFloor || !onRightFloor))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
 
-                if (chase)
+                if (chase || flee)
                 {
-                    if ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor))
+                    if (flee && fleeActive)
+                    {
+                        if ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor))
+                        {
+                            //saltar
+
+                            cornered = true;
+                            playerDirection.x = 0;
+                        }
+                    }
+                    else if ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor))
                     {
                         //saltar
 
+                        cornered = true;
                         playerDirection.x = 0;
                     }                   
                 }
 
-                if (meleeDamage > 0)
-                {
-                    canAttack = false;
-                }
+                //if (meleeDamage > 0 && !fleeActive)
+                //{
+                //    canAttack = false;
+                //}
             }
-
-            //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
-            if (chase && canChase && onGround && playerDirection.x != 0)
+            else if (onLeftFloor && onRightFloor)
             {
-                rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
-                
-            }
-            else
-            {
-
+                cornered = false;
             }
 
             //evitar o FLEE
-            if (flee && onGround && playerDirection.x != 0)
+            if (flee && canFlee && onGround && playerDistanceAbs.x <= safeDistance)
             {
-                rb.velocity = new Vector2(playerDirection.x * speed * (-1), rb.velocity.y);
+                rb.velocity = new Vector2( - playerDirection.x * speedFlee, rb.velocity.y);
+
+                fleeActive = true;
             }
-            else
+            else if (flee && playerDistanceAbs.x > safeDistance && !chase)
             {
-
+                fleeActive = false;
             }
-
-            if (chase || flee == true)
+                //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
+            else if (chase && canChase && onGround && playerDirection.x != 0)
+            {
+                fleeActive = false;
+                rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);                
+            }            
+            
+            if ( ((chase && canChase) || (flee && canFlee && fleeActive)) && onGround && playerDirection.x != 0 )
             {
                 anim.SetBool("Run", true);
             }
@@ -262,25 +281,59 @@ public class Enemy : MonoBehaviour
 
         if (trigger)
         {
-            //voltear segun donde este el jugador
-            if (playerDirection.x > 0 && !fRight)
+            if (flee && fleeActive && !cornered)
             {
-                fRight = true;
-
-                StartCoroutine(Flip);
-
+                //darle la espalda al jugador
+                if (playerDirection.x < 0 && !fRight)
+                {
+                    fRight = true;
+                    StartCoroutine(Flip);
+                }
+                else if (playerDirection.x > 0 && fRight)
+                {
+                    fRight = false;
+                    StartCoroutine(Flip);
+                }
             }
-            else if (playerDirection.x < 0 && fRight)
+            else
             {
-                fRight = false;
+                //voltear segun donde este el jugador
+                if (playerDirection.x > 0 && !fRight)
+                {
+                    fRight = true;
 
-                StartCoroutine(Flip);
-            }
+                    StartCoroutine(Flip);
+
+                }
+                else if (playerDirection.x < 0 && fRight)
+                {
+                    fRight = false;
+
+                    StartCoroutine(Flip);
+                }
+                else if (cornered)
+                {
+                    if (playerDistance.x > 0.01 && !fRight)
+                    {
+                        fRight = true;
+
+                        StartCoroutine(Flip);
+
+                    }
+                    else if (playerDistance.x < -0.01 && fRight)
+                    {
+                        fRight = false;
+
+                        StartCoroutine(Flip);
+                    }
+                }
+            }            
+            
         }
 
         IEnumerator DelayFlip()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             transform.Rotate(0f, 180f, 0f);
 
             //volteo del hitbox y trigger
@@ -302,8 +355,9 @@ public class Enemy : MonoBehaviour
     {
         bool chse = false;
         bool atk = false;
+        bool fle = false;
 
-        if (canChase)
+        if (chase)
         {
             canChase = false;
             chse = true;
@@ -313,7 +367,13 @@ public class Enemy : MonoBehaviour
         {
             canAttack = false;
             atk = true;
-        }            
+        }
+        
+        if (flee)
+        {
+            canFlee = false;
+            fle = true;
+        }
 
         yield return new WaitForSeconds(delay);
 
@@ -326,6 +386,11 @@ public class Enemy : MonoBehaviour
         {
             canAttack = true;
             hited = false;
+        }
+
+        if (fle)
+        {
+            canFlee = true;
         }
         
         //hit = false;
