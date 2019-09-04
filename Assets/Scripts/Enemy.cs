@@ -155,17 +155,31 @@ public class Enemy : MonoBehaviour
             if (chase && canChase && onGround && playerDirection.x != 0)
             {
                 rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+                
+            }
+            else
+            {
 
+            }
+
+            //evitar o FLEE
+            if (flee && onGround && playerDirection.x != 0)
+            {
+                rb.velocity = new Vector2(playerDirection.x * speed * (-1), rb.velocity.y);
+            }
+            else
+            {
+
+            }
+
+            if (chase || flee == true)
+            {
                 anim.SetBool("Run", true);
             }
             else
             {
                 anim.SetBool("Run", false);
             }
-
-            //evitar o FLEE
-            
-
         }
 
         SetAnim();
