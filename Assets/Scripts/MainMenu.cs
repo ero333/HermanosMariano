@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
         gm.ahorros = 0;
         gm.maxLives = newMaxLives;
         gm.maxEnergy = newMaxEnergy;
-        gm.zoneProgress = 0;
+        gm.zoneProgress = 1;
 
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentZone", 0);
@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("MaxLives", 0);
         PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);        
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("NivelIntroduccion");
     }
 
     public void Continue()
@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
             gm.maxLives = PlayerPrefs.GetInt("MaxLives");
             gm.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
 
-            SceneManager.LoadScene("NivelIntroductorio");
+            SceneManager.LoadScene("MapaZonas");
         }        
     }
 
