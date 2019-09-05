@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     public bool chase = true;    
     public float speed = 10f;    
     bool canChase = true;
+    bool nirvana = false;
 
     [Header("Huir")]
     public bool flee = false;
@@ -141,26 +142,26 @@ public class Enemy : MonoBehaviour
             if(onGround && (!onLeftFloor || !onRightFloor))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
-
-                if (chase || flee)
+              
+                //cuando huye, es invertido
+                if (flee && fleeActive && ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor)) )
                 {
-                    if (flee && fleeActive)
-                    {
-                        if ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor))
-                        {
-                            //saltar
+                    //saltar
 
-                            cornered = true;
-                            playerDirection.x = 0;
-                        }
-                    }
-                    else if ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor))
-                    {
-                        //saltar
+                    cornered = true;
+                    playerDirection.x = 0;
 
-                        cornered = true;
-                        playerDirection.x = 0;
-                    }                   
+                    //Debug.Log("No puedo huir hasta el vacio");
+
+                } //cuando lo persigue
+                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)) )
+                {
+                    //saltar
+
+                    //cornered = true;
+                    playerDirection.x = 0;
+
+                    //Debug.Log("No puedo perseguir hasta el vacio");
                 }
 
                 //if (meleeDamage > 0 && !fleeActive)
@@ -174,31 +175,36 @@ public class Enemy : MonoBehaviour
             }
 
             //evitar o FLEE
-            if (flee && canFlee && onGround && playerDistanceAbs.x <= safeDistance)
+            if (flee && canFlee && onGround && playerDistanceAbs.x < safeDistance)
             {
-                rb.velocity = new Vector2( - playerDirection.x * speedFlee, rb.velocity.y);
+                //Debug.Log("Estoy huyendo");
 
                 fleeActive = true;
+
+                rb.velocity = new Vector2( - playerDirection.x * speedFlee, rb.velocity.y);               
+
+                nirvana = false;
             }
-            else if (flee && playerDistanceAbs.x > safeDistance && !chase)
+            else if (flee && playerDistanceAbs.x > safeDistance)
             {
                 fleeActive = false;
             }
-                //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
-            else if (chase && canChase && onGround && playerDirection.x != 0)
-            {
-                fleeActive = false;
-                rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);                
-            }            
             
-            if ( ((chase && canChase) || (flee && canFlee && fleeActive)) && onGround && playerDirection.x != 0 )
+            //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
+            if (chase && canChase && onGround && playerDirection.x != 0 && !fleeActive)
             {
-                anim.SetBool("Run", true);
-            }
-            else
-            {
-                anim.SetBool("Run", false);
-            }
+                if (flee && canFlee && (playerDistanceAbs.x > safeDistance && playerDistanceAbs.x < safeDistance + 1f) )
+                {
+                    nirvana = true;
+                    //Debug.Log("Me quedo tranqui");
+                }
+                else
+                {
+                    //Debug.Log("Estoy persiguiendo");
+                    nirvana = false;
+                    rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+                }                                
+            }           
         }
 
         SetAnim();
@@ -279,6 +285,16 @@ public class Enemy : MonoBehaviour
 
         anim.SetBool("OnGround", onGround);
 
+        //caminar
+        if ( trigger && ( (chase && canChase) || (flee && canFlee && fleeActive) ) && onGround && playerDirection.x != 0 && !nirvana)
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
+
         if (trigger)
         {
             if (flee && fleeActive && !cornered)
@@ -351,6 +367,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //frenar todas las acciones y comportamientos y resumirlos luego de un tiempo
     IEnumerator ActionsDelay(float delay)
     {
         bool chse = false;
