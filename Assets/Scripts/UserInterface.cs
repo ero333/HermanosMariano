@@ -64,6 +64,11 @@ public class UserInterface : MonoBehaviour
         }
     }
 
+    public void BackToMap()
+    {
+        gm.BackToMap();
+    }
+
     public void Victory(int gananciaMaxima)
     {
         int impuesto = 0;
@@ -87,6 +92,7 @@ public class UserInterface : MonoBehaviour
         impuestos.text = "" + impuesto;
 
         total.text = "" + (gm.money - impuesto);
+        gm.ahorros += gm.money - impuesto;
     }
     
 }

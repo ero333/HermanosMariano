@@ -124,13 +124,16 @@ public class GameManager : MonoBehaviour
 
     public void BackToMap()
     {
-        SceneManager.LoadScene("MapaZonas");
+        energy = maxEnergy;
+        lives = maxLives;
         SaveData();
+        SceneManager.LoadScene("MapaZonas");        
     }
 
     public void VictoryCondition()
     {
         Debug.Log("Llego a la meta");
         victory = true;
+        resetCount = 0;
     }
 }
