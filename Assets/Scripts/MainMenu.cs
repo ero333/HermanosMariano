@@ -24,10 +24,10 @@ public class MainMenu : MonoBehaviour
         gm.zoneProgress = 1;
 
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("CurrentZone", 0);
+        PlayerPrefs.SetInt("CurrentZone", 1);
         PlayerPrefs.SetInt("Ahorros", 0);
-        PlayerPrefs.SetInt("MaxLives", 0);
-        PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);        
+        PlayerPrefs.SetInt("MaxLives", newMaxLives);
+        PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);
 
         SceneManager.LoadScene("NivelIntroduccion");
     }
