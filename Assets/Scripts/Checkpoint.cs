@@ -20,7 +20,8 @@ public class Checkpoint : MonoBehaviour
         {
             active = true;
             anim.SetTrigger("CheckpointColl");
-        }
-        gm.lastCheckpos = transform.position;
+
+            gm.lastCheckpos = transform.position;
+        }        
     }    
 }

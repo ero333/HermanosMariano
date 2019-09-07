@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+    bool inven = false;
     
 
     [Header("Ataque")]
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     public int meleeDamage = 2;
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
-    bool hit = false;
+    bool hitInput = false;
     bool attackLock;
     
 
@@ -39,6 +40,10 @@ public class Player : MonoBehaviour
     public Vector2 bottomOffset, rightOffset, leftOffset;
     public Vector2 bottomSize;
     private Color debugCollisionColor = Color.red;
+
+    //corrutinas
+    IEnumerator hitDelay; /*= HitDelay(0.3f);*/
+    IEnumerator invenTimer; 
 
     //animaciones
     //Idle
@@ -126,12 +131,13 @@ public class Player : MonoBehaviour
         //golpear
         if (Input.GetButtonDown("Fire1") && onGround && !attackLock)
         {
-            hit = true;
+            hitInput = true;
             anim.SetTrigger("MeleeInput");
             attackLock = true;
             rb.velocity = new Vector2(0f, 0f);
             rb.AddForce(new Vector2(xRaw * 30, 0f));
-            IEnumerator hitDelay = HitDelay(0.3f);
+            
+            /* IEnumerator */ hitDelay = HitDelay(0.3f);
             StopCoroutine(hitDelay);
             StartCoroutine(hitDelay);
         }
@@ -141,14 +147,17 @@ public class Player : MonoBehaviour
 
     public void TakeDamage (int damage, float dir)
     {
-        gm.energy -= damage;
-        anim.SetTrigger("TookDamage");
-        attackLock = true;
-        rb.velocity = new Vector2(0f, 0f);
-        rb.AddForce(new Vector2(dir * 150, 100f));
-        IEnumerator hitDelay = HitDelay(0.3f);
-        StopCoroutine(hitDelay);
-        StartCoroutine(hitDelay);
+        if (!inven)
+        {
+            gm.energy -= damage;
+            anim.SetTrigger("TookDamage");
+            rb.velocity = new Vector2(0f, 0f);
+            rb.AddForce(new Vector2(dir * 150, 100f));
+            
+            /*IEnumerator*/invenTimer = InvenTimer(0.6f);
+            StopCoroutine(invenTimer);
+            StartCoroutine(invenTimer);
+        }        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -197,7 +206,7 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("Run", true);
             //Ajuste de la velocidad para que no "resbale los pies" al principio
-            if (onGround && anim.GetBool("Run") && !hit)
+            if (onGround && anim.GetBool("Run") && !hitInput)
             {
                 anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);
             }
@@ -241,10 +250,9 @@ public class Player : MonoBehaviour
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, EnemyLayer);
 
         //evento de colision con el jugador
-        if (hitBox.Length > 0 && hit)
+        if (hitBox.Length > 0 && hitInput)
         {
-            hit = false;
-
+            hitInput = false;
             //do damage
             for (int i = 0; i < hitBox.Length; i++)
             {
@@ -277,9 +285,19 @@ public class Player : MonoBehaviour
 
 
     IEnumerator HitDelay(float delay)
-    {        
+    {
+        attackLock = true;
         yield return new WaitForSeconds(delay);
         attackLock = false;
+        hitInput = false;
     }
 
+    IEnumerator InvenTimer(float timer)
+    {
+        inven = true;
+        attackLock = true;
+        yield return new WaitForSeconds(timer);
+        attackLock = false;
+        inven = false;
+    }
 }
