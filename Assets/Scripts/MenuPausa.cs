@@ -42,7 +42,7 @@ public class MenuPausa : MonoBehaviour
     }
     public void VolverAlMapa()
     {
-        SceneManager.LoadScene("VolverAlMapa");
+        SceneManager.LoadScene("MapaZonas");
     }
 }   
 
