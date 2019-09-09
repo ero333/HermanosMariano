@@ -8,6 +8,7 @@ public class MapZone : MonoBehaviour
 {
     GameManager gm;
     public GameObject[] Zonas;
+    public Text ahorrostexto;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +30,8 @@ public class MapZone : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
     }
-   
+    private void Update()
+    {
+        ahorrostexto.text = "" + gm.ahorros;
+    }
 }
