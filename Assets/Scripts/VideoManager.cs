@@ -11,7 +11,7 @@ public class VideoManager : MonoBehaviour
 
     private void Awake()
     {
-        if (videoName != null)
+        if (videoName != "0")
         {
             videoPlayer = GetComponent<VideoPlayer>();
             videoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
@@ -21,9 +21,10 @@ public class VideoManager : MonoBehaviour
 
     void Start()
     {
-        videoPlayer.targetCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        if (videoName != null)
+        
+        if (videoName != "0")
         {
+            videoPlayer.targetCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             videoPlayer.Play();
         }                
     }

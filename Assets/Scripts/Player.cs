@@ -142,6 +142,14 @@ public class Player : MonoBehaviour
             StartCoroutine(hitDelay);
         }
 
+        if(Input.GetButtonDown("Crouch") && onGround)
+        {            
+            anim.SetTrigger("Crouch");
+            invenTimer = InvenTimer(0.3f);
+            StopCoroutine(invenTimer);
+            StartCoroutine(invenTimer);
+            rb.velocity = new Vector2(0, 0);
+        }
         SetAnimations(x);
     }
 
