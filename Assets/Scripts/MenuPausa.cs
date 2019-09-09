@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    public static bool juegoPausado = false;
+    public bool juegoPausado = false;
     public GameObject MenuPausaUI;
+
+    private void Start()
+    {
+        juegoPausado = false;
+        Time.timeScale = 1f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -38,10 +44,12 @@ public class MenuPausa : MonoBehaviour
     }
     public void MenuPrincipal()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MenuInicio");
     }
     public void VolverAlMapa()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MapaZonas");
     }
 }   
