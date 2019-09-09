@@ -210,7 +210,7 @@ public class Player : MonoBehaviour
         }
 
         //correr
-        if (xInput != 0 && !attackLock)
+        if (xInput != 0 && !attackLock && onGround)
         {
             anim.SetBool("Run", true);
             //Ajuste de la velocidad para que no "resbale los pies" al principio
