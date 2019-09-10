@@ -1442,6 +1442,7 @@ MonoBehaviour:
   ganancias: {fileID: 5539110032239458578}
   impuestos: {fileID: 3778800451669840858}
   total: {fileID: 5087220223869698431}
+  menuPausa: {fileID: 0}
 --- !u!114 &85889844049752039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3657,7 +3658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237595b8ccea4914fbb722553afbdcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoName: 
+  videoName: Introduccion
+  ui: {fileID: 4271781039972550987}
 --- !u!328 &1173965480880294706
 VideoPlayer:
   m_ObjectHideFlags: 0

@@ -19,6 +19,13 @@ public class UserInterface : MonoBehaviour
     public Text impuestos;
     public Text total;
 
+    public MenuPausa menuPausa;
+
+    private void Awake()
+    {
+        menuPausa = GetComponent<MenuPausa>();
+    }
+
     void Start()
     {
         gm = GameObject.FindObjectOfType<GameManager>();
@@ -47,6 +54,7 @@ public class UserInterface : MonoBehaviour
 
         if (gm.lives == 0)
         {
+            Time.timeScale = 0f;
             GameOverScreen.SetActive(true);
         }
 
@@ -66,6 +74,7 @@ public class UserInterface : MonoBehaviour
 
     public void BackToMap()
     {
+        Time.timeScale = 1f;
         gm.BackToMap();
     }
 
@@ -73,6 +82,7 @@ public class UserInterface : MonoBehaviour
     {
         int impuesto = 0;
 
+        Time.timeScale = 0f;
         VictoryScreen.SetActive(true);
         ganancias.text = "" + gm.money;
 
