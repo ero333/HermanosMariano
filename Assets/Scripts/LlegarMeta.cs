@@ -17,7 +17,10 @@ public class LlegarMeta : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gm.VictoryCondition();
-        ui.Victory(gananciaMaxima);
+        if (collision.tag == "Player")
+        {
+            gm.VictoryCondition();
+            ui.Victory(gananciaMaxima);
+        }        
     }
 }

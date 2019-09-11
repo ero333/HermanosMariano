@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     [Header("Disparar")]
     public int bullets = 0;
+    public int shootDamage = 2;
     public GameObject spawnBullet;
     public GameObject bullet;
 
@@ -149,10 +150,12 @@ public class Player : MonoBehaviour
 
         if(Input.GetButtonDown("Fire2") && onGround && !attackLock)
         {
-            Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
+            GameObject firedbullet = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
+            firedbullet.GetComponent<Bullet>().damage = shootDamage;
+
             rb.velocity = new Vector2(0f, 0f);
             anim.SetTrigger("Shoot");
-            hitDelay = HitDelay(0.6f);
+            hitDelay = HitDelay(0.1f);
             StopCoroutine(hitDelay);
             StartCoroutine(hitDelay);
         }

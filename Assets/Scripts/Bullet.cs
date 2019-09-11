@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     LineRenderer lineRenderer;
 
     public float speed = 16f;
+    public int damage = 2;
 
     private void Awake()
     {
@@ -18,6 +19,8 @@ public class Bullet : MonoBehaviour
     {
         rb.velocity = transform.right * speed;
         lineRenderer.SetPosition(0, new Vector3 (0,0,0));
+
+        Destroy(gameObject, 8f);
     }
 
     void Update()
@@ -30,6 +33,24 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        float dir = Mathf.Clamp(transform.position.x - collision.transform.position.x, -1, 1);
+
+        if(collision.tag == "Enemy")
+        {
+            collision.GetComponent<Enemy>().TakeDamage(damage, dir);
+            Destroy(gameObject);
+        }
+        else if (collision.tag == "Player")
+        {
+            collision.GetComponent<Player>().TakeDamage(damage, dir);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.layer == 8)
+        {
+            Destroy(gameObject);
+        }
+
+        
     }
+
 }
