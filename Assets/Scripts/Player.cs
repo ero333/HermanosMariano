@@ -148,13 +148,15 @@ public class Player : MonoBehaviour
             StartCoroutine(hitDelay);
         }
 
-        if(Input.GetButtonDown("Fire2") && onGround && !attackLock)
+        if(Input.GetButtonDown("Fire2") && onGround && !attackLock && bullets > 0)
         {
             GameObject firedbullet = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
             firedbullet.GetComponent<Bullet>().damage = shootDamage;
 
+            bullets -= 1;
             rb.velocity = new Vector2(0f, 0f);
             anim.SetTrigger("Shoot");
+
             hitDelay = HitDelay(0.1f);
             StopCoroutine(hitDelay);
             StartCoroutine(hitDelay);
