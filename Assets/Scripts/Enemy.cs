@@ -51,19 +51,26 @@ public class Enemy : MonoBehaviour
     bool fleeActive = false;
     bool cornered = false;
 
-    [Header("Ataque")]
+    [Header("Golpear")]
     public int meleeDamage = 2;
     public float meleeDelay = 1;
-    public int shootDamage = 1;
     public Vector2 meleeHitBoxSize;
     public Vector2 meleeHitBoxOffset;
-    public bool hit = false;
+    bool hit = false;
     bool hited = false;
-    bool canAttack = true;
-    
+    bool canAttack = true;    
     public bool frameDamage = false;
 
+    [Header("Disparar")]
+    public int shootDamage = 1;
+    bool canShoot = true;
+    public float shootDelay = 5f;
+    public float minShootDis = 15f;
+    public GameObject bullet;
+    public GameObject spawnBullet;
+
     IEnumerator generalActionsDelay;
+    IEnumerator ShootDelay;
     
 
     private void OnDrawGizmos()
@@ -158,7 +165,6 @@ public class Enemy : MonoBehaviour
                 {
                     //saltar
 
-                    //cornered = true;
                     playerDirection.x = 0;
 
                     //Debug.Log("No puedo perseguir hasta el vacio");
@@ -204,7 +210,23 @@ public class Enemy : MonoBehaviour
                     nirvana = false;
                     rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
                 }                                
-            }           
+            }
+            
+            //disparar
+            if (shootDamage > 0 && canShoot && canAttack && playerDistanceAbs.x <= minShootDis)
+            {
+                anim.SetTrigger("Shoot");
+
+                rb.velocity = new Vector2(0, 0);
+
+                GameObject bulletInst = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
+                bulletInst.GetComponent<Bullet>().damage = shootDamage;
+
+                ShootDelay = ShootDelayCou(shootDelay);
+                StopCoroutine(ShootDelay);
+                StartCoroutine(ShootDelay);
+            }
+
         }
 
         SetAnim();
@@ -242,10 +264,8 @@ public class Enemy : MonoBehaviour
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
         
-        //evento de colision con el jugador
-
-        
-        if (hitBox.Length > 0 && meleeDamage >0)
+        //evento de colision con el jugador en la hitbox, golpear        
+        if (hitBox.Length > 0 && meleeDamage > 0)
         {
             //Debug.Log("Player Hit");
             hit = true;
@@ -257,20 +277,16 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(generalActionsDelay);
                 anim.SetTrigger("MeleeAttack");
                 
-                //hacer daño
-                //if (frameDamage)
-                //{
-                //    hitBox[0].GetComponent<Player>().TakeDamage(meleeDamage, playerDirection.x);
-                //}
                 canAttack = false;
             }               
                                
         }
         else if (hitBox.Length == 0 && meleeDamage > 0)
         {
-                hit = false;
+            hit = false;
         }
 
+        //hacer daño cuando el jugador este en la hitbox y el enemigo este en el frame de la animacion correcta
         if (hit && frameDamage && !hited && meleeDamage > 0)
         {
             player.TakeDamage(meleeDamage, playerDirection.x);
@@ -358,7 +374,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //con que me muero
+    //si choco con algo
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Fall")
@@ -367,7 +383,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //frenar todas las acciones y comportamientos y resumirlos luego de un tiempo
+    //frenar todas las acciones y comportamientos designados y resumirlos luego de un tiempo
     IEnumerator ActionsDelay(float delay)
     {
         bool chse = false;
@@ -411,6 +427,13 @@ public class Enemy : MonoBehaviour
         }
         
         //hit = false;
+    }
+
+    IEnumerator ShootDelayCou(float delay)
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(delay);
+        canShoot = true;
     }
 
     IEnumerator DeathDelay (float delay)

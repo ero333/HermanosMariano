@@ -148,6 +148,7 @@ public class Player : MonoBehaviour
             StartCoroutine(hitDelay);
         }
 
+        //disparar
         if(Input.GetButtonDown("Fire2") && onGround && !attackLock && bullets > 0)
         {
             GameObject firedbullet = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
