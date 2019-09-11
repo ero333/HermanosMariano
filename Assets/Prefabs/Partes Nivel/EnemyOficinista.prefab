@@ -78,11 +78,14 @@ MonoBehaviour:
   safeDistance: 10
   meleeDamage: 1
   meleeDelay: 1
-  shootDamage: 1
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
-  hit: 0
   frameDamage: 0
+  shootDamage: 1
+  shootDelay: 5
+  minShootDis: 15
+  bullet: {fileID: 0}
+  spawnBullet: {fileID: 0}
 --- !u!212 &1731996306001711377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -189,7 +192,7 @@ Animator:
   m_GameObject: {fileID: 1731996306001711382}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eae6036e6cc02f9408266def17b5dbcf, type: 2}
+  m_Controller: {fileID: 9100000, guid: a43d966a9c0466d41a6d3b170a6f13fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
