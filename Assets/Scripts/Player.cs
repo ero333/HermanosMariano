@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     bool inven = false;
-    
+
 
     [Header("Ataque")]
     public LayerMask EnemyLayer;
@@ -32,7 +32,11 @@ public class Player : MonoBehaviour
     public Vector2 meleeHitBoxOffset;
     bool hitInput = false;
     bool attackLock;
-    
+
+    [Header("Disparar")]
+    public int bullets = 0;
+    public GameObject spawnBullet;
+    public GameObject bullet;
 
     [Header("Detector de Collisiones")]
     public LayerMask groundLayer;
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour
 
     //corrutinas
     IEnumerator hitDelay; /*= HitDelay(0.3f);*/
-    IEnumerator invenTimer; 
+    IEnumerator invenTimer;
 
     //animaciones
     //Idle
@@ -57,7 +61,7 @@ public class Player : MonoBehaviour
         var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
         var sizes = new Vector2[] { bottomSize };
 
-        Gizmos.DrawWireCube((Vector2) transform.position + bottomOffset, (Vector2) bottomSize);
+        Gizmos.DrawWireCube((Vector2)transform.position + bottomOffset, (Vector2)bottomSize);
         //Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
         //Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
 
@@ -83,7 +87,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         DetectCollisions();
-        
+
         //inputs de movimiento
 
         float x;
@@ -97,12 +101,12 @@ public class Player : MonoBehaviour
         {
             x = 0;
         }
-        
+
         if (!attackLock)
         {
             //Moverse
             rb.velocity = new Vector2(x * speed, rb.velocity.y);
-            
+
 
             //Saltar
             if (Input.GetButtonDown("Jump"))
@@ -116,7 +120,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-               
+
 
         //Ajustar salto y gravedad para que dependan del Input (si mantengo, más alto y más lento caigo)
         if (rb.velocity.y < 0)
@@ -136,8 +140,19 @@ public class Player : MonoBehaviour
             attackLock = true;
             rb.velocity = new Vector2(0f, 0f);
             rb.AddForce(new Vector2(xRaw * 30, 0f));
-            
-            /* IEnumerator */ hitDelay = HitDelay(0.3f);
+
+            /* IEnumerator */
+            hitDelay = HitDelay(0.3f);
+            StopCoroutine(hitDelay);
+            StartCoroutine(hitDelay);
+        }
+
+        if(Input.GetButtonDown("Fire2") && onGround && !attackLock)
+        {
+            Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
+            rb.velocity = new Vector2(0f, 0f);
+            anim.SetTrigger("Shoot");
+            hitDelay = HitDelay(0.6f);
             StopCoroutine(hitDelay);
             StartCoroutine(hitDelay);
         }
