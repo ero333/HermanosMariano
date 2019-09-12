@@ -33,7 +33,7 @@ public class UserInterface : MonoBehaviour
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {
-            if (i < gm.maxEnergy)
+            if (i < GameManager.maxEnergy)
             {
                 EnergyBars[i].gameObject.SetActive(true);
             }
@@ -102,7 +102,7 @@ public class UserInterface : MonoBehaviour
         impuestos.text = "" + impuesto;
 
         total.text = "" + (gm.money - impuesto);
-        gm.ahorros += gm.money - impuesto;
+        GameManager.ahorros += gm.money - impuesto;
     }
     
 }

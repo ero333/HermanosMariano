@@ -18,11 +18,11 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        gm.ahorros = 0;
+        GameManager.ahorros = 0;
         gm.maxLives = newMaxLives;
-        gm.maxEnergy = newMaxEnergy;
-        gm.zoneProgress = 0;
-        gm.paidDeudas = 0;
+        GameManager.maxEnergy = newMaxEnergy;
+        GameManager.zoneProgress = 0;
+        GameManager.paidDeudas = 0;
 
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentZone", 0);
@@ -38,11 +38,11 @@ public class MainMenu : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("CurrentZone"))
         {
-            gm.zoneProgress = PlayerPrefs.GetInt("CurrentZone");
-            gm.paidDeudas = PlayerPrefs.GetInt("DeudasPagadas");
-            gm.ahorros = PlayerPrefs.GetInt("Ahorros");
+            GameManager.zoneProgress = PlayerPrefs.GetInt("CurrentZone");
+            GameManager.paidDeudas = PlayerPrefs.GetInt("DeudasPagadas");
+            GameManager.ahorros = PlayerPrefs.GetInt("Ahorros");
             gm.maxLives = PlayerPrefs.GetInt("MaxLives");
-            gm.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
+            GameManager.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
 
             SceneManager.LoadScene("MapaZonas");
         }        

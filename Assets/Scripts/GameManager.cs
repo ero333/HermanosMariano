@@ -12,12 +12,12 @@ public class GameManager : MonoBehaviour
     int levelIndex;
 
    [Header("Datos que se mantienen")]
-    public int maxEnergy = 6;
+    public static int maxEnergy = 6;
     public int maxLives = 3;
-    public int zoneProgress;
-    public int paidDeudas = 0;
-    public int ahorros;
-    public bool sound;
+    public static int zoneProgress;
+    public static int paidDeudas = 0;
+    public static int ahorros;
+    public static bool sound = true;
 
     [Header("Datos del nivel")]
     public int resetCount = 0;
@@ -41,24 +41,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
-        }
+        }       
     }
-
-    //private void OnLevelWasLoaded(int level)
-    //{
-        
-    //    levelIndex = SceneManager.GetActiveScene().buildIndex;
-
-    //    if (resetCount == 0)
-    //    {
-    //        Debug.Log("Level loaded for the first time");
-    //        lives = GameManager.instance.maxLives;
-    //        energy = maxEnergy;
-    //    }
-        
-    //    //Si hay una, Buscar condicion de victoria. Cuando gano o salgo del nivel --> resetCount = 0;
-
-    //}
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -69,7 +53,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Level loaded for the first time");
 
             victory = false;
-            lives = GameManager.instance.maxLives;
+            lives = maxLives;
             energy = maxEnergy;
         }
         else
@@ -112,7 +96,7 @@ public class GameManager : MonoBehaviour
     
     public void GainMoney(int gain)
     {
-        money += gain;
+        instance.money += gain;
     }
 
     public void SaveData()

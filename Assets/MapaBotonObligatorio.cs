@@ -16,11 +16,11 @@ public class MapaBotonObligatorio : MonoBehaviour
 
     public void Unlock (int deuda)
     {
-        if(gm.ahorros >= deuda)
+        if(GameManager.ahorros >= deuda)
         {
-            gm.ahorros -= deuda;
+            GameManager.ahorros -= deuda;
             gameObject.GetComponent<Button>().interactable = true;
-            gm.paidDeudas += 1;
+            GameManager.paidDeudas += 1;
             Deuda.SetActive(false);
         }
         else

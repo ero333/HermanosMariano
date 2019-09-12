@@ -15,7 +15,7 @@ public class Money : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") {
-            gm.GainMoney(value);
+            gm.money += value;
             Destroy(gameObject);
         }
     }

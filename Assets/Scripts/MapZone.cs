@@ -23,7 +23,7 @@ public class MapZone : MonoBehaviour
         {
             Zonas[i].GetComponent<Selectable>().interactable = false;
 
-            if (i <= gm.zoneProgress)
+            if (i <= GameManager.zoneProgress)
             {
                 Zonas[i].GetComponent<Selectable>().interactable = true;
             }
@@ -36,7 +36,7 @@ public class MapZone : MonoBehaviour
 
         for (int i = 0; i < Deudas.Length; i++)
         {
-            if (i < gm.paidDeudas)
+            if (i < GameManager.paidDeudas)
             {
                 Deudas[i].SetActive(false);
             }
@@ -50,6 +50,6 @@ public class MapZone : MonoBehaviour
 
     private void Update()
     {
-        ahorrostexto.text = "" + gm.ahorros;
+        ahorrostexto.text = "" + GameManager.ahorros;
     }
 }
