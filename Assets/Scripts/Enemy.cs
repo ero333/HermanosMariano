@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     public float speed = 10f;    
     bool canChase = true;
     bool nirvana = false;
+    bool canFlip = true;
 
     [Header("Huir")]
     public bool flee = false;
@@ -113,7 +114,7 @@ public class Enemy : MonoBehaviour
             //volteo del hitbox y trigger
             meleeHitBoxOffset.x *= -1;
             triggerOffset.x *= -1;
-        }
+        }        
     }
 
     private void FixedUpdate()
@@ -215,16 +216,39 @@ public class Enemy : MonoBehaviour
             //disparar
             if (shootDamage > 0 && canShoot && canAttack && playerDistanceAbs.x <= minShootDis)
             {
-                anim.SetTrigger("Shoot");
+                generalActionsDelay = ActionsDelay(1f);
+                StopCoroutine(generalActionsDelay);
+                StartCoroutine(generalActionsDelay);
 
                 rb.velocity = new Vector2(0, 0);
-
-                GameObject bulletInst = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
-                bulletInst.GetComponent<Bullet>().damage = shootDamage;
 
                 ShootDelay = ShootDelayCou(shootDelay);
                 StopCoroutine(ShootDelay);
                 StartCoroutine(ShootDelay);
+
+                if (playerDirection.x == -1 && fRight)
+                {
+                    fRight = false;
+                    transform.Rotate(0f, 180f, 0f);
+
+                    //volteo del hitbox y trigger
+                    meleeHitBoxOffset.x *= -1;
+                    triggerOffset.x *= -1;
+                }
+                else if (playerDirection.x == 1 && !fRight)
+                {
+                    fRight = true;
+                    transform.Rotate(0f, 180f, 0f);
+
+                    //volteo del hitbox y trigger
+                    meleeHitBoxOffset.x *= -1;
+                    triggerOffset.x *= -1;
+                }
+
+                anim.SetTrigger("Shoot");                
+
+                GameObject bulletInst = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
+                bulletInst.GetComponent<Bullet>().damage = shootDamage;
             }
 
         }
@@ -311,7 +335,8 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Run", false);
         }
 
-        if (trigger)
+        //volteos
+        if (trigger && canFlip)
         {
             if (flee && fleeActive && !cornered)
             {
@@ -408,6 +433,8 @@ public class Enemy : MonoBehaviour
             fle = true;
         }
 
+        canFlip = false;
+
         yield return new WaitForSeconds(delay);
 
         if (chse)
@@ -425,7 +452,8 @@ public class Enemy : MonoBehaviour
         {
             canFlee = true;
         }
-        
+
+        canFlip = true;
         //hit = false;
     }
 
