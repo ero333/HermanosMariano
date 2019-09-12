@@ -472,6 +472,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage, float dir)
     {
+        trigger = true;
+
         lives -= damage;
         anim.SetTrigger("GetHit");
 
