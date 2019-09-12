@@ -26,6 +26,8 @@ public class Collect : MonoBehaviour
         {
             gm.VictoryCondition();
             ui.Victory(gananciaMaxima);
+
+            toCollect = 100;
         }
     }
 }
