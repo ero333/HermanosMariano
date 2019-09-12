@@ -21,23 +21,19 @@ public class PlataformaFall : MonoBehaviour
 
     }
 
-
-    void Update()
-    {
-        
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Invoke("Fall",FallDelay);
-            Invoke("Respawn", FallDelay + RespawnDelay);
+            Invoke("Fall", FallDelay);
+            
         }
     }
     void Fall()
     {
         rb2d.isKinematic = false;
         cc2d.isTrigger = true;
+        Invoke("Respawn", RespawnDelay);
     }
 
     void Respawn()
