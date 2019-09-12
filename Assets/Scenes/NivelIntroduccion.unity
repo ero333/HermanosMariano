@@ -632,11 +632,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1173965480880294706, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_TargetCamera
-      value: 
-      objectReference: {fileID: 2017814300}
     - target: {fileID: 4271781039972550984, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -757,41 +752,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4271781040471356989, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
+    - target: {fileID: 1173965480880294706, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1523.7002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271781041556842195, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -543.4011
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271781040234751647, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 53.30005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271781039754864737, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 218.76999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271781040969819087, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 253.25998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271781040345055768, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 287.95993
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271781040478599143, guid: 2a84078c68dc8674eb7d59fcfbe9bb22,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 322.28
-      objectReference: {fileID: 0}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 2017814300}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a84078c68dc8674eb7d59fcfbe9bb22, type: 3}
 --- !u!1001 &1174242363
