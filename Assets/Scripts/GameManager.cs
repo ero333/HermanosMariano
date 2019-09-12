@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int maxEnergy = 6;
     public int maxLives = 3;
     public int zoneProgress;
+    public int paidDeudas = 0;
     public int ahorros;
     public bool sound;
 
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetInt("CurrentZone", zoneProgress);
+        PlayerPrefs.SetInt("Deudas Pagadas", paidDeudas);
         PlayerPrefs.SetInt("Ahorros", ahorros);
         PlayerPrefs.SetInt("MaxLives", maxLives);
         PlayerPrefs.SetInt("MaxEnergy", maxEnergy);

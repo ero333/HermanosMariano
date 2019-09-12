@@ -21,10 +21,12 @@ public class MainMenu : MonoBehaviour
         gm.ahorros = 0;
         gm.maxLives = newMaxLives;
         gm.maxEnergy = newMaxEnergy;
-        gm.zoneProgress = 1;
+        gm.zoneProgress = 0;
+        gm.paidDeudas = 0;
 
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("CurrentZone", 1);
+        PlayerPrefs.SetInt("CurrentZone", 0);
+        PlayerPrefs.SetInt("DeudasPagadas", 0);
         PlayerPrefs.SetInt("Ahorros", 0);
         PlayerPrefs.SetInt("MaxLives", newMaxLives);
         PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);
@@ -37,6 +39,7 @@ public class MainMenu : MonoBehaviour
         if (PlayerPrefs.HasKey("CurrentZone"))
         {
             gm.zoneProgress = PlayerPrefs.GetInt("CurrentZone");
+            gm.paidDeudas = PlayerPrefs.GetInt("DeudasPagadas");
             gm.ahorros = PlayerPrefs.GetInt("Ahorros");
             gm.maxLives = PlayerPrefs.GetInt("MaxLives");
             gm.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
