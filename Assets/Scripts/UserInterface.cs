@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UserInterface : MonoBehaviour
 {
     GameManager gm;
+    Player player;
 
     public Text LivesText;
     public Image[] EnergyBars;
@@ -18,7 +19,7 @@ public class UserInterface : MonoBehaviour
     public Text ganancias;
     public Text impuestos;
     public Text total;
-
+    public Text bullets;
     public MenuPausa menuPausa;
 
     private void Awake()
@@ -51,6 +52,7 @@ public class UserInterface : MonoBehaviour
         
         LivesText.text = "" + gm.lives;
         MoneyText.text = "" + gm.money;
+        bullets.text = "" + player.bullet;
 
         if (gm.lives == 0)
         {
