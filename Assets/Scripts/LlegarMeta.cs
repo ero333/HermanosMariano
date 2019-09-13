@@ -9,6 +9,8 @@ public class LlegarMeta : MonoBehaviour
 
     public int gananciaMaxima = 100;
 
+    public bool Obligatorio = false;
+
     private void Start()
     {
         gm = GameObject.FindObjectOfType<GameManager>();
@@ -21,6 +23,12 @@ public class LlegarMeta : MonoBehaviour
         {
             gm.VictoryCondition();
             ui.Victory(gananciaMaxima);
+
+            if (Obligatorio)
+            {
+                GameManager.zoneProgress += 1;
+                GameManager.maxEnergy += 1;
+            }
         }        
     }
 }

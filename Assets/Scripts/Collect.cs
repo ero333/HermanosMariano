@@ -32,6 +32,7 @@ public class Collect : MonoBehaviour
             if (Obligatorio)
             {
                 GameManager.zoneProgress += 1;
+                GameManager.maxEnergy += 1;
             }
         }
     }
