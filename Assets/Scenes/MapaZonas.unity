@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421972908}
+      - m_Target: {fileID: 1894530641}
         m_MethodName: Unlock
         m_Mode: 3
         m_Arguments:
@@ -3114,7 +3114,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421972908}
+      - m_Target: {fileID: 1251561224}
         m_MethodName: Unlock
         m_Mode: 3
         m_Arguments:
@@ -3737,6 +3737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946722867}
   - component: {fileID: 946722870}
+  - component: {fileID: 946722871}
   - component: {fileID: 946722869}
   - component: {fileID: 946722868}
   m_Layer: 5
@@ -3861,6 +3862,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946722866}
   m_CullTransparentMesh: 0
+--- !u!114 &946722871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946722866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e46b3fc45771c47a729beae8899db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deuda: {fileID: 1329203349}
 --- !u!1 &969527105
 GameObject:
   m_ObjectHideFlags: 0
@@ -4094,6 +4108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996726288}
   - component: {fileID: 996726291}
+  - component: {fileID: 996726292}
   - component: {fileID: 996726290}
   - component: {fileID: 996726289}
   m_Layer: 5
@@ -4218,6 +4233,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996726287}
   m_CullTransparentMesh: 0
+--- !u!114 &996726292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996726287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e46b3fc45771c47a729beae8899db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deuda: {fileID: 1173236058}
 --- !u!1 &1104128577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4640,7 +4668,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421972908}
+      - m_Target: {fileID: 996726292}
         m_MethodName: Unlock
         m_Mode: 3
         m_Arguments:
@@ -5037,6 +5065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1251561220}
   - component: {fileID: 1251561223}
+  - component: {fileID: 1251561224}
   - component: {fileID: 1251561222}
   - component: {fileID: 1251561221}
   m_Layer: 5
@@ -5161,6 +5190,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251561219}
   m_CullTransparentMesh: 0
+--- !u!114 &1251561224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251561219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e46b3fc45771c47a729beae8899db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deuda: {fileID: 852176509}
 --- !u!1 &1270502385
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,7 +5673,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421972908}
+      - m_Target: {fileID: 946722871}
         m_MethodName: Unlock
         m_Mode: 3
         m_Arguments:
@@ -8308,6 +8350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894530637}
   - component: {fileID: 1894530640}
+  - component: {fileID: 1894530641}
   - component: {fileID: 1894530639}
   - component: {fileID: 1894530638}
   m_Layer: 5
@@ -8432,6 +8475,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894530636}
   m_CullTransparentMesh: 0
+--- !u!114 &1894530641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894530636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e46b3fc45771c47a729beae8899db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deuda: {fileID: 591496152}
 --- !u!1 &1895120194
 GameObject:
   m_ObjectHideFlags: 0

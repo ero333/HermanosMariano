@@ -52,7 +52,7 @@ public class UserInterface : MonoBehaviour
         
         LivesText.text = "" + gm.lives;
         MoneyText.text = "" + gm.money;
-        bullets.text = "" + player.bullet;
+        //bullets.text = "" + player.bullet;
 
         if (gm.lives == 0)
         {
@@ -88,21 +88,24 @@ public class UserInterface : MonoBehaviour
         VictoryScreen.SetActive(true);
         ganancias.text = "" + gm.money;
 
+        Debug.Log(gm.money);
+        
+
         if (gm.money > gananciaMaxima)
         {
             impuesto = gm.money - gananciaMaxima;
         }
         else if(gm.money == gananciaMaxima)
         {
-            impuesto = gananciaMaxima - ((gananciaMaxima * 5) / 100);
+            impuesto = ((gananciaMaxima * 5) / 100);
         }
         else
         {
-            impuesto = gananciaMaxima - ((gananciaMaxima * 10) / 100);
+            impuesto = ((gananciaMaxima * 10) / 100);
         }
 
         impuestos.text = "" + impuesto;
-
+        Debug.Log(impuesto);
         total.text = "" + (gm.money - impuesto);
         GameManager.ahorros += gm.money - impuesto;
     }

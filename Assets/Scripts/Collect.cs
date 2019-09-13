@@ -28,6 +28,11 @@ public class Collect : MonoBehaviour
             ui.Victory(gananciaMaxima);
 
             toCollect = 100;
+
+            if (Obligatorio)
+            {
+                GameManager.zoneProgress += 1;
+            }
         }
     }
 }

@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
             victory = false;
             lives = maxLives;
             energy = maxEnergy;
+            money = 0;
         }
         else
         {
