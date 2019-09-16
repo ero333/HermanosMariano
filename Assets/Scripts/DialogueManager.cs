@@ -5,11 +5,20 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    GameManager gm;
+    UserInterface ui;
+
     [Header("Start")]
     public Sprite charAstart;
     public Sprite charBstart;
 
     public DialogueClass[] Dialogues;
+
+    [Header("End")]
+    public Sprite charAstart2;
+    public Sprite charBstart2;
+
+    public DialogueClass[] DialoguesEnd;
 
     [Header("Referencias")]
     public Text characterText;
@@ -19,8 +28,13 @@ public class DialogueManager : MonoBehaviour
 
     int index = 0;
 
+    public bool end = false;
+
     void Start()
     {
+        gm = FindObjectOfType<GameManager>();
+        ui = FindObjectOfType<UserInterface>();
+
         if (Dialogues.Length == 0)
         {
             gameObject.SetActive(false);
@@ -47,31 +61,62 @@ public class DialogueManager : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        if (index < Dialogues.Length)
+        if (!gm.victory)
         {
-            dialogueText.text = Dialogues[index].Dialogue;
-
-            if (Dialogues[index].character == DialogueClass.PosibleCharacters.CharA)
+            if (index < Dialogues.Length)
             {
-                charA.sprite = Dialogues[index].CharArt;
-                charA.color = new Color(1, 1, 1, 1f);
+                dialogueText.text = Dialogues[index].Dialogue;
 
-                charB.color = new Color(1,1,1,0.5f);
+                if (Dialogues[index].character == DialogueClass.PosibleCharacters.CharA)
+                {
+                    charA.sprite = Dialogues[index].CharArt;
+                    charA.color = new Color(1, 1, 1, 1f);
+
+                    charB.color = new Color(1, 1, 1, 0.5f);
+                }
+                else
+                {
+                    charB.sprite = Dialogues[index].CharArt;
+                    charB.color = new Color(1, 1, 1, 1f);
+
+                    charA.color = new Color(1, 1, 1, 0.5f);
+                }
             }
             else
             {
-                charB.sprite = Dialogues[index].CharArt;
-                charB.color = new Color(1, 1, 1, 1f);
-
-                charA.color = new Color(1, 1, 1, 0.5f);
+                Time.timeScale = 1;
+                index = 0;
+                gameObject.SetActive(false);
             }
         }
-        else
+        else if (gm.victory)
         {
-            Time.timeScale = 1;
-            gameObject.SetActive(false);
+            if (index < DialoguesEnd.Length && DialoguesEnd.Length > 0)
+            {
+                dialogueText.text = DialoguesEnd[index].Dialogue;
+
+                if (DialoguesEnd[index].character == DialogueClass.PosibleCharacters.CharA)
+                {
+                    charA.sprite = DialoguesEnd[index].CharArt;
+                    charA.color = new Color(1, 1, 1, 1f);
+
+                    charB.color = new Color(1, 1, 1, 0.5f);
+                }
+                else
+                {
+                    charB.sprite = DialoguesEnd[index].CharArt;
+                    charB.color = new Color(1, 1, 1, 1f);
+
+                    charA.color = new Color(1, 1, 1, 0.5f);
+                }
+            }
+            else
+            {
+                Time.timeScale = 1;
+                gameObject.SetActive(false);
+                end = true;
+                ui.Victory(ui.gananciaMaxBK);
+            }
         }
-
-
     }
 }

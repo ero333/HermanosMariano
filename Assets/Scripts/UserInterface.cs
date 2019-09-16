@@ -22,6 +22,10 @@ public class UserInterface : MonoBehaviour
     public Text bullets;
     public MenuPausa menuPausa;
 
+    public DialogueManager dialogueManager;
+
+    public int gananciaMaxBK;
+
     private void Awake()
     {
         menuPausa = GetComponent<MenuPausa>();
@@ -85,29 +89,39 @@ public class UserInterface : MonoBehaviour
         int impuesto = 0;
 
         Time.timeScale = 0f;
-        VictoryScreen.SetActive(true);
-        ganancias.text = "" + gm.money;
 
-        Debug.Log(gm.money);
-        
+        if(dialogueManager.DialoguesEnd.Length > 0 && !dialogueManager.end)
+        {
+            gananciaMaxBK = gananciaMaxima;
 
-        if (gm.money > gananciaMaxima)
-        {
-            impuesto = gm.money - gananciaMaxima;
-        }
-        else if(gm.money == gananciaMaxima)
-        {
-            impuesto = ((gananciaMaxima * 5) / 100);
+            dialogueManager.gameObject.SetActive(true);
         }
         else
         {
-            impuesto = ((gananciaMaxima * 10) / 100);
-        }
+            VictoryScreen.SetActive(true);
+            ganancias.text = "" + gm.money;
 
-        impuestos.text = "" + impuesto;
-        Debug.Log(impuesto);
-        total.text = "" + (gm.money - impuesto);
-        GameManager.ahorros += gm.money - impuesto;
+            Debug.Log(gm.money);
+
+
+            if (gm.money > gananciaMaxima)
+            {
+                impuesto = gm.money - gananciaMaxima;
+            }
+            else if (gm.money == gananciaMaxima)
+            {
+                impuesto = ((gananciaMaxima * 5) / 100);
+            }
+            else
+            {
+                impuesto = ((gananciaMaxima * 10) / 100);
+            }
+
+            impuestos.text = "" + impuesto;
+            Debug.Log(impuesto);
+            total.text = "" + (gm.money - impuesto);
+            GameManager.ahorros += gm.money - impuesto;
+        }        
     }
     
 }
