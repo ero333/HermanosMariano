@@ -41,6 +41,12 @@ public class DialogueManager : MonoBehaviour
             index += 1;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 1;
+            gameObject.SetActive(false);
+        }
+
         if (index < Dialogues.Length)
         {
             dialogueText.text = Dialogues[index].Dialogue;
