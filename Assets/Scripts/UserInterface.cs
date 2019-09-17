@@ -56,7 +56,7 @@ public class UserInterface : MonoBehaviour
         
         LivesText.text = "" + gm.lives;
         MoneyText.text = "" + gm.money;
-        //bullets.text = "" + player.bullet;
+        bullets.text = "" + player.bullet;
 
         if (gm.lives == 0)
         {
