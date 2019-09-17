@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 2599009779257520386, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -44.000122
+      value: -44.000183
       objectReference: {fileID: 0}
     - target: {fileID: 4271781040471356989, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -1730,6 +1730,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1939942560983783923, guid: e6251b0662acccc4091ebd75c08c92f8,
+        type: 3}
+      propertyPath: minShootDis
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6251b0662acccc4091ebd75c08c92f8, type: 3}
 --- !u!1001 &2303911445682998114
@@ -2162,6 +2167,26 @@ PrefabInstance:
     - target: {fileID: 8956051031731710428, guid: 438d4cd61f10a7e4283e31c9cace374a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956051031731710429, guid: 438d4cd61f10a7e4283e31c9cace374a,
+        type: 3}
+      propertyPath: stompBoxOffset.y
+      value: -1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956051031731710429, guid: 438d4cd61f10a7e4283e31c9cace374a,
+        type: 3}
+      propertyPath: stompBoxSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956051031731710429, guid: 438d4cd61f10a7e4283e31c9cace374a,
+        type: 3}
+      propertyPath: stompBoxSize.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956051031731710429, guid: 438d4cd61f10a7e4283e31c9cace374a,
+        type: 3}
+      propertyPath: stompBoxOffset.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -411,44 +411,47 @@ public class Enemy : MonoBehaviour
     //frenar todas las acciones y comportamientos designados y resumirlos luego de un tiempo
     IEnumerator ActionsDelay(float delay)
     {
-        bool chse = false;
-        bool atk = false;
-        bool fle = false;
-
         if (chase)
         {
-            canChase = false;
-            chse = true;
+            canChase = false;            
         }
 
         if (meleeDamage > 0)
         {
             canAttack = false;
-            atk = true;
         }
+
+        //if (shootDamage > 0)
+        //{
+        //    canShoot = false;
+        //}
         
         if (flee)
         {
-            canFlee = false;
-            fle = true;
+            canFlee = false;            
         }
 
         canFlip = false;
 
         yield return new WaitForSeconds(delay);
 
-        if (chse)
+        if (chase)
         {
             canChase = true;
         }
         
-        if (atk)
+        if (meleeDamage > 0)
         {
             canAttack = true;
             hited = false;
         }
 
-        if (fle)
+        //if (shootDamage > 0)
+        //{
+        //    canShoot = true;
+        //}
+
+        if (flee)
         {
             canFlee = true;
         }
@@ -483,5 +486,20 @@ public class Enemy : MonoBehaviour
 
         StopCoroutine(generalActionsDelay);
         StartCoroutine(generalActionsDelay);
+    }
+
+    public void Stun(float timer)
+    {
+        generalActionsDelay = ActionsDelay(timer);
+        StopCoroutine(generalActionsDelay);
+        StartCoroutine(generalActionsDelay);
+
+        if (shootDamage > 0)
+        {
+            canShoot = false;
+            StopCoroutine(ShootDelay);
+            ShootDelay = ShootDelayCou(shootDelay);            
+            StartCoroutine(ShootDelay);
+        }
     }
 }

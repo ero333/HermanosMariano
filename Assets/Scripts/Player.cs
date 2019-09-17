@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
     public float lowJumpMultiplier = 2f;
     bool inven = false;
 
+    [Space]
+    public Vector2 stompBoxOffset;
+    public Vector2 stompBoxSize;
+
 
     [Header("Ataque")]
     public LayerMask EnemyLayer;
@@ -57,16 +61,19 @@ public class Player : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-
+        Gizmos.color = Color.magenta;
         var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
         var sizes = new Vector2[] { bottomSize };
-
+                
         Gizmos.DrawWireCube((Vector2)transform.position + bottomOffset, (Vector2)bottomSize);
         //Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
         //Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
 
+        Gizmos.color = Color.red;
         Gizmos.DrawWireCube((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube((Vector2)transform.position + stompBoxOffset, (Vector2)stompBoxSize);
     }
 
     void Start()
@@ -275,7 +282,7 @@ public class Player : MonoBehaviour
         //wallSide = onRightWall ? -1 : 1;
 
 
-        //Hitbox
+        //Hitbox de cuchillo
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, EnemyLayer);
 
         //evento de colision con el jugador
@@ -297,6 +304,22 @@ public class Player : MonoBehaviour
 
                 hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
                 Debug.Log("enemy Hit");
+            }
+        }
+
+        //hitbox de salto tipo mario
+        Collider2D[] stompBox = Physics2D.OverlapBoxAll((Vector2)transform.position + stompBoxOffset, (Vector2)stompBoxSize, 0f, EnemyLayer);
+
+        if (stompBox.Length > 0)
+        {
+            for (int i = 0; i < stompBox.Length; i++)
+            {
+                //stun
+                stompBox[i].GetComponent<Enemy>().Stun(3f);
+                rb.velocity += Vector2.up * 6;
+
+                anim.SetTrigger("JumpInput");
+                Debug.Log("enemy stomp");
             }
         }
     }

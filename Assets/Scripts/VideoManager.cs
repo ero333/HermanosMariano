@@ -25,6 +25,7 @@ public class VideoManager : MonoBehaviour
             videoPlayer = GetComponent<VideoPlayer>();
             videoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
             videoPlayer.loopPointReached += EndVideo;
+            GetComponent<Image>().enabled = true;
         }
         else
         {
