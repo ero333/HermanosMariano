@@ -87,6 +87,8 @@ MonoBehaviour:
   jumpForce: 14
   fallMultiplier: 3
   lowJumpMultiplier: 8
+  stompBoxOffset: {x: 0, y: -1.18}
+  stompBoxSize: {x: 0.4, y: 0.11}
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 1024

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     Player player;
+    BoxCollider2D bc2D;
 
     [Header("Debug, no tocar")]
     public Vector2 playerDistance;
@@ -100,6 +101,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
+        bc2D = GetComponent<BoxCollider2D>();
 
         if (transform.rotation.y == 180)
         {
@@ -490,8 +492,17 @@ public class Enemy : MonoBehaviour
 
     public void Stun(float timer)
     {
-        generalActionsDelay = ActionsDelay(timer);
+        anim.SetTrigger("Stun");
+
+        //bc2D.size = new Vector2(0, 1.5f);
+        //bc2D.offset = new Vector2(0, 0.5f);
+        if(meleeDamage > 0)
+        {
+            canAttack = false;
+        }
+
         StopCoroutine(generalActionsDelay);
+        generalActionsDelay = ActionsDelay(timer);        
         StartCoroutine(generalActionsDelay);
 
         if (shootDamage > 0)
