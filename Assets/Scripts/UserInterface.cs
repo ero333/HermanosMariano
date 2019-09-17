@@ -24,6 +24,7 @@ public class UserInterface : MonoBehaviour
 
     public DialogueManager dialogueManager;
 
+    [HideInInspector]
     public int gananciaMaxBK;
 
     private void Awake()
@@ -34,6 +35,7 @@ public class UserInterface : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindObjectOfType<GameManager>();
+        player = FindObjectOfType<Player>();
         GameOverScreen.SetActive(false);
 
         for (int i = 0; i < EnergyBars.Length; i++)
@@ -56,7 +58,7 @@ public class UserInterface : MonoBehaviour
         
         LivesText.text = "" + gm.lives;
         MoneyText.text = "" + gm.money;
-        bullets.text = "" + player.bullet;
+        bullets.text = "" + player.bullets;
 
         if (gm.lives == 0)
         {
