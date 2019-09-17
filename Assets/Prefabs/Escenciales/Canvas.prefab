@@ -1340,21 +1340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e614e0b1bffc4824babf98e144dbb6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charAstart: {fileID: 21300000, guid: 67a6f811e6748bc48962e6281145fd52, type: 3}
-  charBstart: {fileID: 21300000, guid: 67a6f811e6748bc48962e6281145fd52, type: 3}
-  Dialogues:
-  - Speaker: 
-    character: 0
-    Dialogue: Soy un Cuchillo!
-    CharArt: {fileID: 21300000, guid: 67a6f811e6748bc48962e6281145fd52, type: 3}
-  - Speaker: 
-    character: 1
-    Dialogue: Yo Tambien!
-    CharArt: {fileID: 21300000, guid: 67a6f811e6748bc48962e6281145fd52, type: 3}
-  - Speaker: 
-    character: 0
-    Dialogue: Cierren el orto!!!!
-    CharArt: {fileID: 21300000, guid: 4b8547c2d2a72b34b9a27f86f86db1f3, type: 3}
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues: []
   charAstart2: {fileID: 0}
   charBstart2: {fileID: 0}
   DialoguesEnd: []
@@ -2635,7 +2623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -543.4011, y: -65.19995}
+  m_AnchoredPosition: {x: -543.4012, y: -65.19995}
   m_SizeDelta: {x: -1254.7, y: 46.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4271781041556842197
@@ -4947,7 +4935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -218, y: -68.803}
+  m_AnchoredPosition: {x: -218, y: -68.80301}
   m_SizeDelta: {x: 0, y: 46.7}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4067519012606473407
