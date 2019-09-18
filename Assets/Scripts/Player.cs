@@ -58,6 +58,9 @@ public class Player : MonoBehaviour
     //Idle
     private bool isIdleCount = false;
     float idleTimer = 5f;
+    //correr sincro
+    [HideInInspector]
+    public float runTimeSinc;
 
     void OnDrawGizmos()
     {
@@ -163,6 +166,7 @@ public class Player : MonoBehaviour
 
             bullets -= 1;
             //rb.velocity = new Vector2(0f, 0f);
+            runTimeSinc = anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
             anim.SetTrigger("Shoot");
 
             hitDelay = HitDelay(0.1f);
@@ -245,6 +249,7 @@ public class Player : MonoBehaviour
             if (onGround && anim.GetBool("Run") && !hitInput)
             {
                 anim.speed = Mathf.Clamp(Mathf.Abs(xInput), 0.5f, 1);
+                
             }
             else
             {

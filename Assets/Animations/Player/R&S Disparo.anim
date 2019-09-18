@@ -38,26 +38,6 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: -5162256627384528878, guid: 625caf018b078754e9339344a2ebf921,
-        type: 3}
-    - time: 0.3125
-      value: {fileID: 0}
-    attribute: m_Sprite
-    path: RunAndGunA
-    classID: 212
-    script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: 4490556410453286995, guid: 9f2704c8a2443194c9ce46cee993a6ae,
-        type: 3}
-    - time: 0.375
-      value: {fileID: 0}
-    attribute: m_Sprite
-    path: RunAndGunB
-    classID: 212
-    script: {fileID: 0}
   m_SampleRate: 16
   m_WrapMode: 0
   m_Bounds:
@@ -72,36 +52,18 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 861025898
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 2858117072
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 8537052955805077317, guid: 04500d1c27c6c4647b67a55ad0d9a326, type: 3}
     - {fileID: -2245957948253176603, guid: 04500d1c27c6c4647b67a55ad0d9a326, type: 3}
     - {fileID: -8946593017098953516, guid: 04500d1c27c6c4647b67a55ad0d9a326, type: 3}
     - {fileID: -413958955186774002, guid: 04500d1c27c6c4647b67a55ad0d9a326, type: 3}
     - {fileID: 3317990782107554313, guid: 04500d1c27c6c4647b67a55ad0d9a326, type: 3}
-    - {fileID: -5162256627384528878, guid: 625caf018b078754e9339344a2ebf921, type: 3}
-    - {fileID: 0}
-    - {fileID: 4490556410453286995, guid: 9f2704c8a2443194c9ce46cee993a6ae, type: 3}
-    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.4375
+    m_StopTime: 0.3125
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
