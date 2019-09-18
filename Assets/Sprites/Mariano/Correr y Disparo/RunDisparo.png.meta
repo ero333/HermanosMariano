@@ -1,49 +1,49 @@
 fileFormatVersion: 2
-guid: 99a346af01bdfab439920453aaabf8a1
+guid: 04500d1c27c6c4647b67a55ad0d9a326
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1631896913119005121
-    second: RunDispCuerpo_0
+      213: 8537052955805077317
+    second: RunDisparo_0
   - first:
-      213: 2872957516822814603
-    second: RunDispCuerpo_1
+      213: -2245957948253176603
+    second: RunDisparo_1
   - first:
-      213: -1775037746706361952
-    second: RunDispCuerpo_2
+      213: -8946593017098953516
+    second: RunDisparo_2
   - first:
-      213: 2955383959505573928
-    second: RunDispCuerpo_3
+      213: -413958955186774002
+    second: RunDisparo_3
   - first:
-      213: -5793129787672731277
-    second: RunDispCuerpo_4
+      213: 3317990782107554313
+    second: RunDisparo_4
   - first:
-      213: -18232553659377128
-    second: RunDispCuerpo_5
+      213: 796714704204900274
+    second: RunDisparo_5
   - first:
-      213: -4985344758252964456
-    second: RunDispCuerpo_6
+      213: 6238662589587071443
+    second: RunDisparo_6
   - first:
-      213: -545154960156949481
-    second: RunDispCuerpo_7
+      213: -4360897867446664658
+    second: RunDisparo_7
   - first:
-      213: -3227049900815220291
-    second: RunDispCuerpo_8
+      213: 1403388920442537498
+    second: RunDisparo_8
   - first:
-      213: -3212703672796577451
-    second: RunDispCuerpo_9
+      213: 5651999898909514568
+    second: RunDisparo_9
   - first:
-      213: -951938898087290902
-    second: RunDispCuerpo_10
+      213: 1008770113165452541
+    second: RunDisparo_10
   - first:
-      213: 652288835966464269
-    second: RunDispCuerpo_11
+      213: -5192352577724788142
+    second: RunDisparo_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -98,7 +98,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -110,7 +110,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -118,257 +118,269 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RunDispCuerpo_0
+      name: RunDisparo_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 10
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ae5cb4933294444e8d81c23080cbe84
-      internalID: 1631896913119005121
+      spriteID: ac6632dc96b1ea143a6f50b7508cdaa8
+      internalID: 8537052955805077317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_1
+      name: RunDisparo_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 9
-        width: 14
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 45
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b45c94d901d6b14b890d985053b504a
-      internalID: 2872957516822814603
+      spriteID: a31c1d199ba0b764ea1a68d53b4a504a
+      internalID: -2245957948253176603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_2
+      name: RunDisparo_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 9
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 90
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f7e6113092c91e4bbb9994b426ce135
-      internalID: -1775037746706361952
+      spriteID: 71e83d6745d0ba346ae970f6197bdd9d
+      internalID: -8946593017098953516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_3
+      name: RunDisparo_3
       rect:
         serializedVersion: 2
-        x: 142
-        y: 10
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 135
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d77dba27be984ef4da3bd52f8f31c88b
-      internalID: 2955383959505573928
+      spriteID: 2fcd8e5c58d201a4083bfb550c304dfc
+      internalID: -413958955186774002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_4
+      name: RunDisparo_4
       rect:
         serializedVersion: 2
-        x: 187
-        y: 11
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 180
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b21ee2f2f6af70e45a75c22108410dec
-      internalID: -5793129787672731277
+      spriteID: b84bbda47b1dff54bb07919a1783a977
+      internalID: 3317990782107554313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_5
+      name: RunDisparo_5
       rect:
         serializedVersion: 2
-        x: 232
-        y: 11
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 225
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe424d8f4ceb4d6498256fd9a7ed24ad
-      internalID: -18232553659377128
+      spriteID: e80f7dcb93986484d8190a6e54951568
+      internalID: 796714704204900274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_6
+      name: RunDisparo_6
       rect:
         serializedVersion: 2
-        x: 277
-        y: 10
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 270
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb16a1fb87807b439982526f211e017
-      internalID: -4985344758252964456
+      spriteID: 51b0461aaa21cd3478052da63a0ee7fb
+      internalID: 6238662589587071443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_7
+      name: RunDisparo_7
       rect:
         serializedVersion: 2
-        x: 322
-        y: 9
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 315
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c870eb53b8b1174cb9b9331118f92b6
-      internalID: -545154960156949481
+      spriteID: 1be1ee132249bfa41bbe8152bd4b5070
+      internalID: -4360897867446664658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_8
+      name: RunDisparo_8
       rect:
         serializedVersion: 2
-        x: 367
-        y: 9
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 360
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bae06de02bba89747adeeac549b64ab5
-      internalID: -3227049900815220291
+      spriteID: 50d2ab323b5e4f448b4837bd27930c94
+      internalID: 1403388920442537498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_9
+      name: RunDisparo_9
       rect:
         serializedVersion: 2
-        x: 412
-        y: 10
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 405
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eff4042bc7d7f01479c4f60e7028416d
-      internalID: -3212703672796577451
+      spriteID: 879387e0d9e11b84382257503173c3ea
+      internalID: 5651999898909514568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_10
+      name: RunDisparo_10
       rect:
         serializedVersion: 2
-        x: 457
-        y: 11
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 450
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf72a1d7d8dc08e40a1b270e5f46433d
-      internalID: -951938898087290902
+      spriteID: 6619c66856a8ed240ac722d530b5d677
+      internalID: 1008770113165452541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunDispCuerpo_11
+      name: RunDisparo_11
       rect:
         serializedVersion: 2
-        x: 502
-        y: 11
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 495
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 081457b4be46e6b4b8b1262fc99c565f
-      internalID: 652288835966464269
+      spriteID: 8d89b4fcf85b844448023df2491ee66e
+      internalID: -5192352577724788142
       vertices: []
       indices: 
       edges: []

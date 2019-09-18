@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
             firedbullet.GetComponent<Bullet>().damage = shootDamage;
 
             bullets -= 1;
-            rb.velocity = new Vector2(0f, 0f);
+            //rb.velocity = new Vector2(0f, 0f);
             anim.SetTrigger("Shoot");
 
             hitDelay = HitDelay(0.1f);
@@ -238,7 +238,7 @@ public class Player : MonoBehaviour
         }
 
         //correr
-        if (xInput != 0 && !attackLock && onGround)
+        if (xInput != 0 && /*!attackLock &&*/ onGround)
         {
             anim.SetBool("Run", true);
             //Ajuste de la velocidad para que no "resbale los pies" al principio

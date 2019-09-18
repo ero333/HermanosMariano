@@ -35,6 +35,9 @@ TextureImporter:
   - first:
       213: -2164432077959172901
     second: RunDispBrazo_10
+  - first:
+      213: -40177030287374310
+    second: RunDispBrazo_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -80,7 +83,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -115,6 +118,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,18 +137,18 @@ TextureImporter:
       name: RunDispBrazo_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 14
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2405088347d89274d897d3a92ef01b2f
+      spriteID: 7487856b4693205429de04fedc33ce48
       internalID: 4490556410453286995
       vertices: []
       indices: 
@@ -143,18 +158,18 @@ TextureImporter:
       name: RunDispBrazo_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 8
-        width: 50
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 45
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9319ca01887d5747ae1f34dfda706fe
+      spriteID: b81289e4ee1df1a458f7a6539e7196d7
       internalID: -8098736791436372995
       vertices: []
       indices: 
@@ -164,18 +179,18 @@ TextureImporter:
       name: RunDispBrazo_2
       rect:
         serializedVersion: 2
-        x: 145
-        y: 9
-        width: 5
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 90
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3662b5b432dc348b38530b0eca5154
+      spriteID: 8adf8d44cf4313646a175bb27895c22f
       internalID: -5826016618195667898
       vertices: []
       indices: 
@@ -185,18 +200,18 @@ TextureImporter:
       name: RunDispBrazo_3
       rect:
         serializedVersion: 2
-        x: 191
-        y: 12
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 135
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1aac4207fc6d9143b72f69e1761551e
+      spriteID: b2316d07170bb6d40bca39cbded079b1
       internalID: 435583095667001390
       vertices: []
       indices: 
@@ -206,18 +221,18 @@ TextureImporter:
       name: RunDispBrazo_4
       rect:
         serializedVersion: 2
-        x: 237
-        y: 13
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 180
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60452a926d552b84a80fa0a5f2cb495a
+      spriteID: c0e10be9c11a75f48a9aad544997e061
       internalID: -5417671580762329953
       vertices: []
       indices: 
@@ -227,18 +242,18 @@ TextureImporter:
       name: RunDispBrazo_5
       rect:
         serializedVersion: 2
-        x: 283
-        y: 13
-        width: 7
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 225
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1ad289a0c118bd4e83deeb5be15c60d
+      spriteID: 0774989d98f517a47b42ad0805e5a398
       internalID: 8593520668991512603
       vertices: []
       indices: 
@@ -248,18 +263,18 @@ TextureImporter:
       name: RunDispBrazo_6
       rect:
         serializedVersion: 2
-        x: 328
-        y: 12
-        width: 7
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 270
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b128816ab0099a46899af0233b34696
+      spriteID: 0a0247e23403cad42a5fe41164bef517
       internalID: -2604329422137893452
       vertices: []
       indices: 
@@ -269,18 +284,18 @@ TextureImporter:
       name: RunDispBrazo_7
       rect:
         serializedVersion: 2
-        x: 372
-        y: 9
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 315
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cb10337222c3d645b49a161324e4177
+      spriteID: 12c4b18e03a53c546822c6c984bfb594
       internalID: -8824120564013094553
       vertices: []
       indices: 
@@ -290,18 +305,18 @@ TextureImporter:
       name: RunDispBrazo_8
       rect:
         serializedVersion: 2
-        x: 414
-        y: 8
-        width: 4
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 360
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6dc6802b55117246b99a4094bca251b
+      spriteID: 16dcd9ff4cb45c74b975b0d09f4a22a6
       internalID: -8193312938795489337
       vertices: []
       indices: 
@@ -311,18 +326,18 @@ TextureImporter:
       name: RunDispBrazo_9
       rect:
         serializedVersion: 2
-        x: 456
-        y: 11
-        width: 5
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 405
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77bed5f395c3e314f8ff6f07bca378f8
+      spriteID: 2eb0008ca8acbd144b17968b1e4ae382
       internalID: 7052648373358028790
       vertices: []
       indices: 
@@ -332,19 +347,40 @@ TextureImporter:
       name: RunDispBrazo_10
       rect:
         serializedVersion: 2
-        x: 500
-        y: 12
-        width: 5
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 450
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77eb75c34e352b14cbc2d4d47106fb59
+      spriteID: ea790c939189d834a91ae9cbe4e14647
       internalID: -2164432077959172901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunDispBrazo_11
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.2444444, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d07fb3e75359754182e849828797008
+      internalID: -40177030287374310
       vertices: []
       indices: 
       edges: []
