@@ -40,7 +40,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Perseguir")]
     public bool chase = true;    
-    public float speed = 10f;    
+    public float speed = 10f;
+    //public bool aumentarVelocidad;
+    //float timeToIncrease = 2.0f; //this is the time between "speedups"
+    //float currentTime;  //to keep track
+    //float speedIncrement = 0.5f; //how much to increase the speed by
     bool canChase = true;
     bool nirvana = false;
     bool canFlip = true;
@@ -102,6 +106,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
         bc2D = GetComponent<BoxCollider2D>();
+        //currentTime = Time.time + timeToIncrease;
 
         if (transform.rotation.y == 180)
         {
@@ -126,6 +131,16 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        //if (aumentarVelocidad)
+        //{
+           // if (Time.time >= currentTime)
+          //  {
+               // speed += speedIncrement;
+              //  currentTime = Time.time + timeToIncrease;
+          //  }
+       // }
+
+
         getPlayerDir();
         
         if (lives <= 0)
