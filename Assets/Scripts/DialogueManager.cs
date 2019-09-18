@@ -30,11 +30,9 @@ public class DialogueManager : MonoBehaviour
 
     public bool end = false;
 
-    void Start()
-    {
-        gm = FindObjectOfType<GameManager>();
-        ui = FindObjectOfType<UserInterface>();
 
+    private void Awake()
+    {
         if (Dialogues.Length == 0)
         {
             gameObject.SetActive(false);
@@ -42,12 +40,19 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Time.timeScale = 0;
+            ui.menuPausa.enabled = false;
             charA.sprite = charAstart;
             charB.sprite = charBstart;
         }
-    }
 
-   
+        
+    }
+    void Start()
+    {
+        gm = FindObjectOfType<GameManager>();
+        ui = FindObjectOfType<UserInterface>();        
+    }
+    
     void Update()
     {
         if(Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
@@ -58,6 +63,7 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1;
+            ui.menuPausa.enabled = true;
             gameObject.SetActive(false);
         }
 
@@ -86,11 +92,8 @@ public class DialogueManager : MonoBehaviour
             {
                 Time.timeScale = 1;
                 index = 0;
+                ui.menuPausa.enabled = true;
 
-                if (DialoguesEnd.Length > 0)
-                {
-                    end = true;
-                }
                 gameObject.SetActive(false);
             }
         }
@@ -117,10 +120,11 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
-                gameObject.SetActive(false);
                 end = true;
+                Debug.Log("Ended end dialogue");
+                Time.timeScale = 1;
                 ui.Victory(ui.gananciaMaxBK);
+                gameObject.SetActive(false);
             }
         }
     }

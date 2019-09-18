@@ -360,7 +360,7 @@ PrefabInstance:
     - target: {fileID: 3847035467375024504, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4619916426454228060, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -441,6 +441,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 322.28003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817534200739204532, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a27e5de92561b14b8605ec8d2a6f0ff, type: 3}

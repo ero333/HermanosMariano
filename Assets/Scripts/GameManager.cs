@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Level loaded");
+            Debug.Log("Level loaded again");
         }
     }
 
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void VictoryCondition()
     {
-        Debug.Log("Llego a la meta");
+        Debug.Log("Gano");
         victory = true;
         resetCount = 0;
     }

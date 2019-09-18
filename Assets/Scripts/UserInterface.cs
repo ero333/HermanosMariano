@@ -88,6 +88,7 @@ public class UserInterface : MonoBehaviour
 
     public void Victory(int gananciaMaxima)
     {
+        menuPausa.enabled = false;
         int impuesto = 0;
 
         Time.timeScale = 0f;
