@@ -86,6 +86,11 @@ public class DialogueManager : MonoBehaviour
             {
                 Time.timeScale = 1;
                 index = 0;
+
+                if (DialoguesEnd.Length > 0)
+                {
+                    end = true;
+                }
                 gameObject.SetActive(false);
             }
         }

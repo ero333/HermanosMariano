@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         }
 
         //disparar
-        if(Input.GetButtonDown("Fire2") && onGround && !attackLock && bullets > 0)
+        if(Input.GetButtonDown("Fire2") && !attackLock && bullets > 0)
         {
             GameObject firedbullet = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
             firedbullet.GetComponent<Bullet>().damage = shootDamage;
