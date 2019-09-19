@@ -143,12 +143,7 @@ public class Enemy : MonoBehaviour
 
         getPlayerDir();
         
-        if (lives <= 0)
-        {
-            anim.SetBool("Death", true);
-
-            StartCoroutine(DeathDelay(1f));
-        }
+        
 
         //si el jugador me salta por arriba, freno
         if (playerDirection.y == 1 && playerDirection.x == 0)
@@ -494,14 +489,29 @@ public class Enemy : MonoBehaviour
         trigger = true;
 
         lives -= damage;
-        anim.SetTrigger("GetHit");
 
-        rb.AddForce(new Vector2(dir * 150, 200));
+        if (lives <= 0)
+        {
+            anim.SetBool("Death", true);
 
-        generalActionsDelay = ActionsDelay(hitStunTimer);
+            if (FindObjectsOfType<KillAll>() != null)
+            {
+                FindObjectOfType<KillAll>().toKill -= 1;
+            }
 
-        StopCoroutine(generalActionsDelay);
-        StartCoroutine(generalActionsDelay);
+            StartCoroutine(DeathDelay(1f));
+        }
+        else
+        {
+            anim.SetTrigger("GetHit");
+
+            rb.AddForce(new Vector2(dir * 150, 200));
+
+            generalActionsDelay = ActionsDelay(hitStunTimer);
+
+            StopCoroutine(generalActionsDelay);
+            StartCoroutine(generalActionsDelay);
+        }        
     }
 
     public void Stun(float timer)
