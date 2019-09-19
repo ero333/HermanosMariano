@@ -38,16 +38,22 @@ public class Enemy : MonoBehaviour
     public int lives;
     public float hitStunTimer = 1f;
 
-    [Header("Perseguir")]
+    [Header("Perseguir y correr")]
     public bool chase = true;    
-    public float speed = 10f;
+    public float speed = 10f;    
+    bool canChase = true;
+    bool nirvana = false;
+    bool canFlip = true;
+
+    public bool sprint = false;
+    public float sprintSpeed = 8f;
+    public float sprintDuration = 3f;
+    public float sprintDelay = 5f;
+    bool canSprint;
     //public bool aumentarVelocidad;
     //float timeToIncrease = 2.0f; //this is the time between "speedups"
     //float currentTime;  //to keep track
     //float speedIncrement = 0.5f; //how much to increase the speed by
-    bool canChase = true;
-    bool nirvana = false;
-    bool canFlip = true;
 
     [Header("Huir")]
     public bool flee = false;
@@ -77,7 +83,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator generalActionsDelay;
     IEnumerator ShootDelay;
-    
+    IEnumerator SprintDelay;    
 
     private void OnDrawGizmos()
     {
@@ -121,7 +127,9 @@ public class Enemy : MonoBehaviour
             //volteo del hitbox y trigger
             meleeHitBoxOffset.x *= -1;
             triggerOffset.x *= -1;
-        }        
+        }
+
+        SprintDelay = Sprint(sprintDelay, sprintDuration);
     }
 
     private void FixedUpdate()
@@ -221,7 +229,18 @@ public class Enemy : MonoBehaviour
                 {
                     //Debug.Log("Estoy persiguiendo");
                     nirvana = false;
-                    rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+
+                    if(sprint && canSprint)
+                    {
+                        rb.velocity = new Vector2(playerDirection.x * sprintSpeed, rb.velocity.y);
+
+                        StopCoroutine(SprintDelay);
+                        StartCoroutine(SprintDelay);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
+                    }                    
                 }                                
             }
             
@@ -427,6 +446,11 @@ public class Enemy : MonoBehaviour
             canChase = false;            
         }
 
+        if (sprint)
+        {
+            canSprint = false;
+        }
+
         if (meleeDamage > 0)
         {
             canAttack = false;
@@ -449,6 +473,11 @@ public class Enemy : MonoBehaviour
         if (chase)
         {
             canChase = true;
+        }
+
+        if (sprint)
+        {
+            canSprint = true;
         }
         
         if (meleeDamage > 0)
@@ -476,6 +505,11 @@ public class Enemy : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(delay);
         canShoot = true;
+    }
+
+    IEnumerator Sprint(float delay, float duration)
+    {
+        yield return new WaitForSeconds(delay);
     }
 
     IEnumerator DeathDelay (float delay)
