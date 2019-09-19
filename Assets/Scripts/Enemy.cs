@@ -233,7 +233,7 @@ public class Enemy : MonoBehaviour
 
                     if(sprint && canSprint)
                     {
-                        Debug.Log("corriendo");
+                        //Debug.Log("corriendo");
                         rb.velocity = new Vector2(playerDirection.x * sprintSpeed, rb.velocity.y);
 
                         if (!sprintOn)
@@ -242,12 +242,12 @@ public class Enemy : MonoBehaviour
                             SprintDelay = Sprint(sprintDelay, sprintDuration);
                             StopCoroutine(SprintDelay);
                             StartCoroutine(SprintDelay);
-                            Debug.Log("Llamo");
+                            //Debug.Log("Llamo");
                         }                        
                     }
                     else
                     {
-                        Debug.Log("caminando");
+                        //Debug.Log("caminando");
                         rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
                     }                    
                 }                                
