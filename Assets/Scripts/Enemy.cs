@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour
     public float sprintSpeed = 8f;
     public float sprintDuration = 3f;
     public float sprintDelay = 5f;
-    bool canSprint;
+    bool canSprint = true;
+    bool sprintOn = false;
     //public bool aumentarVelocidad;
     //float timeToIncrease = 2.0f; //this is the time between "speedups"
     //float currentTime;  //to keep track
@@ -81,6 +82,7 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     public GameObject spawnBullet;
 
+    //enumeradores
     IEnumerator generalActionsDelay;
     IEnumerator ShootDelay;
     IEnumerator SprintDelay;    
@@ -129,7 +131,6 @@ public class Enemy : MonoBehaviour
             triggerOffset.x *= -1;
         }
 
-        SprintDelay = Sprint(sprintDelay, sprintDuration);
     }
 
     private void FixedUpdate()
@@ -232,13 +233,21 @@ public class Enemy : MonoBehaviour
 
                     if(sprint && canSprint)
                     {
+                        Debug.Log("corriendo");
                         rb.velocity = new Vector2(playerDirection.x * sprintSpeed, rb.velocity.y);
 
-                        StopCoroutine(SprintDelay);
-                        StartCoroutine(SprintDelay);
+                        if (!sprintOn)
+                        {
+                            sprintOn = true;
+                            SprintDelay = Sprint(sprintDelay, sprintDuration);
+                            StopCoroutine(SprintDelay);
+                            StartCoroutine(SprintDelay);
+                            Debug.Log("Llamo");
+                        }                        
                     }
                     else
                     {
+                        Debug.Log("caminando");
                         rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
                     }                    
                 }                                
@@ -446,10 +455,10 @@ public class Enemy : MonoBehaviour
             canChase = false;            
         }
 
-        if (sprint)
-        {
-            canSprint = false;
-        }
+        //if (sprint)
+        //{
+        //    canSprint = false;
+        //}
 
         if (meleeDamage > 0)
         {
@@ -475,10 +484,10 @@ public class Enemy : MonoBehaviour
             canChase = true;
         }
 
-        if (sprint)
-        {
-            canSprint = true;
-        }
+        //if (sprint)
+        //{
+        //    canSprint = true;
+        //}
         
         if (meleeDamage > 0)
         {
@@ -509,7 +518,16 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Sprint(float delay, float duration)
     {
+        //canSprint = true;
+        sprintOn = true;
+        Debug.Log("0");
+        yield return new WaitForSeconds(duration);
+        canSprint = false;
+        Debug.Log("1");
         yield return new WaitForSeconds(delay);
+        canSprint = true;
+        sprintOn = false;
+        Debug.Log("2");
     }
 
     IEnumerator DeathDelay (float delay)
