@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Time.timeScale = 0;
-            ui.menuPausa.enabled = false;
+
             charA.sprite = charAstart;
             charB.sprite = charBstart;
         }
@@ -50,7 +50,11 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
-        ui = FindObjectOfType<UserInterface>();        
+        ui = FindObjectOfType<UserInterface>();
+        if(Dialogues.Length > 0)
+        {
+            ui.menuPausa.enabled = false;
+        }        
     }
     
     void Update()
