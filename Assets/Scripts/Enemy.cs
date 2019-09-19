@@ -312,8 +312,8 @@ public class Enemy : MonoBehaviour
             hit = true;
             if (canAttack)
             {      
-                StopCoroutine(generalActionsDelay);
                 generalActionsDelay = ActionsDelay(meleeDelay);
+                StopCoroutine(generalActionsDelay);
                 StartCoroutine(generalActionsDelay);
                 anim.SetTrigger("MeleeAttack");
                 
