@@ -308,8 +308,11 @@ public class Player : MonoBehaviour
                     dir = -1;
                 }
 
-                hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
-                Debug.Log("enemy Hit");
+                if(hitBox[i].GetComponent<Enemy>().lives > 0)
+                {
+                    hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
+                    Debug.Log("enemy Hit");
+                }                
             }
         }
 

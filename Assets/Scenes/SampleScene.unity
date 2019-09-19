@@ -1825,6 +1825,21 @@ PrefabInstance:
       propertyPath: minShootDis
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1939942560983783923, guid: e6251b0662acccc4091ebd75c08c92f8,
+        type: 3}
+      propertyPath: sprint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939942560983783923, guid: e6251b0662acccc4091ebd75c08c92f8,
+        type: 3}
+      propertyPath: flee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939942560983783923, guid: e6251b0662acccc4091ebd75c08c92f8,
+        type: 3}
+      propertyPath: shootDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6251b0662acccc4091ebd75c08c92f8, type: 3}
 --- !u!1001 &2303911445682998114
