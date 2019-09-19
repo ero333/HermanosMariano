@@ -291,7 +291,7 @@ public class Player : MonoBehaviour
         //Hitbox de cuchillo
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, EnemyLayer);
 
-        //evento de colision con enemigos
+        //evento de colision con el jugador
         if (hitBox.Length > 0 && hitInput)
         {
             hitInput = false;
@@ -308,11 +308,8 @@ public class Player : MonoBehaviour
                     dir = -1;
                 }
 
-                if(hitBox[i].GetComponent<Enemy>().lives > 0)
-                {
-                    hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
-                    Debug.Log("enemy Hit");
-                }                
+                hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
+                Debug.Log("enemy Hit");
             }
         }
 
