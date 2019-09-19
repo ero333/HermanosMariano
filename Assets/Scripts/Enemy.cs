@@ -368,10 +368,15 @@ public class Enemy : MonoBehaviour
         if ( trigger && ( (chase && canChase) || (flee && canFlee && fleeActive) ) && onGround && playerDirection.x != 0 && !nirvana)
         {
             anim.SetBool("Run", true);
+            if(sprint && canSprint)
+            {
+                anim.SetBool("Sprint", true);
+            }            
         }
         else
         {
             anim.SetBool("Run", false);
+            anim.SetBool("Sprint", false);
         }
 
         //volteos
