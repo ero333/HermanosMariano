@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     int index = 0;
 
+    [HideInInspector]
     public bool end = false;
 
 
