@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public Vector2 stompBoxOffset;
     public Vector2 stompBoxSize;
 
+    public bool transport;
 
     [Header("Ataque")]
     public LayerMask EnemyLayer;
