@@ -494,7 +494,7 @@ public class Enemy : MonoBehaviour
         {
             anim.SetBool("Death", true);
 
-            if (FindObjectsOfType<KillAll>() != null)
+            if (FindObjectOfType<KillAll>() != null)
             {
                 FindObjectOfType<KillAll>().toKill -= 1;
             }
