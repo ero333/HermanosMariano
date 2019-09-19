@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public Vector2 playerDirection;
     public bool onGround;
     //public bool onWall;
-    public bool fRight = true;
+    public bool fRight = true;    
 
     //Con esto sabe si se va a caer si continua caminando
     public bool onRightFloor;
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     public float hitStunTimer = 1f;
 
     [Header("Perseguir")]
-    public bool chase = true;
+    public bool chase = true;    
     public float speed = 10f;
     //public bool aumentarVelocidad;
     //float timeToIncrease = 2.0f; //this is the time between "speedups"
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     public Vector2 meleeHitBoxOffset;
     bool hit = false;
     bool hited = false;
-    bool canAttack = true;
+    bool canAttack = true;    
     public bool frameDamage = false;
 
     [Header("Disparar")]
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator generalActionsDelay;
     IEnumerator ShootDelay;
-
+    
 
     private void OnDrawGizmos()
     {
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour
             //volteo del hitbox y trigger
             meleeHitBoxOffset.x *= -1;
             triggerOffset.x *= -1;
-        }
+        }        
     }
 
     private void FixedUpdate()
@@ -142,13 +142,8 @@ public class Enemy : MonoBehaviour
 
 
         getPlayerDir();
-
-        if (lives <= 0)
-        {
-            anim.SetBool("Death", true);
-
-            StartCoroutine(DeathDelay(1f));
-        }
+        
+        
 
         //si el jugador me salta por arriba, freno
         if (playerDirection.y == 1 && playerDirection.x == 0)
@@ -167,7 +162,7 @@ public class Enemy : MonoBehaviour
             if(onGround && (!onLeftFloor || !onRightFloor))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
-
+              
                 //cuando huye, es invertido
                 if (flee && fleeActive && ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor)) )
                 {
@@ -205,7 +200,7 @@ public class Enemy : MonoBehaviour
 
                 fleeActive = true;
 
-                rb.velocity = new Vector2( - playerDirection.x * speedFlee, rb.velocity.y);
+                rb.velocity = new Vector2( - playerDirection.x * speedFlee, rb.velocity.y);               
 
                 nirvana = false;
             }
@@ -213,7 +208,7 @@ public class Enemy : MonoBehaviour
             {
                 fleeActive = false;
             }
-
+            
             //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
             if (chase && canChase && onGround && playerDirection.x != 0 && !fleeActive)
             {
@@ -227,9 +222,9 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("Estoy persiguiendo");
                     nirvana = false;
                     rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
-                }
+                }                                
             }
-
+            
             //disparar
             if (shootDamage > 0 && canShoot && canAttack && playerDistanceAbs.x <= minShootDis)
             {
@@ -262,7 +257,7 @@ public class Enemy : MonoBehaviour
                     triggerOffset.x *= -1;
                 }
 
-                anim.SetTrigger("Shoot");
+                anim.SetTrigger("Shoot");                
 
                 GameObject bulletInst = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
                 bulletInst.GetComponent<Bullet>().damage = shootDamage;
@@ -272,7 +267,7 @@ public class Enemy : MonoBehaviour
 
         SetAnim();
     }
-
+    
     //Sistema de deteccion de jugador
     void getPlayerDir()
     {
@@ -291,7 +286,7 @@ public class Enemy : MonoBehaviour
     {
         //Colisiones con el piso:
         onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
-
+        
         onRightFloor = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         onLeftFloor = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
@@ -299,27 +294,27 @@ public class Enemy : MonoBehaviour
         if (!trigger)
         {
             trigger = Physics2D.OverlapBox((Vector2)transform.position + triggerOffset, (Vector2)triggerSize, 0f, playerLayer);
-        }
+        }        
 
-        //Atacks
+        //Atacks        
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
-
-        //evento de colision con el jugador en la hitbox, golpear
+        
+        //evento de colision con el jugador en la hitbox, golpear        
         if (hitBox.Length > 0 && meleeDamage > 0)
         {
             //Debug.Log("Player Hit");
             hit = true;
             if (canAttack)
-            {
+            {      
                 generalActionsDelay = ActionsDelay(meleeDelay);
                 StopCoroutine(generalActionsDelay);
                 StartCoroutine(generalActionsDelay);
                 anim.SetTrigger("MeleeAttack");
-
+                
                 canAttack = false;
-            }
-
+            }               
+                               
         }
         else if (hitBox.Length == 0 && meleeDamage > 0)
         {
@@ -332,7 +327,7 @@ public class Enemy : MonoBehaviour
             player.TakeDamage(meleeDamage, playerDirection.x);
             hited = true;
         }
-
+                      
     }
 
     void SetAnim()
@@ -400,8 +395,8 @@ public class Enemy : MonoBehaviour
                         StartCoroutine(Flip);
                     }
                 }
-            }
-
+            }            
+            
         }
 
         IEnumerator DelayFlip()
@@ -429,7 +424,7 @@ public class Enemy : MonoBehaviour
     {
         if (chase)
         {
-            canChase = false;
+            canChase = false;            
         }
 
         if (meleeDamage > 0)
@@ -441,10 +436,10 @@ public class Enemy : MonoBehaviour
         //{
         //    canShoot = false;
         //}
-
+        
         if (flee)
         {
-            canFlee = false;
+            canFlee = false;            
         }
 
         canFlip = false;
@@ -455,7 +450,7 @@ public class Enemy : MonoBehaviour
         {
             canChase = true;
         }
-
+        
         if (meleeDamage > 0)
         {
             canAttack = true;
@@ -494,7 +489,6 @@ public class Enemy : MonoBehaviour
         trigger = true;
 
         lives -= damage;
-        anim.SetTrigger("GetHit");
 
         if (lives <= 0)
         {
@@ -513,10 +507,11 @@ public class Enemy : MonoBehaviour
 
             rb.AddForce(new Vector2(dir * 150, 200));
 
-        generalActionsDelay = ActionsDelay(hitStunTimer);
+            generalActionsDelay = ActionsDelay(hitStunTimer);
 
-        StopCoroutine(generalActionsDelay);
-        StartCoroutine(generalActionsDelay);
+            StopCoroutine(generalActionsDelay);
+            StartCoroutine(generalActionsDelay);
+        }        
     }
 
     public void Stun(float timer)
@@ -531,14 +526,14 @@ public class Enemy : MonoBehaviour
         }
 
         StopCoroutine(generalActionsDelay);
-        generalActionsDelay = ActionsDelay(timer);
+        generalActionsDelay = ActionsDelay(timer);        
         StartCoroutine(generalActionsDelay);
 
         if (shootDamage > 0)
         {
             canShoot = false;
             StopCoroutine(ShootDelay);
-            ShootDelay = ShootDelayCou(shootDelay);
+            ShootDelay = ShootDelayCou(shootDelay);            
             StartCoroutine(ShootDelay);
         }
     }
