@@ -589,8 +589,9 @@ public class Enemy : MonoBehaviour
         if (shootDamage > 0)
         {
             canShoot = false;
+            
+            ShootDelay = ShootDelayCou(shootDelay);
             StopCoroutine(ShootDelay);
-            ShootDelay = ShootDelayCou(shootDelay);            
             StartCoroutine(ShootDelay);
         }
     }

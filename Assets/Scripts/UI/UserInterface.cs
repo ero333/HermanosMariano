@@ -81,15 +81,14 @@ public class UserInterface : MonoBehaviour
     }
 
     public void BackToMap()
-    {
-        Time.timeScale = 1f;
+    {        
         gm.BackToMap();
     }
 
     public void Victory(int gananciaMaxima)
     {
         menuPausa.enabled = false;
-        int impuesto = 0;
+        int impuesto;
 
         Time.timeScale = 0f;
 
@@ -113,7 +112,7 @@ public class UserInterface : MonoBehaviour
             }
             else if (gm.money == gananciaMaxima)
             {
-                impuesto = ((gananciaMaxima * 5) / 100);
+                impuesto = ((gananciaMaxima * 2) / 100);
             }
             else
             {
@@ -123,7 +122,7 @@ public class UserInterface : MonoBehaviour
             impuestos.text = "" + impuesto;
             Debug.Log(impuesto);
             total.text = "" + (gm.money - impuesto);
-            GameManager.ahorros += gm.money - impuesto;
+            GameManager.ahorros += (gm.money - impuesto);
         }        
     }
     

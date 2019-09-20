@@ -113,6 +113,8 @@ public class GameManager : MonoBehaviour
     {
         energy = maxEnergy;
         lives = maxLives;
+        resetCount = 0;
+        Time.timeScale = 1f;
         SaveData();
         SceneManager.LoadScene("MapaZonas");        
     }

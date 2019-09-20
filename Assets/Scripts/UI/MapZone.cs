@@ -39,6 +39,7 @@ public class MapZone : MonoBehaviour
             if (i < GameManager.paidDeudas)
             {
                 Deudas[i].SetActive(false);
+                Deudas[i].GetComponentInParent<Button>().interactable = true;
             }
         }
     }
