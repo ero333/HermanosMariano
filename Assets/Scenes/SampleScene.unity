@@ -193,6 +193,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1731996306001711383, guid: 536da81cdf6fd7b4e89f42ec0e0c89b3,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536da81cdf6fd7b4e89f42ec0e0c89b3, type: 3}
 --- !u!1001 &324041084
@@ -694,6 +699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083234, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1686b26343a5b54e9538cadffdc1715, type: 3}
@@ -3067,7 +3077,7 @@ PrefabInstance:
     - target: {fileID: 1939942560983783926, guid: e6251b0662acccc4091ebd75c08c92f8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1939942560983783922, guid: e6251b0662acccc4091ebd75c08c92f8,
         type: 3}
@@ -3143,6 +3153,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shootDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939942560983783927, guid: e6251b0662acccc4091ebd75c08c92f8,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6251b0662acccc4091ebd75c08c92f8, type: 3}
@@ -3296,6 +3311,16 @@ PrefabInstance:
         type: 3}
       propertyPath: safeDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 841430885966872734, guid: e89513854133af94989e1b9ec4706e1b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.44444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 841430885966872734, guid: e89513854133af94989e1b9ec4706e1b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.8125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e89513854133af94989e1b9ec4706e1b, type: 3}
