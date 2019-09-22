@@ -145,13 +145,16 @@ public class Player : MonoBehaviour
         }
 
         //golpear
-        if (Input.GetButtonDown("Fire1") && onGround && !attackLock && meleeDamage > 0)
+        if (Input.GetButtonDown("Fire1") /*&& onGround*/ && !attackLock && meleeDamage > 0)
         {
             hitInput = true;
             anim.SetTrigger("MeleeInput");
             attackLock = true;
-            rb.velocity = new Vector2(0f, 0f);
-            rb.AddForce(new Vector2(xRaw * 30, 0f));
+            if (onGround)
+            {
+                rb.velocity = new Vector2(0f, 0f);
+                rb.AddForce(new Vector2(xRaw * 30, 0f));
+            }            
 
             /* IEnumerator */
             hitDelay = HitDelay(0.3f);
