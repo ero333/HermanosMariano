@@ -19,12 +19,6 @@ public class PlataformaMovil : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if (target != null)
@@ -36,6 +30,23 @@ public class PlataformaMovil : MonoBehaviour
         if (transform.position == target.position)
         {
             target.position = (target.position == start) ? end : start;
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            collision.transform.parent = transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.transform.parent = null;
         }
     }
 }
