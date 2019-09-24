@@ -10,13 +10,12 @@ public class PowerUpMasEnergia: MonoBehaviour
     }
 
     GameManager gm;
-    public int Vida;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            gm.lives += gm.maxLives;
+            gm.energy = 6;
             Destroy(gameObject);
         }
     }
