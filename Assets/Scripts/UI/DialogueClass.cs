@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class DialogueClass
 {
+    public Sprite background;
     public string Speaker;
 
     public enum PosibleCharacters { CharA, CharB };

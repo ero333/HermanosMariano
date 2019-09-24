@@ -21,10 +21,11 @@ public class DialogueManager : MonoBehaviour
     public DialogueClass[] DialoguesEnd;
 
     [Header("Referencias")]
-    public Text characterText;
+    public Text Speaker;
     public Text dialogueText;
     public Image charA;
     public Image charB;
+    Image background;
 
     int index = 0;
 
@@ -41,6 +42,8 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Time.timeScale = 0;
+
+            background = GetComponent<Image>();
 
             charA.sprite = charAstart;
             charB.sprite = charBstart;
@@ -76,8 +79,22 @@ public class DialogueManager : MonoBehaviour
         {
             if (index < Dialogues.Length)
             {
-                dialogueText.text = Dialogues[index].Dialogue;
+                if(Dialogues[index].background != null)
+                {
+                    background.sprite = Dialogues[index].background;
+                }                
+                
+                if(Dialogues[index].Speaker != "")
+                {
+                    Speaker.text = Dialogues[index].Speaker;
+                }
+                else
+                {
+                    Speaker.text = Dialogues[index - 2].Speaker;
+                }
 
+                dialogueText.text = Dialogues[index].Dialogue;
+                
                 if (Dialogues[index].character == DialogueClass.PosibleCharacters.CharA)
                 {
                     charA.sprite = Dialogues[index].CharArt;
@@ -106,6 +123,20 @@ public class DialogueManager : MonoBehaviour
         {
             if (index < DialoguesEnd.Length && DialoguesEnd.Length > 0)
             {
+                if (DialoguesEnd[index].background != null)
+                {
+                    background.sprite = DialoguesEnd[index].background;
+                }
+
+                if (DialoguesEnd[index].Speaker != "")
+                {
+                    Speaker.text = DialoguesEnd[index].Speaker;
+                }
+                else
+                {
+                    Speaker.text = DialoguesEnd[index - 2].Speaker;
+                }
+
                 dialogueText.text = DialoguesEnd[index].Dialogue;
 
                 if (DialoguesEnd[index].character == DialogueClass.PosibleCharacters.CharA)

@@ -53,7 +53,6 @@ public class UserInterface : MonoBehaviour
 
         RectTransform rt = EnergyBorder.GetComponent<RectTransform>();
 
-        Debug.Log(rt.sizeDelta);
         //rt.sizeDelta = new Vector2(rt.sizeDelta.x / 2, rt.sizeDelta.y );
         rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (rt.rect.size.x / 10f) * GameManager.maxEnergy);
 
