@@ -9,6 +9,7 @@ public class UserInterface : MonoBehaviour
     Player player;
 
     public Text LivesText;
+    public GameObject EnergyBorder;
     public Image[] EnergyBars;
     public Text MoneyText;
     //public Sprite EnergyComplete;
@@ -36,8 +37,8 @@ public class UserInterface : MonoBehaviour
     {
         gm = GameObject.FindObjectOfType<GameManager>();
         player = FindObjectOfType<Player>();
-        GameOverScreen.SetActive(false);
-
+        GameOverScreen.SetActive(false);        
+        
         for (int i = 0; i < EnergyBars.Length; i++)
         {
             if (i < GameManager.maxEnergy)
@@ -49,6 +50,12 @@ public class UserInterface : MonoBehaviour
                 EnergyBars[i].gameObject.SetActive(false);
             }
         }
+
+        RectTransform rt = EnergyBorder.GetComponent<RectTransform>();
+
+        Debug.Log(rt.sizeDelta);
+        //rt.sizeDelta = new Vector2(rt.sizeDelta.x / 2, rt.sizeDelta.y );
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (rt.rect.size.x / 10f) * GameManager.maxEnergy);
 
     }
 

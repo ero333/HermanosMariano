@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     int levelIndex;
 
-   [Header("Datos que se mantienen")]
+    [Header("Datos que se mantienen")]
     public static int maxEnergy = 6;
     public int maxLives = 4;
     public static int zoneProgress;
@@ -70,11 +70,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(energy > maxEnergy)
+        {
+            energy = maxEnergy;
+        }
+
         if (energy <= 0)
         {
             lives -= 1;
             Reset();
-        }        
+        }      
     }    
 
     public void Reset()
