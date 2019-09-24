@@ -445,7 +445,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -456,8 +456,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Dialogues.Array.data[0].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 07770e8751ae5e841b7d348b47f9f4e2,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: DialoguesEnd.Array.data[0].CharArt
@@ -466,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].Dialogue
-      value: "DALE PIBE, SAL\xCD"
+      value: "EN ALG\xDAN PENAL DE LA PROVINCIA DE BUENOS AIRES..."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -491,18 +490,18 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].Dialogue
-      value: "PERO, \xBFQU\xC9 PASA?"
+      value: "DALE PIBE, SAL\xCD"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675,
+      objectReference: {fileID: 21300000, guid: 07770e8751ae5e841b7d348b47f9f4e2,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].character
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -512,45 +511,45 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].Dialogue
-      value: TE VINIERON A BUSCAR, ANDA HASTA LA ENTRADA.
+      value: "PERO, \xBFQUE PASA?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: d6a6396bcd92a2540a8835be3c8a9eda,
+      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].Dialogue
-      value: Y CUIDATE, QUE SI TE HACEN ALGO LOS PRESOS NOSOTROS NO TE PODEMOS AYUDAR.
+      value: TE VINIERON A BUSCAR, ANDA HASTA LA ENTRADA.
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 229047caa8179714ba3b5fea58e6917a,
+      objectReference: {fileID: 21300000, guid: d6a6396bcd92a2540a8835be3c8a9eda,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Dialogue
-      value: DALE.
+      value: Y CUIDATE, QUE SI TE HACEN ALGO LOS PRESOS NOSOTROS NO TE PODEMOS AYUDAR.
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8,
+      objectReference: {fileID: 21300000, guid: 229047caa8179714ba3b5fea58e6917a,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].character
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
