@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpVida : MonoBehaviour
+public class PowerUpMasEnergia: MonoBehaviour
 {
     private void Start()
     {
@@ -16,7 +16,7 @@ public class PowerUpVida : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gm.lives += Vida;
+            gm.lives += gm.maxLives;
             Destroy(gameObject);
         }
     }
