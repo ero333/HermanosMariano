@@ -21,6 +21,7 @@ public class MapaBotonObligatorio : MonoBehaviour
             GameManager.ahorros -= deuda;
             gameObject.GetComponent<Button>().interactable = true;
             GameManager.paidDeudas += 1;
+            gm.SaveData();
             Deuda.SetActive(false);
         }
         else

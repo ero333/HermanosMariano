@@ -38,8 +38,8 @@ public class MapZone : MonoBehaviour
         {
             if (i < GameManager.paidDeudas)
             {
+                Deudas[i].transform.parent.GetComponent<Button>().interactable = true;
                 Deudas[i].SetActive(false);
-                Deudas[i].GetComponentInParent<Button>().interactable = true;
             }
         }
     }

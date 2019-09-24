@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetInt("CurrentZone", zoneProgress);
-        PlayerPrefs.SetInt("Deudas Pagadas", paidDeudas);
+        PlayerPrefs.SetInt("DeudasPagadas", paidDeudas);
         PlayerPrefs.SetInt("Ahorros", ahorros);
         PlayerPrefs.SetInt("MaxLives", maxLives);
         PlayerPrefs.SetInt("MaxEnergy", maxEnergy);

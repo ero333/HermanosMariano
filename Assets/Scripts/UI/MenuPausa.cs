@@ -45,7 +45,8 @@ public class MenuPausa : MonoBehaviour
     public void MenuPrincipal()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuInicio");
+        FindObjectOfType<GameManager>().SaveData();
+        SceneManager.LoadScene("MenuInicio");        
     }
     public void VolverAlMapa()
     {

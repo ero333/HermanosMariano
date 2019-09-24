@@ -79,6 +79,19 @@ public class UserInterface : MonoBehaviour
             if (i < gm.energy)
             {
                 EnergyBars[i].enabled = true;
+
+                if (gm.energy <= GameManager.maxEnergy / 4)
+                {
+                    EnergyBars[i].color = Color.red;
+                }
+                else if (gm.energy <= GameManager.maxEnergy / 2)
+                {
+                    EnergyBars[i].color = Color.yellow;
+                }
+                else
+                {
+                    EnergyBars[i].color = Color.green;
+                }
             }
             else
             {
