@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
    [Header("Datos que se mantienen")]
     public static int maxEnergy = 6;
-    public int maxLives = 3;
+    public int maxLives = 4;
     public static int zoneProgress;
     public static int paidDeudas = 0;
     public static int ahorros;
