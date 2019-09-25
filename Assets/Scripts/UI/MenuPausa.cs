@@ -53,6 +53,12 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MapaZonas");
     }
+
+    public void ReiniciarNivel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }   
 
 
