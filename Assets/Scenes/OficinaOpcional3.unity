@@ -42143,12 +42143,266 @@ PrefabInstance:
     - target: {fileID: 3374921998397041825, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -379.9997
+      value: -379.99976
       objectReference: {fileID: 0}
     - target: {fileID: 9108532883826291865, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -686.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[0].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[0].Dialogue
+      value: "JEFE, \xBFQUE PUEDO HACER POR USTED?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[0].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[1].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[1].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[1].Dialogue
+      value: MIRA MARIANO TENGO QUE INFORMARTE DE ALGO...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: charBstart
+      value: 
+      objectReference: {fileID: 21300000, guid: 50433535513a9dd4b8e5ecfe8aabd69a,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[1].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[2].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[2].Dialogue
+      value: "\xBFQUE PASA?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[2].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[3].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[3].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[3].Dialogue
+      value: "ESTA EMPRESA TIENE CADA VEZ M\xC1S GASTOS Y MENOS GANANCIAS, AS\xCD
+        QUE VA A HANER QUE HABER UN RECORTE DE PERSONAL."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[3].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[4].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[4].Dialogue
+      value: "\xBFOSEA QUE ME VA A ECHAR?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[5].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[5].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[5].Dialogue
+      value: "\xA1NO! TENGO UNA SOLUCION MAS REDITUABLE."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[5].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[6].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[6].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[6].Dialogue
+      value: "NECESITO QUE MATES A UN PAR DE \xD1OQUIS, ASI NO LES TENGO QUE PAGAR
+        LA INDEMNIZACION POR DESPIDO."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[6].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].Dialogue
+      value: "PERO SI LOS MATO VOY PRESO. \xA1OTRA VEZ!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[8].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[8].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[8].Dialogue
+      value: "TRANQUILO, LO HACEMOS PASAR POR ACCIDENTES LABORALES Y AC\xC1 NO PASO
+        NADA. TENGO COMPRADO AL JUEZ AS\xCD QUE EL CASO VA A FALLAR A MI FAVOR."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: charAstart
+      value: 
+      objectReference: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[4].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[9].Dialogue
+      value: "\xBFY YO QUE?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[9].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[9].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[10].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[10].Dialogue
+      value: "FUERON ACCIDENTES Y VOS NO TUVISTE NADA QUE VER, \xBFOK? AHORA ENTRA
+        Y HACE LO TUYO, ENTRE M\xC1S LOGRES MATAR, M\xC1S TE VOY A PAGAR."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[10].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[11].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[11].Dialogue
+      value: Y BUENO, SI ME PAGA...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[11].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[10].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[8].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+        type: 3}
+    - target: {fileID: 8796228062618323994, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a,
+        type: 3}
+    - target: {fileID: 8796228062618323994, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a27e5de92561b14b8605ec8d2a6f0ff, type: 3}
@@ -42874,12 +43128,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2264096
+      value: -1.3911147
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2264096
+      value: -1.3911147
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}
