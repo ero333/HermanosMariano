@@ -23,15 +23,24 @@ public class Collect : MonoBehaviour
 
         for (int i = 0; i < enemies.Length; i++)
         {
-            if (enemies[i].dropOnHit != null)
+            //Collectable colec = enemies[i].dropOnHit.GetComponent<Collectable>();
+
+            if(enemies[i].dropOnHit != null)
             {
-                toCollect += 1;
+                if (enemies[i].dropOnHit.GetComponent<Collectable>())
+                {
+                    toCollect += 1;
+                }
             }
 
-            if (enemies[i].dropOnDeath != null )
+            if (enemies[i].dropOnDeath != null)
             {
-                toCollect += 1;
+                if (enemies[i].dropOnDeath.GetComponent<Collectable>())
+                {
+                    toCollect += 1;
+                }
             }
+
         }
     }
 
