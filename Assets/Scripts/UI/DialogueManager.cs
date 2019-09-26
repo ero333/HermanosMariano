@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
                     background.sprite = Dialogues[index].background;
                 }                
                 
-                if(Dialogues[index].Speaker != "")
+                if(Dialogues[index].Speaker != null)
                 {
                     Speaker.text = Dialogues[index].Speaker;
                 }
