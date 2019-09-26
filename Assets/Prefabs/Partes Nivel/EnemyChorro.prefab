@@ -85,6 +85,8 @@ MonoBehaviour:
   fRight: 0
   onRightFloor: 0
   onLeftFloor: 0
+  dropOnHit: {fileID: 0}
+  dropOnDeath: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -104,6 +106,10 @@ MonoBehaviour:
   hitStunTimer: 1
   chase: 1
   speed: 5
+  sprint: 0
+  sprintSpeed: 8
+  sprintDuration: 3
+  sprintDelay: 5
   flee: 0
   speedFlee: 5
   safeDistance: 5
@@ -112,7 +118,7 @@ MonoBehaviour:
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
   frameDamage: 0
-  shootDamage: 1
+  shootDamage: 0
   shootDelay: 5
   minShootDis: 15
   bullet: {fileID: 8580512828927243988, guid: 62a01b7536d1aac47809ca4583965b5d, type: 3}

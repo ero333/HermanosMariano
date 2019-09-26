@@ -7,7 +7,7 @@ public class Collect : MonoBehaviour
     GameManager gm;
     UserInterface ui;
 
-    public int toCollect;
+    public int toCollect = 0;
 
     public int gananciaMaxima = 100;
     public bool Obligatorio = false;
@@ -17,7 +17,22 @@ public class Collect : MonoBehaviour
         gm = GameObject.FindObjectOfType<GameManager>();
         ui = GameObject.FindObjectOfType<UserInterface>();
 
-        toCollect = FindObjectsOfType<Collectable>().Length;
+        toCollect += FindObjectsOfType<Collectable>().Length;
+
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i].dropOnHit != null)
+            {
+                toCollect += 1;
+            }
+
+            if (enemies[i].dropOnDeath != null )
+            {
+                toCollect += 1;
+            }
+        }
     }
 
     void Update()
