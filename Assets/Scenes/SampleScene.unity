@@ -337,6 +337,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1935666491, guid: 7a27e5de92561b14b8605ec8d2a6f0ff, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a27e5de92561b14b8605ec8d2a6f0ff, type: 3}
 --- !u!20 &519420031 stripped
@@ -3181,6 +3185,12 @@ PrefabInstance:
       propertyPath: shootDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1939942560983783923, guid: e6251b0662acccc4091ebd75c08c92f8,
+        type: 3}
+      propertyPath: dropOnHit
+      value: 
+      objectReference: {fileID: 2303911444723398529, guid: 0fd3d2a159d1c9a408f96cbb2aac235c,
+        type: 3}
     - target: {fileID: 1939942560983783927, guid: e6251b0662acccc4091ebd75c08c92f8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

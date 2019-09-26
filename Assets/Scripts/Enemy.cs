@@ -21,6 +21,11 @@ public class Enemy : MonoBehaviour
     public bool onRightFloor;
     public bool onLeftFloor;
 
+    [Header("Drops")]
+    public GameObject dropOnHit;
+    public GameObject dropOnDeath;
+    bool droped = false;
+
     [Header("Detector de colisiones")]
     public LayerMask groundLayer;
     public LayerMask playerLayer;
@@ -568,7 +573,13 @@ public class Enemy : MonoBehaviour
 
             StopCoroutine(generalActionsDelay);
             StartCoroutine(generalActionsDelay);
-        }        
+        }
+        
+        if (dropOnHit != null && !droped)
+        {
+            droped = true;
+            Instantiate(dropOnHit, transform.position + new Vector3(0, 1.2f), Quaternion.identity);
+        }
     }
 
     public void Stun(float timer)
