@@ -76373,33 +76373,34 @@ PrefabInstance:
     - target: {fileID: 3374921998397041825, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -379.99976
+      value: -379.9997
       objectReference: {fileID: 0}
     - target: {fileID: 9108532883826291865, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -686.99994
+      value: -686.9999
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.size
-      value: 18
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].background
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 734e9f78a6cb9bb4b8cea5842a367e2e,
+        type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].Speaker
-      value: LEANDRO
+      value: EMPLEADO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: charBstart
       value: 
-      objectReference: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1,
+      objectReference: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76410,18 +76411,18 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].Dialogue
-      value: "BUENO MARIANO, AC\xC1 VAS A TRABAJAR DE AHORA EN M\xC1S."
+      value: VENI MARIANO, TENGO UNA TAREA PARA VOS.
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: ddfd53ebea9aa3541986b3af04dde6c2,
+      objectReference: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].Dialogue
-      value: "\xBFPOR CU\xC1NTO TIEMPO?"
+      value: "\xBFQU\xC9 PASA?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76437,39 +76438,38 @@ PrefabInstance:
         type: 3}
       propertyPath: Dialogues.Array.data[1].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675,
+      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].Dialogue
-      value: "Y, M\xCDNIMO HASTA QUE SALDES TU DEUDA O HASTA QUE TE CANSES Y MATES
-        A TODOS COMO EN TU \xDALTIMO TRABAJO. "
+      value: TENES QUE LLEVARLE ESTAS MEDIALUNAS AL JEFE
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].Speaker
-      value: LEANDRO
+      value: EMPLEADO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc,
+      objectReference: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].Speaker
-      value: LEANDRO
+      value: MARIANO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Dialogue
-      value: LO QUE SEA QUE PASE PRIMERO.
+      value: NO, TENES CARA DE TUMBERO. AH, Y OTRA COSA.
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76480,66 +76480,67 @@ PrefabInstance:
         type: 3}
       propertyPath: Dialogues.Array.data[4].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: e1761c6d50a3965469de3c057151dfc8,
+      objectReference: {fileID: 21300000, guid: b970496369d170142aa8cd3cc48497cd,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].Speaker
-      value: LEANDRO
+      value: MARIANO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].Dialogue
-      value: LO QUE SEA QUE PASE PRIMERO.
+      value: "\xBFQUE?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: e1761c6d50a3965469de3c057151dfc8,
+      objectReference: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].character
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].Speaker
-      value: MARIANO
+      value: EMPLEADO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].Dialogue
-      value: '...'
+      value: "LOS DEM\xC1S EMPLEADOS DE LA EMPRESA SE ENTERARON QUE TE METIERON DE
+        ARRIBA PORQUE TU HERMANO CONOCE AL JEFE Y NO SE LO TOMARON BIEN. CUIDADO CON
+        ELLOS."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8,
+      objectReference: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[7].Speaker
-      value: LEANDRO
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[7].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[7].Dialogue
-      value: TE DEJO CON TU JEFE.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[7].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].character
@@ -76553,66 +76554,64 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].Dialogue
-      value: LO QUE SEA QUE PASE PRIMERO.
+      value: "\xBFQUE TENGO, CARA DE DELIVERY?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: e1761c6d50a3965469de3c057151dfc8,
+      objectReference: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Speaker
-      value: LEANDRO
+      value: EMPLEADO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[8].Speaker
-      value: JEFE
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[8].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[8].Dialogue
-      value: "BIEN, AS\xCD QUE VOS SOS MARIANO \xBFEH? "
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[8].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: ecd71fe9a16f6894bafd5e1fed0239ba,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[9].Speaker
-      value: JEFE
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[9].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[9].Dialogue
-      value: "MAS TE VALE QUE TE ROMPAS EL CULO TRABAJANDO, \xBFME O\xCDSTE? "
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[9].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[10].Speaker
@@ -77538,7 +77537,7 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4032317
+      value: -1.278755
       objectReference: {fileID: 0}
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
@@ -77548,7 +77547,7 @@ PrefabInstance:
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4032317
+      value: -1.278755
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
