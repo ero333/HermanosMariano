@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour
     public Image charA;
     public Image charB;
     Image background;
+    public Text SpaceoZ;
+    public Text ESC;
 
     int index = 0;
 

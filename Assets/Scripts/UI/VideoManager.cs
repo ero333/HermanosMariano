@@ -13,6 +13,7 @@ public class VideoManager : MonoBehaviour
     public UserInterface ui;
     public DialogueManager dialog;
     Image back;
+    public Text SpaceoZ;
     
 
     private void Awake()
