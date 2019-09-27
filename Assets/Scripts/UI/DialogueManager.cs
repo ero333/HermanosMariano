@@ -111,6 +111,17 @@ public class DialogueManager : MonoBehaviour
 
                     charA.color = new Color(1, 1, 1, 0.5f);
                 }
+
+                if (charA.sprite == null)
+                {
+                    charA.color = new Color(1, 1, 1, 0f);
+                }
+
+                if(charB.sprite == null)
+                {
+                    charB.color = new Color(1, 1, 1, 0f);
+                }
+
             }
             else
             {
@@ -154,6 +165,16 @@ public class DialogueManager : MonoBehaviour
                     charB.color = new Color(1, 1, 1, 1f);
 
                     charA.color = new Color(1, 1, 1, 0.5f);
+                }
+
+                if (charA.sprite == null)
+                {
+                    charA.color = new Color(1, 1, 1, 0f);
+                }
+
+                if (charB.sprite == null)
+                {
+                    charB.color = new Color(1, 1, 1, 0f);
                 }
             }
             else
