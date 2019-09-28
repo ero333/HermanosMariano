@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public GameObject dropOnHit;
     public GameObject dropOnDeath;
     bool droped = false;
+    Vector2 safeGuard;
 
     [Header("Detector de colisiones")]
     public LayerMask groundLayer;
@@ -134,6 +135,14 @@ public class Enemy : MonoBehaviour
             //volteo del hitbox y trigger
             meleeHitBoxOffset.x *= -1;
             triggerOffset.x *= -1;
+        }
+
+        if(dropOnDeath != null || dropOnHit != null)
+        {
+            if(dropOnDeath.GetComponent<Collectable>() || dropOnHit.GetComponent<Collectable>())
+            {
+                safeGuard = transform.position;
+            }
         }
 
     }
@@ -453,6 +462,21 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fall")
         {
+            if (dropOnDeath != null || dropOnHit != null && !droped)
+            {
+                if (dropOnDeath.GetComponent<Collectable>() )
+                {
+                    Instantiate(dropOnDeath, safeGuard, Quaternion.identity);
+                }
+
+                if (dropOnHit.GetComponent<Collectable>())
+                {
+                    Instantiate(dropOnHit, safeGuard, Quaternion.identity);
+                }
+
+                droped = true;
+            }
+
             TakeDamage(1000, 0);
         }
     }
