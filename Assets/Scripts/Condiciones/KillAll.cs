@@ -9,9 +9,10 @@ public class KillAll : MonoBehaviour
 
     public int gananciaMaxima = 100;
 
-    public bool Obligatorio = false;
-
     public int toKill;
+
+    public bool Obligatorio = false;
+    public int zonaActual;    
 
     void Start()
     {
@@ -32,8 +33,7 @@ public class KillAll : MonoBehaviour
 
             if (Obligatorio)
             {
-                GameManager.zoneProgress += 1;
-                GameManager.maxEnergy += 1;
+                GameManager.instance.UnlockZone(zonaActual);
             }
 
             Destroy(gameObject);

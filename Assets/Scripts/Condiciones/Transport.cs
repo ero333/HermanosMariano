@@ -10,6 +10,7 @@ public class Transport : MonoBehaviour
     public int gananciaMaxima = 100;
 
     public bool Obligatorio = false;
+    public int zonaActual;
 
     public int toTransport;
 
@@ -41,8 +42,7 @@ public class Transport : MonoBehaviour
 
                 if (Obligatorio)
                 {
-                    GameManager.zoneProgress += 1;
-                    GameManager.maxEnergy += 1;
+                    GameManager.instance.UnlockZone(zonaActual);
                 }
 
                 Destroy(gameObject);
