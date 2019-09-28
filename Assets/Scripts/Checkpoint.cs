@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
             active = true;
             anim.SetTrigger("CheckpointColl");
 
-            gm.lastCheckpos = transform.position;
+            GameManager.instance.lastCheckpos = transform.position;
         }        
     }    
 }
