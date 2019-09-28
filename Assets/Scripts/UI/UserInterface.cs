@@ -120,16 +120,16 @@ public class UserInterface : MonoBehaviour
         else
         {
             VictoryScreen.SetActive(true);
-            ganancias.text = "" + gm.money;
+            ganancias.text = "" + GameManager.instance.money;
 
-            Debug.Log(gm.money);
+            Debug.Log(GameManager.instance.money);
 
 
-            if (gm.money > gananciaMaxima)
+            if (GameManager.instance.money > gananciaMaxima)
             {
-                impuesto = gm.money - gananciaMaxima;
+                impuesto = GameManager.instance.money - gananciaMaxima;
             }
-            else if (gm.money == gananciaMaxima)
+            else if (GameManager.instance.money == gananciaMaxima)
             {
                 impuesto = ((gananciaMaxima * 2) / 100);
             }
@@ -140,8 +140,8 @@ public class UserInterface : MonoBehaviour
 
             impuestos.text = "" + impuesto;
             Debug.Log(impuesto);
-            total.text = "" + (gm.money - impuesto);
-            GameManager.ahorros += (gm.money - impuesto);
+            total.text = "" + (GameManager.instance.money - impuesto);
+            GameManager.ahorros += (GameManager.instance.money - impuesto);
         }        
     }
     
