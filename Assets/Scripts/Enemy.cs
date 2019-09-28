@@ -598,8 +598,8 @@ public class Enemy : MonoBehaviour
             canAttack = false;
         }
 
+        generalActionsDelay = ActionsDelay(timer);
         StopCoroutine(generalActionsDelay);
-        generalActionsDelay = ActionsDelay(timer);        
         StartCoroutine(generalActionsDelay);
 
         if (shootDamage > 0)
