@@ -314,7 +314,7 @@ public class Player : MonoBehaviour
                 if(hitBox[i].GetComponent<Enemy>().lives > 0)
                 {
                     hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
-                    Debug.Log("enemy Hit");
+                    
                 }                
             }
         }
@@ -331,7 +331,7 @@ public class Player : MonoBehaviour
                 rb.velocity += Vector2.up * 6;
 
                 anim.SetTrigger("JumpInput");
-                Debug.Log("enemy stomp");
+                
             }
         }
     }

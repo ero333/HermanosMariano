@@ -62,8 +62,8 @@ public class UserInterface : MonoBehaviour
     void Update()
     {
         
-        LivesText.text = "" + gm.lives;
-        MoneyText.text = "" + gm.money;
+        LivesText.text = "" + GameManager.instance.lives;
+        MoneyText.text = "" + GameManager.instance.money;
         bullets.text = "" + player.bullets;
 
         if (gm.lives == 0)
@@ -75,15 +75,15 @@ public class UserInterface : MonoBehaviour
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {
-            if (i < gm.energy)
+            if (i < GameManager.instance.energy)
             {
                 EnergyBars[i].enabled = true;
 
-                if (gm.energy <= GameManager.maxEnergy / 4)
+                if (GameManager.instance.energy <= GameManager.maxEnergy / 4)
                 {
                     EnergyBars[i].color = Color.red;
                 }
-                else if (gm.energy <= GameManager.maxEnergy / 2)
+                else if (GameManager.instance.energy <= GameManager.maxEnergy / 2)
                 {
                     EnergyBars[i].color = Color.yellow;
                 }
@@ -101,7 +101,7 @@ public class UserInterface : MonoBehaviour
 
     public void BackToMap()
     {        
-        gm.BackToMap();
+        GameManager.instance.BackToMap();
     }
 
     public void Victory(int gananciaMaxima)

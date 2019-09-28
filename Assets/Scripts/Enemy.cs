@@ -530,14 +530,14 @@ public class Enemy : MonoBehaviour
     {
         //canSprint = true;
         sprintOn = true;
-        Debug.Log("0");
+        
         yield return new WaitForSeconds(duration);
         canSprint = false;
-        Debug.Log("1");
+        
         yield return new WaitForSeconds(delay);
         canSprint = true;
         sprintOn = false;
-        Debug.Log("2");
+        
     }
 
     IEnumerator DeathDelay (float delay)
