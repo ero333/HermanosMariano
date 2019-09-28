@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
     {
         if (!inven)
         {
-            gm.energy -= damage;
+            GameManager.instance.energy -= damage;
             anim.SetTrigger("TookDamage");
             rb.velocity = new Vector2(0f, 0f);
             rb.AddForce(new Vector2(dir * 150, 100f));

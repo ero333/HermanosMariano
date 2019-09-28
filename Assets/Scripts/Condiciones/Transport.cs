@@ -36,7 +36,7 @@ public class Transport : MonoBehaviour
 
             if (toTransport <= 0)
             {
-                gm.VictoryCondition();
+                GameManager.instance.VictoryCondition();
                 ui.Victory(gananciaMaxima);
 
                 if (Obligatorio)

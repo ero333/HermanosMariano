@@ -542,8 +542,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DeathDelay (float delay)
     {
-        if(dropOnDeath != null)
+        if(dropOnDeath != null && !droped)
         {
+            droped = true;
             Instantiate(dropOnDeath, transform.position, Quaternion.identity);
         }
 

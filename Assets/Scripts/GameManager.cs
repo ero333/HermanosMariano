@@ -51,9 +51,7 @@ public class GameManager : MonoBehaviour
         if (resetCount == 0)
         {
             Debug.Log("Level loaded for the first time");
-
             
-
             victory = false;
             lives = maxLives;
             energy = maxEnergy;
@@ -96,8 +94,8 @@ public class GameManager : MonoBehaviour
         {
             resetCount += 1;
             //SceneManager.LoadScene(levelIndex);
-            //Player player = GameObject.FindObjectOfType<Player>();
-            //player.transform.position = lastCheckpos;
+            Player player = GameObject.FindObjectOfType<Player>();
+            player.transform.position = lastCheckpos;
         }
         energy = maxEnergy;
     }

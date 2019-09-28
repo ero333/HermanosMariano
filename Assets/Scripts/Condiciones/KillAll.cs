@@ -25,7 +25,7 @@ public class KillAll : MonoBehaviour
     {
         if (toKill <= 0)
         {
-            gm.VictoryCondition();
+            GameManager.instance.VictoryCondition();
             ui.Victory(gananciaMaxima);
 
             toKill = 100;
