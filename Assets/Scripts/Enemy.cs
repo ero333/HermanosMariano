@@ -453,7 +453,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fall")
         {
-            Destroy(gameObject);
+            TakeDamage(1000, 0);
         }
     }
 
