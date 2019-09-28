@@ -10,6 +10,7 @@ public class LlegarMeta : MonoBehaviour
     public int gananciaMaxima = 100;
 
     public bool Obligatorio = false;
+    public int zonaActual;
 
     private void Start()
     {
@@ -26,8 +27,7 @@ public class LlegarMeta : MonoBehaviour
 
             if (Obligatorio)
             {
-                GameManager.zoneProgress += 1;
-                GameManager.maxEnergy += 1;
+                GameManager.instance.UnlockZone(zonaActual);
             }
         }        
     }

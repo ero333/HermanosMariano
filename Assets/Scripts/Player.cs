@@ -210,8 +210,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Fall")
         {
             Debug.Log("Death");
-            gm.lives -= 1;
-            gm.Reset();
+            GameManager.instance.lives -= 1;
+            GameManager.instance.Reset();
         }
     }
 
@@ -301,8 +301,10 @@ public class Player : MonoBehaviour
             //do damage
             for (int i = 0; i < hitBox.Length; i++)
             {
+                Enemy enemy = hitBox[i].GetComponent<Enemy>();
+
                 float dir;
-                if (transform.position.x < hitBox[i].transform.position.x)
+                if (transform.position.x < enemy.transform.position.x)
                 {
                     dir = 1;
                 }
@@ -311,10 +313,9 @@ public class Player : MonoBehaviour
                     dir = -1;
                 }
 
-                if(hitBox[i].GetComponent<Enemy>().lives > 0)
+                if(enemy.lives > 0)
                 {
-                    hitBox[i].GetComponent<Enemy>().TakeDamage(meleeDamage, dir);
-                    
+                    enemy.TakeDamage(meleeDamage, dir);                    
                 }                
             }
         }

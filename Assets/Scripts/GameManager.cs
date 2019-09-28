@@ -136,4 +136,13 @@ public class GameManager : MonoBehaviour
         victory = true;
         resetCount = 0;
     }
+
+    public void UnlockZone (int currentZone)
+    {
+        if(currentZone == zoneProgress)
+        {
+            zoneProgress++;
+            maxEnergy++;
+        }
+    }
 }
