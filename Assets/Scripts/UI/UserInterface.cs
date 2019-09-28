@@ -62,8 +62,8 @@ public class UserInterface : MonoBehaviour
     void Update()
     {
         
-        LivesText.text = "" + gm.lives;
-        MoneyText.text = "" + gm.money;
+        LivesText.text = "" + GameManager.instance.lives;
+        MoneyText.text = "" + GameManager.instance.money;
         bullets.text = "" + player.bullets;
 
         if (gm.lives == 0)
@@ -75,15 +75,15 @@ public class UserInterface : MonoBehaviour
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {
-            if (i < gm.energy)
+            if (i < GameManager.instance.energy)
             {
                 EnergyBars[i].enabled = true;
 
-                if (gm.energy <= GameManager.maxEnergy / 4)
+                if (GameManager.instance.energy <= GameManager.maxEnergy / 4)
                 {
                     EnergyBars[i].color = Color.red;
                 }
-                else if (gm.energy <= GameManager.maxEnergy / 2)
+                else if (GameManager.instance.energy <= GameManager.maxEnergy / 2)
                 {
                     EnergyBars[i].color = Color.yellow;
                 }
@@ -101,7 +101,7 @@ public class UserInterface : MonoBehaviour
 
     public void BackToMap()
     {        
-        gm.BackToMap();
+        GameManager.instance.BackToMap();
     }
 
     public void Victory(int gananciaMaxima)
@@ -120,16 +120,16 @@ public class UserInterface : MonoBehaviour
         else
         {
             VictoryScreen.SetActive(true);
-            ganancias.text = "" + gm.money;
+            ganancias.text = "" + GameManager.instance.money;
 
-            Debug.Log(gm.money);
+            Debug.Log(GameManager.instance.money);
 
 
-            if (gm.money > gananciaMaxima)
+            if (GameManager.instance.money > gananciaMaxima)
             {
-                impuesto = gm.money - gananciaMaxima;
+                impuesto = GameManager.instance.money - gananciaMaxima;
             }
-            else if (gm.money == gananciaMaxima)
+            else if (GameManager.instance.money == gananciaMaxima)
             {
                 impuesto = ((gananciaMaxima * 2) / 100);
             }
@@ -140,8 +140,8 @@ public class UserInterface : MonoBehaviour
 
             impuestos.text = "" + impuesto;
             Debug.Log(impuesto);
-            total.text = "" + (gm.money - impuesto);
-            GameManager.ahorros += (gm.money - impuesto);
+            total.text = "" + (GameManager.instance.money - impuesto);
+            GameManager.ahorros += (GameManager.instance.money - impuesto);
         }        
     }
     
