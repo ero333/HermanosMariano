@@ -45,18 +45,19 @@ public class MenuPausa : MonoBehaviour
     public void MenuPrincipal()
     {
         Time.timeScale = 1f;
-        FindObjectOfType<GameManager>().SaveData();
+        GameManager.instance.SaveData();
         SceneManager.LoadScene("MenuInicio");        
     }
     public void VolverAlMapa()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MapaZonas");
+        GameManager.instance.BackToMap();
     }
 
     public void ReiniciarNivel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.LevelReset();
     }
 
 }   

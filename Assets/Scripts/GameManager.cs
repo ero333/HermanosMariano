@@ -99,6 +99,12 @@ public class GameManager : MonoBehaviour
         }
         energy = maxEnergy;
     }
+
+    public void LevelReset()
+    {
+        resetCount = 0;
+        SceneManager.LoadScene(levelIndex);
+    }
     
     public void GainMoney(int gain)
     {
