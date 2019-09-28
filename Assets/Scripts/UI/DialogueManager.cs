@@ -74,7 +74,8 @@ public class DialogueManager : MonoBehaviour
         {
             Time.timeScale = 1;
             ui.menuPausa.enabled = true;
-            gameObject.SetActive(false);
+            index += 100;
+            //gameObject.SetActive(false);            
         }
 
         if (!gm.victory)

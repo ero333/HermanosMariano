@@ -52,5 +52,10 @@ public class MapZone : MonoBehaviour
     private void Update()
     {
         ahorrostexto.text = "" + GameManager.ahorros;
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameManager.ahorros += 10000;
+        }
     }
 }
