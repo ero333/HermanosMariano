@@ -88,11 +88,11 @@ public class Player : MonoBehaviour
 
         if (gm.resetCount == 0)
         {
-            gm.lastCheckpos = transform.position;
+            GameManager.instance.lastCheckpos = transform.position;
         }
         else if (gm.resetCount > 0) //ya no sirve, pero dejemoslo por las dudas
         {
-            transform.position = gm.lastCheckpos;
+            transform.position = GameManager.instance.lastCheckpos;
         }
     }
 

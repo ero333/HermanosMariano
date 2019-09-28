@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
             resetCount += 1;
             //SceneManager.LoadScene(levelIndex);
             Player player = GameObject.FindObjectOfType<Player>();
-            player.transform.position = lastCheckpos;
+            player.transform.position = instance.lastCheckpos;
         }
         energy = maxEnergy;
     }
