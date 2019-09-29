@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    GameManager gm;
     UserInterface ui;
 
     [Header("Start")]
@@ -55,7 +54,6 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
-        gm = FindObjectOfType<GameManager>();
         ui = FindObjectOfType<UserInterface>();
         if(Dialogues.Length > 0)
         {
@@ -78,7 +76,7 @@ public class DialogueManager : MonoBehaviour
             //gameObject.SetActive(false);            
         }
 
-        if (!gm.victory)
+        if (!GameManager.instance.victory)
         {
             if (index < Dialogues.Length)
             {
@@ -133,7 +131,7 @@ public class DialogueManager : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-        else if (gm.victory)
+        else if (GameManager.instance.victory)
         {
             if (index < DialoguesEnd.Length && DialoguesEnd.Length > 0)
             {

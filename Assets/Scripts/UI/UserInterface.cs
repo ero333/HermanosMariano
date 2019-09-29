@@ -110,12 +110,15 @@ public class UserInterface : MonoBehaviour
         int impuesto;
 
         Time.timeScale = 0f;
+        GameManager.instance.VictoryCondition();
 
         if(dialogueManager.DialoguesEnd.Length > 0 && !dialogueManager.end)
         {
             gananciaMaxBK = gananciaMaxima;
 
             dialogueManager.gameObject.SetActive(true);
+
+            return;
         }
         else
         {

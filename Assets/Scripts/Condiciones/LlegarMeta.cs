@@ -29,6 +29,8 @@ public class LlegarMeta : MonoBehaviour
             {
                 GameManager.instance.UnlockZone(zonaActual);
             }
+
+            gameObject.SetActive(false);
         }        
     }
 }

@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         GameManager.ahorros = 0;
-        gm.maxLives = newMaxLives;
+        GameManager.instance.maxLives = newMaxLives;
         GameManager.maxEnergy = newMaxEnergy;
         GameManager.zoneProgress = 0;
         GameManager.paidDeudas = 0;
@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
             GameManager.zoneProgress = PlayerPrefs.GetInt("CurrentZone");
             GameManager.paidDeudas = PlayerPrefs.GetInt("DeudasPagadas");
             GameManager.ahorros = PlayerPrefs.GetInt("Ahorros");
-            gm.maxLives = PlayerPrefs.GetInt("MaxLives");
+            GameManager.instance.maxLives = PlayerPrefs.GetInt("MaxLives");
             GameManager.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
 
             SceneManager.LoadScene("MapaZonas");
