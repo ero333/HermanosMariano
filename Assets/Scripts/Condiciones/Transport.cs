@@ -33,6 +33,7 @@ public class Transport : MonoBehaviour
             {
                 toTransport -= 1;
                 player.transport = false;
+                collision.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
             }
 
             if (toTransport <= 0)
