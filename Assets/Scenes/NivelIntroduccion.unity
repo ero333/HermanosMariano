@@ -508,7 +508,7 @@ PrefabInstance:
         type: 3}
       propertyPath: DialoguesEnd.Array.data[0].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
+      objectReference: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -518,12 +518,12 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: DialoguesEnd.Array.data[0].Dialogue
-      value: "\xA1LEAN! \xBFQUE HACES AC\xC1? \xA1TANTO TIEMPO!"
+      value: "\xA1MARIANO! \xA1COMO ANDAS? EMBOLADO DE ESTAR ENCERRADO, \xBFNO?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: DialoguesEnd.Array.data[0].character
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -716,23 +716,23 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: DialoguesEnd.Array.data[0].Speaker
-      value: MARIANO
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
-        type: 3}
-      propertyPath: DialoguesEnd.Array.data[1].Speaker
       value: LEANDRO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
+      propertyPath: DialoguesEnd.Array.data[1].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
       propertyPath: DialoguesEnd.Array.data[1].Dialogue
-      value: "\xA1MARIANO! \xBFCOMO ANDAS? EMBOLADO DE ESTAR ENCERRADO, \xBFNO?"
+      value: "\xA1LEAN! \xBFQUE HACES ACA? \xA1TANTO TIEMPO!"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: DialoguesEnd.Array.data[1].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc,
+      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -824,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: DialoguesEnd.Array.data[1].character
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -1751,12 +1751,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.593034
+      value: -10.675061
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.593034
+      value: -10.675061
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}
