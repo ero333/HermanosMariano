@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
         lives = maxLives;
         resetCount = 0;
         Time.timeScale = 1f;
+        victory = false;
         SaveData();
         SceneManager.LoadScene("MapaZonas");        
     }
