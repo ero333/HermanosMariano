@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public Vector2 playerDirection;
     public bool onGround;
     //public bool onWall;
-    public bool fRight = true;    
+    public bool fRight = true;
 
     //Con esto sabe si se va a caer si continua caminando
     public bool onRightFloor;
@@ -45,8 +45,8 @@ public class Enemy : MonoBehaviour
     public float hitStunTimer = 1f;
 
     [Header("Perseguir y correr")]
-    public bool chase = true;    
-    public float speed = 10f;    
+    public bool chase = true;
+    public float speed = 10f;
     bool canChase = true;
     bool nirvana = false;
     bool canFlip = true;
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
     public Vector2 meleeHitBoxOffset;
     bool hit = false;
     bool hited = false;
-    bool canAttack = true;    
+    bool canAttack = true;
     public bool frameDamage = false;
 
     [Header("Disparar")]
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
     //enumeradores
     IEnumerator generalActionsDelay;
     IEnumerator ShootDelay;
-    IEnumerator SprintDelay;    
+    IEnumerator SprintDelay;
 
     private void OnDrawGizmos()
     {
@@ -107,11 +107,11 @@ public class Enemy : MonoBehaviour
         //Trigger size
         if (ShowRange)
         {
-            Gizmos.DrawWireCube((Vector2)transform.position + triggerOffset, (Vector2) triggerSize);
+            Gizmos.DrawWireCube((Vector2)transform.position + triggerOffset, (Vector2)triggerSize);
         }
 
         //Melee
-        Gizmos.DrawWireCube((Vector2)transform.position + meleeHitBoxOffset, (Vector2) meleeHitBoxSize);
+        Gizmos.DrawWireCube((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize);
     }
 
     void Start()
@@ -137,9 +137,17 @@ public class Enemy : MonoBehaviour
             triggerOffset.x *= -1;
         }
 
-        if(dropOnDeath != null || dropOnHit != null)
+        if (dropOnDeath != null)
         {
-            if(dropOnDeath.GetComponent<Collectable>() || dropOnHit.GetComponent<Collectable>())
+            if (dropOnDeath.GetComponent<Collectable>())
+            {
+                safeGuard = transform.position;
+            }
+        }
+
+        if (dropOnHit != null)
+        {
+            if (dropOnHit.GetComponent<Collectable>())
             {
                 safeGuard = transform.position;
             }
@@ -156,17 +164,17 @@ public class Enemy : MonoBehaviour
     {
         //if (aumentarVelocidad)
         //{
-           // if (Time.time >= currentTime)
-          //  {
-               // speed += speedIncrement;
-              //  currentTime = Time.time + timeToIncrease;
-          //  }
-       // }
+        // if (Time.time >= currentTime)
+        //  {
+        // speed += speedIncrement;
+        //  currentTime = Time.time + timeToIncrease;
+        //  }
+        // }
 
 
         getPlayerDir();
-        
-        
+
+
 
         //si el jugador me salta por arriba, freno
         if (playerDirection.y == 1 && playerDirection.x == 0)
@@ -182,12 +190,12 @@ public class Enemy : MonoBehaviour
         if (trigger && lives > 0)
         {
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
-            if(onGround && (!onLeftFloor || !onRightFloor))
+            if (onGround && (!onLeftFloor || !onRightFloor))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
-              
+
                 //cuando huye, es invertido
-                if (flee && fleeActive && ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor)) )
+                if (flee && fleeActive && ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor)))
                 {
                     //saltar
 
@@ -197,7 +205,7 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("No puedo huir hasta el vacio");
 
                 } //cuando lo persigue
-                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)) )
+                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)))
                 {
                     //saltar
 
@@ -223,7 +231,7 @@ public class Enemy : MonoBehaviour
 
                 fleeActive = true;
 
-                rb.velocity = new Vector2( - playerDirection.x * speedFlee, rb.velocity.y);               
+                rb.velocity = new Vector2(-playerDirection.x * speedFlee, rb.velocity.y);
 
                 nirvana = false;
             }
@@ -231,11 +239,11 @@ public class Enemy : MonoBehaviour
             {
                 fleeActive = false;
             }
-            
+
             //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
             if (chase && canChase && onGround && playerDirection.x != 0 && !fleeActive)
             {
-                if (flee && canFlee && (playerDistanceAbs.x > safeDistance && playerDistanceAbs.x < safeDistance + 1f) )
+                if (flee && canFlee && (playerDistanceAbs.x > safeDistance && playerDistanceAbs.x < safeDistance + 1f))
                 {
                     nirvana = true;
                     //Debug.Log("Me quedo tranqui");
@@ -245,7 +253,7 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("Estoy persiguiendo");
                     nirvana = false;
 
-                    if(sprint && canSprint)
+                    if (sprint && canSprint)
                     {
                         //Debug.Log("corriendo");
                         rb.velocity = new Vector2(playerDirection.x * sprintSpeed, rb.velocity.y);
@@ -257,16 +265,16 @@ public class Enemy : MonoBehaviour
                             StopCoroutine(SprintDelay);
                             StartCoroutine(SprintDelay);
                             //Debug.Log("Llamo");
-                        }                        
+                        }
                     }
                     else
                     {
                         //Debug.Log("caminando");
                         rb.velocity = new Vector2(playerDirection.x * speed, rb.velocity.y);
-                    }                    
-                }                                
+                    }
+                }
             }
-            
+
             //disparar
             if (shootDamage > 0 && canShoot && canAttack && playerDistanceAbs.x <= minShootDis)
             {
@@ -299,7 +307,7 @@ public class Enemy : MonoBehaviour
                     triggerOffset.x *= -1;
                 }
 
-                anim.SetTrigger("Shoot");                
+                anim.SetTrigger("Shoot");
 
                 GameObject bulletInst = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
                 bulletInst.GetComponent<Bullet>().damage = shootDamage;
@@ -309,7 +317,7 @@ public class Enemy : MonoBehaviour
 
         SetAnim();
     }
-    
+
     //Sistema de deteccion de jugador
     void getPlayerDir()
     {
@@ -319,7 +327,7 @@ public class Enemy : MonoBehaviour
         int xDir = Mathf.FloorToInt(Mathf.Clamp(xDis, -1, 1));
         int yDir = Mathf.FloorToInt(Mathf.Clamp(yDis, -1, 1));
 
-        playerDistance = new Vector2 (xDis, yDis);
+        playerDistance = new Vector2(xDis, yDis);
         playerDistanceAbs = new Vector2(Mathf.Abs(xDis), Mathf.Abs(yDis));
         playerDirection = new Vector2(xDir, yDir);
     }
@@ -328,7 +336,7 @@ public class Enemy : MonoBehaviour
     {
         //Colisiones con el piso:
         onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
-        
+
         onRightFloor = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         onLeftFloor = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
 
@@ -336,27 +344,27 @@ public class Enemy : MonoBehaviour
         if (!trigger)
         {
             trigger = Physics2D.OverlapBox((Vector2)transform.position + triggerOffset, (Vector2)triggerSize, 0f, playerLayer);
-        }        
+        }
 
         //Atacks        
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, playerLayer);
 
-        
+
         //evento de colision con el jugador en la hitbox, golpear        
         if (hitBox.Length > 0 && meleeDamage > 0)
         {
             //Debug.Log("Player Hit");
             hit = true;
             if (canAttack)
-            {      
+            {
                 generalActionsDelay = ActionsDelay(meleeDelay);
                 StopCoroutine(generalActionsDelay);
                 StartCoroutine(generalActionsDelay);
                 anim.SetTrigger("MeleeAttack");
-                
+
                 canAttack = false;
-            }               
-                               
+            }
+
         }
         else if (hitBox.Length == 0 && meleeDamage > 0)
         {
@@ -369,7 +377,7 @@ public class Enemy : MonoBehaviour
             player.TakeDamage(meleeDamage, playerDirection.x);
             hited = true;
         }
-                      
+
     }
 
     void SetAnim()
@@ -379,13 +387,13 @@ public class Enemy : MonoBehaviour
         anim.SetBool("OnGround", onGround);
 
         //caminar
-        if ( trigger && ( (chase && canChase) || (flee && canFlee && fleeActive) ) && onGround && playerDirection.x != 0 && !nirvana)
+        if (trigger && ((chase && canChase) || (flee && canFlee && fleeActive)) && onGround && playerDirection.x != 0 && !nirvana)
         {
             anim.SetBool("Run", true);
-            if(sprint && canSprint)
+            if (sprint && canSprint)
             {
                 anim.SetBool("Sprint", true);
-            }            
+            }
         }
         else
         {
@@ -442,8 +450,8 @@ public class Enemy : MonoBehaviour
                         StartCoroutine(Flip);
                     }
                 }
-            }            
-            
+            }
+
         }
 
         IEnumerator DelayFlip()
@@ -462,20 +470,23 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fall")
         {
-            if (dropOnDeath != null || dropOnHit != null && !droped)
+            if (dropOnDeath != null && !droped)
             {
-                if (dropOnDeath.GetComponent<Collectable>() )
+                if (dropOnDeath.GetComponent<Collectable>())
                 {
                     Instantiate(dropOnDeath, safeGuard, Quaternion.identity);
                 }
+            }
 
+            if (dropOnHit != null && !droped)
+            {
                 if (dropOnHit.GetComponent<Collectable>())
                 {
                     Instantiate(dropOnHit, safeGuard, Quaternion.identity);
                 }
-
-                droped = true;
             }
+
+            droped = true;
 
             TakeDamage(1000, 0);
         }
@@ -486,7 +497,7 @@ public class Enemy : MonoBehaviour
     {
         if (chase)
         {
-            canChase = false;            
+            canChase = false;
         }
 
         //if (sprint)
@@ -503,10 +514,10 @@ public class Enemy : MonoBehaviour
         //{
         //    canShoot = false;
         //}
-        
+
         if (flee)
         {
-            canFlee = false;            
+            canFlee = false;
         }
 
         canFlip = false;
@@ -522,7 +533,7 @@ public class Enemy : MonoBehaviour
         //{
         //    canSprint = true;
         //}
-        
+
         if (meleeDamage > 0)
         {
             canAttack = true;
@@ -554,19 +565,19 @@ public class Enemy : MonoBehaviour
     {
         //canSprint = true;
         sprintOn = true;
-        
+
         yield return new WaitForSeconds(duration);
         canSprint = false;
-        
+
         yield return new WaitForSeconds(delay);
         canSprint = true;
         sprintOn = false;
-        
+
     }
 
-    IEnumerator DeathDelay (float delay)
+    IEnumerator DeathDelay(float delay)
     {
-        if(dropOnDeath != null && !droped)
+        if (dropOnDeath != null && !droped)
         {
             droped = true;
             Instantiate(dropOnDeath, transform.position, Quaternion.identity);
@@ -604,7 +615,7 @@ public class Enemy : MonoBehaviour
             StopCoroutine(generalActionsDelay);
             StartCoroutine(generalActionsDelay);
         }
-        
+
         if (dropOnHit != null && !droped)
         {
             droped = true;
@@ -618,7 +629,7 @@ public class Enemy : MonoBehaviour
 
         //bc2D.size = new Vector2(0, 1.5f);
         //bc2D.offset = new Vector2(0, 0.5f);
-        if(meleeDamage > 0)
+        if (meleeDamage > 0)
         {
             canAttack = false;
         }
@@ -630,7 +641,7 @@ public class Enemy : MonoBehaviour
         if (shootDamage > 0)
         {
             canShoot = false;
-            
+
             ShootDelay = ShootDelayCou(shootDelay);
             StopCoroutine(ShootDelay);
             StartCoroutine(ShootDelay);
