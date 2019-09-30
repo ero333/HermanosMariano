@@ -40,15 +40,15 @@ public class UserInterface : MonoBehaviour
     {
         gm = GameManager.instance;
 
+        player = FindObjectOfType<Player>();
+        GameOverScreen.SetActive(false);
+
         if (FindObjectOfType<CountDown>().enabled)
         {
             Timer = FindObjectOfType<CountDown>().currentTime;
             TimerText.gameObject.SetActive(true);
         }
 
-        player = FindObjectOfType<Player>();
-        GameOverScreen.SetActive(false);        
-        
         for (int i = 0; i < EnergyBars.Length; i++)
         {
             if (i < GameManager.maxEnergy)

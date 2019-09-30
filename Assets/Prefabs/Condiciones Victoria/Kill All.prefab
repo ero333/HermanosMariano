@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9048358972322642272}
   - component: {fileID: 9048358972322642287}
+  - component: {fileID: 4910125507992461589}
   m_Layer: 0
   m_Name: Kill All
   m_TagString: Untagged
@@ -44,5 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gananciaMaxima: 100
-  Obligatorio: 0
   toKill: 0
+  Obligatorio: 0
+  zonaActual: 0
+--- !u!114 &4910125507992461589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9048358972322642286}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7449c639bcc5b194cbc93dc2dfca46d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 0
+  startingTime: 0
+  canStart: 0
