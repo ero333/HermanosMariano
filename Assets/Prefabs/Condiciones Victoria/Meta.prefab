@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770085280962180365}
   - component: {fileID: 3955815441016446307}
+  - component: {fileID: 2961364454968568032}
   - component: {fileID: 770085280962180361}
   - component: {fileID: 770085280962180366}
   - component: {fileID: 770085280962180367}
@@ -47,6 +48,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e73e2c1df8a44248b3b160f712d0329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gananciaMaxima: 100
+  Obligatorio: 0
+  zonaActual: 0
+--- !u!114 &2961364454968568032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770085280962180354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7449c639bcc5b194cbc93dc2dfca46d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 0
+  startingTime: 100
+  canStart: 0
 --- !u!212 &770085280962180361
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -8,31 +8,58 @@ public class CountDown : MonoBehaviour
     GameManager gm;
     UserInterface ui;
 
-    float currentTime = 0.0f;
+    //[HideInInspector]
+    public float currentTime = 0.0f;
+
     public float startingTime;
 
-    public Text countdownText;
+    public bool canStart = false;
+
+    //public Text countdownText;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = startingTime;
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = GameManager.instance;
         ui = FindObjectOfType<UserInterface>();
+
+        //if(FindObjectOfType<DialogueManager>().Dialogues.Length == 0)
+        //{
+        //    canStart = true;
+        //}
+
+        //ui.transform.GetChild(0).gameObject.SetActive(true);
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0");
-
-        if (currentTime <= 0)
+        if (canStart)
         {
-            currentTime = 0;
-            Time.timeScale = 0f;
-            ui.GameOverScreen.SetActive(true);
+
+            currentTime -= 1 * Time.deltaTime;
+            //countdownText.text = currentTime.ToString("0");
+
+            if (currentTime <= 0)
+            {
+                currentTime = 0;
+                Time.timeScale = 0f;
+
+                if (!gm.victory)
+                {
+                    ui.GameOverScreen.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+
+            }
+
         }
     }
 }

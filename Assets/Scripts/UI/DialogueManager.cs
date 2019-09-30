@@ -128,6 +128,13 @@ public class DialogueManager : MonoBehaviour
                 index = 0;
                 ui.menuPausa.enabled = true;
 
+                CountDown countdown = FindObjectOfType<CountDown>();
+
+                if (countdown.isActiveAndEnabled)
+                {
+                    countdown.canStart = true;
+                }
+
                 gameObject.SetActive(false);
             }
         }

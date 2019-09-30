@@ -8,10 +8,13 @@ public class UserInterface : MonoBehaviour
     GameManager gm;
     Player player;
 
+    float Timer;
+
     public Text LivesText;
     public GameObject EnergyBorder;
     public Image[] EnergyBars;
     public Text MoneyText;
+    public Text TimerText;
     //public Sprite EnergyComplete;
     //public Sprite EnergyEmpty;
 
@@ -35,7 +38,14 @@ public class UserInterface : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = GameManager.instance;
+
+        if (FindObjectOfType<CountDown>().enabled)
+        {
+            Timer = FindObjectOfType<CountDown>().currentTime;
+            TimerText.gameObject.SetActive(true);
+        }
+
         player = FindObjectOfType<Player>();
         GameOverScreen.SetActive(false);        
         
@@ -65,6 +75,8 @@ public class UserInterface : MonoBehaviour
         LivesText.text = "" + GameManager.instance.lives;
         MoneyText.text = "" + GameManager.instance.money;
         bullets.text = "" + player.bullets;
+
+        TimerText.text = "" + Timer;
 
         if (gm.lives == 0)
         {

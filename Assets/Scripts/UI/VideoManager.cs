@@ -45,7 +45,11 @@ public class VideoManager : MonoBehaviour
             videoPlayer.targetCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             videoPlayer.Play();
             Time.timeScale = 0f;
-        }                
+        }
+        else if (dialog.Dialogues.Length == 0)
+        {
+            FindObjectOfType<CountDown>().canStart = true;
+        }             
     }
 
     private void Update()

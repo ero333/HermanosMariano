@@ -2465,7 +2465,6 @@ GameObject:
   - component: {fileID: 4271781039972550984}
   - component: {fileID: 4271781039972550987}
   - component: {fileID: 85889844049752039}
-  - component: {fileID: 6496203276422353625}
   - component: {fileID: 4271781039972550985}
   - component: {fileID: 4271781039972550982}
   - component: {fileID: 4271781039972550983}
@@ -2533,6 +2532,7 @@ MonoBehaviour:
   - {fileID: 4271781040345055771}
   - {fileID: 4271781040478599142}
   MoneyText: {fileID: 3824354368681803912}
+  TimerText: {fileID: 4214421884961361519}
   GameOverScreen: {fileID: 4561329336221901182}
   VictoryScreen: {fileID: 57036445598976043}
   ganancias: {fileID: 5539110032239458578}
@@ -2556,20 +2556,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   juegoPausado: 0
   MenuPausaUI: {fileID: 6427881661031164477}
---- !u!114 &6496203276422353625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4271781039972550980}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7449c639bcc5b194cbc93dc2dfca46d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingTime: 10
-  countdownText: {fileID: 4214421884961361519}
 --- !u!223 &4271781039972550985
 Canvas:
   m_ObjectHideFlags: 0
@@ -4443,7 +4429,7 @@ GameObject:
   - component: {fileID: 1409880204530632026}
   - component: {fileID: 4214421884961361519}
   m_Layer: 5
-  m_Name: CountDownText
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
