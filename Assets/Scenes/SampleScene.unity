@@ -351,6 +351,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -686.9999
       objectReference: {fileID: 0}
+    - target: {fileID: 4095729052063936709, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 203950586814316218, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -385,11 +390,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095729052063936709, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496203276422353625, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -881,6 +881,21 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: fRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: patrol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: patrolSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083234, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}

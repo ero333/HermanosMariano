@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     public float hitStunTimer = 1f;
     public bool patrol;
     public float patrolSpeed;
+    bool canPatrol = true;
 
     [Header("Perseguir y correr")]
     public bool chase = true;
@@ -93,6 +94,7 @@ public class Enemy : MonoBehaviour
     IEnumerator generalActionsDelay;
     IEnumerator ShootDelay;
     IEnumerator SprintDelay;
+    IEnumerator Flip;
 
     private void OnDrawGizmos()
     {
@@ -126,6 +128,10 @@ public class Enemy : MonoBehaviour
         if (transform.rotation.y == 180)
         {
             fRight = false;
+
+            //volteo del hitbox y trigger
+            meleeHitBoxOffset.x *= -1;
+            triggerOffset.x *= -1;
         }
 
         //que comience volteado
@@ -186,6 +192,8 @@ public class Enemy : MonoBehaviour
         //Comportamientos
         if (trigger && lives > 0)
         {
+            patrol = false;
+
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
             if (onGround && (!onLeftFloor || !onRightFloor))
             {
@@ -311,16 +319,29 @@ public class Enemy : MonoBehaviour
             }
 
         }
-        else if (patrol)
+        else if (patrol && canPatrol)
         {
             if (onGround && (fRight && !onRightFloor) || (!fRight && !onLeftFloor))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
 
+                Flip = DelayFlip();
+                StopCoroutine(Flip);
+                StartCoroutine(Flip);
+
+                generalActionsDelay = ActionsDelay(0.4f);
+                StopCoroutine(generalActionsDelay);
+                StartCoroutine(generalActionsDelay);
             }
 
-
-
+            if (fRight)
+            {
+                rb.velocity = new Vector2(1 * patrolSpeed, rb.velocity.y);
+            }
+            else if (!fRight)
+            {
+                rb.velocity = new Vector2(-1 * patrolSpeed, rb.velocity.y);
+            }
         }
 
         SetAnim();
@@ -386,16 +407,18 @@ public class Enemy : MonoBehaviour
             hited = true;
         }
 
-    }
+    }    
 
     void SetAnim()
     {
-        IEnumerator Flip = DelayFlip();
+        Flip = DelayFlip();
 
         anim.SetBool("OnGround", onGround);
 
         //caminar
-        if (trigger && ((chase && canChase) || (flee && canFlee && fleeActive)) && onGround && playerDirection.x != 0 && !nirvana)
+        if ( ( (trigger && ( (chase && canChase) || (flee && canFlee && fleeActive) ) ) 
+            || (patrol && canPatrol) )
+            && onGround && playerDirection.x != 0 && !nirvana )
         {
             anim.SetBool("Run", true);
             if (sprint && canSprint)
@@ -417,12 +440,16 @@ public class Enemy : MonoBehaviour
                 //darle la espalda al jugador
                 if (playerDirection.x < 0 && !fRight)
                 {
-                    fRight = true;
+                    //fRight = true;
+
+                    StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
                 else if (playerDirection.x > 0 && fRight)
                 {
-                    fRight = false;
+                    //fRight = false;
+
+                    StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
             }
@@ -431,46 +458,37 @@ public class Enemy : MonoBehaviour
                 //voltear segun donde este el jugador
                 if (playerDirection.x > 0 && !fRight)
                 {
-                    fRight = true;
+                    //fRight = true;
 
+                    StopCoroutine(Flip);
                     StartCoroutine(Flip);
-
                 }
                 else if (playerDirection.x < 0 && fRight)
                 {
-                    fRight = false;
+                    //fRight = false;
 
+                    StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
                 else if (cornered)
                 {
                     if (playerDistance.x > 0.01 && !fRight)
                     {
-                        fRight = true;
+                        //fRight = true;
 
+                        StopCoroutine(Flip);
                         StartCoroutine(Flip);
-
                     }
                     else if (playerDistance.x < -0.01 && fRight)
                     {
-                        fRight = false;
+                        //fRight = false;
 
+                        StopCoroutine(Flip);
                         StartCoroutine(Flip);
                     }
                 }
             }
-
-        }
-
-        IEnumerator DelayFlip()
-        {
-            yield return new WaitForSeconds(0.2f);
-            transform.Rotate(0f, 180f, 0f);
-
-            //volteo del hitbox y trigger
-            meleeHitBoxOffset.x *= -1;
-            triggerOffset.x *= -1;
-        }
+        }        
     }
 
     //si choco con algo
@@ -498,6 +516,26 @@ public class Enemy : MonoBehaviour
 
             TakeDamage(1000, 0);
         }
+    }
+
+    IEnumerator DelayFlip()
+    {
+        if (fRight)
+        {
+            fRight = false;
+        }
+        else if (!fRight)
+        {
+            fRight = true;
+        }
+
+        yield return new WaitForSeconds(0.2f);        
+
+        transform.Rotate(0f, 180f, 0f);
+
+        //volteo del hitbox y trigger
+        meleeHitBoxOffset.x *= -1;
+        triggerOffset.x *= -1;
     }
 
     //frenar todas las acciones y comportamientos designados y resumirlos luego de un tiempo
@@ -530,6 +568,11 @@ public class Enemy : MonoBehaviour
 
         canFlip = false;
 
+        if (patrol)
+        {
+            canPatrol = false;
+        }
+
         yield return new WaitForSeconds(delay);
 
         if (chase)
@@ -560,6 +603,11 @@ public class Enemy : MonoBehaviour
 
         canFlip = true;
         //hit = false;
+
+        if (patrol)
+        {
+            canPatrol = true;
+        }
     }
 
     IEnumerator ShootDelayCou(float delay)
