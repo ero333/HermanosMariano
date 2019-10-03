@@ -19,7 +19,7 @@ public class MapZone : MonoBehaviour
 
         gm.SaveData();
 
-        for (int i = 0; i < Zonas.Length; i++)
+        for (int i = 1; i < Zonas.Length; i++)
         {
             Zonas[i].GetComponent<Selectable>().interactable = false;
 
@@ -28,11 +28,6 @@ public class MapZone : MonoBehaviour
                 Zonas[i].GetComponent<Selectable>().interactable = true;
             }
         }
-
-        //for (int i = 0; i < gm.zoneProgress; i++)
-        //{
-
-        //}
 
         for (int i = 0; i < Deudas.Length; i++)
         {

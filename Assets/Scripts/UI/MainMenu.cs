@@ -21,13 +21,13 @@ public class MainMenu : MonoBehaviour
         GameManager.ahorros = 0;
         GameManager.instance.maxLives = newMaxLives;
         GameManager.maxEnergy = newMaxEnergy;
-        GameManager.zoneProgress = 0;
+        GameManager.zoneProgress = 1;
         GameManager.paidDeudas = 0;
 
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("CurrentZone", 0);
-        PlayerPrefs.SetInt("DeudasPagadas", 0);
-        PlayerPrefs.SetInt("Ahorros", 0);
+        PlayerPrefs.SetInt("CurrentZone", GameManager.zoneProgress);
+        PlayerPrefs.SetInt("DeudasPagadas", GameManager.paidDeudas);
+        PlayerPrefs.SetInt("Ahorros", GameManager.ahorros);
         PlayerPrefs.SetInt("MaxLives", newMaxLives);
         PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);
 
