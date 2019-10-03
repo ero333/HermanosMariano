@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
     [Header("Vida")]
     public int lives;
     public float hitStunTimer = 1f;
+
+    [Header("Patrullar")]
     public bool patrol;
     public float patrolSpeed;
     bool canPatrol = true;
@@ -435,7 +437,7 @@ public class Enemy : MonoBehaviour
             && onGround && playerDirection.x != 0 && !nirvana )
         {
             anim.SetBool("Run", true);
-            if (sprint && canSprint)
+            if (sprint && canSprint && !patrol)
             {
                 anim.SetBool("Sprint", true);
             }
