@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public static int zoneProgress = 1;
     public static int paidDeudas = 0;
-    public static int seenDialogues = 0;
+    public static int seenDialogues = zoneProgress - 1;
 
     public static bool sound = true;
 

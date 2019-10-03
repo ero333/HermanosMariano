@@ -19,13 +19,18 @@ public class MapZone : MonoBehaviour
 
         gm.SaveData();
 
-        for (int i = 1; i < Zonas.Length; i++)
+        for (int i = 0; i < Zonas.Length; i++)
         {
             Zonas[i].GetComponent<Selectable>().interactable = false;
 
-            if (i <= GameManager.zoneProgress)
+            if (i <= GameManager.zoneProgress - 1)
             {
                 Zonas[i].GetComponent<Selectable>().interactable = true;
+            }
+
+            if (i <= GameManager.zoneProgress - 2)
+            {
+                Zonas[i].GetComponent<DialogueManagerMap>().seen = true;
             }
         }
 
@@ -36,7 +41,7 @@ public class MapZone : MonoBehaviour
                 Deudas[i].transform.parent.GetComponent<Button>().interactable = true;
                 Deudas[i].SetActive(false);
             }
-        }
+        }        
     }
 
     public void LoadLevel(string levelName)
