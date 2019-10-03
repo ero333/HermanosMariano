@@ -1554,15 +1554,51 @@ MonoBehaviour:
   charBstart: {fileID: 0}
   Dialogues:
   - background: {fileID: 0}
-    Speaker: el chano
+    Speaker: MARIANO
     character: 0
-    Dialogue: hola
+    Dialogue: "HOLA SE\xD1OR, VINE POR EL ANUNCIO DEL PUESTO DE-"
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+  - background: {fileID: 0}
+    Speaker: OBRERO
+    character: 1
+    Dialogue: NO, GRACIAS.
+    CharArt: {fileID: 21300000, guid: 7cbf50434f388f44b9479ebdf2b2c3a9, type: 3}
+  - background: {fileID: 0}
+    Speaker: MARIANO
+    character: 0
+    Dialogue: "HOLA SE\xD1OR, VENGO PORQUE LEI QUE SE NECESITA EMPLEADO PARA-"
+    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
+  - background: {fileID: 0}
+    Speaker: VERDULERO.
+    character: 1
+    Dialogue: YA SE OCUPO EL PUESTO.
+    CharArt: {fileID: 21300000, guid: f5e8634e5f9a34d4bbc98b099d252156, type: 3}
+  - background: {fileID: 0}
+    Speaker: MARIANO
+    character: 0
+    Dialogue: "HOLA, QUER\xCDA APLICAR PARA EL PUESTO DE-"
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+  - background: {fileID: 0}
+    Speaker: GERENTE
+    character: 1
+    Dialogue: LA VACANTE YA ESTA COMPLETA.
+    CharArt: {fileID: 21300000, guid: b69792b64739dc0438f7aa431e507b78, type: 3}
+  - background: {fileID: 0}
+    Speaker: 
+    character: 1
+    Dialogue: 
     CharArt: {fileID: 0}
   - background: {fileID: 0}
-    Speaker: el guano
+    Speaker: MARIANO
     character: 0
-    Dialogue: holis
-    CharArt: {fileID: 0}
+    Dialogue: LOCO, NADIE ME QUIERE TOMAR PORQUE ESTUVE PRESO. TODAVIA TENGO ESA LARGA
+      DEUDA POR PAGAR Y YA NO TENGO LABURO.
+    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
+  - background: {fileID: 0}
+    Speaker: MARIANO
+    character: 0
+    Dialogue: TENGO QUE CONSEGUIR LA GUITA COMO SEA.
+    CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -3872,7 +3908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seen: 0
-  charAstart: {fileID: 0}
+  charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
   charBstart: {fileID: 0}
   Dialogues:
   - background: {fileID: 0}
