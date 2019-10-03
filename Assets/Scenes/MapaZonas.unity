@@ -529,8 +529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -614.2, y: -21.5}
-  m_SizeDelta: {x: -1245.4, y: 30}
+  m_AnchoredPosition: {x: -691.74994, y: -24.650002}
+  m_SizeDelta: {x: -1404.4, y: 49.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &251598527
 CanvasRenderer:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -561,8 +561,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -766,8 +766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 91.8}
-  m_SizeDelta: {x: -22.4, y: 175}
+  m_AnchoredPosition: {x: 0, y: 113.3}
+  m_SizeDelta: {x: -25.59998, y: 206.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321259325
 MonoBehaviour:
@@ -1032,8 +1032,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -35.6, y: -37.2}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_SizeDelta: {x: -20.900002, y: -35.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337229113
 MonoBehaviour:
@@ -1056,7 +1056,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 814abefe47ee09a4e89e49c0fd594640, type: 3}
+    m_Font: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -1554,15 +1554,51 @@ MonoBehaviour:
   charBstart: {fileID: 0}
   Dialogues:
   - background: {fileID: 0}
-    Speaker: el chano
+    Speaker: MARIANO
     character: 0
-    Dialogue: hola
+    Dialogue: "HOLA SE\xD1OR, VINE POR EL ANUNCIO DEL PUESTO DE-"
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+  - background: {fileID: 0}
+    Speaker: OBRERO
+    character: 1
+    Dialogue: NO, GRACIAS.
+    CharArt: {fileID: 21300000, guid: 7cbf50434f388f44b9479ebdf2b2c3a9, type: 3}
+  - background: {fileID: 0}
+    Speaker: MARIANO
+    character: 0
+    Dialogue: "HOLA SE\xD1OR, VENGO PORQUE LEI QUE SE NECESITA EMPLEADO PARA-"
+    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
+  - background: {fileID: 0}
+    Speaker: VERDULERO.
+    character: 1
+    Dialogue: YA SE OCUPO EL PUESTO.
+    CharArt: {fileID: 21300000, guid: f5e8634e5f9a34d4bbc98b099d252156, type: 3}
+  - background: {fileID: 0}
+    Speaker: MARIANO
+    character: 0
+    Dialogue: "HOLA, QUER\xCDA APLICAR PARA EL PUESTO DE-"
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+  - background: {fileID: 0}
+    Speaker: GERENTE
+    character: 1
+    Dialogue: LA VACANTE YA ESTA COMPLETA.
+    CharArt: {fileID: 21300000, guid: b69792b64739dc0438f7aa431e507b78, type: 3}
+  - background: {fileID: 0}
+    Speaker: 
+    character: 1
+    Dialogue: 
     CharArt: {fileID: 0}
   - background: {fileID: 0}
-    Speaker: el guano
+    Speaker: MARIANO
     character: 0
-    Dialogue: holis
-    CharArt: {fileID: 0}
+    Dialogue: LOCO, NADIE ME QUIERE TOMAR PORQUE ESTUVE PRESO. TODAVIA TENGO ESA LARGA
+      DEUDA POR PAGAR Y YA NO TENGO LABURO.
+    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
+  - background: {fileID: 0}
+    Speaker: MARIANO
+    character: 0
+    Dialogue: TENGO QUE CONSEGUIR LA GUITA COMO SEA.
+    CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -3872,7 +3908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seen: 0
-  charAstart: {fileID: 0}
+  charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
   charBstart: {fileID: 0}
   Dialogues:
   - background: {fileID: 0}
@@ -6729,6 +6765,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518133910}
   m_CullTransparentMesh: 0
+--- !u!1 &1537354727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537354728}
+  - component: {fileID: 1537354731}
+  - component: {fileID: 1537354730}
+  - component: {fileID: 1537354729}
+  m_Layer: 5
+  m_Name: SpaceoZ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1537354728
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537354727}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5156.4595}
+  m_LocalScale: {x: 1.0003532, y: 1.0003532, z: 1.0003532}
+  m_Children: []
+  m_Father: {fileID: 1653946827}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 670.00006, y: 34.549988}
+  m_SizeDelta: {x: -1307.1001, y: 48.799988}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &1537354729
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537354727}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: -1
+  m_SortingLayerID: -1230827061
+  m_SortingOrder: 10
+  m_TargetDisplay: 0
+--- !u!114 &1537354730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537354727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b41a073ccd3f07040a3139ace67937f2, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '>> Z / SPACE'
+--- !u!222 &1537354731
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537354727}
+  m_CullTransparentMesh: 0
 --- !u!1 &1544661586
 GameObject:
   m_ObjectHideFlags: 0
@@ -6985,15 +7122,15 @@ RectTransform:
   m_GameObject: {fileID: 1624344504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1653946827}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 410, y: 0}
-  m_SizeDelta: {x: 228.9, y: 228.9}
+  m_AnchoredPosition: {x: 457, y: 0.79503}
+  m_SizeDelta: {x: 340.4, y: 428.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624344506
 MonoBehaviour:
@@ -7410,6 +7547,8 @@ RectTransform:
   - {fileID: 321259324}
   - {fileID: 1712963322}
   - {fileID: 1624344505}
+  - {fileID: 1537354728}
+  - {fileID: 2039799894}
   m_Father: {fileID: 969527109}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7623,8 +7762,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -405, y: 0}
-  m_SizeDelta: {x: 228.9, y: 228.9}
+  m_AnchoredPosition: {x: -484, y: 0.79503}
+  m_SizeDelta: {x: 340.4, y: 428.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712963323
 MonoBehaviour:
@@ -9238,6 +9377,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017447621}
+  m_CullTransparentMesh: 0
+--- !u!1 &2039799893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039799894}
+  - component: {fileID: 2039799896}
+  - component: {fileID: 2039799895}
+  m_Layer: 5
+  m_Name: ESC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2039799894
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039799893}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5156.4595}
+  m_LocalScale: {x: 1.0003532, y: 1.0003532, z: 1.0003532}
+  m_Children: []
+  m_Father: {fileID: 1653946827}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -621, y: 27}
+  m_SizeDelta: {x: -1297.1001, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2039799895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039799893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b41a073ccd3f07040a3139ace67937f2, type: 3}
+    m_FontSize: 38
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'SALTEAR: "ESC"'
+--- !u!222 &2039799896
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039799893}
   m_CullTransparentMesh: 0
 --- !u!1 &2120227792
 GameObject:
