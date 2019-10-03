@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public int maxLives = 4;
     public static int ahorros;
 
-    public static int zoneProgress;
+    public static int zoneProgress = 1;
     public static int paidDeudas = 0;
     public static int seenDialogues = 0;
 
