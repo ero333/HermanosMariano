@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     Player player;
-    BoxCollider2D bc2D;
 
     [Header("Debug, no tocar")]
     public Vector2 playerDistance;
@@ -43,6 +42,8 @@ public class Enemy : MonoBehaviour
     [Header("Vida")]
     public int lives;
     public float hitStunTimer = 1f;
+    public bool patrol;
+    public float patrolSpeed;
 
     [Header("Perseguir y correr")]
     public bool chase = true;
@@ -119,7 +120,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
-        bc2D = GetComponent<BoxCollider2D>();
+
         //currentTime = Time.time + timeToIncrease;
 
         if (transform.rotation.y == 180)
@@ -171,10 +172,7 @@ public class Enemy : MonoBehaviour
         //  }
         // }
 
-
         getPlayerDir();
-
-
 
         //si el jugador me salta por arriba, freno
         if (playerDirection.y == 1 && playerDirection.x == 0)
@@ -184,7 +182,6 @@ public class Enemy : MonoBehaviour
             StopCoroutine(generalActionsDelay);
             StartCoroutine(generalActionsDelay);
         }
-
 
         //Comportamientos
         if (trigger && lives > 0)
@@ -312,6 +309,17 @@ public class Enemy : MonoBehaviour
                 GameObject bulletInst = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
                 bulletInst.GetComponent<Bullet>().damage = shootDamage;
             }
+
+        }
+        else if (patrol)
+        {
+            if (onGround && (fRight && !onRightFloor) || (!fRight && !onLeftFloor))
+            {
+                generalActionsDelay = ActionsDelay(0.6f);
+
+            }
+
+
 
         }
 
