@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
         GameManager.paidDeudas = 0;
 
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("CurrentZone", 0);
+        PlayerPrefs.SetInt("CurrentZone", 1);
         PlayerPrefs.SetInt("DeudasPagadas", 0);
         PlayerPrefs.SetInt("Ahorros", 0);
         PlayerPrefs.SetInt("MaxLives", newMaxLives);

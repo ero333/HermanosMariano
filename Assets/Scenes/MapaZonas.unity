@@ -3766,6 +3766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d79e5495952ede4b8ca3c1814b10b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seen: 0
   charAstart: {fileID: 0}
   charBstart: {fileID: 0}
   Dialogues: []
@@ -3779,7 +3780,7 @@ MonoBehaviour:
   background: {fileID: 1653946828}
   SpaceoZ: {fileID: 0}
   ESC: {fileID: 0}
-  end: 0
+  active: 0
 --- !u!1 &937000945
 GameObject:
   m_ObjectHideFlags: 0
@@ -7184,7 +7185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1653946827
 RectTransform:
   m_ObjectHideFlags: 0

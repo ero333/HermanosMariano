@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueManagerMap : MonoBehaviour
 {
+    public bool seen = false;
+
     [Header("Start")]
     public Sprite charAstart;
     public Sprite charBstart;
@@ -28,22 +30,19 @@ public class DialogueManagerMap : MonoBehaviour
 
     int index = 0;
 
-    [HideInInspector]
-    public bool end = false;
-
+    public bool active = false;
 
     private void Awake()
     {
-        if (Dialogues.Length == 0)
+        if (Dialogues.Length == 0 || seen)
         {
             background.gameObject.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
-
-            background = GetComponent<Image>();
-
+            background.gameObject.SetActive(true);
+            
             charA.sprite = charAstart;
             charB.sprite = charBstart;
         }
@@ -68,7 +67,7 @@ public class DialogueManagerMap : MonoBehaviour
         }
 
 
-        if (index < Dialogues.Length)
+        if (index < Dialogues.Length && active)
         {
             if (Dialogues[index].background != null)
             {
