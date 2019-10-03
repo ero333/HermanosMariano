@@ -13,12 +13,6 @@ public class DialogueManagerMap : MonoBehaviour
 
     public DialogueClass[] Dialogues;
 
-    [Header("End")]
-    public Sprite charAstart2;
-    public Sprite charBstart2;
-
-    public DialogueClass[] DialoguesEnd;
-
     [Header("Referencias")]
     public Text Speaker;
     public Text dialogueText;
@@ -115,6 +109,7 @@ public class DialogueManagerMap : MonoBehaviour
             index = 0;
             active = false;
             seen = true;
+            GameManager.seenDialogues = GameManager.zoneProgress;
             background.gameObject.SetActive(false);
         }
     }

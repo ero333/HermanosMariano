@@ -28,7 +28,7 @@ public class MapZone : MonoBehaviour
                 Zonas[i].GetComponent<Selectable>().interactable = true;
             }
 
-            if (i <= GameManager.seenDialogues)
+            if (i < GameManager.seenDialogues)
             {
                 Zonas[i].GetComponent<DialogueManagerMap>().seen = true;
             }
@@ -46,9 +46,9 @@ public class MapZone : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        if(GameManager.zoneProgress != GameManager.seenDialogues)
+        if(GameManager.seenDialogues < GameManager.zoneProgress)
         {
-            DialogueManagerMap  dialog = Zonas[GameManager.zoneProgress - 1].GetComponent<DialogueManagerMap>();
+            DialogueManagerMap dialog = Zonas[GameManager.zoneProgress - 1].GetComponent<DialogueManagerMap>();
             dialog.background.gameObject.SetActive(true);
             dialog.active = true;
         }
