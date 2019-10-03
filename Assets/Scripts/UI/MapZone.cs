@@ -46,7 +46,16 @@ public class MapZone : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        if(GameManager.zoneProgress != GameManager.seenDialogues)
+        {
+            DialogueManagerMap  dialog = Zonas[GameManager.zoneProgress - 1].GetComponent<DialogueManagerMap>();
+            dialog.background.gameObject.SetActive(true);
+            dialog.active = true;
+        }
+        else
+        {
+            SceneManager.LoadScene(levelName);
+        }        
     }
 
     private void Update()

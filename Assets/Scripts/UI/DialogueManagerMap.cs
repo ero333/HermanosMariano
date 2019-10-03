@@ -40,9 +40,6 @@ public class DialogueManagerMap : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
-            background.gameObject.SetActive(true);
-            
             charA.sprite = charAstart;
             charB.sprite = charBstart;
         }
@@ -63,11 +60,12 @@ public class DialogueManagerMap : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1;
-            index += 100;                     
+            index += 100;
+            seen = true;
         }
 
 
-        if (index < Dialogues.Length && active)
+        if (index < Dialogues.Length && active && !seen)
         {
             if (Dialogues[index].background != null)
             {
@@ -111,11 +109,12 @@ public class DialogueManagerMap : MonoBehaviour
             }
 
         }
-        else
+        else if (active)
         {
             Time.timeScale = 1;
             index = 0;
-
+            active = false;
+            seen = true;
             background.gameObject.SetActive(false);
         }
     }
