@@ -29,11 +29,6 @@ public class MapZone : MonoBehaviour
             }
         }
 
-        //for (int i = 0; i < gm.zoneProgress; i++)
-        //{
-
-        //}
-
         for (int i = 0; i < Deudas.Length; i++)
         {
             if (i < GameManager.paidDeudas)
