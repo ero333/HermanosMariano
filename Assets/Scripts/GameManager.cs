@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public static int zoneProgress = 1;
     public static int paidDeudas = 0;
-    public static int seenDialogues = zoneProgress - 1;
+    public static int seenDialogues = zoneProgress - 2;
 
     public static bool sound = true;
 
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         else
         {
             resetCount += 1;
-            //SceneManager.LoadScene(levelIndex);
+            //SceneManager.LoadScene(levelIndex); <- para recargar la escena
             Player player = GameObject.FindObjectOfType<Player>();
             player.transform.position = instance.lastCheckpos;
         }

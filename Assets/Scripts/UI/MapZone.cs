@@ -28,7 +28,7 @@ public class MapZone : MonoBehaviour
                 Zonas[i].GetComponent<Selectable>().interactable = true;
             }
 
-            if (i <= GameManager.zoneProgress - 2)
+            if (i <= GameManager.seenDialogues)
             {
                 Zonas[i].GetComponent<DialogueManagerMap>().seen = true;
             }
@@ -41,7 +41,7 @@ public class MapZone : MonoBehaviour
                 Deudas[i].transform.parent.GetComponent<Button>().interactable = true;
                 Deudas[i].SetActive(false);
             }
-        }        
+        }
     }
 
     public void LoadLevel(string levelName)
