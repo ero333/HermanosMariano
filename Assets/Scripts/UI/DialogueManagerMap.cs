@@ -115,6 +115,7 @@ public class DialogueManagerMap : MonoBehaviour
             index = 0;
             active = false;
             seen = true;
+            GameManager.seenDialogues = GameManager.zoneProgress;
             background.gameObject.SetActive(false);
         }
     }

@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
         GameManager.maxEnergy = newMaxEnergy;
         GameManager.zoneProgress = 1;
         GameManager.paidDeudas = 0;
+        GameManager.seenDialogues = 0;
 
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentZone", GameManager.zoneProgress);
@@ -43,6 +44,8 @@ public class MainMenu : MonoBehaviour
             GameManager.ahorros = PlayerPrefs.GetInt("Ahorros");
             GameManager.instance.maxLives = PlayerPrefs.GetInt("MaxLives");
             GameManager.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
+
+            GameManager.seenDialogues = GameManager.zoneProgress - 1;
 
             SceneManager.LoadScene("MapaZonas");
         }        
