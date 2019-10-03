@@ -130,10 +130,13 @@ public class DialogueManager : MonoBehaviour
 
                 CountDown countdown = FindObjectOfType<CountDown>();
 
-                if (countdown.isActiveAndEnabled)
+                if(countdown != null)
                 {
-                    countdown.canStart = true;
-                }
+                    if (countdown.isActiveAndEnabled)
+                    {
+                        countdown.canStart = true;
+                    }
+                }               
 
                 gameObject.SetActive(false);
             }
