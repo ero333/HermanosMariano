@@ -100990,6 +100990,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: patrol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: patrolSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: flee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: safeDistance
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: meleeDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: shootDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: meleeDelay
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: shootDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: lives
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: hitStunTimer
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3929928188997173777, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
         type: 3}
       propertyPath: m_Sprite
