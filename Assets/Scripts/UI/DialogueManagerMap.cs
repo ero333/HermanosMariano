@@ -13,12 +13,6 @@ public class DialogueManagerMap : MonoBehaviour
 
     public DialogueClass[] Dialogues;
 
-    [Header("End")]
-    public Sprite charAstart2;
-    public Sprite charBstart2;
-
-    public DialogueClass[] DialoguesEnd;
-
     [Header("Referencias")]
     public Text Speaker;
     public Text dialogueText;

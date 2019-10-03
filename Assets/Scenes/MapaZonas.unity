@@ -817,6 +817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327850640}
   - component: {fileID: 327850645}
+  - component: {fileID: 327850646}
   - component: {fileID: 327850644}
   - component: {fileID: 327850643}
   - component: {fileID: 327850642}
@@ -963,6 +964,40 @@ MonoBehaviour:
   - {fileID: 1286586542}
   - {fileID: 1251561219}
   unlocked: 0
+--- !u!114 &327850646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327850639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d79e5495952ede4b8ca3c1814b10b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seen: 0
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - background: {fileID: 0}
+    Speaker: el chano
+    character: 0
+    Dialogue: hola
+    CharArt: {fileID: 0}
+  - background: {fileID: 0}
+    Speaker: el guano
+    character: 0
+    Dialogue: holis
+    CharArt: {fileID: 0}
+  Speaker: {fileID: 251598528}
+  dialogueText: {fileID: 337229113}
+  charA: {fileID: 1712963323}
+  charB: {fileID: 1624344506}
+  background: {fileID: 1653946828}
+  SpaceoZ: {fileID: 0}
+  ESC: {fileID: 0}
+  active: 0
 --- !u!1 &337229111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400896438}
   - component: {fileID: 400896443}
+  - component: {fileID: 400896444}
   - component: {fileID: 400896442}
   - component: {fileID: 400896441}
   - component: {fileID: 400896440}
@@ -1501,6 +1537,40 @@ MonoBehaviour:
   - {fileID: 522610960}
   - {fileID: 946722866}
   unlocked: 0
+--- !u!114 &400896444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400896437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d79e5495952ede4b8ca3c1814b10b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seen: 0
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - background: {fileID: 0}
+    Speaker: el chano
+    character: 0
+    Dialogue: hola
+    CharArt: {fileID: 0}
+  - background: {fileID: 0}
+    Speaker: el guano
+    character: 0
+    Dialogue: holis
+    CharArt: {fileID: 0}
+  Speaker: {fileID: 251598528}
+  dialogueText: {fileID: 337229113}
+  charA: {fileID: 1712963323}
+  charB: {fileID: 1624344506}
+  background: {fileID: 1653946828}
+  SpaceoZ: {fileID: 0}
+  ESC: {fileID: 0}
+  active: 0
 --- !u!1 &416146516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,6 +2810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713331601}
   - component: {fileID: 713331606}
+  - component: {fileID: 713331607}
   - component: {fileID: 713331605}
   - component: {fileID: 713331604}
   - component: {fileID: 713331603}
@@ -2886,6 +2957,40 @@ MonoBehaviour:
   - {fileID: 1350691508}
   - {fileID: 996726287}
   unlocked: 0
+--- !u!114 &713331607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713331600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d79e5495952ede4b8ca3c1814b10b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seen: 0
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - background: {fileID: 0}
+    Speaker: el chano
+    character: 0
+    Dialogue: hola
+    CharArt: {fileID: 0}
+  - background: {fileID: 0}
+    Speaker: el guano
+    character: 0
+    Dialogue: holis
+    CharArt: {fileID: 0}
+  Speaker: {fileID: 251598528}
+  dialogueText: {fileID: 337229113}
+  charA: {fileID: 1712963323}
+  charB: {fileID: 1624344506}
+  background: {fileID: 1653946828}
+  SpaceoZ: {fileID: 0}
+  ESC: {fileID: 0}
+  active: 0
 --- !u!1 &796305181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3780,9 +3885,6 @@ MonoBehaviour:
     character: 0
     Dialogue: holis
     CharArt: {fileID: 0}
-  charAstart2: {fileID: 0}
-  charBstart2: {fileID: 0}
-  DialoguesEnd: []
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -4321,6 +4423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1121034126}
   - component: {fileID: 1121034131}
+  - component: {fileID: 1121034132}
   - component: {fileID: 1121034130}
   - component: {fileID: 1121034129}
   - component: {fileID: 1121034128}
@@ -4467,6 +4570,40 @@ MonoBehaviour:
   - {fileID: 1634785329}
   - {fileID: 1894530636}
   unlocked: 0
+--- !u!114 &1121034132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121034125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d79e5495952ede4b8ca3c1814b10b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seen: 0
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - background: {fileID: 0}
+    Speaker: el chano
+    character: 0
+    Dialogue: hola
+    CharArt: {fileID: 0}
+  - background: {fileID: 0}
+    Speaker: el guano
+    character: 0
+    Dialogue: holis
+    CharArt: {fileID: 0}
+  Speaker: {fileID: 251598528}
+  dialogueText: {fileID: 337229113}
+  charA: {fileID: 1712963323}
+  charB: {fileID: 1624344506}
+  background: {fileID: 1653946828}
+  SpaceoZ: {fileID: 0}
+  ESC: {fileID: 0}
+  active: 0
 --- !u!1 &1158255507
 GameObject:
   m_ObjectHideFlags: 0
@@ -7195,7 +7332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1653946827
 RectTransform:
   m_ObjectHideFlags: 0
