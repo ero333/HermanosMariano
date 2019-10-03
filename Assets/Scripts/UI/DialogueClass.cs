@@ -14,7 +14,7 @@ public class DialogueClass
 
     public PosibleCharacters character; 
 
-    [Multiline]
+    [TextArea]
     public string Dialogue;
 
     public Sprite CharArt;
