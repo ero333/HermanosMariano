@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LlegarMeta : MonoBehaviour
+public class Survive : MonoBehaviour
 {
+    GameManager gm;
     UserInterface ui;
+
+    public float countDown = 60;
 
     public int gananciaMaxima = 100;
 
@@ -13,12 +16,20 @@ public class LlegarMeta : MonoBehaviour
 
     private void Start()
     {
+        gm = GameManager.instance;
         ui = GameObject.FindObjectOfType<UserInterface>();
+
+        CountDown timer = GetComponent<CountDown>();
+        timer.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        if (collision.tag == "Player")
+        if(countDown > 0)
+        {
+            countDown -= Time.deltaTime;
+        }
+        else
         {
             GameManager.instance.VictoryCondition();
             ui.Victory(gananciaMaxima);
