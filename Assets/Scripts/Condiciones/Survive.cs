@@ -18,9 +18,6 @@ public class Survive : MonoBehaviour
     {
         gm = GameManager.instance;
         ui = GameObject.FindObjectOfType<UserInterface>();
-
-        CountDown timer = GetComponent<CountDown>();
-        timer.enabled = false;
     }
 
     private void FixedUpdate()

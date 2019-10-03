@@ -43,7 +43,12 @@ public class UserInterface : MonoBehaviour
         player = FindObjectOfType<Player>();
         GameOverScreen.SetActive(false);
 
-        if (FindObjectOfType<CountDown>().enabled)
+        if (FindObjectOfType<Survive>())
+        {
+            Timer = FindObjectOfType<Survive>().countDown;
+            TimerText.gameObject.SetActive(true);
+        }
+        else if (FindObjectOfType<CountDown>().enabled)
         {
             Timer = FindObjectOfType<CountDown>().currentTime;
             TimerText.gameObject.SetActive(true);
