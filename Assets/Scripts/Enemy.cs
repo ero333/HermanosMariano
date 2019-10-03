@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     public bool onRightFloor;
     public bool onLeftFloor;
 
+    public bool onRightWall;
+    public bool onLeftWall;
+
     [Header("Drops")]
     public GameObject dropOnHit;
     public GameObject dropOnDeath;
@@ -29,10 +32,13 @@ public class Enemy : MonoBehaviour
     [Header("Detector de colisiones")]
     public LayerMask groundLayer;
     public LayerMask playerLayer;
+    
+    public Vector2 bottomOffset, bottomSize;
+
+    [Space]
     public float collisionRadius = 0.25f;
-    public Vector2 bottomOffset, rightOffset, leftOffset;
-    public Vector2 bottomSize;
-    private Color debugCollisionColor = Color.red;
+    public Vector2 rightFloor, leftFloor;
+    public Vector2 rightWall, leftWall;    
 
     [Space]
     public Vector2 triggerOffset, triggerSize;
@@ -99,13 +105,16 @@ public class Enemy : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset, triggerOffset, meleeHitBoxOffset };
+        var positions = new Vector2[] { bottomOffset, rightFloor, leftFloor, rightWall, leftWall, triggerOffset, meleeHitBoxOffset };
         var sizes = new Vector2[] { bottomSize, meleeHitBoxSize, triggerSize };
 
         //Colisiones
         Gizmos.DrawWireCube((Vector2)transform.position + bottomOffset, (Vector2)bottomSize);
-        Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
-        Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + rightFloor, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + leftFloor, collisionRadius);
+
+        Gizmos.DrawWireSphere((Vector2)transform.position + rightWall, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + leftWall, collisionRadius);
 
         //Trigger size
         if (ShowRange)
@@ -321,7 +330,9 @@ public class Enemy : MonoBehaviour
         }
         else if (patrol && canPatrol)
         {
-            if (onGround && (fRight && !onRightFloor) || (!fRight && !onLeftFloor))
+            if (onGround &&
+                ( (fRight && !onRightFloor) || (!fRight && !onLeftFloor) ) 
+                || ( (fRight && onRightWall) || (!fRight && onLeftWall) ) )
             {
                 generalActionsDelay = ActionsDelay(0.6f);
 
@@ -366,8 +377,11 @@ public class Enemy : MonoBehaviour
         //Colisiones con el piso:
         onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
 
-        onRightFloor = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
-        onLeftFloor = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        onRightFloor = Physics2D.OverlapCircle((Vector2)transform.position + rightFloor, collisionRadius, groundLayer);
+        onLeftFloor = Physics2D.OverlapCircle((Vector2)transform.position + leftFloor, collisionRadius, groundLayer);
+
+        onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightWall, collisionRadius, groundLayer);
+        onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftWall, collisionRadius, groundLayer);
 
         //trigger
         if (!trigger)

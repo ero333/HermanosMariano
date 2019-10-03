@@ -55,25 +55,37 @@ MonoBehaviour:
   fRight: 0
   onRightFloor: 0
   onLeftFloor: 0
+  onRightWall: 0
+  onLeftWall: 0
+  dropOnHit: {fileID: 0}
+  dropOnDeath: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  collisionRadius: 0.2
   bottomOffset: {x: 0, y: -1.05}
-  rightOffset: {x: 0.6, y: -1.2}
-  leftOffset: {x: -0.6, y: -1.2}
   bottomSize: {x: 0.6, y: 0.1}
+  collisionRadius: 0.2
+  rightFloor: {x: 0.6, y: -1.2}
+  leftFloor: {x: -0.6, y: -1.2}
+  rightWall: {x: 0.6, y: -0.5}
+  leftWall: {x: -0.6, y: -0.5}
   triggerOffset: {x: 2.24, y: 0.34}
   triggerSize: {x: 6, y: 3}
   ShowRange: 1
   trigger: 0
   lives: 3
   hitStunTimer: 1
+  patrol: 0
+  patrolSpeed: 0
   chase: 1
   speed: 5
+  sprint: 0
+  sprintSpeed: 8
+  sprintDuration: 3
+  sprintDelay: 5
   flee: 0
   speedFlee: 5
   safeDistance: 10
@@ -173,7 +185,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.09606564}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.566405, y: 0.46616596}
+    pivot: {x: 0.44444445, y: 0.5}
     oldSize: {x: 2.8125, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
