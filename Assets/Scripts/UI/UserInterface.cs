@@ -55,6 +55,10 @@ public class UserInterface : MonoBehaviour
             TimerText.gameObject.SetActive(true);
             countDown = FindObjectOfType<CountDown>();
         }
+        else
+        {
+            TimerText.gameObject.SetActive(false);
+        }
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {
