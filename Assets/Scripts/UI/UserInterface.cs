@@ -8,7 +8,8 @@ public class UserInterface : MonoBehaviour
     GameManager gm;
     Player player;
 
-    float Timer;
+    CountDown countDown;
+    Survive survive;
 
     public Text LivesText;
     public GameObject EnergyBorder;
@@ -34,6 +35,7 @@ public class UserInterface : MonoBehaviour
     private void Awake()
     {
         menuPausa = GetComponent<MenuPausa>();
+
     }
 
     void Start()
@@ -45,13 +47,13 @@ public class UserInterface : MonoBehaviour
 
         if (FindObjectOfType<Survive>())
         {
-            Timer = FindObjectOfType<Survive>().countDown;
             TimerText.gameObject.SetActive(true);
+            survive = FindObjectOfType<Survive>();
         }
         else if (FindObjectOfType<CountDown>().enabled)
         {
-            Timer = FindObjectOfType<CountDown>().currentTime;
             TimerText.gameObject.SetActive(true);
+            countDown = FindObjectOfType<CountDown>();
         }
 
         for (int i = 0; i < EnergyBars.Length; i++)
@@ -75,20 +77,25 @@ public class UserInterface : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
         LivesText.text = "" + GameManager.instance.lives;
         MoneyText.text = "" + GameManager.instance.money;
         bullets.text = "" + player.bullets;
 
-        TimerText.text = "" + Timer;
+        if (survive != null)
+        {
+            TimerText.text = (survive.countDown / 60 - 1).ToString("00") + ":" + (survive.countDown % 60).ToString("00");
+        }
+        else if (countDown != null)
+        {
+            TimerText.text = "" + (countDown.currentTime / 60 - 1).ToString("00") + ":" + (countDown.currentTime % 60).ToString("00"); ;
+        }            
 
         if (gm.lives == 0)
         {
             Time.timeScale = 0f;
             GameOverScreen.SetActive(true);
         }
-
 
         for (int i = 0; i < EnergyBars.Length; i++)
         {

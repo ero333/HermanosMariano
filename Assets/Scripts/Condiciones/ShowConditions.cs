@@ -15,6 +15,8 @@ public class ShowConditions : MonoBehaviour
     Collect collect;
     Transport transport;
     KillAll killAll;
+    Kill kill;
+    Survive survive;
 
     void Start()
     {
@@ -36,6 +38,14 @@ public class ShowConditions : MonoBehaviour
         {
             killAll = FindObjectOfType<KillAll>();
         }
+        else if (FindObjectOfType<Kill>() != null)
+        {
+            kill = FindObjectOfType<Kill>();
+        }
+        else if (FindObjectOfType<Survive>() != null)
+        {
+            survive = FindObjectOfType<Survive>();
+        }
     }
 
     void Update()
@@ -55,6 +65,14 @@ public class ShowConditions : MonoBehaviour
         else if (killAll != null)
         {
             condition.text = "MATAR: " + killAll.toKill;
+        }
+        else if (kill != null)
+        {
+            condition.text = "MATAR OBJETIVO: " + Mathf.Round( Vector2.Distance(player.transform.position, kill.toKill.transform.position) );
+        }
+        else if (survive != null)
+        {
+            condition.text = "AGUANTAR";
         }
     }
 }

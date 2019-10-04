@@ -9,9 +9,8 @@ public class CountDown : MonoBehaviour
     UserInterface ui;
 
     //[HideInInspector]
-    public float currentTime = 0.0f;
-
     public float startingTime;
+    public float currentTime = 100;
 
     public bool canStart = false;
 
@@ -25,10 +24,17 @@ public class CountDown : MonoBehaviour
         gm = GameManager.instance;
         ui = FindObjectOfType<UserInterface>();
 
-        //if(FindObjectOfType<DialogueManager>().Dialogues.Length == 0)
-        //{
-        //    canStart = true;
-        //}
+        if(FindObjectOfType<DialogueManager>())
+        {
+            if(FindObjectOfType<DialogueManager>().Dialogues.Length > 0)
+            {
+                canStart = true;
+            }
+        }
+        else
+        {
+            canStart = true;
+        }
 
         //ui.transform.GetChild(0).gameObject.SetActive(true);
     }
@@ -40,7 +46,6 @@ public class CountDown : MonoBehaviour
     {
         if (canStart)
         {
-
             currentTime -= 1 * Time.deltaTime;
             //countdownText.text = currentTime.ToString("0");
 

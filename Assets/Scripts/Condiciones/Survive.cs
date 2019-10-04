@@ -20,11 +20,11 @@ public class Survive : MonoBehaviour
         ui = GameObject.FindObjectOfType<UserInterface>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(countDown > 0)
+        if(countDown > 0f)
         {
-            countDown -= Time.deltaTime;
+            countDown -= 1 * Time.deltaTime;
         }
         else
         {
