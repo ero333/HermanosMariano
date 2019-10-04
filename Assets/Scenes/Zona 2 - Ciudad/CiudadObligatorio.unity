@@ -101028,7 +101028,7 @@ PrefabInstance:
     - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
         type: 3}
       propertyPath: safeDistance
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
         type: 3}
@@ -101059,6 +101059,36 @@ PrefabInstance:
         type: 3}
       propertyPath: hitStunTimer
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: speedFlee
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: minShootDis
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: sprint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: sprintSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: sprintDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763747746560263602, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
+        type: 3}
+      propertyPath: sprintDelay
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3929928188997173777, guid: 40a1554f264f5d44e9e6fd15a0ca235e,
         type: 3}
