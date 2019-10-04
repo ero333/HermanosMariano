@@ -28,17 +28,18 @@ public class Enemy : MonoBehaviour
     public GameObject dropOnDeath;
     bool droped = false;
     Vector2 safeGuard;
+    //public float dropMoney = 0;
 
     [Header("Detector de colisiones")]
     public LayerMask groundLayer;
     public LayerMask playerLayer;
-    
+
     public Vector2 bottomOffset, bottomSize;
 
     [Space]
     public float collisionRadius = 0.25f;
     public Vector2 rightFloor, leftFloor;
-    public Vector2 rightWall, leftWall;    
+    public Vector2 rightWall, leftWall;
 
     [Space]
     public Vector2 triggerOffset, triggerSize;
@@ -206,12 +207,14 @@ public class Enemy : MonoBehaviour
             patrol = false;
 
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
-            if (onGround && (!onLeftFloor || !onRightFloor))
+            if (onGround && ((!onLeftFloor || !onRightFloor) || (onLeftWall || onRightWall)))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
 
                 //cuando huye, es invertido
-                if (flee && fleeActive && ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor)))
+                if (flee && fleeActive &&
+                    ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor))
+                    || ((playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall)))
                 {
                     //saltar
 
@@ -221,7 +224,8 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("No puedo huir hasta el vacio");
 
                 } //cuando lo persigue
-                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)))
+                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor))
+                        || ((playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall)))
                 {
                     //saltar
 
@@ -333,8 +337,8 @@ public class Enemy : MonoBehaviour
         else if (patrol && canPatrol)
         {
             if (onGround &&
-                ( (fRight && !onRightFloor) || (!fRight && !onLeftFloor) ) 
-                || ( (fRight && onRightWall) || (!fRight && onLeftWall) ) )
+                ((fRight && !onRightFloor) || (!fRight && !onLeftFloor))
+                || ((fRight && onRightWall) || (!fRight && onLeftWall)))
             {
                 generalActionsDelay = ActionsDelay(0.6f);
 
@@ -423,7 +427,7 @@ public class Enemy : MonoBehaviour
             hited = true;
         }
 
-    }    
+    }
 
     void SetAnim()
     {
@@ -432,9 +436,9 @@ public class Enemy : MonoBehaviour
         anim.SetBool("OnGround", onGround);
 
         //caminar
-        if ( ( (trigger && ( (chase && canChase) || (flee && canFlee && fleeActive) ) ) 
-            || (patrol && canPatrol) )
-            && onGround && playerDirection.x != 0 && !nirvana )
+        if (((trigger && ((chase && canChase) || (flee && canFlee && fleeActive)))
+            || (patrol && canPatrol))
+            && onGround && playerDirection.x != 0 && !nirvana)
         {
             anim.SetBool("Run", true);
             if (sprint && canSprint && !patrol)
@@ -504,7 +508,7 @@ public class Enemy : MonoBehaviour
                     }
                 }
             }
-        }        
+        }
     }
 
     //si choco con algo
@@ -545,7 +549,7 @@ public class Enemy : MonoBehaviour
             fRight = true;
         }
 
-        yield return new WaitForSeconds(0.2f);        
+        yield return new WaitForSeconds(0.2f);
 
         transform.Rotate(0f, 180f, 0f);
 
