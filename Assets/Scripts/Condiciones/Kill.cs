@@ -2,31 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Survive : MonoBehaviour
+public class Kill : MonoBehaviour
 {
     GameManager gm;
     UserInterface ui;
 
-    public float countDown = 60;
+    public GameObject toKill;
 
     public int gananciaMaxima = 100;
 
     public bool Obligatorio = false;
     public int zonaActual;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         gm = GameManager.instance;
         ui = GameObject.FindObjectOfType<UserInterface>();
+
+        if(toKill == null)
+        {
+            Debug.Log("No hay forma de ganar, asigne un objetivo a matar");
+            gameObject.SetActive(false);
+        }
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        if(countDown > 0)
-        {
-            countDown -= Time.deltaTime;
-        }
-        else
+        if(toKill == null)
         {
             GameManager.instance.VictoryCondition();
             ui.Victory(gananciaMaxima);
@@ -37,6 +41,6 @@ public class Survive : MonoBehaviour
             }
 
             gameObject.SetActive(false);
-        }        
+        }
     }
 }
