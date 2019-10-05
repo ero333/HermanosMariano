@@ -38,8 +38,8 @@ public class Transport : MonoBehaviour
 
             if (toTransport <= 0)
             {
+                ui.gananciaMaxBK = gananciaMaxima;
                 GameManager.instance.VictoryCondition();
-                ui.Victory(gananciaMaxima);
 
                 if (Obligatorio)
                 {

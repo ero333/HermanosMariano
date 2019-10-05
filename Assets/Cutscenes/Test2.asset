@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
-  m_Name: Test
+  m_Name: Test2
   m_EditorClassIdentifier: 
   charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
   charBstart: {fileID: 21300000, guid: e1761c6d50a3965469de3c057151dfc8, type: 3}
   Dialogues:
-  - background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: AAAAAAAAAAHHHHHHHHHH
     CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
-  - background: {fileID: 0}
+    Dialogue: AAAAAAAAAAHHHHHHHHHH
+    background: {fileID: 0}
+  - character: 1
     Speaker: LEANDRO
-    character: 1
-    Dialogue: EEEEEEEEHHHHHHHH?!!?!
     CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
-  - background: {fileID: 0}
+    Dialogue: EEEEEEEEHHHHHHHH?!!?!
+    background: {fileID: 0}
+  - character: 0
     Speaker: 
-    character: 0
-    Dialogue: KIIISAAAMAAAAAAAAAAAA
     CharArt: {fileID: 21300000, guid: bca678b2dac7f274d97b9544e78ca6cd, type: 3}
+    Dialogue: KIIISAAAMAAAAAAAAAAAA
+    background: {fileID: 0}
