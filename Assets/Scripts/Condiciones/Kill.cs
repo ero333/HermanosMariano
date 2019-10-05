@@ -32,8 +32,8 @@ public class Kill : MonoBehaviour
     {
         if(toKill == null)
         {
-            GameManager.instance.VictoryCondition();
-            ui.Victory(gananciaMaxima);
+            ui.gananciaMaxBK = gananciaMaxima;
+            GameManager.instance.VictoryCondition();            
 
             if (Obligatorio)
             {

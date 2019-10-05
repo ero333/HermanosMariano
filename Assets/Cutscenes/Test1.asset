@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
+  m_Name: Test1
+  m_EditorClassIdentifier: 
+  charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - character: 1
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: 50433535513a9dd4b8e5ecfe8aabd69a, type: 3}
+    Dialogue: 'MARIANO, ACORDAS '
+    background: {fileID: 0}
+  - character: 0
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
+    Dialogue: SI, ESOS EN LOS QUE DETALLABA COMO LE CAGO LA JUBILACION A SUS EMPLEADOS.
+    background: {fileID: 0}
+  - character: 1
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: ecd71fe9a16f6894bafd5e1fed0239ba, type: 3}
+    Dialogue: SI, EL CHANTAJE ESE. BUENO, LOS OTROS EMPLEADOS HICIERON FOTOCOPIAS
+      Y AHORA TODO EL PERSONAL SE CREYO ESA FABULA Y QUIEREN INICIAR ACCIONES LEGALES
+      CONTRA MI.
+    background: {fileID: 0}
+  - character: 0
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
+    Dialogue: Y, BIEN MERECIDAD LAS TIENE...
+    background: {fileID: 0}
+  - character: 1
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b, type: 3}
+    Dialogue: "NO TE LLAM\u02E0PARA PEDIRTE TU OPINION. NECESITO QUE MATES A ESTOS
+      EMPLEADOS PARA DESTRUIR LAS FOTOCOPIAS DE UNA BUENA VEZ."
+    background: {fileID: 0}
+  - character: 0
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
+    Dialogue: Y ME VAS A PAGAR BUENA GUITA QUIERO CREER.
+    background: {fileID: 0}
+  - character: 1
+    Speaker: 
+    CharArt: {fileID: 21300000, guid: 50433535513a9dd4b8e5ecfe8aabd69a, type: 3}
+    Dialogue: SI, CUANDO TERMINES CON EL TRABAJO ARREGLAMOS ESO.
+    background: {fileID: 0}

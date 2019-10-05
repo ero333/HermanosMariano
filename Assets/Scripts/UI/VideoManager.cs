@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public class VideoManager : MonoBehaviour
 {
+    CutsceneManager cutM;
     VideoPlayer videoPlayer;
     public string videoName;
 
     public UserInterface ui;
-    public DialogueManager dialog;
+    //public DialogueManager dialog;
     Image back;
     public Text SpaceoZ;
     
@@ -22,7 +23,6 @@ public class VideoManager : MonoBehaviour
         {
             ui.menuPausa.enabled = false;
             
-            dialog.gameObject.SetActive(false);
             videoPlayer = GetComponent<VideoPlayer>();
             videoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
             videoPlayer.loopPointReached += EndVideo;
@@ -30,10 +30,10 @@ public class VideoManager : MonoBehaviour
         }
         else
         {
-            if (dialog.Dialogues.Length > 0)
-            {
-                dialog.gameObject.SetActive(true);
-            }
+            //if (dialog.Dialogues.Length > 0)
+            //{
+            //    dialog.gameObject.SetActive(true);
+            //}
             gameObject.SetActive(false);
         }
     }
@@ -45,11 +45,12 @@ public class VideoManager : MonoBehaviour
             videoPlayer.targetCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             videoPlayer.Play();
             Time.timeScale = 0f;
+            cutM = FindObjectOfType<CutsceneManager>();
         }
-        else if (dialog.Dialogues.Length == 0)
-        {
-            FindObjectOfType<CountDown>().canStart = true;
-        }             
+        //else if (dialog.Dialogues.Length == 0)
+        //{
+        //    FindObjectOfType<CountDown>().canStart = true;
+        //}             
     }
 
     private void Update()
@@ -62,17 +63,18 @@ public class VideoManager : MonoBehaviour
 
     void EndVideo(VideoPlayer vp)
     {
-        if (dialog.Dialogues.Length > 0)
-        {
-            dialog.gameObject.SetActive(true);
-        }
-        else
+        //if (dialog.Dialogues.Length > 0)
+        //{
+        //    dialog.gameObject.SetActive(true);
+        //}
+        //else
         {
             ui.menuPausa.enabled = true;
             Time.timeScale = 1f;
         }
         
-        videoPlayer.Stop();        
+        videoPlayer.Stop();
+        cutM.VideoEnded();
         gameObject.SetActive(false);
         Debug.Log("video ended");
     }

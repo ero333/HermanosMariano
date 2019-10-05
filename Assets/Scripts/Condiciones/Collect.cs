@@ -49,8 +49,8 @@ public class Collect : MonoBehaviour
     {
         if (toCollect <= 0)
         {
-            GameManager.instance.VictoryCondition();
-            ui.Victory(gananciaMaxima);
+            ui.gananciaMaxBK = gananciaMaxima;
+            GameManager.instance.VictoryCondition();            
 
             toCollect = 100;
 

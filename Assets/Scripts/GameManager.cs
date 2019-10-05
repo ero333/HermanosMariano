@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Gano");
         victory = true;
         resetCount = 0;
+        FindObjectOfType<CutsceneManager>().onVictory();
     }
 
     public void UnlockZone (int currentZone)
