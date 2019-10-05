@@ -21,7 +21,8 @@ public class LlegarMeta : MonoBehaviour
         if (collision.tag == "Player")
         {
             GameManager.instance.VictoryCondition();
-            ui.Victory(gananciaMaxima);
+            //ui.Victory(gananciaMaxima);
+            ui.gananciaMaxBK = gananciaMaxima;
 
             if (Obligatorio)
             {

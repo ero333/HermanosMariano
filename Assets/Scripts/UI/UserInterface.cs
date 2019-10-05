@@ -28,6 +28,7 @@ public class UserInterface : MonoBehaviour
     public MenuPausa menuPausa;
 
     public DialogueManager dialogueManager;
+    public NewDialogueManager newDialogueManager;
 
     [HideInInspector]
     public int gananciaMaxBK;
@@ -137,18 +138,44 @@ public class UserInterface : MonoBehaviour
         menuPausa.enabled = false;
         int impuesto;
 
+        //bool canVictory = false;
+
         Time.timeScale = 0f;
         GameManager.instance.VictoryCondition();
 
-        if(dialogueManager.DialoguesEnd.Length > 0 && !dialogueManager.end)
-        {
-            gananciaMaxBK = gananciaMaxima;
+        //if(dialogueManager != null)
+        //{
+        //    if (dialogueManager.DialoguesEnd.Length > 0 && !dialogueManager.end)
+        //    {
+        //        gananciaMaxBK = gananciaMaxima;
 
-            dialogueManager.gameObject.SetActive(true);
+        //        dialogueManager.gameObject.SetActive(true);
 
-            return;
-        }
-        else
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        canVictory = true;                
+        //    }
+        //}
+
+        //if (newDialogueManager != null)
+        //{
+        //    if (newDialogueManager.EndCutscene.Dialogues.Length > 0 && !newDialogueManager.end)
+        //    {
+        //        gananciaMaxBK = gananciaMaxima;
+
+        //        newDialogueManager.gameObject.SetActive(true);
+
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        canVictory = true;
+        //    }
+        //}        
+
+        //if (canVictory)
         {
             VictoryScreen.SetActive(true);
             ganancias.text = "" + GameManager.instance.money;

@@ -6,6 +6,7 @@ public class Survive : MonoBehaviour
 {
     GameManager gm;
     UserInterface ui;
+    CutsceneManager cutM;
 
     public float countDown = 60;
 
@@ -18,25 +19,29 @@ public class Survive : MonoBehaviour
     {
         gm = GameManager.instance;
         ui = GameObject.FindObjectOfType<UserInterface>();
+        cutM = FindObjectOfType<CutsceneManager>();
     }
 
     private void Update()
     {
-        if(countDown > 0f)
+        if (!cutM.activeCutscenes)
         {
-            countDown -= 1 * Time.deltaTime;
-        }
-        else
-        {
-            GameManager.instance.VictoryCondition();
-            ui.Victory(gananciaMaxima);
-
-            if (Obligatorio)
+            if (countDown > 0f)
             {
-                GameManager.instance.UnlockZone(zonaActual);
+                countDown -= 1 * Time.deltaTime;
             }
+            else
+            {
+                GameManager.instance.VictoryCondition();
+                ui.Victory(gananciaMaxima);
 
-            gameObject.SetActive(false);
-        }        
+                if (Obligatorio)
+                {
+                    GameManager.instance.UnlockZone(zonaActual);
+                }
+
+                gameObject.SetActive(false);
+            }
+        }               
     }
 }

@@ -4,31 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class NewDialogueManager : MonoBehaviour
 {
     UserInterface ui;
     CutsceneManager cutM;
 
     [Header("Start")]
-    public Sprite charAstart;
-    public Sprite charBstart;
-
-    public DialogueClass[] Dialogues;
+    public DialogueData StartCutscene;
 
     [Header("End")]
-    public Sprite charAstart2;
-    public Sprite charBstart2;
-
-    public DialogueClass[] DialoguesEnd;
+    public DialogueData EndCutscene;
 
     [Header("Referencias")]
     public Text Speaker;
     public Text dialogueText;
     public Image charA;
     public Image charB;
-    Image background;
-    public Text SpaceoZ;
-    public Text ESC;
+    public Image background;
 
     int index = 0;
 
@@ -38,7 +30,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Dialogues.Length == 0)
+        if (StartCutscene.Dialogues.Length == 0)
         {
             gameObject.SetActive(false);
         }
@@ -46,10 +38,10 @@ public class DialogueManager : MonoBehaviour
         {
             Time.timeScale = 0;
 
-            background = GetComponent<Image>();
+            //background = GetComponent<Image>();
 
-            charA.sprite = charAstart;
-            charB.sprite = charBstart;
+            charA.sprite = StartCutscene.charAstart;
+            charB.sprite = StartCutscene.charBstart;
         }
 
         
@@ -59,7 +51,7 @@ public class DialogueManager : MonoBehaviour
         ui = FindObjectOfType<UserInterface>();
         cutM = FindObjectOfType<CutsceneManager>();
 
-        if(Dialogues.Length > 0)
+        if (StartCutscene.Dialogues.Length > 0)
         {
             ui.menuPausa.enabled = false;
             Time.timeScale = 0;
@@ -78,39 +70,39 @@ public class DialogueManager : MonoBehaviour
             Time.timeScale = 1;
             ui.menuPausa.enabled = true;
             index += 100;
-            //gameObject.SetActive(false);
+            //gameObject.SetActive(false);            
         }
 
         if (!GameManager.instance.victory)
         {
-            if (index < Dialogues.Length)
+            if (index < StartCutscene.Dialogues.Length)
             {
-                if(Dialogues[index].background != null)
+                if(StartCutscene.Dialogues[index].background != null)
                 {
-                    background.sprite = Dialogues[index].background;
+                    background.sprite = StartCutscene.Dialogues[index].background;
                 }                
                 
-                if(Dialogues[index].Speaker != null)
+                if(StartCutscene.Dialogues[index].Speaker != null)
                 {
-                    Speaker.text = Dialogues[index].Speaker;
+                    Speaker.text = StartCutscene.Dialogues[index].Speaker;
                 }
                 else
                 {
-                    Speaker.text = Dialogues[index - 2].Speaker;
+                    Speaker.text = StartCutscene.Dialogues[index - 2].Speaker;
                 }
 
-                dialogueText.text = Dialogues[index].Dialogue;
+                dialogueText.text = StartCutscene.Dialogues[index].Dialogue;
                 
-                if (Dialogues[index].character == DialogueClass.PosibleCharacters.CharA)
+                if (StartCutscene.Dialogues[index].character == DialogueClass.PosibleCharacters.CharA)
                 {
-                    charA.sprite = Dialogues[index].CharArt;
+                    charA.sprite = StartCutscene.Dialogues[index].CharArt;
                     charA.color = new Color(1, 1, 1, 1f);
 
                     charB.color = new Color(1, 1, 1, 0.5f);
                 }
                 else
                 {
-                    charB.sprite = Dialogues[index].CharArt;
+                    charB.sprite = StartCutscene.Dialogues[index].CharArt;
                     charB.color = new Color(1, 1, 1, 1f);
 
                     charA.color = new Color(1, 1, 1, 0.5f);
@@ -144,41 +136,42 @@ public class DialogueManager : MonoBehaviour
                 //}               
 
                 cutM.IntroCutsceneEnded();
+
                 gameObject.SetActive(false);
             }
         }
         else if (GameManager.instance.victory)
         {
-            if (index < DialoguesEnd.Length && DialoguesEnd.Length > 0)
+            if (index < EndCutscene.Dialogues.Length && EndCutscene.Dialogues.Length > 0)
             {
                 cutM.EndCutsceneStarted();
 
-                if (DialoguesEnd[index].background != null)
+                if (EndCutscene.Dialogues[index].background != null)
                 {
-                    background.sprite = DialoguesEnd[index].background;
+                    background.sprite = EndCutscene.Dialogues[index].background;
                 }
 
-                if (DialoguesEnd[index].Speaker != "")
+                if (EndCutscene.Dialogues[index].Speaker != "")
                 {
-                    Speaker.text = DialoguesEnd[index].Speaker;
+                    Speaker.text = EndCutscene.Dialogues[index].Speaker;
                 }
                 else
                 {
-                    Speaker.text = DialoguesEnd[index - 2].Speaker;
+                    Speaker.text = EndCutscene.Dialogues[index - 2].Speaker;
                 }
 
-                dialogueText.text = DialoguesEnd[index].Dialogue;
+                dialogueText.text = EndCutscene.Dialogues[index].Dialogue;
 
-                if (DialoguesEnd[index].character == DialogueClass.PosibleCharacters.CharA)
+                if (EndCutscene.Dialogues[index].character == DialogueClass.PosibleCharacters.CharA)
                 {
-                    charA.sprite = DialoguesEnd[index].CharArt;
+                    charA.sprite = EndCutscene.Dialogues[index].CharArt;
                     charA.color = new Color(1, 1, 1, 1f);
 
                     charB.color = new Color(1, 1, 1, 0.5f);
                 }
                 else
                 {
-                    charB.sprite = DialoguesEnd[index].CharArt;
+                    charB.sprite = EndCutscene.Dialogues[index].CharArt;
                     charB.color = new Color(1, 1, 1, 1f);
 
                     charA.color = new Color(1, 1, 1, 0.5f);

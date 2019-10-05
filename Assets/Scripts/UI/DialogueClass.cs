@@ -1,23 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-
-
+[Serializable]
 public class DialogueClass
 {
-    public Sprite background;
-    public string Speaker;
-
     public enum PosibleCharacters { CharA, CharB };
+    public PosibleCharacters character;
 
-    public PosibleCharacters character; 
-
-    [TextArea]
-    public string Dialogue;
+    public string Speaker;
 
     public Sprite CharArt;
 
-
+    [TextArea]
+    public string Dialogue;
+    
+    public Sprite background;
 }
