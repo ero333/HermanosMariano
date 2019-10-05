@@ -595,6 +595,11 @@ PrefabInstance:
       propertyPath: gananciaMaxima
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 2961364454968568032, guid: ba8af12a75e769649ad4c38fc743a225,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba8af12a75e769649ad4c38fc743a225, type: 3}
 --- !u!1001 &2043885141
@@ -4066,5 +4071,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5352061006337022241, guid: 93abdcb4af36b6b4f9232b9fd6007819,
+        type: 3}
+      propertyPath: StartCutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: f8e339da406e6674d9fddc5bfa28f7f8,
+        type: 2}
+    - target: {fileID: 5352061006337022241, guid: 93abdcb4af36b6b4f9232b9fd6007819,
+        type: 3}
+      propertyPath: EndCutscene
+      value: 
+      objectReference: {fileID: 11400000, guid: 4239ddbe22b050b458cbbbbe05897173,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93abdcb4af36b6b4f9232b9fd6007819, type: 3}
