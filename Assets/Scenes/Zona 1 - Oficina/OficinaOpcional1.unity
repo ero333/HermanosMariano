@@ -76540,7 +76540,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].Dialogue
-      value: VENI MARIANO, TENGO UNA TAREA PARA VOS.
+      value: "VEN\xCD MARIANO, TENGO UNA TAREA PARA VOS."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76572,7 +76572,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].Dialogue
-      value: TENES QUE LLEVARLE ESTAS MEDIALUNAS AL JEFE
+      value: "TEN\xC9S QUE LLEVARLE ESTAS MEDIALUNAS AL JEFE."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76598,7 +76598,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Dialogue
-      value: NO, TENES CARA DE TUMBERO. AH, Y OTRA COSA.
+      value: "NO, TEN\xC9S CARA DE TUMBERO. AH, Y OTRA COSA..."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76619,7 +76619,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].Dialogue
-      value: "\xBFQUE?"
+      value: "\xBFQU\xC9?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -76683,7 +76683,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].Dialogue
-      value: "\xBFQUE TENGO, CARA DE DELIVERY?"
+      value: "\xBFQU\xC9 TENGO, CARA DE DELIVERY?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -77779,6 +77779,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 453.39133
       objectReference: {fileID: 0}
+    - target: {fileID: 76890251455131899, guid: 144f2667174b4d84c99a61c0cb650a81,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 453.39133
+      objectReference: {fileID: 0}
     - target: {fileID: 1750246164, guid: 144f2667174b4d84c99a61c0cb650a81, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[0].X
       value: 2266956515
@@ -77810,11 +77815,6 @@ PrefabInstance:
     - target: {fileID: 1750246164, guid: 144f2667174b4d84c99a61c0cb650a81, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].x
       value: -226.69566
-      objectReference: {fileID: 0}
-    - target: {fileID: 76890251455131899, guid: 144f2667174b4d84c99a61c0cb650a81,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 453.39133
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 144f2667174b4d84c99a61c0cb650a81, type: 3}
@@ -77893,7 +77893,7 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3797748
+      value: -1.4026923
       objectReference: {fileID: 0}
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
@@ -77903,7 +77903,7 @@ PrefabInstance:
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3797748
+      value: -1.4026923
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
