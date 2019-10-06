@@ -11,14 +11,14 @@ public class CutsceneManager : MonoBehaviour
     [HideInInspector]
     public bool activeCutscenes = true;
 
-    bool DMactive = false;
-    bool newDMactive = false;
+    public bool DMactive = false;
+    public bool newDMactive = false;
 
     private void Awake()
     {
-        if(DM != null)
+        if (DM != null)
         {
-            if(DM.Dialogues.Length > 0)
+            if (DM.Dialogues.Length > 0)
             {
                 DMactive = true;
             }
@@ -28,9 +28,9 @@ public class CutsceneManager : MonoBehaviour
             }
         }
 
-        if(newDM != null)
+        if (newDM != null)
         {
-            if(newDM.StartCutscene != null)
+            if (newDM.StartCutscene != null)
             {
                 newDMactive = true;
             }
@@ -64,7 +64,7 @@ public class CutsceneManager : MonoBehaviour
                 newDM.gameObject.SetActive(true);
             }
 
-            if(!DMactive && !DMactive)
+            if (!DMactive && !DMactive)
             {
                 activeCutscenes = false;
             }
@@ -89,7 +89,7 @@ public class CutsceneManager : MonoBehaviour
         {
             activeCutscenes = false;
         }
-    }    
+    }
 
     public void IntroCutsceneEnded()
     {
@@ -98,14 +98,38 @@ public class CutsceneManager : MonoBehaviour
 
     public void onVictory()
     {
+        UserInterface ui = FindObjectOfType<UserInterface>();
+
         if (DMactive)
         {
-            DM.gameObject.SetActive(true);
+            if (DM.DialoguesEnd.Length > 0)
+            {
+                DM.gameObject.SetActive(true);
+            }
+            else
+            {
+                DM.gameObject.SetActive(false);
+                ui.Victory(ui.gananciaMaxBK);
+            }
         }
 
         if (newDMactive)
         {
-            newDM.gameObject.SetActive(true);
+            if (newDM.EndCutscene != null)
+            {
+                newDM.gameObject.SetActive(true);
+            }
+            else
+            {
+                newDM.gameObject.SetActive(false);
+                ui.Victory(ui.gananciaMaxBK);
+            }
+
+        }
+
+        if(!DMactive && !newDMactive)
+        {
+            ui.Victory(ui.gananciaMaxBK);
         }
     }
 

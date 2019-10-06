@@ -995,7 +995,7 @@ PrefabInstance:
     - target: {fileID: 93800603589391553, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -636.5
+      value: -636.49994
       objectReference: {fileID: 0}
     - target: {fileID: 93800603589391553, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
@@ -18523,15 +18523,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3410519866239807775, guid: 30ce4920a4d2cd04d8a688470add6068,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.46
+      objectReference: {fileID: 0}
     - target: {fileID: 2174074866795196195, guid: 30ce4920a4d2cd04d8a688470add6068,
         type: 3}
       propertyPath: gananciaMaxima
       value: 12000
       objectReference: {fileID: 0}
-    - target: {fileID: 3410519866239807775, guid: 30ce4920a4d2cd04d8a688470add6068,
+    - target: {fileID: 2174074866795196195, guid: 30ce4920a4d2cd04d8a688470add6068,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.46
+      propertyPath: Obligatorio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2174074866795196195, guid: 30ce4920a4d2cd04d8a688470add6068,
+        type: 3}
+      propertyPath: zonaActual
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30ce4920a4d2cd04d8a688470add6068, type: 3}
@@ -18928,6 +18938,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 3.9987478
       objectReference: {fileID: 0}
+    - target: {fileID: 144429160511926974, guid: 8408953133e736447b6f34fc428e65eb,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3.9987478
+      objectReference: {fileID: 0}
     - target: {fileID: 6138250756734843411, guid: 8408953133e736447b6f34fc428e65eb,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.size
@@ -19137,11 +19152,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[4].Array.data[3].x
       value: 2.2046864
-      objectReference: {fileID: 0}
-    - target: {fileID: 144429160511926974, guid: 8408953133e736447b6f34fc428e65eb,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 3.9987478
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8408953133e736447b6f34fc428e65eb, type: 3}
@@ -20005,12 +20015,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2897748
+      value: -1.313164
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2897748
+      value: -1.313164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}

@@ -82,7 +82,7 @@ public class UserInterface : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
         LivesText.text = "" + GameManager.instance.lives;
         MoneyText.text = "" + GameManager.instance.money;
         bullets.text = "" + player.bullets;
@@ -94,7 +94,7 @@ public class UserInterface : MonoBehaviour
         else if (countDown != null)
         {
             TimerText.text = "" + (countDown.currentTime / 60 - 1).ToString("00") + ":" + (countDown.currentTime % 60).ToString("00"); ;
-        }            
+        }
 
         if (gm.lives == 0)
         {
@@ -124,12 +124,12 @@ public class UserInterface : MonoBehaviour
             else
             {
                 EnergyBars[i].enabled = false;
-            }            
+            }
         }
     }
 
     public void BackToMap()
-    {        
+    {
         GameManager.instance.BackToMap();
     }
 
@@ -138,69 +138,29 @@ public class UserInterface : MonoBehaviour
         menuPausa.enabled = false;
         int impuesto;
 
-        //bool canVictory = false;
-
         Time.timeScale = 0f;
-        GameManager.instance.VictoryCondition();
 
-        //if(dialogueManager != null)
-        //{
-        //    if (dialogueManager.DialoguesEnd.Length > 0 && !dialogueManager.end)
-        //    {
-        //        gananciaMaxBK = gananciaMaxima;
+        VictoryScreen.SetActive(true);
+        ganancias.text = "" + GameManager.instance.money;
 
-        //        dialogueManager.gameObject.SetActive(true);
+        Debug.Log(GameManager.instance.money);
 
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        canVictory = true;                
-        //    }
-        //}
-
-        //if (newDialogueManager != null)
-        //{
-        //    if (newDialogueManager.EndCutscene.Dialogues.Length > 0 && !newDialogueManager.end)
-        //    {
-        //        gananciaMaxBK = gananciaMaxima;
-
-        //        newDialogueManager.gameObject.SetActive(true);
-
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        canVictory = true;
-        //    }
-        //}        
-
-        //if (canVictory)
+        if (GameManager.instance.money > gananciaMaxima)
         {
-            VictoryScreen.SetActive(true);
-            ganancias.text = "" + GameManager.instance.money;
+            impuesto = GameManager.instance.money - gananciaMaxima;
+        }
+        else if (GameManager.instance.money == gananciaMaxima)
+        {
+            impuesto = ((gananciaMaxima * 2) / 100);
+        }
+        else
+        {
+            impuesto = ((gananciaMaxima * 10) / 100);
+        }
 
-            Debug.Log(GameManager.instance.money);
-
-
-            if (GameManager.instance.money > gananciaMaxima)
-            {
-                impuesto = GameManager.instance.money - gananciaMaxima;
-            }
-            else if (GameManager.instance.money == gananciaMaxima)
-            {
-                impuesto = ((gananciaMaxima * 2) / 100);
-            }
-            else
-            {
-                impuesto = ((gananciaMaxima * 10) / 100);
-            }
-
-            impuestos.text = "" + impuesto;
-            Debug.Log(impuesto);
-            total.text = "" + (GameManager.instance.money - impuesto);
-            GameManager.ahorros += (GameManager.instance.money - impuesto);
-        }        
+        impuestos.text = "" + impuesto;
+        Debug.Log(impuesto);
+        total.text = "" + (GameManager.instance.money - impuesto);
+        GameManager.ahorros += (GameManager.instance.money - impuesto);
     }
-    
 }
