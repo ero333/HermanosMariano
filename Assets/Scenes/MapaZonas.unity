@@ -980,16 +980,16 @@ MonoBehaviour:
   charAstart: {fileID: 0}
   charBstart: {fileID: 0}
   Dialogues:
-  - background: {fileID: 0}
+  - character: 0
     Speaker: el chano
-    character: 0
+    CharArt: {fileID: 0}
     Dialogue: hola
-    CharArt: {fileID: 0}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 0
     Speaker: el guano
-    character: 0
-    Dialogue: holis
     CharArt: {fileID: 0}
+    Dialogue: holis
+    background: {fileID: 0}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -1553,52 +1553,52 @@ MonoBehaviour:
   charAstart: {fileID: 0}
   charBstart: {fileID: 0}
   Dialogues:
-  - background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
     Dialogue: "HOLA SE\xD1OR, VINE POR EL ANUNCIO DEL PUESTO DE-"
-    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 1
     Speaker: OBRERO
-    character: 1
-    Dialogue: NO, GRACIAS.
     CharArt: {fileID: 21300000, guid: 7cbf50434f388f44b9479ebdf2b2c3a9, type: 3}
-  - background: {fileID: 0}
+    Dialogue: NO, GRACIAS.
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: "HOLA SE\xD1OR, VENGO PORQUE LEI QUE SE NECESITA EMPLEADO PARA-"
     CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "HOLA SE\xD1OR, VENGO PORQUE LEI QUE SE NECESITA EMPLEADO PARA-"
+    background: {fileID: 0}
+  - character: 1
     Speaker: VERDULERO.
-    character: 1
-    Dialogue: YA SE OCUPO EL PUESTO.
     CharArt: {fileID: 21300000, guid: f5e8634e5f9a34d4bbc98b099d252156, type: 3}
-  - background: {fileID: 0}
+    Dialogue: YA SE OCUPO EL PUESTO.
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: "HOLA, QUER\xCDA APLICAR PARA EL PUESTO DE-"
     CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "HOLA, QUER\xCDA APLICAR PARA EL PUESTO DE-"
+    background: {fileID: 0}
+  - character: 1
     Speaker: GERENTE
-    character: 1
-    Dialogue: LA VACANTE YA ESTA COMPLETA.
     CharArt: {fileID: 21300000, guid: b69792b64739dc0438f7aa431e507b78, type: 3}
-  - background: {fileID: 0}
+    Dialogue: LA VACANTE YA ESTA COMPLETA.
+    background: {fileID: 0}
+  - character: 1
     Speaker: 
-    character: 1
-    Dialogue: 
     CharArt: {fileID: 0}
-  - background: {fileID: 0}
+    Dialogue: 
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
+    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
     Dialogue: LOCO, NADIE ME QUIERE TOMAR PORQUE ESTUVE PRESO. TODAVIA TENGO ESA LARGA
       DEUDA POR PAGAR Y YA NO TENGO LABURO.
-    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: TENGO QUE CONSEGUIR LA GUITA COMO SEA.
     CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
+    Dialogue: TENGO QUE CONSEGUIR LA GUITA COMO SEA.
+    background: {fileID: 0}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -3009,16 +3009,16 @@ MonoBehaviour:
   charAstart: {fileID: 0}
   charBstart: {fileID: 0}
   Dialogues:
-  - background: {fileID: 0}
+  - character: 0
     Speaker: el chano
-    character: 0
+    CharArt: {fileID: 0}
     Dialogue: hola
-    CharArt: {fileID: 0}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 0
     Speaker: el guano
-    character: 0
-    Dialogue: holis
     CharArt: {fileID: 0}
+    Dialogue: holis
+    background: {fileID: 0}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -3911,79 +3911,79 @@ MonoBehaviour:
   charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
   charBstart: {fileID: 0}
   Dialogues:
-  - background: {fileID: 0}
+  - character: 1
     Speaker: LEANDRO
-    character: 1
-    Dialogue: "BUENO MARIANO, AC\xC1 VAS A TRABAJAR DE AHORA EN M\xC1S."
     CharArt: {fileID: 21300000, guid: ddfd53ebea9aa3541986b3af04dde6c2, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "BUENO MARIANO, AC\xC1 VAS A TRABAJAR DE AHORA EN M\xC1S."
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: "\xBFPOR CUANTO TIEMPO?"
     CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "\xBFPOR CUANTO TIEMPO?"
+    background: {fileID: 0}
+  - character: 1
     Speaker: LEANDRO
-    character: 1
+    CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
     Dialogue: "Y, M\xCDNIMO HASTA QUE SALDES TU DEUDA O TE CANSES Y MATES A TODOS
       COMO EN TU ULTIMO TRABAJO. LO QUE SEA QUE PASE PRIMERO."
-    CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: '...'
     CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
-  - background: {fileID: 0}
+    Dialogue: '...'
+    background: {fileID: 0}
+  - character: 1
     Speaker: LEANDRO
-    character: 1
-    Dialogue: TE DEJO CON TU JEFE.
     CharArt: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1, type: 3}
-  - background: {fileID: 0}
+    Dialogue: TE DEJO CON TU JEFE.
+    background: {fileID: 0}
+  - character: 1
     Speaker: JEFE
-    character: 1
-    Dialogue: "BIEN, ASI QUE VOS SOS MARIANO \xBFEH?"
     CharArt: {fileID: 21300000, guid: ecd71fe9a16f6894bafd5e1fed0239ba, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "BIEN, ASI QUE VOS SOS MARIANO \xBFEH?"
+    background: {fileID: 0}
+  - character: 1
     Speaker: JEFE
-    character: 1
+    CharArt: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca, type: 3}
     Dialogue: "MAS TE VALE QUE TE ROMPAS EL CULO TRABAJANDO, \xBFME OISTE? BASTANTE
       GENEROSO SOY POR TOMAR A UN EX CONVICTO COMO VOS."
-    CharArt: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca, type: 3}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: VIEJO DE MIERDA.
     CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
-  - background: {fileID: 0}
+    Dialogue: VIEJO DE MIERDA.
+    background: {fileID: 0}
+  - character: 1
     Speaker: JEFE
-    character: 1
-    Dialogue: "\xBFQUE DIJSITE?"
     CharArt: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "\xBFQUE DIJSITE?"
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: "NADA SE\xD1OR. GRACIAS POR TOMARME EN ESTE TRABAJO. NO LO VOY A DEFRAUDAR."
     CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
-  - background: {fileID: 0}
+    Dialogue: "NADA SE\xD1OR. GRACIAS POR TOMARME EN ESTE TRABAJO. NO LO VOY A DEFRAUDAR."
+    background: {fileID: 0}
+  - character: 1
     Speaker: JEFE
-    character: 1
+    CharArt: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca, type: 3}
     Dialogue: MAS TE VALE... TE VOY A LLAMAR PARA HACER TODO TIPO DE COSAS... MAS
       TE VALE QUE ESTES DISPUESTO A HACERLAS.
-    CharArt: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca, type: 3}
-  - background: {fileID: 0}
+    background: {fileID: 0}
+  - character: 1
     Speaker: JEFE
-    character: 1
-    Dialogue: Y NO ME VENGAS CON PRETENCIONES SALARIALES.
     CharArt: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b, type: 3}
-  - background: {fileID: 0}
+    Dialogue: Y NO ME VENGAS CON PRETENCIONES SALARIALES.
+    background: {fileID: 0}
+  - character: 1
     Speaker: 
-    character: 1
-    Dialogue: 
     CharArt: {fileID: 0}
-  - background: {fileID: 0}
+    Dialogue: 
+    background: {fileID: 0}
+  - character: 0
     Speaker: MARIANO
-    character: 0
-    Dialogue: PERO QUE VIEJO DE MIERDA.
     CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: PERO QUE VIEJO DE MIERDA.
+    background: {fileID: 0}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
@@ -4680,19 +4680,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seen: 0
-  charAstart: {fileID: 0}
+  charAstart: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
   charBstart: {fileID: 0}
   Dialogues:
-  - background: {fileID: 0}
-    Speaker: el chano
-    character: 0
-    Dialogue: hola
-    CharArt: {fileID: 0}
-  - background: {fileID: 0}
-    Speaker: el guano
-    character: 0
-    Dialogue: holis
-    CharArt: {fileID: 0}
+  - character: 1
+    Speaker: POLICIA
+    CharArt: {fileID: 21300000, guid: ccb990d0fdd9cb444a4b8988d5d4b02a, type: 3}
+    Dialogue: SABIA QUE IBAS A VOLVER.
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: YO LE HICE UN FAVOR A LA SOCIEDAD.
+    background: {fileID: 0}
+  - character: 1
+    Speaker: POLICIA
+    CharArt: {fileID: 21300000, guid: 03c3bb0a3a0a03e4c86babb9859c0f74, type: 3}
+    Dialogue: "\xBFMATANDO A UN PRESENTADOR DE TELEVISI\xD3N?"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
+    Dialogue: MATANDO A UN GIL.
+    background: {fileID: 0}
+  - character: 1
+    Speaker: POLICIA
+    CharArt: {fileID: 21300000, guid: cd88bd86ca29b7142a390597f2f85080, type: 3}
+    Dialogue: "ESCUCHAME, AC\xC1 TODO SE ARREGLA.\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: "\xBFSI? PORQUE AHORA TENGO CADENA PERPETUA Y TODAV\xCDA TENGO ESA DEUDA
+      DE MIERDA.\r\n"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: POLICIA
+    CharArt: {fileID: 21300000, guid: cd88bd86ca29b7142a390597f2f85080, type: 3}
+    Dialogue: "OLV\xCDDATE DE LA DEUDA, SI FACTURAS PARA MI, TE PUEDO SACAR DE AC\xC1
+      MUCHO ANTES.\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
+    Dialogue: "\xBFO SEA QUE QUERES UNA COIMA?\r\n"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: POLICIA
+    CharArt: {fileID: 21300000, guid: 3aabb84d44982fe40be925b0544be1eb, type: 3}
+    Dialogue: "\xA1NO! SON MIS HONORARIOS.\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
+    Dialogue: LO QUE SEA. CONTA CONMIGO.
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
+    Dialogue: PERO SI ME CAGAS TE VAS A ARREPENTIR
+    background: {fileID: 0}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
   charA: {fileID: 1712963323}
