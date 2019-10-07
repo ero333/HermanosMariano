@@ -42484,6 +42484,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2599009779257520386, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.00055
+      objectReference: {fileID: 0}
     - target: {fileID: 4271781040471356989, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -42505,12 +42510,12 @@ PrefabInstance:
     - target: {fileID: 3374921998397041825, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -379.99976
+      value: -379.99982
       objectReference: {fileID: 0}
     - target: {fileID: 9108532883826291865, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -638.7
+      value: -638.7001
       objectReference: {fileID: 0}
     - target: {fileID: 9108532883826291865, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42535,7 +42540,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].Dialogue
-      value: "JEFE, \xBFME LLAMO?"
+      value: "Jefe, \xBFMe llam\xF3?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42556,8 +42561,8 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].Dialogue
-      value: "S\xCD, NECESITO QUE HAGAS ALGO. HOY RAJ\xC9 A UN EMPLEADO QUE ME QUISO
-        ESCRACHAR SACANDO A LA LUZ ALGO QUE NO VALE LA PENA DETALLLAR."
+      value: "S\xED, necesito que hagas algo. Hoy raj\xE9 a un empleado que me quiso
+        escrachar sacando a la luz algo que no vale la pena detallar."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42579,9 +42584,9 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].Dialogue
-      value: "\xA1\xA1\xA1HIJO DE P&T#!!! \xA1\xA1\xA1NOS CAGASTE LA JUBILACION!!!
-        \xA1\xA1\xA1SACASTE LOS FONDOS DE LA CAJA DE SEGURIDAD DE LA EMPRESA Y LOS
-        DEPOSITASTE EN UNA CUENTA OFFSHORE EN SUIZAAAA!!!"
+      value: "\xA1\xA1HIJO DE P&T#!! \xA1NOS CAGASTE LA JUBILACI\xD3N! \xA1SACASTE\nLOS
+        FONDOS DE LA CAJA DE SEGURIDAD Y LOS \nDEPOSITASTE EN UNA CUENTA OFFSHORE
+        EN SUIZA!"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42618,8 +42623,8 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Dialogue
-      value: 'EN FIN, EL TIPO DEJO TIRADOS POR TODA LA EMPRESA UNOS PAPELES COMPROMETED-
-        DE CALUMNIAS FALSAS QUE NECESITO QUE JUNTES Y DEJES EN UN LUGAR SEGURO. '
+      value: "En fin, el tipo dej\xF3 tirados por toda la empresa unos \npapeles comprometed-
+        de calumnias que necesito \nque juntes y dejes en un lugar seguro."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42634,8 +42639,8 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].Dialogue
-      value: CUIDADO QUE TE VAS A ENCONTRAR CON OTROS EMPLEADOS AMOTINADOS QUE VAN
-        A QUERER ATACARTE POR ESTO.
+      value: Cuidado, te vas a encontrar con otros empleados amotinados que van a
+        querer atacarte por esto.
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42656,7 +42661,7 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].Dialogue
-      value: "\xBFY QU\xC9 HAGO SI ME ATACAN?"
+      value: "\xBFY qu\xE9 hago si me atacan?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -42672,8 +42677,8 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[7].Dialogue
-      value: "ESO ES PROBLEMA TUYO, PARA ALGO TE CONTRAT\xC9. FAJALOS SI HACE FALTA,
-        YO YA LOS DESPED\xCD."
+      value: "Eso es problema tuyo, para algo te contrat\xE9. Fajalos si hace falta,
+        yo ya los desped\xED."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -44514,27 +44519,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a,
+      objectReference: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0,
         type: 3}
     - target: {fileID: 8796228062618323994, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 60
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8796228062618323994, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5581258812858096801, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34.549988
+      value: 30.100037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581258812858096801, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 755
       objectReference: {fileID: 0}
     - target: {fileID: 4926296132579107379, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000008583069
+      value: -0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 4926296132579107379, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -44546,16 +44556,57 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4095729052063936709, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -218.00006
+      objectReference: {fileID: 0}
     - target: {fileID: 3988193163733293059, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a,
+      objectReference: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0,
         type: 3}
     - target: {fileID: 3988193163733293059, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 60
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360145657949209685, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360145657949209685, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360145657949209685, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0,
+        type: 3}
+    - target: {fileID: 1974580794461584331, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.9503174
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340959241327672898, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.9400635
+      objectReference: {fileID: 0}
+    - target: {fileID: 798186609920570510, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -56.150024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704899924316794812, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.9405518
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a27e5de92561b14b8605ec8d2a6f0ff, type: 3}
@@ -45378,7 +45429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -622, y: 30.100006}
+  m_AnchoredPosition: {x: -622.00006, y: 30.100037}
   m_SizeDelta: {x: -1297.1001, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2078021250
@@ -45402,11 +45453,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b41a073ccd3f07040a3139ace67937f2, type: 3}
-    m_FontSize: 38
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -45641,12 +45692,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3126923
+      value: -1.3824704
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3126923
+      value: -1.3824704
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}
