@@ -25,8 +25,9 @@ public class Collectable : MonoBehaviour
 
                 if (!player.transport)
                 {
+                    Sprite mySprite = GetComponentInChildren<SpriteRenderer>().sprite;
                     player.transport = true;
-                    player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+                    player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mySprite;
                     Destroy(gameObject);
                 }                
             }            
