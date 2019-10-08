@@ -80,7 +80,6 @@ public class UserInterface : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         LivesText.text = "" + GameManager.instance.lives;
@@ -89,11 +88,11 @@ public class UserInterface : MonoBehaviour
 
         if (survive != null)
         {
-            TimerText.text = (survive.countDown / 60 - 1).ToString("00") + ":" + (survive.countDown % 60).ToString("00");
+            TimerText.text = Mathf.Floor(survive.countDown / 60).ToString("00") + ":" + (survive.countDown % 60).ToString("00");
         }
         else if (countDown != null)
         {
-            TimerText.text = "" + (countDown.currentTime / 60 - 1).ToString("00") + ":" + (countDown.currentTime % 60).ToString("00"); ;
+            TimerText.text = "" + Mathf.Floor(countDown.currentTime / 60).ToString("00") + ":" + (countDown.currentTime % 60).ToString("00");            
         }
 
         if (gm.lives == 0)
