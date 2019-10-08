@@ -52,6 +52,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: {fileID: 0}
   condition: {fileID: 1935666492}
+--- !u!1 &957588645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957588646}
+  - component: {fileID: 957588648}
+  - component: {fileID: 957588647}
+  m_Layer: 5
+  m_Name: ESC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &957588646
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957588645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000646, y: 1.0000646, z: 1.0000646}
+  m_Children: []
+  m_Father: {fileID: 56067346311137887}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -622, y: 30.100006}
+  m_SizeDelta: {x: -1297.1, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &957588648
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957588645}
+  m_CullTransparentMesh: 0
+--- !u!114 &957588647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957588645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 22
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'SALTEAR: "ESC"'
 --- !u!1 &1443091854
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +227,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 56067346311137887}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1149,12 +1228,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 59
+    m_MaxSize: 82
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: GANANCIAS
 --- !u!1 &2057421756605946489
@@ -1192,7 +1271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 712.5, y: 34.549927}
+  m_AnchoredPosition: {x: 712.5, y: 34.549988}
   m_SizeDelta: {x: -1392.1, y: 48.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2884293343072877111
@@ -1516,17 +1595,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: MENU PRINCIPAL
 --- !u!1 &3316888824882705035
@@ -1595,17 +1674,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: REINICIAR NIVEL
 --- !u!1 &3377508405199844441
@@ -2121,6 +2200,7 @@ RectTransform:
   - {fileID: 6502223278474329229}
   - {fileID: 820164878226895495}
   - {fileID: 5581258812858096801}
+  - {fileID: 957588646}
   - {fileID: 1649716207}
   m_Father: {fileID: 4271781039972550984}
   m_RootOrder: 10
@@ -2142,33 +2222,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e614e0b1bffc4824babf98e144dbb6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charAstart: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
-  charBstart: {fileID: 21300000, guid: 07770e8751ae5e841b7d348b47f9f4e2, type: 3}
+  charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
+  charBstart: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
   Dialogues:
   - character: 1
-    Speaker: 
-    CharArt: {fileID: 21300000, guid: 07770e8751ae5e841b7d348b47f9f4e2, type: 3}
-    Dialogue: "En alg\xFAn penal de la provincia de Buenos Aires..."
-    background: {fileID: 21300000, guid: cc7bd76ee30ba7b458204baafebe922a, type: 3}
+    Speaker: EMPLEADO
+    CharArt: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
+    Dialogue: "Ven\xED Mariano, tengo una tarea para vos."
+    background: {fileID: 21300000, guid: 734e9f78a6cb9bb4b8cea5842a367e2e, type: 3}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
+    Dialogue: "\xBFQu\xE9 pasa?"
+    background: {fileID: 0}
   - character: 1
-    Speaker: "POLIC\xCDA"
-    CharArt: {fileID: 21300000, guid: d6a6396bcd92a2540a8835be3c8a9eda, type: 3}
-    Dialogue: "Dale pibe, sal\xED."
+    Speaker: EMPLEADO
+    CharArt: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
+    Dialogue: "Ten\xE9s que llevarle estas medialunas al jefe."
     background: {fileID: 0}
   - character: 0
-    Speaker: "POLIC\xCDA"
-    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
-    Dialogue: "Pero, \xBFQu\xE9 pasa?"
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
+    Dialogue: "\xBFQu\xE9 tengo, cara de delivery?"
     background: {fileID: 0}
   - character: 1
-    Speaker: "POLIC\xCDA"
-    CharArt: {fileID: 21300000, guid: d6a6396bcd92a2540a8835be3c8a9eda, type: 3}
-    Dialogue: "Te vinieron a buscar, and\xE1 hasta la entrada."
+    Speaker: EMPLEADO
+    CharArt: {fileID: 21300000, guid: b970496369d170142aa8cd3cc48497cd, type: 3}
+    Dialogue: "No, ten\xE9s cara de tumbero. Ah, y otra cosa..."
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
+    Dialogue: "\xBFQu\xE9?"
     background: {fileID: 0}
   - character: 1
-    Speaker: "POLIC\xCDA"
-    CharArt: {fileID: 21300000, guid: 229047caa8179714ba3b5fea58e6917a, type: 3}
-    Dialogue: Y cuidate, que si te fajan los presos nosotros no te podemos ayudar.
+    Speaker: EMPLEADO
+    CharArt: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
+    Dialogue: "Los dem\xE1s empleados se enteraron que te metieron de arriba porque
+      tu hermano conoce al jefe y no se lo tomaron bien. Cuidado con ellos."
     background: {fileID: 0}
   charAstart2: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
   charBstart2: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1, type: 3}
@@ -4497,7 +4588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -380, y: 449.5901}
+  m_AnchoredPosition: {x: -379.99976, y: 449.5901}
   m_SizeDelta: {x: -1196.2, y: 492.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6018089537034544307
@@ -4630,7 +4721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7353162781572883766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5425,7 +5516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000030994415, y: 174.8}
+  m_AnchoredPosition: {x: -0.0000030994415, y: 148.2}
   m_SizeDelta: {x: 260.33, y: 49.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2404071732101955072
@@ -5457,17 +5548,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 64
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 64
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'PAUSADO
 
@@ -5664,17 +5755,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 32
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: CONTINUAR
 --- !u!1 &7978770997298258182
@@ -5956,8 +6047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -691.74994, y: -24.650002}
-  m_SizeDelta: {x: -1404.3999, y: 49.3}
+  m_AnchoredPosition: {x: -638.6999, y: -24.650002}
+  m_SizeDelta: {x: -1298.5, y: 49.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7676937369519235322
 CanvasRenderer:
@@ -5989,7 +6080,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
-    m_FontSize: 35
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -6170,16 +6261,16 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fbf2a94cd5f74d941a55cda4d11a955d, type: 3}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: VOLVER AL MAPA
