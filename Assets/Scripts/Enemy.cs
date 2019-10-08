@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     [Header("Vida")]
     public int lives;
     public float hitStunTimer = 1f;
+    public bool modoSuicida = false;
 
     [Header("Patrullar")]
     public bool patrol;
@@ -224,12 +225,14 @@ public class Enemy : MonoBehaviour
                     //Debug.Log("No puedo huir hasta el vacio");
 
                 } //cuando lo persigue
-                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor))
-                        || ((playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall)))
+                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)) || ((playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall)))
                 {
                     //saltar
 
-                    playerDirection.x = 0;
+                    if (!modoSuicida)
+                    {
+                        playerDirection.x = 0;
+                    }                    
 
                     //Debug.Log("No puedo perseguir hasta el vacio");
                 }
