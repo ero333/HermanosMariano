@@ -1426,7 +1426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814550254431888750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3990,8 +3990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dc3bbc1077ac84489c65a4f69b46d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartCutscene: {fileID: 11400000, guid: de8672d0b3659424fa00737fe87ffb99, type: 2}
-  EndCutscene: {fileID: 11400000, guid: 103bf0a1c0688354da4911d377cdd72a, type: 2}
+  StartCutscene: {fileID: 0}
+  EndCutscene: {fileID: 0}
   Speaker: {fileID: 5223566222187124827}
   dialogueText: {fileID: 375847783992101954}
   charA: {fileID: 1806440678595329826}
