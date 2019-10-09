@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
     public bool juegoPausado = false;
     public GameObject MenuPausaUI;
+    public Text textoNivel;
 
     private void Start()
     {
@@ -28,6 +30,9 @@ public class MenuPausa : MonoBehaviour
                 Pausar();
             }
         }
+
+        textoNivel.text = "" + SceneManager.GetActiveScene().name;
+
     }
 
     public void Continuar()
