@@ -502,7 +502,7 @@ PrefabInstance:
     - target: {fileID: 2961364454968568032, guid: ba8af12a75e769649ad4c38fc743a225,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2961364454968568032, guid: ba8af12a75e769649ad4c38fc743a225,
         type: 3}
@@ -631,7 +631,7 @@ PrefabInstance:
     - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
       propertyPath: JumpObstacles
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
@@ -648,11 +648,16 @@ PrefabInstance:
       propertyPath: bottomSize.x
       value: 0.55
       objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: isJumping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083233, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 2f05610028c861044a31105fee72741f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083234, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -3503,7 +3508,7 @@ PrefabInstance:
     - target: {fileID: 5712218532217593870, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3211230273901025582, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
@@ -3563,7 +3568,7 @@ PrefabInstance:
     - target: {fileID: 8646776734610714753, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
       propertyPath: flee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8646776734610714753, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
@@ -3574,6 +3579,21 @@ PrefabInstance:
         type: 3}
       propertyPath: safeDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646776734610714753, guid: e89513854133af94989e1b9ec4706e1b,
+        type: 3}
+      propertyPath: chase
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646776734610714753, guid: e89513854133af94989e1b9ec4706e1b,
+        type: 3}
+      propertyPath: meleeDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636752240025929861, guid: e89513854133af94989e1b9ec4706e1b,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 841430885966872734, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
@@ -3876,11 +3896,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8956051031731710434, guid: 438d4cd61f10a7e4283e31c9cace374a,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 502a14fbf284494469a1a9575faa2827, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438d4cd61f10a7e4283e31c9cace374a, type: 3}
 --- !u!1001 &9161796366045280548

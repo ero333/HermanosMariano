@@ -176,6 +176,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        PhysicsMaterial2D physicMaterial = new PhysicsMaterial2D(gameObject.name);
+        physicMaterial.bounciness = 0;
+        physicMaterial.friction = 1;
+
+        rb.sharedMaterial = physicMaterial;
     }
 
     private void FixedUpdate()
@@ -231,7 +236,7 @@ public class Enemy : MonoBehaviour
                         isJumping = true;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         rb.velocity += Vector2.up * jumpForce;
-                        rb.sharedMaterial.friction = 0;
+                        
                     }
                     else //acorralado, se queda quieto
                     {
@@ -249,7 +254,7 @@ public class Enemy : MonoBehaviour
                         isJumping = true;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         rb.velocity += Vector2.up * jumpForce;
-                        rb.sharedMaterial.friction = 0;
+                        
                     }
                     else if (!modoSuicida)
                     {
@@ -451,9 +456,13 @@ public class Enemy : MonoBehaviour
             hited = true;
         }
 
-        if (onGround)
+        if (onGround && !isJumping)
         {
             rb.sharedMaterial.friction = 1;
+        }
+        else if(!onGround && isJumping)
+        {
+            rb.sharedMaterial.friction = 0;
         }
 
     }

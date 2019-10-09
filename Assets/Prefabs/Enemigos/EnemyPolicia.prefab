@@ -78,6 +78,7 @@ MonoBehaviour:
   trigger: 0
   lives: 3
   hitStunTimer: 1
+  modoSuicida: 0
   patrol: 0
   patrolSpeed: 0
   chase: 1
@@ -86,6 +87,9 @@ MonoBehaviour:
   sprintSpeed: 8
   sprintDuration: 3
   sprintDelay: 5
+  JumpObstacles: 0
+  isJumping: 0
+  jumpForce: 8
   flee: 0
   speedFlee: 5
   safeDistance: 10
@@ -164,7 +168,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 502a14fbf284494469a1a9575faa2827, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
