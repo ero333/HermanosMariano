@@ -2142,54 +2142,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e614e0b1bffc4824babf98e144dbb6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charAstart: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
-  charBstart: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
-  Dialogues:
-  - character: 1
-    Speaker: EMPLEADO
-    CharArt: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
-    Dialogue: "Ven\xED Mariano, tengo una tarea para vos."
-    background: {fileID: 21300000, guid: 734e9f78a6cb9bb4b8cea5842a367e2e, type: 3}
-  - character: 0
-    Speaker: MARIANO
-    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
-    Dialogue: "\xBFQu\xE9 pasa?"
-    background: {fileID: 0}
-  - character: 1
-    Speaker: EMPLEADO
-    CharArt: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
-    Dialogue: "Ten\xE9s que llevarle estas medialunas al jefe."
-    background: {fileID: 0}
-  - character: 0
-    Speaker: MARIANO
-    CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
-    Dialogue: "\xBFQu\xE9 tengo, cara de delivery?"
-    background: {fileID: 0}
-  - character: 1
-    Speaker: EMPLEADO
-    CharArt: {fileID: 21300000, guid: b970496369d170142aa8cd3cc48497cd, type: 3}
-    Dialogue: "No, ten\xE9s cara de tumbero. Ah, y otra cosa..."
-    background: {fileID: 0}
-  - character: 0
-    Speaker: MARIANO
-    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
-    Dialogue: "\xBFQu\xE9?"
-    background: {fileID: 0}
-  - character: 1
-    Speaker: EMPLEADO
-    CharArt: {fileID: 21300000, guid: ce947f4d3d0320644b073dd035c245db, type: 3}
-    Dialogue: "Los dem\xE1s empleados se enteraron que te metieron de arriba porque
-      tu hermano conoce al jefe y no se lo tomaron bien. Cuidado con ellos."
-    background: {fileID: 0}
-  charAstart2: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
-  charBstart2: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1, type: 3}
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues: []
+  charAstart2: {fileID: 0}
+  charBstart2: {fileID: 0}
   DialoguesEnd: []
   Speaker: {fileID: 3988193163733293059}
   dialogueText: {fileID: 8796228062618323994}
   charA: {fileID: 7364785589125316474}
   charB: {fileID: 2517968207140439801}
   SpaceoZ: {fileID: 1360145657949209685}
-  ESC: {fileID: 0}
+  ESC: {fileID: 957588647}
   end: 0
 --- !u!114 &8718961129702344833
 MonoBehaviour:
@@ -2670,6 +2634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   juegoPausado: 0
   MenuPausaUI: {fileID: 6427881661031164477}
+  textoNivel: {fileID: 0}
 --- !u!223 &4271781039972550985
 Canvas:
   m_ObjectHideFlags: 0
