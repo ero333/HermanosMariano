@@ -142,11 +142,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sierra
       objectReference: {fileID: 0}
-    - target: {fileID: 3754710884195847433, guid: cc7e7194fe0b4f04a8c6503c65fe594c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.07
-      objectReference: {fileID: 0}
     - target: {fileID: 7190846766418451540, guid: cc7e7194fe0b4f04a8c6503c65fe594c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -201,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754710884195847433, guid: cc7e7194fe0b4f04a8c6503c65fe594c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc7e7194fe0b4f04a8c6503c65fe594c, type: 3}
@@ -628,6 +628,31 @@ PrefabInstance:
       propertyPath: modoSuicida
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: JumpObstacles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: jumpForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: lives
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: bottomSize.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083233, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 2f05610028c861044a31105fee72741f, type: 2}
     - target: {fileID: 7683830427355083234, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -3475,6 +3500,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPolicia
       objectReference: {fileID: 0}
+    - target: {fileID: 5712218532217593870, guid: e89513854133af94989e1b9ec4706e1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3211230273901025582, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3701,12 +3731,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3126132
+      value: -1.313164
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3126132
+      value: -1.313164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}
@@ -3846,6 +3876,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8956051031731710434, guid: 438d4cd61f10a7e4283e31c9cace374a,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 502a14fbf284494469a1a9575faa2827, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438d4cd61f10a7e4283e31c9cace374a, type: 3}
 --- !u!1001 &9161796366045280548
@@ -3994,8 +4029,7 @@ PrefabInstance:
         type: 3}
       propertyPath: StartCutscene
       value: 
-      objectReference: {fileID: 11400000, guid: 103bf0a1c0688354da4911d377cdd72a,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5352061006337022241, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
       propertyPath: EndCutscene
