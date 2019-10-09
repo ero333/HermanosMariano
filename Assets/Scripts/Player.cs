@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
     public Vector2 bottomSize;
-    private Color debugCollisionColor = Color.red;
+    //private Color debugCollisionColor = Color.red;
 
     //corrutinas
     IEnumerator hitDelay; /*= HitDelay(0.3f);*/
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -118,7 +118,6 @@ public class Player : MonoBehaviour
         {
             //Moverse
             rb.velocity = new Vector2(x * speed, rb.velocity.y);
-
 
             //Saltar
             if (Input.GetButtonDown("Jump"))

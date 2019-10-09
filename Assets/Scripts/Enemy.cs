@@ -73,6 +73,9 @@ public class Enemy : MonoBehaviour
     //float timeToIncrease = 2.0f; //this is the time between "speedups"
     //float currentTime;  //to keep track
     //float speedIncrement = 0.5f; //how much to increase the speed by
+    public bool JumpObstacles = false;
+    public bool isJumping = false;
+    public float jumpForce = 8;
 
     [Header("Huir")]
     public bool flee = false;
@@ -173,6 +176,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        PhysicsMaterial2D physicMaterial = new PhysicsMaterial2D(gameObject.name);
+        physicMaterial.bounciness = 0;
+        physicMaterial.friction = 1;
+
+        rb.sharedMaterial = physicMaterial;
     }
 
     private void FixedUpdate()
@@ -207,6 +215,11 @@ public class Enemy : MonoBehaviour
         {
             patrol = false;
 
+            if(onGround && isJumping)
+            {
+                isJumping = false;                
+            }
+
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
             if (onGround && ((!onLeftFloor || !onRightFloor) || (onLeftWall || onRightWall)))
             {
@@ -218,23 +231,36 @@ public class Enemy : MonoBehaviour
                     || ((playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall)))
                 {
                     //saltar
-
-                    cornered = true;
-                    playerDirection.x = 0;
-
-                    //Debug.Log("No puedo huir hasta el vacio");
+                    if (JumpObstacles && !isJumping)
+                    {
+                        isJumping = true;
+                        rb.velocity = new Vector2(rb.velocity.x, 0);
+                        rb.velocity += Vector2.up * jumpForce;
+                        
+                    }
+                    else //acorralado, se queda quieto
+                    {
+                        cornered = true;
+                        playerDirection.x = 0;
+                        //Debug.Log("No puedo huir hasta el vacio");
+                    }
 
                 } //cuando lo persigue
                 else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)) || ((playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall)))
                 {
                     //saltar
-
-                    if (!modoSuicida)
+                    if (JumpObstacles && !isJumping)
+                    {
+                        isJumping = true;
+                        rb.velocity = new Vector2(rb.velocity.x, 0);
+                        rb.velocity += Vector2.up * jumpForce;
+                        
+                    }
+                    else if (!modoSuicida)
                     {
                         playerDirection.x = 0;
-                    }                    
-
-                    //Debug.Log("No puedo perseguir hasta el vacio");
+                        //Debug.Log("No puedo perseguir hasta el vacio");
+                    }
                 }
 
                 //if (meleeDamage > 0 && !fleeActive)
@@ -264,7 +290,7 @@ public class Enemy : MonoBehaviour
             }
 
             //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
-            if (chase && canChase && onGround && playerDirection.x != 0 && !fleeActive)
+            if (chase && canChase /*&& onGround*/ && playerDirection.x != 0 && !fleeActive)
             {
                 if (flee && canFlee && (playerDistanceAbs.x > safeDistance && playerDistanceAbs.x < safeDistance + 1f))
                 {
@@ -430,6 +456,15 @@ public class Enemy : MonoBehaviour
             hited = true;
         }
 
+        if (onGround && !isJumping)
+        {
+            rb.sharedMaterial.friction = 1;
+        }
+        else if(!onGround && isJumping)
+        {
+            rb.sharedMaterial.friction = 0;
+        }
+
     }
 
     void SetAnim()
@@ -550,7 +585,7 @@ public class Enemy : MonoBehaviour
         else if (!fRight)
         {
             fRight = true;
-        }
+        }        
 
         yield return new WaitForSeconds(0.2f);
 
