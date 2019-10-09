@@ -108,18 +108,19 @@ MonoBehaviour:
   trigger: 0
   lives: 3
   hitStunTimer: 1
+  modoSuicida: 0
   patrol: 0
   patrolSpeed: 0
   chase: 1
-  speed: 5
-  sprint: 0
+  speed: 3
+  sprint: 1
   sprintSpeed: 8
   sprintDuration: 3
-  sprintDelay: 5
+  sprintDelay: 6
   flee: 0
   speedFlee: 5
   safeDistance: 10
-  meleeDamage: 1
+  meleeDamage: 2
   meleeDelay: 1
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
