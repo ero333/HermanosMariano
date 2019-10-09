@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     Player player;
+    Collider2D col;
 
     [Header("Debug, no tocar")]
     public Vector2 playerDistance;
@@ -138,6 +139,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
+        col = GetComponent<BoxCollider2D>();
 
         //currentTime = Time.time + timeToIncrease;
 
@@ -217,7 +219,14 @@ public class Enemy : MonoBehaviour
 
             if(onGround && isJumping)
             {
-                isJumping = false;                
+                isJumping = false;
+                rb.sharedMaterial.friction = 1;
+            }
+
+            if(!onGround && isJumping && col.IsTouchingLayers(groundLayer))
+            {
+                playerDirection.x = 0;
+                rb.sharedMaterial.friction = 0;
             }
 
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
@@ -236,7 +245,8 @@ public class Enemy : MonoBehaviour
                         isJumping = true;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         rb.velocity += Vector2.up * jumpForce;
-                        
+                        rb.sharedMaterial.friction = 0;
+
                     }
                     else //acorralado, se queda quieto
                     {
@@ -254,7 +264,8 @@ public class Enemy : MonoBehaviour
                         isJumping = true;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         rb.velocity += Vector2.up * jumpForce;
-                        
+                        rb.sharedMaterial.friction = 0;
+
                     }
                     else if (!modoSuicida)
                     {
@@ -454,15 +465,6 @@ public class Enemy : MonoBehaviour
         {
             player.TakeDamage(meleeDamage, playerDirection.x);
             hited = true;
-        }
-
-        if (onGround && !isJumping)
-        {
-            rb.sharedMaterial.friction = 1;
-        }
-        else if(!onGround && isJumping)
-        {
-            rb.sharedMaterial.friction = 0;
         }
 
     }
