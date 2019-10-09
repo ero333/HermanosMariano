@@ -90,10 +90,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6271607218564260451}
   - component: {fileID: 679127708319936026}
+  - component: {fileID: 492494880866945114}
   - component: {fileID: 212057944940543198}
   - component: {fileID: 4667273915344315346}
   m_Layer: 0
-  m_Name: billetera2
+  m_Name: Billetera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +127,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0d27090929a434d8fd6feaf2ffd912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &492494880866945114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045250566386721316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54242e77fe60941418e1f2bb00742dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 50
 --- !u!61 &212057944940543198
 BoxCollider2D:
   m_ObjectHideFlags: 0
