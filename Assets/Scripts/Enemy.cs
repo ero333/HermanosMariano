@@ -74,10 +74,7 @@ public class Enemy : MonoBehaviour
     //float timeToIncrease = 2.0f; //this is the time between "speedups"
     //float currentTime;  //to keep track
     //float speedIncrement = 0.5f; //how much to increase the speed by
-    public bool JumpObstacles = false;
-    public bool isJumping = false;
-    public float jumpForce = 8;
-
+    
     [Header("Huir")]
     public bool flee = false;
     public float speedFlee = 5f;
@@ -85,6 +82,11 @@ public class Enemy : MonoBehaviour
     bool canFlee = true;
     bool fleeActive = false;
     bool cornered = false;
+
+    [Header("Saltar")]
+    public bool JumpObstacles = false;
+    public bool isJumping = false;
+    public float jumpForce = 8;
 
     [Header("Golpear")]
     public int meleeDamage = 2;
@@ -762,5 +764,17 @@ public class Enemy : MonoBehaviour
             StopCoroutine(ShootDelay);
             StartCoroutine(ShootDelay);
         }
+    }
+
+    public void Panic()
+    {
+        chase = false;
+        sprint = true;
+        sprintDuration = 10;
+
+        flee = true;
+        safeDistance = 50;
+
+        JumpObstacles = true;
     }
 }
