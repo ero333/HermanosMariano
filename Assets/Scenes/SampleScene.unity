@@ -636,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
       propertyPath: jumpForce
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
@@ -652,11 +652,6 @@ PrefabInstance:
         type: 3}
       propertyPath: isJumping
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683830427355083233, guid: e1686b26343a5b54e9538cadffdc1715,
-        type: 3}
-      propertyPath: m_Material
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083234, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
@@ -3589,11 +3584,6 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeDamage
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6636752240025929861, guid: e89513854133af94989e1b9ec4706e1b,
-        type: 3}
-      propertyPath: m_Material
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 841430885966872734, guid: e89513854133af94989e1b9ec4706e1b,
         type: 3}
