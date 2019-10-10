@@ -75,9 +75,9 @@ MonoBehaviour:
   leftFloor: {x: -0.6, y: -1.2}
   rightWall: {x: 0.6, y: -0.5}
   leftWall: {x: -0.6, y: -0.5}
-  triggerOffset: {x: 2.24, y: 0.34}
-  triggerSize: {x: 6, y: 3}
-  ShowRange: 1
+  triggerOffset: {x: 5, y: 0.34}
+  triggerSize: {x: 12, y: 3}
+  ShowRange: 0
   trigger: 0
   lives: 3
   hitStunTimer: 1
@@ -90,18 +90,18 @@ MonoBehaviour:
   sprintSpeed: 8
   sprintDuration: 3
   sprintDelay: 5
-  flee: 0
-  speedFlee: 5
-  safeDistance: 10
-  JumpObstacles: 0
-  jumpForce: 8
+  flee: 1
+  speedFlee: 4
+  safeDistance: 8
+  JumpObstacles: 1
+  jumpForce: 12
   meleeDamage: 1
-  meleeDelay: 1
+  meleeDelay: 1.2
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
-  shootDamage: 1
+  shootDamage: 2
   shootDelay: 5
-  minShootDis: 15
+  minShootDis: 8
   bullet: {fileID: 8580512828927243988, guid: 62a01b7536d1aac47809ca4583965b5d, type: 3}
   spawnBullet: {fileID: 9002134389437970344}
 --- !u!212 &1772295465658738938

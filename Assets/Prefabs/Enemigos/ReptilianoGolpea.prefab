@@ -75,8 +75,8 @@ MonoBehaviour:
   leftFloor: {x: -0.6, y: -1.2}
   rightWall: {x: 0.6, y: -0.5}
   leftWall: {x: -0.6, y: -0.5}
-  triggerOffset: {x: 2.24, y: 0.34}
-  triggerSize: {x: 6, y: 3}
+  triggerOffset: {x: 3.05, y: 0.34}
+  triggerSize: {x: 8, y: 3}
   ShowRange: 1
   trigger: 0
   lives: 3
@@ -85,18 +85,18 @@ MonoBehaviour:
   patrol: 0
   patrolSpeed: 0
   chase: 1
-  speed: 5
-  sprint: 0
+  speed: 3
+  sprint: 1
   sprintSpeed: 8
   sprintDuration: 3
   sprintDelay: 5
   flee: 0
   speedFlee: 5
   safeDistance: 5
-  JumpObstacles: 0
-  jumpForce: 8
-  meleeDamage: 1
-  meleeDelay: 1
+  JumpObstacles: 1
+  jumpForce: 12
+  meleeDamage: 2
+  meleeDelay: 0.8
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
   shootDamage: 0
