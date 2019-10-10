@@ -3757,12 +3757,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3129098
+      value: -1.3126132
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3129098
+      value: -1.3126132
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}
@@ -4055,7 +4055,8 @@ PrefabInstance:
         type: 3}
       propertyPath: StartCutscene
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 103bf0a1c0688354da4911d377cdd72a,
+        type: 2}
     - target: {fileID: 5352061006337022241, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
       propertyPath: EndCutscene

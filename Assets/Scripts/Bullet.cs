@@ -37,7 +37,10 @@ public class Bullet : MonoBehaviour
 
         if(collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().TakeDamage(damage, dir);
+            if(collision.GetComponent<Enemy>().lives > 0)
+            {
+                collision.GetComponent<Enemy>().TakeDamage(damage, dir);
+            }            
             Destroy(gameObject);
         }
         else if (collision.tag == "Player")
