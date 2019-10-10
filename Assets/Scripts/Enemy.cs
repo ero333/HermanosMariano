@@ -717,6 +717,12 @@ public class Enemy : MonoBehaviour
         }
 
         yield return new WaitForSeconds(delay);
+
+        if (FindObjectOfType<KillAll>() != null)
+        {
+            FindObjectOfType<KillAll>().toKill -= 1;
+        }
+
         Destroy(gameObject);
     }
 
@@ -726,18 +732,20 @@ public class Enemy : MonoBehaviour
 
         lives -= damage;
 
-        if (lives <= 0)
+        if (lives == 0)
         {
             anim.SetBool("Death", true);
 
-            if (FindObjectOfType<KillAll>() != null)
-            {
-                FindObjectOfType<KillAll>().toKill -= 1;
-            }
+            //if (FindObjectOfType<KillAll>() != null)
+            //{
+            //    FindObjectOfType<KillAll>().toKill -= 1;
+            //}
+
+            lives = -1;
 
             StartCoroutine(DeathDelay(1f));
         }
-        else
+        else if (lives > 0)
         {
             anim.SetTrigger("GetHit");
 
