@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Text;
 
 //【◉ᴥ◉】
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     int levelIndex;
+    public string levelName;
 
     [Header("Datos que se mantienen")]
     public static int maxEnergy = 6;
@@ -50,10 +52,12 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
+        levelName = SceneManager.GetActiveScene().name;
+        levelName = AddSpacesToSentence(levelName);
 
         if (resetCount == 0)
         {
-            Debug.Log("Level loaded for the first time");
+            Debug.Log(levelName + " loaded for the first time");
             
             victory = false;
             lives = maxLives;
@@ -149,5 +153,20 @@ public class GameManager : MonoBehaviour
             zoneProgress++;
             maxEnergy++;
         }
+    }
+
+    string AddSpacesToSentence(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return "";
+        StringBuilder newText = new StringBuilder(text.Length * 2);
+        newText.Append(text[0]);
+        for (int i = 1; i < text.Length; i++)
+        {
+            if (char.IsUpper(text[i]) && text[i - 1] != ' ')
+                newText.Append(' ');
+            newText.Append(text[i]);
+        }
+        return newText.ToString();
     }
 }
