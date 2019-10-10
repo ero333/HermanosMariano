@@ -193,6 +193,11 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         DetectCollisions();
+
+        //if(lives < 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDeath"))
+        //{
+        //    Debug.Log("No se esta muriendo");
+        //}
     }
 
     void Update()
@@ -743,6 +748,7 @@ public class Enemy : MonoBehaviour
 
             lives = -1;
 
+            StopAllCoroutines();
             StartCoroutine(DeathDelay(1f));
         }
         else if (lives > 0)
@@ -758,7 +764,8 @@ public class Enemy : MonoBehaviour
         }
         else if(lives < 0 && !anim.GetBool("Death"))
         {
-            Destroy(gameObject);
+            StopAllCoroutines();
+            StartCoroutine(DeathDelay(0.1f));
         }
 
         if (dropOnHit != null && !droped)
