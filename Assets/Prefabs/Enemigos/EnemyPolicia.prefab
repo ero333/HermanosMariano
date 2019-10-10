@@ -59,6 +59,9 @@ MonoBehaviour:
   onLeftWall: 0
   dropOnHit: {fileID: 0}
   dropOnDeath: {fileID: 0}
+  MoneyObject: {fileID: 3452743171773193135, guid: 8acec45a81b4ee24695f77d0e8f7810b,
+    type: 3}
+  MoneyValue: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -87,17 +90,15 @@ MonoBehaviour:
   sprintSpeed: 8
   sprintDuration: 3
   sprintDelay: 5
-  JumpObstacles: 0
-  isJumping: 0
-  jumpForce: 8
   flee: 0
   speedFlee: 5
   safeDistance: 10
+  JumpObstacles: 0
+  jumpForce: 8
   meleeDamage: 1
   meleeDelay: 1
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
-  frameDamage: 0
   shootDamage: 1
   shootDelay: 5
   minShootDis: 15

@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     public GameObject dropOnDeath;
     bool droped = false;
     Vector2 safeGuard;
+
+    public GameObject MoneyObject;
+    public int MoneyValue = 0;
     //public float dropMoney = 0;
 
     [Header("Detector de colisiones")]
@@ -703,7 +706,14 @@ public class Enemy : MonoBehaviour
         if (dropOnDeath != null && !droped)
         {
             droped = true;
-            Instantiate(dropOnDeath, transform.position, Quaternion.identity);
+            Instantiate(dropOnDeath, transform.position += new Vector3(0, 1.2f), Quaternion.identity);
+        }
+
+        if(MoneyValue > 0)
+        {
+            Money money = Instantiate(MoneyObject, transform.position += new Vector3(0, 1.2f), Quaternion.identity).GetComponent<Money>();
+            money.value = MoneyValue;
+            MoneyValue = -1;
         }
 
         yield return new WaitForSeconds(delay);
