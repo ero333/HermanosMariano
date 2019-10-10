@@ -84,9 +84,9 @@ public class Enemy : MonoBehaviour
     bool cornered = false;
 
     [Header("Saltar")]
-    public bool JumpObstacles = false;
-    public bool isJumping = false;
+    public bool JumpObstacles = false;    
     public float jumpForce = 8;
+    bool isJumping = false;
 
     [Header("Golpear")]
     public int meleeDamage = 2;
@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
     bool hit = false;
     bool hited = false;
     bool canAttack = true;
-    public bool frameDamage = false;
+    bool frameDamage = false;
 
     [Header("Disparar")]
     public int shootDamage = 1;
