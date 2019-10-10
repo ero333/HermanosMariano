@@ -494,6 +494,11 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Sprint", false);
         }
 
+        if(!onGround && isJumping)
+        {
+            anim.SetTrigger("Jump");
+        }
+
         //volteos
         if (trigger && canFlip)
         {

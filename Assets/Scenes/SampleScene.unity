@@ -653,6 +653,11 @@ PrefabInstance:
       propertyPath: isJumping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: trigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7683830427355083234, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -3741,12 +3746,12 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3128566
+      value: -1.313164
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3128566
+      value: -1.313164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676bca2713207f7429ee99149d25f7ed, type: 3}
