@@ -5,6 +5,8 @@ using UnityEditor;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public int maximumEnemies = 5;
+    int currentEnemies = 0;
     public float delay;
     public GameObject enemyToSpawn;
 
@@ -55,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (enemyToSpawn != null && canSpawn)
+        if (enemyToSpawn != null && canSpawn && currentEnemies <= maximumEnemies)
         {
             GameObject enemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 
@@ -93,6 +95,8 @@ public class EnemySpawner : MonoBehaviour
             }
 
             canSpawn = false;
+            currentEnemies = FindObjectsOfType<Enemy>().Length;
+
             StartCoroutine(SpawnDelay(delay));
         }
     }
@@ -101,6 +105,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         canSpawn = true;
+        currentEnemies = FindObjectsOfType<Enemy>().Length;
     }
 
     public void CopyEnemyStats()
