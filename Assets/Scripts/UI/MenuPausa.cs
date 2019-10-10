@@ -15,7 +15,10 @@ public class MenuPausa : MonoBehaviour
         juegoPausado = false;
         Time.timeScale = 1f;
 
-        textoNivel.text = GameManager.instance.levelName;
+        if(textoNivel.text != "Nivel")
+        {
+            textoNivel.text = GameManager.instance.levelName;
+        }        
     }
 
     // Update is called once per frame
