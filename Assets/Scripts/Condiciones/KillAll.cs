@@ -9,7 +9,7 @@ public class KillAll : MonoBehaviour
 
     public int gananciaMaxima = 100;
 
-    public int toKill;
+    public int toKill = 0;
 
     public bool Obligatorio = false;
     public int zonaActual;    
@@ -19,7 +19,10 @@ public class KillAll : MonoBehaviour
         gm = GameObject.FindObjectOfType<GameManager>();
         ui = GameObject.FindObjectOfType<UserInterface>();
 
-        toKill = FindObjectsOfType<Enemy>().Length;
+        if(toKill <= 0)
+        {
+            toKill = FindObjectsOfType<Enemy>().Length;
+        }        
     }
 
     void Update()
