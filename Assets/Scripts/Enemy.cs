@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
     bool hit = false;
     bool hited = false;
     bool canAttack = true;
-    bool frameDamage = false;
+    public bool frameDamage = false;
 
     [Header("Disparar")]
     public int shootDamage = 1;

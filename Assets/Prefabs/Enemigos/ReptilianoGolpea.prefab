@@ -99,10 +99,11 @@ MonoBehaviour:
   meleeDelay: 0.8
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
+  frameDamage: 0
   shootDamage: 0
   shootDelay: 5
   minShootDis: 15
-  bullet: {fileID: 8580512828927243988, guid: 62a01b7536d1aac47809ca4583965b5d, type: 3}
+  bullet: {fileID: 8580512828927243988, guid: 878bb4b46dc4560479b53db85d6ca876, type: 3}
   spawnBullet: {fileID: 9002134389437970344}
 --- !u!212 &1772295465658738938
 SpriteRenderer:
