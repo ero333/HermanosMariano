@@ -561,11 +561,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a, type: 3}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1078,18 +1078,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8d41190b3bf90143a625ba4dd3f663a, type: 3}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.2
   m_Text: New Text
 --- !u!222 &337229114
 CanvasRenderer:
@@ -1578,32 +1578,32 @@ MonoBehaviour:
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
-    Dialogue: "HOLA SE\xD1OR, VINE POR EL ANUNCIO DEL PUESTO DE-"
+    Dialogue: "Hola se\xF1or, vine por el anuncio del puesto de-"
     background: {fileID: 0}
   - character: 1
     Speaker: OBRERO
     CharArt: {fileID: 21300000, guid: 7cbf50434f388f44b9479ebdf2b2c3a9, type: 3}
-    Dialogue: NO, GRACIAS.
+    Dialogue: No, gracias.
     background: {fileID: 0}
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
-    Dialogue: "HOLA SE\xD1OR, VENGO PORQUE LEI QUE SE NECESITA EMPLEADO PARA-"
+    Dialogue: "Hola se\xF1or, vengo porque le\xED que se necesita empleado para-"
     background: {fileID: 0}
   - character: 1
     Speaker: VERDULERO.
     CharArt: {fileID: 21300000, guid: f5e8634e5f9a34d4bbc98b099d252156, type: 3}
-    Dialogue: YA SE OCUPO EL PUESTO.
+    Dialogue: "Ya se ocup\xF3 el puesto."
     background: {fileID: 0}
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
-    Dialogue: "HOLA, QUER\xCDA APLICAR PARA EL PUESTO DE-"
+    Dialogue: "Hola, quer\xEDa aplicar para el puesto de-"
     background: {fileID: 0}
   - character: 1
     Speaker: GERENTE
     CharArt: {fileID: 21300000, guid: b69792b64739dc0438f7aa431e507b78, type: 3}
-    Dialogue: LA VACANTE YA ESTA COMPLETA.
+    Dialogue: "La vacante ya est\xE1 completa."
     background: {fileID: 0}
   - character: 1
     Speaker: 
@@ -3936,18 +3936,18 @@ MonoBehaviour:
   - character: 1
     Speaker: LEANDRO
     CharArt: {fileID: 21300000, guid: ddfd53ebea9aa3541986b3af04dde6c2, type: 3}
-    Dialogue: "BUENO MARIANO, AC\xC1 VAS A TRABAJAR DE AHORA EN M\xC1S."
+    Dialogue: "Bueno Mariano, ac\xE1 vas a trabajar de ahora en m\xE1s."
     background: {fileID: 0}
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
-    Dialogue: "\xBFPOR CUANTO TIEMPO?"
+    Dialogue: "\xBFPor cu\xE1nto tiempo?"
     background: {fileID: 0}
   - character: 1
     Speaker: LEANDRO
     CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
-    Dialogue: "Y, M\xCDNIMO HASTA QUE SALDES TU DEUDA O TE CANSES Y MATES A TODOS
-      COMO EN TU ULTIMO TRABAJO. LO QUE SEA QUE PASE PRIMERO."
+    Dialogue: "Y, m\xEDnimo hasta que saldes tu deuda o hasta que te canses y mates
+      a todos como en tu \xFAltimo trabajo. Lo que sea que pase primero."
     background: {fileID: 0}
   - character: 0
     Speaker: MARIANO
@@ -3957,44 +3957,44 @@ MonoBehaviour:
   - character: 1
     Speaker: LEANDRO
     CharArt: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1, type: 3}
-    Dialogue: TE DEJO CON TU JEFE.
+    Dialogue: Te dejo con tu jefe.
     background: {fileID: 0}
   - character: 1
     Speaker: JEFE
     CharArt: {fileID: 21300000, guid: ecd71fe9a16f6894bafd5e1fed0239ba, type: 3}
-    Dialogue: "BIEN, ASI QUE VOS SOS MARIANO \xBFEH?"
+    Dialogue: "Bien, as\xED que vos sos Mariano \xBFEh?"
     background: {fileID: 0}
   - character: 1
     Speaker: JEFE
     CharArt: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca, type: 3}
-    Dialogue: "MAS TE VALE QUE TE ROMPAS EL CULO TRABAJANDO, \xBFME OISTE? BASTANTE
-      GENEROSO SOY POR TOMAR A UN EX CONVICTO COMO VOS."
+    Dialogue: "M\xE1s te vale que te rompas el culo trabajando, \xBFMe o\xEDste? Bastante
+      generoso soy por tomar a un ex convicto como vos."
     background: {fileID: 0}
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
-    Dialogue: VIEJO DE MIERDA.
+    Dialogue: Viejo de mierda.
     background: {fileID: 0}
   - character: 1
     Speaker: JEFE
     CharArt: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b, type: 3}
-    Dialogue: "\xBFQUE DIJSITE?"
+    Dialogue: "\xBFQu\xE9 dijiste?"
     background: {fileID: 0}
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
-    Dialogue: "NADA SE\xD1OR. GRACIAS POR TOMARME EN ESTE TRABAJO. NO LO VOY A DEFRAUDAR."
+    Dialogue: "Nada se\xF1or. Gracias por tomarme en este trabajo. No lo voy a defraudar"
     background: {fileID: 0}
   - character: 1
     Speaker: JEFE
     CharArt: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca, type: 3}
-    Dialogue: MAS TE VALE... TE VOY A LLAMAR PARA HACER TODO TIPO DE COSAS... MAS
-      TE VALE QUE ESTES DISPUESTO A HACERLAS.
+    Dialogue: "M\xE1s te vale. Te voy a llamar para hacer todo tipo de cosas...Y ten\xE9s
+      que estar dispuesto a hacerlas."
     background: {fileID: 0}
   - character: 1
     Speaker: JEFE
     CharArt: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b, type: 3}
-    Dialogue: Y NO ME VENGAS CON PRETENCIONES SALARIALES.
+    Dialogue: Ah, y no me vengas con pretensiones salariales.
     background: {fileID: 0}
   - character: 1
     Speaker: 
@@ -4004,7 +4004,7 @@ MonoBehaviour:
   - character: 0
     Speaker: MARIANO
     CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
-    Dialogue: PERO QUE VIEJO DE MIERDA.
+    Dialogue: "Pero qu\xE9 viejo de mierda."
     background: {fileID: 0}
   Speaker: {fileID: 251598528}
   dialogueText: {fileID: 337229113}
@@ -6868,8 +6868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 670.00006, y: 34.549988}
-  m_SizeDelta: {x: -1307.1001, y: 48.799988}
+  m_AnchoredPosition: {x: 714.785, y: 34.549988}
+  m_SizeDelta: {x: -1396.6699, y: 48.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1537354729
 Canvas:
@@ -6913,11 +6913,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b41a073ccd3f07040a3139ace67937f2, type: 3}
-    m_FontSize: 48
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -9504,11 +9504,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b41a073ccd3f07040a3139ace67937f2, type: 3}
-    m_FontSize: 38
+    m_Font: {fileID: 12800000, guid: b18579f6b5315ef40bca9c6407a9a7e0, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
