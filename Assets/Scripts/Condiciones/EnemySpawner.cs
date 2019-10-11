@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy Stats")]
     public bool OverwriteEnemy = true;
     [Space]
+    public int moneyValue = 0;
 
     [Header("Vida")]
     public bool trigger = true;
@@ -65,6 +66,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 Enemy enemyScript = enemy.GetComponent<Enemy>();
 
+                enemyScript.MoneyValue = moneyValue;
                 enemyScript.trigger = trigger;
                 enemyScript.lives = lives;
                 enemyScript.hitStunTimer = hitStunTimer;
@@ -114,6 +116,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Enemy enemyScript = enemyToSpawn.GetComponent<Enemy>();
 
+            moneyValue = enemyScript.MoneyValue;
             trigger = enemyScript.trigger;
             lives = enemyScript.lives;
             hitStunTimer = enemyScript.hitStunTimer;
