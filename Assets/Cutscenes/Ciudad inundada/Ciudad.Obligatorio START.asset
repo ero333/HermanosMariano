@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
+  m_Name: Ciudad.Obligatorio START
+  m_EditorClassIdentifier: 
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
+    Dialogue: "\xA1Leandro! \xA1Te estuve buscando por todo lados!"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: Escuchame, tengo plata suficiente para comprar una casa en Las Toninas
+      y escapar de todo para siempre.
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: ddfd53ebea9aa3541986b3af04dde6c2, type: 3}
+    Dialogue: "Esta bien, pero \xBFno escuchaste las noticias? Parece que los reptilianos
+      estaban disfrazados de pol\xEDticos"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: 28817e0cea8a7fa4290537559478fb71, type: 3}
+    Dialogue: "e inundaron la ciudad a prop\xF3sito para simular su h\xE1bitat natural
+      y \xA1reproducirse! "
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1, type: 3}
+    Dialogue: "Capaz podemos escapar de ellos ahora, pero si esto sigue as\xED van
+      a terminar invadiendo todo el pa\xEDs.\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
+    Dialogue: "Pero la p#t@. \xBFY donde tienen su nido?\r\n"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: ddfd53ebea9aa3541986b3af04dde6c2, type: 3}
+    Dialogue: "Y, como todos eran pol\xEDticos, pusieron sus huevos en el subsuelo
+      del Congreso."
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
+    Dialogue: "\xA1Si tan solo hubiese alguien lo suficientemente valiente como para
+      meterse ah\xED con una bomba-"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: c25a13b79c8190b4caa43225949bd4b1, type: 3}
+    Dialogue: "-al igual que hicieron en el penal hace unos d\xEDas-"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
+    Dialogue: "-y los matase a todos para siempre!\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
+    Dialogue: "M\xE1s que valiente ya me terminaron de hinchar los huevos. Dej\xE1,
+      yo me encargo."
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: "Todo sea para que me dejen vivir en paz de una buena vez.\r\n"
+    background: {fileID: 0}
