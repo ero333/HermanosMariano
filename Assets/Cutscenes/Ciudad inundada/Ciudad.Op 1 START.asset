@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
+  m_Name: Ciudad.Op 1 START
+  m_EditorClassIdentifier: 
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - character: 1
+    Speaker: "PEAT\xD3N"
+    CharArt: {fileID: 21300000, guid: 5c1293c1153bc5444b4dcba3e7904250, type: 3}
+    Dialogue: "AHHHHH NOS INVADEN LOS HOMBRES LAGARTOS\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
+    Dialogue: "Que?\r\n"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: "PEAT\xD3N"
+    CharArt: {fileID: 21300000, guid: 5c1293c1153bc5444b4dcba3e7904250, type: 3}
+    Dialogue: "HOMBRES LAGARTOS! Parecen hombres de traje pero tienen cabeza de reptil!\r\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 0}
+    Dialogue: "...Estas asumiendo su g\xE9nero?\r\n"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: "PEAT\xD3N"
+    CharArt: {fileID: 0}
+    Dialogue: "Que importa eso ahora? CORRE!\r\n"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: "PEAT\xD3N"
+    CharArt: {fileID: 0}
+    Dialogue: 
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 0}
+    Dialogue: Mmmm si andan de traje seguro que tienen guita. Voy a matar a los que
+      vea para ver que traen encima.
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 0}
+    Dialogue: "De ultima les saco la piel y la vendo para hacer zapatos.\r\n"
+    background: {fileID: 0}
