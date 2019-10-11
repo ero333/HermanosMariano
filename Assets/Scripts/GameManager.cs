@@ -169,4 +169,9 @@ public class GameManager : MonoBehaviour
         }
         return newText.ToString();
     }
+
+    public void Cheat()
+    {
+        zoneProgress = 4;
+    }
 }

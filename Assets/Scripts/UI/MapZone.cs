@@ -15,7 +15,7 @@ public class MapZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = GameManager.instance;
 
         gm.SaveData();
 
@@ -65,6 +65,27 @@ public class MapZone : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             GameManager.ahorros += 10000;
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            gm.Cheat();
+
+            for (int i = 0; i < Zonas.Length; i++)
+            {
+                Zonas[i].GetComponent<Selectable>().interactable = false;
+
+                if (i <= GameManager.zoneProgress - 1)
+                {
+                    Zonas[i].GetComponent<Selectable>().interactable = true;
+                }
+
+                if (i < GameManager.seenDialogues)
+                {
+                    Zonas[i].GetComponent<DialogueManagerMap>().seen = true;
+                }
+            }
+
         }
     }
 }
