@@ -43,6 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7286b7784cd494486dd35d586483fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  enemies:
-  - {fileID: 0}
+  maximumEnemies: 5
+  delay: 5
+  enemyToSpawn: {fileID: 7683830427355083236, guid: 42e676232ebf0c448991b108a66f920b,
+    type: 3}
+  OverwriteEnemy: 1
+  trigger: 1
+  lives: 3
+  hitStunTimer: 1
+  modoSuicida: 1
+  chase: 1
+  speed: 5
+  sprint: 0
+  sprintSpeed: 8
+  sprintDuration: 3
+  sprintDelay: 5
+  flee: 0
+  speedFlee: 5
+  safeDistance: 5
+  JumpObstacles: 0
+  jumpForce: 8
+  meleeDamage: 1
+  meleeDelay: 1
+  shootDamage: 0
+  shootDelay: 5
+  minShootDis: 15
