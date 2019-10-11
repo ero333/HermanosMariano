@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
+  m_Name: Prision.Obligatorio END
+  m_EditorClassIdentifier: 
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - character: 0
+    Speaker: PRISION
+    CharArt: {fileID: 0}
+    Dialogue: '*Suena alarma*'
+    background: {fileID: 21300000, guid: 576d1189bad65554ea8ef207676fde80, type: 3}
+  - character: 0
+    Speaker: 
+    CharArt: {fileID: 0}
+    Dialogue: 
+    background: {fileID: 21300000, guid: c167d2598111dae468a7da1664702dca, type: 3}
+  - character: 0
+    Speaker: 
+    CharArt: {fileID: 0}
+    Dialogue: BOOOOOM
+    background: {fileID: 21300000, guid: 54336bd10ad9e504cbb3452454d295db, type: 3}
+  - character: 0
+    Speaker: 
+    CharArt: {fileID: 0}
+    Dialogue: 
+    background: {fileID: 21300000, guid: a613aa493f30c4b4a8f1f592938546c1, type: 3}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: "Ahora voy a volver a la ciudad para buscar a Leandro y escapar a un
+      lugar m\xE1s tranquilo con \xE9l."
+    background: {fileID: 0}

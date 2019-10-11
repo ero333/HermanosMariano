@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
+  m_Name: Prision.Obligatorio START
+  m_EditorClassIdentifier: 
+  charAstart: {fileID: 0}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db, type: 3}
+    Dialogue: "Bueno, ya junt\xE9 la plata que me hab\xEDas pedido."
+    background: {fileID: 21300000, guid: cc7bd76ee30ba7b458204baafebe922a, type: 3}
+  - character: 1
+    Speaker: "POLIC\xCDA"
+    CharArt: {fileID: 21300000, guid: ccb990d0fdd9cb444a4b8988d5d4b02a, type: 3}
+    Dialogue: "Buen\xEDsimo, ahora tomate el palo."
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
+    Dialogue: "\xBFC\xD3MO?"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: "POLIC\xCDA"
+    CharArt: {fileID: 21300000, guid: cd88bd86ca29b7142a390597f2f85080, type: 3}
+    Dialogue: Que te vayas de nuevo a tu celda.
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
+    Dialogue: "\xA1\xA1\xA1PERO VOS DIJISTE QUE ME IBAS A AYUDAR A SALIR DE AC\xC1
+      SI TE COIMEABA!!!"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: "POLIC\xCDA"
+    CharArt: {fileID: 21300000, guid: 03c3bb0a3a0a03e4c86babb9859c0f74, type: 3}
+    Dialogue: "\xBFEn serio pensabas que te iba a ayudar? Qu\xE9 ingenuo. \nNo me
+      sorprende que hayas ca\xEDdo preso dos veces."
+    background: {fileID: 0}
+  - character: 1
+    Speaker: "POLIC\xCDA"
+    CharArt: {fileID: 0}
+    Dialogue: 
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 55edd938e675acc46afd1b328cfd945c, type: 3}
+    Dialogue: "Esto no va a quedar as\xED. Vamos a hacer explotar \ntodo con los muchachos
+      y vamos a escapar."
+    background: {fileID: 0}

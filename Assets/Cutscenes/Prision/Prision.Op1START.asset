@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a56a4c460f4641930d085f834b319, type: 3}
+  m_Name: Prision.Op1START
+  m_EditorClassIdentifier: 
+  charAstart: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
+  charBstart: {fileID: 0}
+  Dialogues:
+  - character: 1
+    Speaker: POLICIA
+    CharArt: {fileID: 21300000, guid: cd88bd86ca29b7142a390597f2f85080, type: 3}
+    Dialogue: "Mariano, ten\xE9s una visita."
+    background: {fileID: 21300000, guid: cc7bd76ee30ba7b458204baafebe922a, type: 3}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: e1761c6d50a3965469de3c057151dfc8, type: 3}
+    Dialogue: 
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa, type: 3}
+    Dialogue: Leandro escuchame, yo te-
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: 28817e0cea8a7fa4290537559478fb71, type: 3}
+    Dialogue: Necesito que me hagas un favor.
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 8bf4978a7b7482f4c9ea1c5251f5abc6, type: 3}
+    Dialogue: "\xBFQu\xE9 pasa? En cana no hay mucho que pueda hacer."
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: ddfd53ebea9aa3541986b3af04dde6c2, type: 3}
+    Dialogue: "Al contrario. Mir\xE1, yo te voy a dar paquetes de droga y necesito
+      que los vendas por m\xED. Estoy seguro que los internos te van a comprar.\r\n\n"
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675, type: 3}
+    Dialogue: "Ah. \xBFY yo qu\xE9 gano?"
+    background: {fileID: 0}
+  - character: 1
+    Speaker: LEANDRO
+    CharArt: {fileID: 21300000, guid: 165f280056be05a4da7204134493eedc, type: 3}
+    Dialogue: "Te pod\xE9s quedar con un 10% de lo que vendas."
+    background: {fileID: 0}
+  - character: 0
+    Speaker: MARIANO
+    CharArt: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8, type: 3}
+    Dialogue: Y bueno, dale.
+    background: {fileID: 0}
