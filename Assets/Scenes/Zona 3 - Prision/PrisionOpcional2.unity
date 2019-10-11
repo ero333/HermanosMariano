@@ -423,12 +423,12 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyToSpawn
       value: 
-      objectReference: {fileID: 7683830427355083236, guid: e1686b26343a5b54e9538cadffdc1715,
+      objectReference: {fileID: 7683830427355083236, guid: 42e676232ebf0c448991b108a66f920b,
         type: 3}
     - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
         type: 3}
       propertyPath: trigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
         type: 3}
@@ -454,6 +454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shootDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: modoSuicida
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe79fb9e68010094fb8f802ad6e2d024, type: 3}
@@ -533,7 +538,12 @@ PrefabInstance:
     - target: {fileID: 9048358972322642287, guid: 1d22a490bf8b2574e83da90515972ff0,
         type: 3}
       propertyPath: toKill
-      value: 30
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048358972322642287, guid: 1d22a490bf8b2574e83da90515972ff0,
+        type: 3}
+      propertyPath: gananciaMaxima
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d22a490bf8b2574e83da90515972ff0, type: 3}
@@ -3101,6 +3111,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7683830427355083236, guid: e1686b26343a5b54e9538cadffdc1715,
         type: 3}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: modoSuicida
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: lives
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: safeDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: meleeDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
+        type: 3}
+      propertyPath: shootDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe79fb9e68010094fb8f802ad6e2d024, type: 3}
 --- !u!1001 &1886023229
@@ -3531,7 +3571,7 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.81338
+      value: 19.917143
       objectReference: {fileID: 0}
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
@@ -3541,7 +3581,7 @@ PrefabInstance:
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.81338
+      value: 19.917143
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
