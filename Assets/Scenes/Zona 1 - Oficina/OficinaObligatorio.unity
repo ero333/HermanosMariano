@@ -1213,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.68709
+      value: 5.6871433
       objectReference: {fileID: 0}
     - target: {fileID: 5558419815475241595, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
@@ -1223,7 +1223,7 @@ PrefabInstance:
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.68709
+      value: 5.6871433
       objectReference: {fileID: 0}
     - target: {fileID: 5558419814752820522, guid: 676bca2713207f7429ee99149d25f7ed,
         type: 3}
@@ -2245,18 +2245,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
+      propertyPath: Dialogues.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
       propertyPath: Dialogues.Array.data[0].Speaker
       value: JEFE
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[0].Dialogue
-      value: "Mariano, \xBFTe acord\xE1s de esos papeles que te ped\xED?"
+      value: "Mariano, \xBFte acordas de esos papeles que te ped\xED que juntaras?"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].Dialogue
-      value: "S\xED, esos en los que detallaba c\xF3mo le cag\xF3 la jubilaci\xF3n
+      value: "S\xED, esos en los que se detallaba c\xF3mo le cag\xF3 la jubilaci\xF3n
         a sus empleados."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
@@ -2267,40 +2272,39 @@ PrefabInstance:
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[2].Dialogue
-      value: "Exacto. Bueno, los otros empleados hicieron fotocopias y ahora todo
-        el personal se crey\xF3 esa f\xE1bula y quieren iniciar acciones legales contra
-        m\xED."
+      value: Si, el CHANTAJE ese. Bueno, los otros empleados hicieron fotocopias...
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[3].Dialogue
-      value: Y, bien merecidas las tiene...
+      value: "y ahora todo el personal se crey\xF3 esa f\xE1bula y quieren iniciar
+        acciones legales contra mi.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Speaker
-      value: JEFE
+      value: MARIANO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].Dialogue
-      value: "No te llam\xE9 para pedirte tu opini\xF3n. Necesito que mates a \nestos
-        empleados para destruir las fotocopias de una buena vez."
+      value: Y, bien merecidas las tiene...
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].Dialogue
-      value: Y me va a pagar buena guita quiero creer...
+      value: "No te llam\xE9 para pedirte tu opini\xF3n. Necesito que mates a estos
+        empleados para destruir las fotocopias de una buena vez."
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].Speaker
-      value: JEFE
+      value: MARIANO
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].Dialogue
-      value: "S\xED, cuando termines con el trabajo arreglamos eso."
+      value: Y me vas a pagar buena guita quiero creer.
       objectReference: {fileID: 0}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -2317,13 +2321,13 @@ PrefabInstance:
         type: 3}
       propertyPath: Dialogues.Array.data[0].background
       value: 
-      objectReference: {fileID: 21300000, guid: d6f28d2573bfe0848a74e902360ff07b,
+      objectReference: {fileID: 21300000, guid: 734e9f78a6cb9bb4b8cea5842a367e2e,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[1].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675,
+      objectReference: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -2335,25 +2339,25 @@ PrefabInstance:
         type: 3}
       propertyPath: Dialogues.Array.data[3].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 43745f3df20a3954d823c2660cc490db,
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[4].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b,
+      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[5].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: f885fc3d992b3b041bba421330b013aa,
+      objectReference: {fileID: 21300000, guid: 1f9316d94c723a04ea44a98a63601c4b,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
       propertyPath: Dialogues.Array.data[6].CharArt
       value: 
-      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+      objectReference: {fileID: 21300000, guid: 5b90f8d672aec9a40bf09cefab1b2675,
         type: 3}
     - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
@@ -2467,6 +2471,68 @@ PrefabInstance:
       propertyPath: DialoguesEnd.Array.data[5].background
       value: 
       objectReference: {fileID: 21300000, guid: ae287bc165ada0f4d857b762bfbd8ba8,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[0].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[1].Speaker
+      value: MARIANO
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[2].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[3].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[3].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[5].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[5].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].Dialogue
+      value: 'Si, cuando termines con el trabajo arreglamos eso. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].Speaker
+      value: JEFE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: Dialogues.Array.data[7].CharArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d6c2613a08ffc74e9a043edee215aca,
+        type: 3}
+    - target: {fileID: 2646339213171765334, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
+        type: 3}
+      propertyPath: charAstart
+      value: 
+      objectReference: {fileID: 21300000, guid: d8c6d3c52a55c3046b44efc12ef39aa8,
         type: 3}
     - target: {fileID: 5581258812858096801, guid: 7a27e5de92561b14b8605ec8d2a6f0ff,
         type: 3}
