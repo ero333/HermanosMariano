@@ -329,7 +329,7 @@ public class Player : MonoBehaviour
                 //stun
                 stompBox[i].GetComponent<Enemy>().Stun(3);
                 rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.velocity += Vector2.up * 6;
+                rb.velocity += Vector2.up * 8;
 
                 anim.SetTrigger("JumpInput");
                 
