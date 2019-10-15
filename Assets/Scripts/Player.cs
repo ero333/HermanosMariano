@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
         }
 
         //golpear
-        if (Input.GetButtonDown("Fire1") /*&& onGround*/ && !attackLock && meleeDamage > 0)
+        if (Input.GetButtonDown("Fire1") && !attackLock && meleeDamage > 0)
         {
             hitInput = true;
             anim.SetTrigger("MeleeInput");
@@ -327,8 +327,9 @@ public class Player : MonoBehaviour
             for (int i = 0; i < stompBox.Length; i++)
             {
                 //stun
-                stompBox[i].GetComponent<Enemy>().Stun(3f);
-                rb.velocity += Vector2.up * 6;
+                stompBox[i].GetComponent<Enemy>().Stun(3);
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.velocity += Vector2.up * 8;
 
                 anim.SetTrigger("JumpInput");
                 

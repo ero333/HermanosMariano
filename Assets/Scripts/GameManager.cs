@@ -101,6 +101,15 @@ public class GameManager : MonoBehaviour
         {
             resetCount += 1;
             //SceneManager.LoadScene(levelIndex); <- para recargar la escena
+            if (!FindObjectOfType<EnemySpawner>())
+            {
+                Enemy[] enemies = FindObjectsOfType<Enemy>();
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    enemies[i].trigger = false;
+                }
+            }           
+
             Player player = GameObject.FindObjectOfType<Player>();
             player.transform.position = instance.lastCheckpos;
         }
