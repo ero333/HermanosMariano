@@ -222,22 +222,40 @@ public class Enemy : MonoBehaviour
             StartCoroutine(generalActionsDelay);
         }
 
+        //material fisico que no se trabe en las paredes pero que no resbale en el piso
+        if (onGround)
+        {
+            rb.sharedMaterial.friction = 1;
+        }
+        else if (!onGround)
+        {
+            rb.sharedMaterial.friction = 0;
+        }
+
+        //que cuando salte no pueda cambiar de direccion
+        if(!onGround && isJumping)
+        {
+            int dir;
+            if (fRight)
+            {
+                dir = 1;
+            }
+            else
+            {
+                dir = -1;
+            }
+
+            rb.velocity = new Vector2(dir * speed, rb.velocity.y);
+        }
+        else if(onGround && isJumping)
+        {
+            isJumping = false;
+        }
+
         //Comportamientos
         if (trigger && lives > 0)
         {
             patrol = false;
-
-            if(onGround && isJumping)
-            {
-                isJumping = false;
-                rb.sharedMaterial.friction = 1;
-            }
-
-            if(!onGround && isJumping && col.IsTouchingLayers(groundLayer))
-            {
-                playerDirection.x = 0;
-                rb.sharedMaterial.friction = 0;
-            }
 
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
             if (onGround && ((!onLeftFloor || !onRightFloor) || (onLeftWall || onRightWall)))
@@ -250,13 +268,11 @@ public class Enemy : MonoBehaviour
                     || ((playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall)))
                 {
                     //saltar
-                    if (JumpObstacles && !isJumping)
+                    if (JumpObstacles && !isJumping && onGround)
                     {
                         isJumping = true;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
-                        rb.velocity += Vector2.up * jumpForce;
-                        rb.sharedMaterial.friction = 0;
-
+                        rb.velocity += Vector2.up * jumpForce;                        
                     }
                     else //acorralado, se queda quieto
                     {
@@ -269,13 +285,11 @@ public class Enemy : MonoBehaviour
                 else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)) || ((playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall)))
                 {
                     //saltar
-                    if (JumpObstacles && !isJumping)
+                    if (JumpObstacles && !isJumping && onGround)
                     {
                         isJumping = true;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         rb.velocity += Vector2.up * jumpForce;
-                        rb.sharedMaterial.friction = 0;
-
                     }
                     else if (!modoSuicida)
                     {
@@ -311,7 +325,7 @@ public class Enemy : MonoBehaviour
             }
 
             //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
-            if (chase && canChase /*&& onGround*/ && playerDirection.x != 0 && !fleeActive)
+            if (chase && canChase && onGround && playerDirection.x != 0 && !fleeActive)
             {
                 if (flee && canFlee && (playerDistanceAbs.x > safeDistance && playerDistanceAbs.x < safeDistance + 1f))
                 {
@@ -333,8 +347,7 @@ public class Enemy : MonoBehaviour
                             sprintOn = true;
                             SprintDelay = Sprint(sprintDelay, sprintDuration);
                             StopCoroutine(SprintDelay);
-                            StartCoroutine(SprintDelay);
-                            //Debug.Log("Llamo");
+                            StartCoroutine(SprintDelay);                        
                         }
                     }
                     else
