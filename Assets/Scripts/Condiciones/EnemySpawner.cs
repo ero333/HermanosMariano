@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -152,6 +154,7 @@ public class EnemySpawner : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(EnemySpawner))]
 public class CopyEnemyStats : Editor
 {
@@ -166,3 +169,4 @@ public class CopyEnemyStats : Editor
         }
     }
 }
+#endif
