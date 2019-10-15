@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
         }
 
         //golpear
-        if (Input.GetButtonDown("Fire1") /*&& onGround*/ && !attackLock && meleeDamage > 0)
+        if (Input.GetButtonDown("Fire1") && !attackLock && meleeDamage > 0)
         {
             hitInput = true;
             anim.SetTrigger("MeleeInput");

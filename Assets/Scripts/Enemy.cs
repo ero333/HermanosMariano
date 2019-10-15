@@ -528,15 +528,11 @@ public class Enemy : MonoBehaviour
                 //darle la espalda al jugador
                 if (playerDirection.x < 0 && !fRight)
                 {
-                    //fRight = true;
-
                     StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
                 else if (playerDirection.x > 0 && fRight)
                 {
-                    //fRight = false;
-
                     StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
@@ -546,15 +542,11 @@ public class Enemy : MonoBehaviour
                 //voltear segun donde este el jugador
                 if (playerDirection.x > 0 && !fRight)
                 {
-                    //fRight = true;
-
                     StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
                 else if (playerDirection.x < 0 && fRight)
                 {
-                    //fRight = false;
-
                     StopCoroutine(Flip);
                     StartCoroutine(Flip);
                 }
@@ -562,15 +554,11 @@ public class Enemy : MonoBehaviour
                 {
                     if (playerDistance.x > 0.01 && !fRight)
                     {
-                        //fRight = true;
-
                         StopCoroutine(Flip);
                         StartCoroutine(Flip);
                     }
                     else if (playerDistance.x < -0.01 && fRight)
                     {
-                        //fRight = false;
-
                         StopCoroutine(Flip);
                         StartCoroutine(Flip);
                     }
@@ -634,21 +622,13 @@ public class Enemy : MonoBehaviour
             canChase = false;
         }
 
-        //if (sprint)
-        //{
-        //    canSprint = false;
-        //}
-
+        
         if (meleeDamage > 0)
         {
             canAttack = false;
         }
 
-        //if (shootDamage > 0)
-        //{
-        //    canShoot = false;
-        //}
-
+        
         if (flee)
         {
             canFlee = false;
@@ -668,21 +648,12 @@ public class Enemy : MonoBehaviour
             canChase = true;
         }
 
-        //if (sprint)
-        //{
-        //    canSprint = true;
-        //}
-
+        
         if (meleeDamage > 0)
         {
             canAttack = true;
             hited = false;
         }
-
-        //if (shootDamage > 0)
-        //{
-        //    canShoot = true;
-        //}
 
         if (flee)
         {
@@ -690,8 +661,7 @@ public class Enemy : MonoBehaviour
         }
 
         canFlip = true;
-        //hit = false;
-
+       
         if (patrol)
         {
             canPatrol = true;
