@@ -417,7 +417,7 @@ PrefabInstance:
     - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
         type: 3}
       propertyPath: moneyValue
-      value: 500
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
         type: 3}
@@ -558,7 +558,7 @@ PrefabInstance:
     - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
         type: 3}
       propertyPath: moneyValue
-      value: 600
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 4032280660512163935, guid: fe79fb9e68010094fb8f802ad6e2d024,
         type: 3}
@@ -1012,6 +1012,11 @@ PrefabInstance:
         type: 3}
       propertyPath: trigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683830427355083263, guid: e1686b26343a5b54e9538cadffdc1715,
+        type: 3}
+      propertyPath: MoneyValue
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1686b26343a5b54e9538cadffdc1715, type: 3}
