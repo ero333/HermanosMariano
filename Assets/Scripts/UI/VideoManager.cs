@@ -24,6 +24,10 @@ public class VideoManager : MonoBehaviour
         {
             videoPlayer.SetDirectAudioMute(0, true);
         }
+        else
+        {
+            videoPlayer.SetDirectAudioMute(0, false);
+        }
 
         if (videoName != "")
         {
@@ -59,6 +63,16 @@ public class VideoManager : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.sound)
+        {
+            videoPlayer.SetDirectAudioMute(0, true);
+        }
+        else
+        {
+            videoPlayer.SetDirectAudioMute(0, false);
+        }
+
+
         if ( (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space)) && videoName != "")
         {
             EndVideo(videoPlayer);

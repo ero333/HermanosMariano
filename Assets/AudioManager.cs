@@ -25,10 +25,18 @@ public class AudioManager : MonoBehaviour
         if (GameManager.sound)
         {
             audioM.mute = false;
+            if (!audioM.isPlaying)
+            {
+                audioM.UnPause();
+            }
         }
         else
         {
             audioM.mute = true;
+            if (audioM.isPlaying)
+            {
+                audioM.Pause();
+            }          
         }
     }
 }

@@ -162,4 +162,9 @@ public class UserInterface : MonoBehaviour
         total.text = "" + (GameManager.instance.money - impuesto);
         GameManager.ahorros += (GameManager.instance.money - impuesto);
     }
+
+    public void CallMuteOnGm()
+    {
+        GameManager.instance.ToggleMute();
+    }
 }
