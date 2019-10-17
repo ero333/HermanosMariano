@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using System.Text;
+using Cinemachine;
 
 //【◉ᴥ◉】
 public class GameManager : MonoBehaviour
@@ -112,6 +113,9 @@ public class GameManager : MonoBehaviour
 
             Player player = GameObject.FindObjectOfType<Player>();
             player.transform.position = instance.lastCheckpos;
+            CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
+            //cam.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y);
+            cam.Follow = player.transform;
         }
         energy = maxEnergy;
     }
