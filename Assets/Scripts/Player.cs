@@ -131,6 +131,10 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        else if (anim.GetBool("Win"))
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
 
 
         //Ajustar salto y gravedad para que dependan del Input (si mantengo, más alto y más lento caigo)
@@ -364,5 +368,15 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(timer);
         attackLock = false;
         inven = false;
+    }
+
+
+    public void Win()
+    {
+        StopAllCoroutines();
+        attackLock = true;
+        inven = true;
+        anim.SetBool("Win", true);
+        FindObjectOfType<CutsceneManager>().playerAnim = true;
     }
 }

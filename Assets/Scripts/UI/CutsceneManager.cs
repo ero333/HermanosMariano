@@ -14,6 +14,9 @@ public class CutsceneManager : MonoBehaviour
     public bool DMactive = false;
     public bool newDMactive = false;
 
+    [HideInInspector]
+    public bool playerAnim = false;
+
     private void Awake()
     {
         if (DM != null)
@@ -99,37 +102,54 @@ public class CutsceneManager : MonoBehaviour
     public void onVictory()
     {
         UserInterface ui = FindObjectOfType<UserInterface>();
-
-        if (DMactive)
+        
+        //El jugador esta reproducciendo su animacion de victoria?
+        if (playerAnim)
         {
-            if (DM.DialoguesEnd.Length > 0)
+            //Si es asi, llamar hasta que termine de reproducirse
+            InvokeRepeating("WaitForPlayerAnim", 0.2f, 0.5f);
+        }
+        else
+        {
+            if (DMactive)
             {
-                DM.gameObject.SetActive(true);
+                if (DM.DialoguesEnd.Length > 0)
+                {
+                    DM.gameObject.SetActive(true);
+                }
+                else
+                {
+                    DM.gameObject.SetActive(false);
+                    ui.Victory(ui.gananciaMaxBK);
+                }
             }
-            else
+
+            if (newDMactive)
             {
-                DM.gameObject.SetActive(false);
+                if (newDM.EndCutscene != null)
+                {
+                    newDM.gameObject.SetActive(true);
+                }
+                else
+                {
+                    newDM.gameObject.SetActive(false);
+                    ui.Victory(ui.gananciaMaxBK);
+                }
+            }
+
+            if (!DMactive && !newDMactive)
+            {
                 ui.Victory(ui.gananciaMaxBK);
             }
         }
+    }
 
-        if (newDMactive)
+    void WaitForPlayerAnim()
+    {
+        if (!playerAnim)
         {
-            if (newDM.EndCutscene != null)
-            {
-                newDM.gameObject.SetActive(true);
-            }
-            else
-            {
-                newDM.gameObject.SetActive(false);
-                ui.Victory(ui.gananciaMaxBK);
-            }
-
-        }
-
-        if(!DMactive && !newDMactive)
-        {
-            ui.Victory(ui.gananciaMaxBK);
+            onVictory(); //volver a llamar
+            CancelInvoke();
         }
     }
 

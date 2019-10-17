@@ -125,16 +125,6 @@ public class NewDialogueManager : MonoBehaviour
                 index = 0;
                 ui.menuPausa.enabled = true;
 
-                //CountDown countdown = FindObjectOfType<CountDown>();
-
-                //if(countdown != null)
-                //{
-                //    if (countdown.isActiveAndEnabled)
-                //    {
-                //        countdown.canStart = true;
-                //    }
-                //}               
-
                 cutM.IntroCutsceneEnded();
 
                 gameObject.SetActive(false);
@@ -191,7 +181,7 @@ public class NewDialogueManager : MonoBehaviour
             {
                 end = true;
                 Debug.Log("Ended end dialogue");
-                Time.timeScale = 1;
+                //Time.timeScale = 1;
                 ui.Victory(ui.gananciaMaxBK);
                 gameObject.SetActive(false);
             }

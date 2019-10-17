@@ -19,15 +19,15 @@ public class LlegarMeta : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-        {
-            GameManager.instance.VictoryCondition();
-            //ui.Victory(gananciaMaxima);
+        {            
             ui.gananciaMaxBK = gananciaMaxima;
+            collision.GetComponent<Player>().Win();
+            GameManager.instance.VictoryCondition();
 
             if (Obligatorio)
             {
                 GameManager.instance.UnlockZone(zonaActual);
-            }
+            }           
 
             gameObject.SetActive(false);
         }        
