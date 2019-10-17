@@ -187,4 +187,18 @@ public class GameManager : MonoBehaviour
     {
         zoneProgress = 4;
     }
+
+    public void ToggleMute()
+    {
+        if (sound)
+        {
+            sound = false;
+            Debug.Log("The game is now muted");
+        }
+        else
+        {
+            sound = true;
+            Debug.Log("The game now has sound");
+        }        
+    }
 }
