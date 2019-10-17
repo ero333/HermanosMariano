@@ -61,7 +61,7 @@ MonoBehaviour:
   dropOnDeath: {fileID: 0}
   MoneyObject: {fileID: 3452743171773193135, guid: 8acec45a81b4ee24695f77d0e8f7810b,
     type: 3}
-  MoneyValue: 0
+  MoneyValue: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   bottomOffset: {x: 0, y: -1.05}
-  bottomSize: {x: 0.6, y: 0.1}
+  bottomSize: {x: 0.5, y: 0.1}
   collisionRadius: 0.2
   rightFloor: {x: 0.6, y: -1.2}
   leftFloor: {x: -0.6, y: -1.2}
@@ -99,6 +99,7 @@ MonoBehaviour:
   meleeDelay: 1
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
+  frameDamage: 0
   shootDamage: 0
   shootDelay: 5
   minShootDis: 15

@@ -61,7 +61,7 @@ MonoBehaviour:
   dropOnDeath: {fileID: 0}
   MoneyObject: {fileID: 3452743171773193135, guid: 8acec45a81b4ee24695f77d0e8f7810b,
     type: 3}
-  MoneyValue: 0
+  MoneyValue: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   bottomOffset: {x: 0, y: -1.05}
-  bottomSize: {x: 0.6, y: 0.1}
+  bottomSize: {x: 0.5, y: 0.1}
   collisionRadius: 0.2
   rightFloor: {x: 0.6, y: -1.2}
   leftFloor: {x: -0.6, y: -1.2}
@@ -85,23 +85,24 @@ MonoBehaviour:
   patrol: 0
   patrolSpeed: 0
   chase: 1
-  speed: 5
+  speed: 3
   sprint: 0
   sprintSpeed: 8
   sprintDuration: 3
   sprintDelay: 5
-  flee: 0
-  speedFlee: 5
-  safeDistance: 10
+  flee: 1
+  speedFlee: 4
+  safeDistance: 8
   JumpObstacles: 0
   jumpForce: 8
   meleeDamage: 1
-  meleeDelay: 1
+  meleeDelay: 1.4
   meleeHitBoxSize: {x: 0.91, y: 0.78}
   meleeHitBoxOffset: {x: 0.82, y: 0.15}
+  frameDamage: 0
   shootDamage: 1
   shootDelay: 5
-  minShootDis: 15
+  minShootDis: 10
   bullet: {fileID: 8580512828927243988, guid: 62a01b7536d1aac47809ca4583965b5d, type: 3}
   spawnBullet: {fileID: 7709295781598718064}
 --- !u!212 &1047825187501979426
