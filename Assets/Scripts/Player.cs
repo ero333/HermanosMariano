@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
     {
         gm = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();        
 
         if (gm.resetCount == 0)
         {
