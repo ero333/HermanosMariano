@@ -335,8 +335,7 @@ public class Player : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.velocity += Vector2.up * 8;
 
-                anim.SetTrigger("JumpInput");
-                
+                anim.SetTrigger("JumpInput");                
             }
         }
     }

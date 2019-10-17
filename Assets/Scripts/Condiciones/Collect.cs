@@ -15,7 +15,7 @@ public class Collect : MonoBehaviour
 
     private void Start()
     {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = GameManager.instance;
         ui = GameObject.FindObjectOfType<UserInterface>();
 
         toCollect += FindObjectsOfType<Collectable>().Length;
@@ -50,6 +50,7 @@ public class Collect : MonoBehaviour
         if (toCollect <= 0)
         {
             ui.gananciaMaxBK = gananciaMaxima;
+            FindObjectOfType<Player>().Win();
             GameManager.instance.VictoryCondition();            
 
             toCollect = 100;

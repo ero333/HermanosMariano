@@ -39,6 +39,7 @@ public class Transport : MonoBehaviour
             if (toTransport <= 0)
             {
                 ui.gananciaMaxBK = gananciaMaxima;
+                FindObjectOfType<Player>().Win();
                 GameManager.instance.VictoryCondition();
 
                 if (Obligatorio)

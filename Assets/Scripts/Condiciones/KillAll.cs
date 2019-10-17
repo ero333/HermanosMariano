@@ -30,6 +30,7 @@ public class KillAll : MonoBehaviour
         if (toKill <= 0)
         {
             ui.gananciaMaxBK = gananciaMaxima;
+            FindObjectOfType<Player>().Win();
             GameManager.instance.VictoryCondition();            
 
             toKill = 100;
