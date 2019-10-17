@@ -10,15 +10,21 @@ public class MoneyCounter : MonoBehaviour
 {
     public int MaximusMoney;
     Money[] allMoney;
+    Enemy[] allEnemies;
 
     // Start is called before the first frame update
     void Start()
     {
         allMoney = FindObjectsOfType<Money>();
+        allEnemies = FindObjectsOfType<Enemy>();
         MaximusMoney = 0;
         for (int i = 0; i < allMoney.Length; i++)
         {
             MaximusMoney += allMoney[i].value;
+        }
+        for (int i = 0; i < allEnemies.Length; i++)
+        {
+            MaximusMoney += allEnemies[i].MoneyValue;
         }
     }
 
@@ -32,10 +38,16 @@ public class MoneyCounter : MonoBehaviour
         else
         {
             allMoney = FindObjectsOfType<Money>();
+            allEnemies = FindObjectsOfType<Enemy>();
             MaximusMoney = 0;
             for (int i = 0; i < allMoney.Length; i++)
             {
                 MaximusMoney += allMoney[i].value;
+            }
+
+            for (int i = 0; i < allEnemies.Length; i++)
+            {
+                MaximusMoney += allEnemies[i].MoneyValue;
             }
         }        
     }
