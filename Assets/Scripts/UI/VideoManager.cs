@@ -19,11 +19,15 @@ public class VideoManager : MonoBehaviour
 
     private void Awake()
     {
+        videoPlayer = GetComponent<VideoPlayer>();
+        if (!GameManager.sound)
+        {
+            videoPlayer.SetDirectAudioMute(0, true);
+        }
+
         if (videoName != "")
         {
-            ui.menuPausa.enabled = false;
-            
-            videoPlayer = GetComponent<VideoPlayer>();
+            ui.menuPausa.enabled = false;           
             videoPlayer.url = Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
             videoPlayer.loopPointReached += EndVideo;
             GetComponent<Image>().enabled = true;
