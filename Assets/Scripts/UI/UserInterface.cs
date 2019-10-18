@@ -27,8 +27,8 @@ public class UserInterface : MonoBehaviour
     public Text bullets;
     public MenuPausa menuPausa;
 
-    public DialogueManager dialogueManager;
-    public NewDialogueManager newDialogueManager;
+    //public DialogueManager dialogueManager;
+    //public NewDialogueManager newDialogueManager;
 
     [HideInInspector]
     public int gananciaMaxBK;
@@ -161,5 +161,10 @@ public class UserInterface : MonoBehaviour
         Debug.Log(impuesto);
         total.text = "" + (GameManager.instance.money - impuesto);
         GameManager.ahorros += (GameManager.instance.money - impuesto);
+    }
+
+    public void CallMuteOnGm()
+    {
+        GameManager.instance.ToggleMute();
     }
 }

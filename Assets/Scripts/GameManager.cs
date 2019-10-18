@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        //levelIndex = SceneManager.GetActiveScene().buildIndex;
-    }
+    //void Start()
+    //{
+    //    //levelIndex = SceneManager.GetActiveScene().buildIndex;
+    //}
 
     void Update()
     {
@@ -186,5 +186,24 @@ public class GameManager : MonoBehaviour
     public void Cheat()
     {
         zoneProgress = 4;
+    }
+
+    public void ToggleMute()
+    {
+        if (sound)
+        {
+            sound = false;
+            Debug.Log("The game is now muted");
+        }
+        else
+        {
+            sound = true;
+            Debug.Log("The game now has sound");
+        }        
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
