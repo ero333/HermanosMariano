@@ -8,7 +8,7 @@ public class CutsceneManager : MonoBehaviour
     public DialogueManager DM;
     public NewDialogueManager newDM;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool activeCutscenes = true;
 
     public bool DMactive = false;
@@ -39,7 +39,7 @@ public class CutsceneManager : MonoBehaviour
             }
         }
 
-        if (videoManager.videoName != "")
+        if (videoManager.videoName != "" && !videoManager.isEnding)
         {
             videoManager.gameObject.SetActive(true);
 
@@ -76,21 +76,28 @@ public class CutsceneManager : MonoBehaviour
 
     public void VideoEnded()
     {
-        if (DMactive)
+        if (!videoManager.isEnding)
         {
-            DM.gameObject.SetActive(true);
-            activeCutscenes = true;
-        }
+            if (DMactive)
+            {
+                DM.gameObject.SetActive(true);
+                activeCutscenes = true;
+            }
 
-        if (newDMactive)
-        {
-            newDM.gameObject.SetActive(true);
-            activeCutscenes = true;
-        }
+            if (newDMactive)
+            {
+                newDM.gameObject.SetActive(true);
+                activeCutscenes = true;
+            }
 
-        if (!DMactive && !DMactive)
+            if (!DMactive && !DMactive)
+            {
+                activeCutscenes = false;
+            }
+        }
+        else if(videoManager.videoName == "Final")
         {
-            activeCutscenes = false;
+            GameManager.instance.LoadScene("MenuInicio");
         }
     }
 
@@ -102,7 +109,7 @@ public class CutsceneManager : MonoBehaviour
     public void onVictory()
     {
         UserInterface ui = FindObjectOfType<UserInterface>();
-        
+
         //El jugador esta reproducciendo su animacion de victoria?
         if (playerAnim)
         {
@@ -133,13 +140,26 @@ public class CutsceneManager : MonoBehaviour
                 else
                 {
                     newDM.gameObject.SetActive(false);
-                    ui.Victory(ui.gananciaMaxBK);
+                    //ui.Victory(ui.gananciaMaxBK);
+                    newDMactive = false;
                 }
             }
 
             if (!DMactive && !newDMactive)
             {
-                ui.Victory(ui.gananciaMaxBK);
+                if (videoManager.isEnding)
+                {
+                    AudioManager audioM = FindObjectOfType<AudioManager>();
+                    audioM.enabled = false;
+                    audioM.GetComponent<AudioSource>().mute = true;
+                    videoManager.gameObject.SetActive(true);
+
+                    //videoManager.startVideo();
+                }
+                else
+                {
+                    ui.Victory(ui.gananciaMaxBK);
+                }
             }
         }
     }

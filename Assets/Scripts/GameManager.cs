@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        //levelIndex = SceneManager.GetActiveScene().buildIndex;
-    }
+    //void Start()
+    //{
+    //    //levelIndex = SceneManager.GetActiveScene().buildIndex;
+    //}
 
     void Update()
     {
@@ -200,5 +200,10 @@ public class GameManager : MonoBehaviour
             sound = true;
             Debug.Log("The game now has sound");
         }        
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

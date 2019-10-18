@@ -27,8 +27,8 @@ public class UserInterface : MonoBehaviour
     public Text bullets;
     public MenuPausa menuPausa;
 
-    public DialogueManager dialogueManager;
-    public NewDialogueManager newDialogueManager;
+    //public DialogueManager dialogueManager;
+    //public NewDialogueManager newDialogueManager;
 
     [HideInInspector]
     public int gananciaMaxBK;
