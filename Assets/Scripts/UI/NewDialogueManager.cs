@@ -27,6 +27,9 @@ public class NewDialogueManager : MonoBehaviour
     [HideInInspector]
     public bool end = false;
 
+    [HideInInspector]
+    public bool obli = false;
+
 
     private void Awake()
     {
@@ -182,7 +185,7 @@ public class NewDialogueManager : MonoBehaviour
                 end = true;
                 Debug.Log("Ended end dialogue");
                 //Time.timeScale = 1;
-                ui.Victory(ui.gananciaMaxBK);
+                ui.Victory(ui.gananciaMaxBK, obli);
                 gameObject.SetActive(false);
             }
         }

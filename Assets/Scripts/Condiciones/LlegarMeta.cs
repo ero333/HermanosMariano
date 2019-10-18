@@ -26,6 +26,7 @@ public class LlegarMeta : MonoBehaviour
 
             if (Obligatorio)
             {
+                FindObjectOfType<CutsceneManager>().obli = true;
                 GameManager.instance.UnlockZone(zonaActual);
             }           
 

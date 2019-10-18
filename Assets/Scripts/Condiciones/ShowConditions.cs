@@ -68,7 +68,10 @@ public class ShowConditions : MonoBehaviour
         }
         else if (kill != null)
         {
-            condition.text = "MATAR OBJETIVO: " + Mathf.Round( Vector2.Distance(player.transform.position, kill.toKill.transform.position) );
+            if(kill.toKill != null)
+            {
+                condition.text = "MATAR OBJETIVO: " + Mathf.Round(Vector2.Distance(player.transform.position, kill.toKill.transform.position));
+            }            
         }
         else if (survive != null)
         {

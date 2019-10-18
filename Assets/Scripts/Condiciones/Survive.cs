@@ -33,7 +33,7 @@ public class Survive : MonoBehaviour
             else
             {
                 GameManager.instance.VictoryCondition();
-                ui.Victory(gananciaMaxima);
+                ui.Victory(gananciaMaxima, Obligatorio);
 
                 if (Obligatorio)
                 {
