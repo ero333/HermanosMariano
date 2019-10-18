@@ -12057,20 +12057,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 28cd395788bec0b49b9e298f64f040dd,
         type: 2}
-    - target: {fileID: 9102933986657033937, guid: 93abdcb4af36b6b4f9232b9fd6007819,
-        type: 3}
-      propertyPath: m_Text
-      value: "PRISI\xD3N - NIVEL 2"
-      objectReference: {fileID: 0}
     - target: {fileID: 8374029261141341398, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -56.149902
       objectReference: {fileID: 0}
+    - target: {fileID: 3625855170793659641, guid: 93abdcb4af36b6b4f9232b9fd6007819,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 755.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625855170793659641, guid: 93abdcb4af36b6b4f9232b9fd6007819,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25.600006
+      objectReference: {fileID: 0}
     - target: {fileID: 4285321811404890731, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31.900002
+      value: -9.9
       objectReference: {fileID: 0}
     - target: {fileID: 4285321811404890731, guid: 93abdcb4af36b6b4f9232b9fd6007819,
         type: 3}
@@ -12134,6 +12139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102933986657033937, guid: 93abdcb4af36b6b4f9232b9fd6007819,
+        type: 3}
+      propertyPath: m_Text
+      value: "PRISI\xD3N - NIVEL 2"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93abdcb4af36b6b4f9232b9fd6007819, type: 3}
