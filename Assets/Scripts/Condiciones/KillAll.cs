@@ -37,6 +37,7 @@ public class KillAll : MonoBehaviour
 
             if (Obligatorio)
             {
+                FindObjectOfType<CutsceneManager>().obli = true;
                 GameManager.instance.UnlockZone(zonaActual);
             }
 

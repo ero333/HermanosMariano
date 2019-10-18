@@ -21,6 +21,7 @@ public class UserInterface : MonoBehaviour
 
     public GameObject GameOverScreen;
     public GameObject VictoryScreen;
+    public GameObject EnergyPlusText;
     public Text ganancias;
     public Text impuestos;
     public Text total;
@@ -132,7 +133,7 @@ public class UserInterface : MonoBehaviour
         GameManager.instance.BackToMap();
     }
 
-    public void Victory(int gananciaMaxima)
+    public void Victory(int gananciaMaxima, bool obli)
     {
         menuPausa.enabled = false;
         int impuesto;
@@ -140,6 +141,10 @@ public class UserInterface : MonoBehaviour
         Time.timeScale = 0f;
 
         VictoryScreen.SetActive(true);
+        if (obli)
+        {
+            EnergyPlusText.gameObject.SetActive(true);
+        }
         ganancias.text = "" + GameManager.instance.money;
 
         Debug.Log(GameManager.instance.money);

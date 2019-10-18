@@ -35,6 +35,8 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public bool end = false;
 
+    [HideInInspector]
+    public bool obli = false;
 
     private void Awake()
     {
@@ -50,9 +52,7 @@ public class DialogueManager : MonoBehaviour
 
             charA.sprite = charAstart;
             charB.sprite = charBstart;
-        }
-
-        
+        }        
     }
     void Start()
     {
@@ -199,7 +199,7 @@ public class DialogueManager : MonoBehaviour
                 end = true;
                 Debug.Log("Ended end dialogue");
                 Time.timeScale = 1;
-                ui.Victory(ui.gananciaMaxBK);
+                ui.Victory(ui.gananciaMaxBK, obli);
                 gameObject.SetActive(false);
             }
         }

@@ -38,6 +38,7 @@ public class Kill : MonoBehaviour
 
             if (Obligatorio)
             {
+                FindObjectOfType<CutsceneManager>().obli = true;
                 GameManager.instance.UnlockZone(zonaActual);
             }
 

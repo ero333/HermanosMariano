@@ -17,6 +17,9 @@ public class CutsceneManager : MonoBehaviour
     [HideInInspector]
     public bool playerAnim = false;
 
+    [HideInInspector]
+    public bool obli = false;
+
     private void Awake()
     {
         if (DM != null)
@@ -122,12 +125,17 @@ public class CutsceneManager : MonoBehaviour
             {
                 if (DM.DialoguesEnd.Length > 0)
                 {
+                    if (obli)
+                    {
+                        DM.obli = true;
+                    }
+
                     DM.gameObject.SetActive(true);
                 }
                 else
                 {
                     DM.gameObject.SetActive(false);
-                    ui.Victory(ui.gananciaMaxBK);
+                    ui.Victory(ui.gananciaMaxBK, obli);
                 }
             }
 
@@ -135,6 +143,10 @@ public class CutsceneManager : MonoBehaviour
             {
                 if (newDM.EndCutscene != null)
                 {
+                    if (obli)
+                    {
+                        newDM.obli = true;
+                    }
                     newDM.gameObject.SetActive(true);
                 }
                 else
@@ -158,7 +170,7 @@ public class CutsceneManager : MonoBehaviour
                 }
                 else
                 {
-                    ui.Victory(ui.gananciaMaxBK);
+                    ui.Victory(ui.gananciaMaxBK, obli);
                 }
             }
         }
