@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 //using UnityEngine.UI;
 using System.Text;
 using Cinemachine;
+//using UnityEngine.Analytics;
 
 //【◉ᴥ◉】
 public class GameManager : MonoBehaviour
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
             lives = maxLives;
             energy = maxEnergy;
             money = 0;
+
+            //Analytics.CustomEvent("Iniciar Nivel");
         }
         else
         {
