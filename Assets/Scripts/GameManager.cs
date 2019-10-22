@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 //using UnityEngine.UI;
 using System.Text;
 using Cinemachine;
-//using UnityEngine.Analytics;
+using UnityEngine.Analytics;
 
 //【◉ᴥ◉】
 public class GameManager : MonoBehaviour
@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public Vector2 lastCheckpos;
     public int money;
+
+    //Analitics
+    bool CountGameTime = true;
+    float GameTime = 0;
+    public string CondicionDeVictoria;
 
     private void Awake()
     {
@@ -66,7 +71,19 @@ public class GameManager : MonoBehaviour
             energy = maxEnergy;
             money = 0;
 
-            //Analytics.CustomEvent("Iniciar Nivel");
+            CountGameTime = true;
+            GameTime = 0;
+            if(levelIndex != 0 && levelIndex != 2)
+            {
+                Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
+                {
+                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                    {"Nivel", levelName },
+                    {"Ahorros", ahorros }//,
+                    //{"CuantasVeces", 1 }
+                });
+            }
+            
         }
         else
         {
@@ -90,7 +107,9 @@ public class GameManager : MonoBehaviour
         {
             lives -= 1;
             Reset();
-        }      
+        }
+
+        if(CountGameTime) GameTime += 1 * Time.deltaTime;
     }    
 
     public void Reset()
@@ -99,10 +118,9 @@ public class GameManager : MonoBehaviour
         {
             resetCount = 0;
             //Game over
-
         }
         else
-        {
+        {   //muerte
             resetCount += 1;
             //SceneManager.LoadScene(levelIndex); <- para recargar la escena
             if (!FindObjectOfType<EnemySpawner>())
@@ -160,6 +178,27 @@ public class GameManager : MonoBehaviour
         victory = true;
         resetCount = 0;
         FindObjectOfType<CutsceneManager>().onVictory();
+
+        CountGameTime = false;
+    }
+
+    public void WinAnaliticsEvent(int ganancia)
+    {
+        bool isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
+
+        Analytics.CustomEvent("GanarNivel", new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", levelName },
+            {"Ahorros", ahorros },
+            {"Recolectado", money },
+            {"Ganancias", ganancia },
+            {"Vidas", lives },
+            {"Energia", energy },
+            {"Victoria", CondicionDeVictoria },
+            {"Timer", isTimer },
+            {"TiempoDeJuego", GameTime }
+        });
     }
 
     public void UnlockZone (int currentZone)

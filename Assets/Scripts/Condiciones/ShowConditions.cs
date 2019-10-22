@@ -21,30 +21,37 @@ public class ShowConditions : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
+        GameManager gm = GameManager.instance;
 
         if(FindObjectOfType<LlegarMeta>() != null)
         {
             llegarMeta = FindObjectOfType<LlegarMeta>();
+            gm.CondicionDeVictoria = "Meta";
         }
         else if(FindObjectOfType<Collect>() != null)
         {
             collect = FindObjectOfType<Collect>();
+            gm.CondicionDeVictoria = "Recolectar";
         }
         else if(FindObjectOfType<Transport>() != null)
         {
             transport = FindObjectOfType<Transport>();
+            gm.CondicionDeVictoria = "Transportar";
         }
         else if(FindObjectOfType<KillAll>() != null)
         {
             killAll = FindObjectOfType<KillAll>();
+            gm.CondicionDeVictoria = "MatarATodos";
         }
         else if (FindObjectOfType<Kill>() != null)
         {
             kill = FindObjectOfType<Kill>();
+            gm.CondicionDeVictoria = "Matar";
         }
         else if (FindObjectOfType<Survive>() != null)
         {
             survive = FindObjectOfType<Survive>();
+            gm.CondicionDeVictoria = "Sobrevivir";
         }
     }
 
