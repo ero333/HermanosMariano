@@ -39,4 +39,9 @@ public class AudioManager : MonoBehaviour
             }          
         }
     }
+
+    public void CallMuteOnGm()
+    {
+        GameManager.instance.ToggleMute();
+    }
 }

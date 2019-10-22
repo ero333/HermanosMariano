@@ -346,8 +346,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1927203564}
-        m_MethodName: ToggleMute
+      - m_Target: {fileID: 455882960}
+        m_MethodName: CallMuteOnGm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -398,6 +398,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380735194}
   m_CullTransparentMesh: 0
+--- !u!114 &455882960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7729293041180329395, guid: 4129f3952e6700d49b03e5c9e9a5fb14,
+    type: 3}
+  m_PrefabInstance: {fileID: 1617578820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f049c58c90b524e8a7b6efe8ad767e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &474972322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,15 +1370,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ecb35162a24bb642829ad055830afa0, type: 3}
---- !u!114 &1927203564 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7621293912112566347, guid: 8ecb35162a24bb642829ad055830afa0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1927203563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2118d2d63a486f142b26882323bddbae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
