@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.FindObjectOfType<GameManager>();
+        gm = GameManager.instance;
     }
 
     public void NewGame()

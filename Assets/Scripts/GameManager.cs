@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     bool CountGameTime = true;
     float GameTime = 0;
     public string CondicionDeVictoria;
+    bool isTimer;
 
     private void Awake()
     {
@@ -73,7 +74,8 @@ public class GameManager : MonoBehaviour
 
             CountGameTime = true;
             GameTime = 0;
-            if(levelIndex != 0 && levelIndex != 2)
+            isTimer = FindObjectOfType<CountDown>();
+            if (levelIndex != 0 && levelIndex != 2)
             {
                 Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
                 {
@@ -184,20 +186,18 @@ public class GameManager : MonoBehaviour
 
     public void WinAnaliticsEvent(int ganancia)
     {
-        bool isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
-
         Analytics.CustomEvent("GanarNivel", new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-            {"Nivel", levelName },
+            {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelName },
             {"Ahorros", ahorros },
-            {"Recolectado", money },
+            {"Recolectado", instance.money },
             {"Ganancias", ganancia },
-            {"Vidas", lives },
-            {"Energia", energy },
-            {"Victoria", CondicionDeVictoria },
+            {"Vidas", instance.lives },
+            {"Energia", instance.energy },
+            {"Victoria", instance.CondicionDeVictoria },
             {"Timer", isTimer },
-            {"TiempoDeJuego", GameTime }
+            {"TiempoDeJuego", instance.GameTime }
         });
     }
 
