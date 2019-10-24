@@ -74,7 +74,11 @@ public class GameManager : MonoBehaviour
 
             CountGameTime = true;
             GameTime = 0;
-            isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
+            if(FindObjectOfType<CountDown>())
+            {
+                isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
+            }
+            
             if (levelIndex != 0 && levelIndex != 2)
             {
                 Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>

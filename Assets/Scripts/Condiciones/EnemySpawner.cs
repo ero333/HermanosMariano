@@ -8,7 +8,7 @@ using UnityEditor;
 public class EnemySpawner : MonoBehaviour
 {
     public int maximumEnemies = 5;
-    int currentEnemies = 0;
+    public int currentEnemies = 0;
     public float delay;
     public GameObject enemyToSpawn;
 
@@ -99,14 +99,17 @@ public class EnemySpawner : MonoBehaviour
             }
 
             canSpawn = false;
-            currentEnemies = FindObjectsOfType<Enemy>().Length;
 
+            StopAllCoroutines();
             StartCoroutine(SpawnDelay(delay));
         }
+
+        currentEnemies = FindObjectsOfType<Enemy>().Length;        
     }
 
     IEnumerator SpawnDelay(float delay)
     {
+        currentEnemies = FindObjectsOfType<Enemy>().Length;
         yield return new WaitForSeconds(delay);
         canSpawn = true;
         currentEnemies = FindObjectsOfType<Enemy>().Length;
