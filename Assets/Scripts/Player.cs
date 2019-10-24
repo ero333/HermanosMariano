@@ -94,6 +94,12 @@ public class Player : MonoBehaviour
         {
             transform.position = GameManager.instance.lastCheckpos;
         }
+
+        PhysicsMaterial2D physicMaterial = new PhysicsMaterial2D(gameObject.name);
+        physicMaterial.bounciness = 0;
+        physicMaterial.friction = 0;
+
+        rb.sharedMaterial = physicMaterial;
     }
 
     void Update()
