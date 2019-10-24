@@ -139,6 +139,18 @@ public class GameManager : MonoBehaviour
             CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
             //cam.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y);
             cam.Follow = player.transform;
+
+            if (levelIndex != 0 && levelIndex != 2)
+            {
+                Analytics.CustomEvent("Morir", new Dictionary<string, object>
+                {
+                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                    {"Nivel", levelName },
+                    {"Recolectado", instance.money },
+                    {"VidasRestantes", instance.lives },
+                    {"PosicionDeMuerte", player.transform.position }
+                });
+            }
         }
         energy = maxEnergy;
     }
