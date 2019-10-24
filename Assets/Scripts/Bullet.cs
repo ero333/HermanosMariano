@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.tag == "Player")
         {
-            collision.GetComponent<Player>().TakeDamage(damage, dir);
+            collision.GetComponent<Player>().TakeDamage(damage, dir, gameObject.name);
             Destroy(gameObject);
         }
         else if (collision.gameObject.layer == 8)

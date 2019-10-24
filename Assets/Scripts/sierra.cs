@@ -51,7 +51,7 @@ public class sierra : MonoBehaviour
             playerInside = true;
             //canDamage = true;
             player = collision.GetComponent<Player>();
-            player.TakeDamage(damage, dir);
+            player.TakeDamage(damage, dir, gameObject.name);
 
             damageTimer = DamageTimer();
             StartCoroutine(damageTimer);
@@ -82,7 +82,7 @@ public class sierra : MonoBehaviour
         if (playerInside)
         {
             float dir = Mathf.FloorToInt(Mathf.Clamp(player.transform.position.x - gameObject.transform.position.x, -1, 1));
-            player.TakeDamage(damage, dir);
+            player.TakeDamage(damage, dir, gameObject.name);
             damageTimer = DamageTimer();
             StartCoroutine(damageTimer);
         }

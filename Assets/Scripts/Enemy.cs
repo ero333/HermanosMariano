@@ -486,7 +486,7 @@ public class Enemy : MonoBehaviour
         //hacer daño cuando el jugador este en la hitbox y el enemigo este en el frame de la animacion correcta
         if (hit && frameDamage && !hited && meleeDamage > 0 && lives > 0)
         {
-            player.TakeDamage(meleeDamage, playerDirection.x);
+            player.TakeDamage(meleeDamage, playerDirection.x, gameObject.name);
             hited = true;
         }
 

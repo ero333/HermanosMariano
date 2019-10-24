@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     float GameTime = 0;
     public string CondicionDeVictoria;
     bool isTimer;
+    public string ultimoCulpable;
 
     private void Awake()
     {
@@ -132,7 +133,8 @@ public class GameManager : MonoBehaviour
                     {"VidasRestantes", instance.lives },
                     {"CondicionVictoria", instance.CondicionDeVictoria },
                     {"Timer", instance.isTimer },
-                    {"TiempoDeJuego", instance.GameTime }
+                    {"TiempoDeJuego", instance.GameTime },
+                    {"ObjetoQueLoMato", instance.ultimoCulpable }
 
                 });
             }
@@ -164,6 +166,7 @@ public class GameManager : MonoBehaviour
                     {"Nivel", instance.levelName },
                     {"Recolectado", instance.money },
                     {"VidasRestantes", instance.lives },
+                    {"ObjetoQueLoMato", instance.ultimoCulpable },
                     {"PosicionDeMuerte", player.transform.position }
                 });
             }

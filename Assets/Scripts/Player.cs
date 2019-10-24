@@ -198,7 +198,7 @@ public class Player : MonoBehaviour
         SetAnimations(x);
     }
 
-    public void TakeDamage (int damage, float dir)
+    public void TakeDamage (int damage, float dir, string name)
     {
         if (!inven)
         {
@@ -210,6 +210,8 @@ public class Player : MonoBehaviour
             /*IEnumerator*/invenTimer = InvenTimer(0.6f);
             StopCoroutine(invenTimer);
             StartCoroutine(invenTimer);
+
+            gm.ultimoCulpable = name;
         }        
     }
 
@@ -221,6 +223,8 @@ public class Player : MonoBehaviour
             Debug.Log("Death");
             GameManager.instance.lives -= 1;
             GameManager.instance.Reset();
+
+            gm.ultimoCulpable = "Abismo";
         }
     }
 
