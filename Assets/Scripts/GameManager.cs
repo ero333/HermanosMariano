@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEngine.UI;
 using System.Text;
 using Cinemachine;
 using UnityEngine.Analytics;
@@ -74,7 +73,7 @@ public class GameManager : MonoBehaviour
 
             CountGameTime = true;
             GameTime = 0;
-            isTimer = FindObjectOfType<CountDown>();
+            isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
             if (levelIndex != 0 && levelIndex != 2)
             {
                 Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
@@ -120,6 +119,23 @@ public class GameManager : MonoBehaviour
         {
             resetCount = 0;
             //Game over
+
+            CountGameTime = false;
+            if (levelIndex != 0 && levelIndex != 2)
+            {
+                Analytics.CustomEvent("PerderNivel", new Dictionary<string, object>
+                {
+                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                    {"Nivel", levelName },
+                    {"Ahorros", ahorros },
+                    {"Recolectado", instance.money },
+                    {"VidasRestantes", instance.lives },
+                    {"CondicionVictoria", instance.CondicionDeVictoria },
+                    {"Timer", instance.isTimer },
+                    {"TiempoDeJuego", instance.GameTime }
+
+                });
+            }
         }
         else
         {   //muerte
@@ -145,7 +161,7 @@ public class GameManager : MonoBehaviour
                 Analytics.CustomEvent("Morir", new Dictionary<string, object>
                 {
                     {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", levelName },
+                    {"Nivel", instance.levelName },
                     {"Recolectado", instance.money },
                     {"VidasRestantes", instance.lives },
                     {"PosicionDeMuerte", player.transform.position }
@@ -207,8 +223,8 @@ public class GameManager : MonoBehaviour
             {"Ganancias", ganancia },
             {"Vidas", instance.lives },
             {"Energia", instance.energy },
-            {"Victoria", instance.CondicionDeVictoria },
-            {"Timer", isTimer },
+            {"CondicionVictoria", instance.CondicionDeVictoria },
+            {"Timer", instance.isTimer },
             {"TiempoDeJuego", instance.GameTime }
         });
     }
