@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int money;
 
     //Analitics
+    int levelNumber;
     bool CountGameTime = true;
     float GameTime = 0;
     public string CondicionDeVictoria;
@@ -61,7 +62,26 @@ public class GameManager : MonoBehaviour
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
         levelName = SceneManager.GetActiveScene().name;
-        levelName = AddSpacesToSentence(levelName);
+        //levelName = AddSpacesToSentence(levelName);
+
+        
+        {
+            levelNumber = -1;
+            for (int i = 0; i < levelName.Length; i++)
+            {
+                if (char.IsNumber(levelName[i]))
+                {
+                    levelNumber = (int)char.GetNumericValue(levelName[i]);
+                    break;
+                }
+            }
+            if (levelNumber == -1)
+            {
+                levelNumber = 4;
+            }
+
+            Debug.Log(levelNumber);
+        }       
 
         if (resetCount == 0)
         {
@@ -78,13 +98,13 @@ public class GameManager : MonoBehaviour
             {
                 isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
             }
-            
+
             if (levelIndex != 0 && levelIndex != 2)
             {
                 Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
                 {
                     {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", levelName },
+                    {"Nivel", instance.levelNumber },
                     {"Ahorros", ahorros }//,
                     //{"CuantasVeces", 1 }
                 });
@@ -131,7 +151,7 @@ public class GameManager : MonoBehaviour
                 Analytics.CustomEvent("PerderNivel", new Dictionary<string, object>
                 {
                     {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", levelName },
+                    {"Nivel", instance.levelNumber },
                     {"Ahorros", ahorros },
                     {"Recolectado", instance.money },
                     {"VidasRestantes", instance.lives },
@@ -167,7 +187,7 @@ public class GameManager : MonoBehaviour
                 Analytics.CustomEvent("Morir", new Dictionary<string, object>
                 {
                     {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelName },
+                    {"Nivel", instance.levelNumber },
                     {"Recolectado", instance.money },
                     {"VidasRestantes", instance.lives },
                     {"ObjetoQueLoMato", instance.ultimoCulpable },
@@ -219,12 +239,12 @@ public class GameManager : MonoBehaviour
         CountGameTime = false;
     }
 
-    public void WinAnaliticsEvent(int ganancia)
+    public void WinAnalyticsEvent(int ganancia)
     {
         Analytics.CustomEvent("GanarNivel", new Dictionary<string, object>
         {
             {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
-            {"Nivel", instance.levelName },
+            {"Nivel", instance.levelNumber },
             {"Ahorros", ahorros },
             {"Recolectado", instance.money },
             {"Ganancias", ganancia },
@@ -277,6 +297,26 @@ public class GameManager : MonoBehaviour
             sound = true;
             Debug.Log("The game now has sound");
         }        
+    }
+
+    public void ExitLevelAnalyticsEvent ()
+    {
+        if (levelIndex != 0 && levelIndex != 2)
+        {
+
+            Player player = FindObjectOfType<Player>();
+
+            Analytics.CustomEvent("SalirNivel", new Dictionary<string, object>
+            {
+                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Nivel", instance.levelNumber },
+                {"Recolectado", instance.money },
+                {"VidasRestantes", instance.lives },
+                {"EnergiaRestante", instance.energy },
+                {"CondicionVictoria", instance.CondicionDeVictoria },
+                {"PosicionDeJugador", player.transform.position }
+            });
+        }
     }
 
     public void LoadScene(string sceneName)
