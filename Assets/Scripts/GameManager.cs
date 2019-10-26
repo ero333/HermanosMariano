@@ -266,17 +266,27 @@ public class GameManager : MonoBehaviour
 
 
     //EVENTOS PARA EL UNITY ANALYTICS
+    void ContinuarAnalyticsEvent()
+    {
+        Analytics.CustomEvent("ContinuarPartida", new Dictionary<string, object>
+        {
+            {"UltimaZona", levelIndex == 1 ? 0 : zoneProgress },
+            //{"Nivel", instance.levelNumber },
+            {"Ahorros", ahorros }
+        });
+    }
+
     void IniciarNivelAnalyticsEvent()
     {
         if (levelIndex != 0 && levelIndex != 2)
         {
             Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
-                {
-                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelNumber },
-                    {"Ahorros", ahorros }//,
-                    //{"CuantasVeces", 1 }
-                });
+            {
+                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Nivel", instance.levelNumber },
+                {"Ahorros", ahorros }//,
+                //{"CuantasVeces", 1 }
+            });
         }
     }
 
