@@ -23,6 +23,7 @@ public class NewDialogueManager : MonoBehaviour
     public Image background;
 
     int index = 0;
+    int indexAna = 0;
 
     [HideInInspector]
     public bool end = false;
@@ -66,12 +67,14 @@ public class NewDialogueManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
         {
             index += 1;
+            indexAna = index;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1;
             ui.menuPausa.enabled = true;
+            indexAna = index;
             index += 100;
             //gameObject.SetActive(false);            
         }
@@ -124,6 +127,8 @@ public class NewDialogueManager : MonoBehaviour
             }
             else
             {
+                GameManager.instance.CutsceneAnalyticsEvent("intro", StartCutscene.Dialogues.Length, indexAna + 1);
+
                 Time.timeScale = 1;
                 index = 0;
                 ui.menuPausa.enabled = true;
@@ -182,6 +187,8 @@ public class NewDialogueManager : MonoBehaviour
             }
             else
             {
+                GameManager.instance.CutsceneAnalyticsEvent("final", EndCutscene.Dialogues.Length, indexAna + 1);
+
                 end = true;
                 Debug.Log("Ended end dialogue");
                 //Time.timeScale = 1;

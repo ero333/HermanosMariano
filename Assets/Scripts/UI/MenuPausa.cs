@@ -51,12 +51,14 @@ public class MenuPausa : MonoBehaviour
     }
     public void MenuPrincipal()
     {
+        GameManager.instance.ExitLevelAnalyticsEvent();
         Time.timeScale = 1f;
         GameManager.instance.SaveData();
-        SceneManager.LoadScene("MenuInicio");        
+        SceneManager.LoadScene("MenuInicio");
     }
     public void VolverAlMapa()
     {
+        GameManager.instance.ExitLevelAnalyticsEvent();
         Time.timeScale = 1f;
         GameManager.instance.BackToMap();
     }

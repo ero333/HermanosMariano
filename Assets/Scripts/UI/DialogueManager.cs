@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     public Text ESC;
 
     int index = 0;
+    int indexAna = 0;
 
     [HideInInspector]
     public bool end = false;
@@ -71,12 +72,14 @@ public class DialogueManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
         {
             index += 1;
+            indexAna = index;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1;
             ui.menuPausa.enabled = true;
+            indexAna = index;
             index += 100;
             //gameObject.SetActive(false);
         }
@@ -129,20 +132,11 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                GameManager.instance.CutsceneAnalyticsEvent("intro", Dialogues.Length, indexAna + 1);
+
                 Time.timeScale = 1;
                 index = 0;
                 ui.menuPausa.enabled = true;
-
-                //CountDown countdown = FindObjectOfType<CountDown>();
-
-                //if(countdown != null)
-                //{
-                //    if (countdown.isActiveAndEnabled)
-                //    {
-                //        countdown.canStart = true;
-                //    }
-                //}               
-
                 cutM.IntroCutsceneEnded();
                 gameObject.SetActive(false);
             }
@@ -196,6 +190,8 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                GameManager.instance.CutsceneAnalyticsEvent("final", DialoguesEnd.Length, indexAna + 1);
+
                 end = true;
                 Debug.Log("Ended end dialogue");
                 Time.timeScale = 1;

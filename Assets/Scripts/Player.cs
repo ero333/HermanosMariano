@@ -172,12 +172,13 @@ public class Player : MonoBehaviour
         }
 
         //disparar
-        if(Input.GetButtonDown("Fire2") && !attackLock && bullets > 0)
+        if (Input.GetButtonDown("Fire2") && !attackLock && bullets > 0)
         {
             GameObject firedbullet = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
             firedbullet.GetComponent<Bullet>().damage = shootDamage;
 
             bullets -= 1;
+            gm.bulletCounter += 1;
             //rb.velocity = new Vector2(0f, 0f);
             runTimeSinc = anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
             anim.SetTrigger("Shoot");

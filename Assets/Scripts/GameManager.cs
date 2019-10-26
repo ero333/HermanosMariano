@@ -10,6 +10,7 @@ using UnityEngine.Analytics;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    Player player;
 
     int levelIndex;
     public string levelName;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     public string CondicionDeVictoria;
     bool isTimer;
     public string ultimoCulpable;
+    public int bulletCounter = 0;
 
     private void Awake()
     {
@@ -63,8 +65,9 @@ public class GameManager : MonoBehaviour
         levelIndex = SceneManager.GetActiveScene().buildIndex;
         levelName = SceneManager.GetActiveScene().name;
         //levelName = AddSpacesToSentence(levelName);
+        player = FindObjectOfType<Player>();
 
-        
+        if (levelIndex != 0 && levelIndex != 2)
         {
             levelNumber = -1;
             for (int i = 0; i < levelName.Length; i++)
@@ -75,7 +78,11 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
-            if (levelNumber == -1)
+            if(levelName == "NivelIntroduccion")
+            {
+                levelNumber = 1;
+            }
+            else if (levelNumber == -1)
             {
                 levelNumber = 4;
             }
@@ -92,24 +99,16 @@ public class GameManager : MonoBehaviour
             energy = maxEnergy;
             money = 0;
 
+            //Analytics
             CountGameTime = true;
             GameTime = 0;
+            bulletCounter = 0;
             if(FindObjectOfType<CountDown>())
             {
                 isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
             }
 
-            if (levelIndex != 0 && levelIndex != 2)
-            {
-                Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
-                {
-                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelNumber },
-                    {"Ahorros", ahorros }//,
-                    //{"CuantasVeces", 1 }
-                });
-            }
-            
+            IniciarNivelAnalyticsEvent();            
         }
         else
         {
@@ -146,28 +145,14 @@ public class GameManager : MonoBehaviour
             //Game over
 
             CountGameTime = false;
-            if (levelIndex != 0 && levelIndex != 2)
-            {
-                Analytics.CustomEvent("PerderNivel", new Dictionary<string, object>
-                {
-                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelNumber },
-                    {"Ahorros", ahorros },
-                    {"Recolectado", instance.money },
-                    {"VidasRestantes", instance.lives },
-                    {"CondicionVictoria", instance.CondicionDeVictoria },
-                    {"Timer", instance.isTimer },
-                    {"TiempoDeJuego", instance.GameTime },
-                    {"ObjetoQueLoMato", instance.ultimoCulpable }
-
-                });
-            }
+            PerderAnalyticsEvent();
         }
         else
         {   //muerte
             resetCount += 1;
             //SceneManager.LoadScene(levelIndex); <- para recargar la escena
-            if (!FindObjectOfType<EnemySpawner>())
+
+            if (!FindObjectOfType<EnemySpawner>()) //que los enemigos pierdan de vista al jugador
             {
                 Enemy[] enemies = FindObjectsOfType<Enemy>();
                 for (int i = 0; i < enemies.Length; i++)
@@ -176,24 +161,16 @@ public class GameManager : MonoBehaviour
                 }
             }           
 
-            Player player = GameObject.FindObjectOfType<Player>();
+            //mandar jugador al checkpoint
+            player = GameObject.FindObjectOfType<Player>();
             player.transform.position = instance.lastCheckpos;
+
+            //reiniciar camara
             CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
             //cam.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y);
             cam.Follow = player.transform;
 
-            if (levelIndex != 0 && levelIndex != 2)
-            {
-                Analytics.CustomEvent("Morir", new Dictionary<string, object>
-                {
-                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelNumber },
-                    {"Recolectado", instance.money },
-                    {"VidasRestantes", instance.lives },
-                    {"ObjetoQueLoMato", instance.ultimoCulpable },
-                    {"PosicionDeMuerte", player.transform.position }
-                });
-            }
+            MorirAnalyticsEvent();
         }
         energy = maxEnergy;
     }
@@ -239,23 +216,6 @@ public class GameManager : MonoBehaviour
         CountGameTime = false;
     }
 
-    public void WinAnalyticsEvent(int ganancia)
-    {
-        Analytics.CustomEvent("GanarNivel", new Dictionary<string, object>
-        {
-            {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
-            {"Nivel", instance.levelNumber },
-            {"Ahorros", ahorros },
-            {"Recolectado", instance.money },
-            {"Ganancias", ganancia },
-            {"Vidas", instance.lives },
-            {"Energia", instance.energy },
-            {"CondicionVictoria", instance.CondicionDeVictoria },
-            {"Timer", instance.isTimer },
-            {"TiempoDeJuego", instance.GameTime }
-        });
-    }
-
     public void UnlockZone (int currentZone)
     {
         if(currentZone == zoneProgress)
@@ -297,16 +257,95 @@ public class GameManager : MonoBehaviour
             sound = true;
             Debug.Log("The game now has sound");
         }        
+    }    
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
-    public void ExitLevelAnalyticsEvent ()
+
+    //EVENTOS PARA EL UNITY ANALYTICS
+    void IniciarNivelAnalyticsEvent()
     {
         if (levelIndex != 0 && levelIndex != 2)
         {
+            Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
+                {
+                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                    {"Nivel", instance.levelNumber },
+                    {"Ahorros", ahorros }//,
+                    //{"CuantasVeces", 1 }
+                });
+        }
+    }
 
-            Player player = FindObjectOfType<Player>();
+    public void GanarAnalyticsEvent(int ganancia)
+    {
+        CountGameTime = false;
+        //Player player = FindObjectOfType<Player>();
+        Analytics.CustomEvent("GanarNivel", new Dictionary<string, object>
+        {
+            {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            //{"Posicion", player.transform.position },
+            {"Ahorros", ahorros },
+            {"Recolectado", instance.money },
+            {"Ganancias", ganancia },
+            {"Vidas", instance.lives },
+            {"Energia", instance.energy },
+            {"CondicionVictoria", instance.CondicionDeVictoria },
+            {"Timer", instance.isTimer },
+            {"TiempoDeJuego", instance.GameTime },
+            //{"BalasGastadas", instance.bulletCounter },
+            //{"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
+        });
+    }
 
-            Analytics.CustomEvent("SalirNivel", new Dictionary<string, object>
+    void MorirAnalyticsEvent()
+    {
+        if (levelIndex != 0 && levelIndex != 2)
+        {
+            Analytics.CustomEvent("Morir", new Dictionary<string, object>
+                {
+                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                    {"Nivel", instance.levelNumber },
+                    {"Recolectado", instance.money },
+                    {"VidasRestantes", instance.lives },
+                    {"ObjetoQueLoMato", instance.ultimoCulpable },
+                    {"Posicion", player.transform.position }
+                });
+        }
+    }
+
+    void PerderAnalyticsEvent()
+    {
+        
+        if (levelIndex != 0 && levelIndex != 2)
+        {
+            Analytics.CustomEvent("PerderNivel", new Dictionary<string, object>
+                {
+                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                    {"Nivel", instance.levelNumber },
+                    {"Ahorros", ahorros },
+                    {"Recolectado", instance.money },
+                    {"VidasRestantes", instance.lives },
+                    {"CondicionVictoria", instance.CondicionDeVictoria },
+                    {"Timer", instance.isTimer },
+                    {"TiempoDeJuego", instance.GameTime },
+                    {"ObjetoQueLoMato", instance.ultimoCulpable },
+                    {"Posicion", player.transform.position }
+                });
+        }
+    }
+
+    public void ExitLevelAnalyticsEvent()
+    {
+        if (levelIndex != 0 && levelIndex != 2)
+        {
+            //Player player = FindObjectOfType<Player>();
+
+            Analytics.CustomEvent("SalirNivelPausa", new Dictionary<string, object>
             {
                 {"Zona", levelIndex == 1 ? 0 : zoneProgress },
                 {"Nivel", instance.levelNumber },
@@ -314,13 +353,20 @@ public class GameManager : MonoBehaviour
                 {"VidasRestantes", instance.lives },
                 {"EnergiaRestante", instance.energy },
                 {"CondicionVictoria", instance.CondicionDeVictoria },
-                {"PosicionDeJugador", player.transform.position }
+                {"Posicion", player.transform.position }
             });
         }
     }
 
-    public void LoadScene(string sceneName)
+    public void CutsceneAnalyticsEvent(string tipo, int total, int ultimo)
     {
-        SceneManager.LoadScene(sceneName);
+        Analytics.CustomEvent("SalirNivelPausa", new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"Tipo", tipo },
+            {"DialogosTotales", total},
+            {"UltimoDialogo", ultimo }
+        });
     }
 }
