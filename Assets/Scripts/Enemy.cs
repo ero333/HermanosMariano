@@ -202,15 +202,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //if (aumentarVelocidad)
-        //{
-        // if (Time.time >= currentTime)
-        //  {
-        // speed += speedIncrement;
-        //  currentTime = Time.time + timeToIncrease;
-        //  }
-        // }
-
         getPlayerDir();
 
         //si el jugador me salta por arriba, freno
@@ -258,14 +249,15 @@ public class Enemy : MonoBehaviour
             patrol = false;
 
             //saltar (y frenar cuando se encuentra un precipicio) NO CAMBIAR DE LUGAR NI PONER OTROS COMPORTAMIENTOS ARRIBA
-            if (onGround && ((!onLeftFloor || !onRightFloor) || (onLeftWall || onRightWall)))
+            if (onGround && ( (!onLeftFloor || !onRightFloor) || (onLeftWall || onRightWall) ) )
             {
                 generalActionsDelay = ActionsDelay(0.6f);
 
                 //cuando huye, es invertido
-                if (flee && fleeActive &&
-                    ((playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor))
-                    || ((playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall)))
+                if (flee && canFlee && fleeActive)
+                {                
+                if ( (playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor) || 
+                     (playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall) )
                 {
                     //saltar
                     if (JumpObstacles && !isJumping && onGround)
@@ -281,8 +273,10 @@ public class Enemy : MonoBehaviour
                         //Debug.Log("No puedo huir hasta el vacio");
                     }
 
-                } //cuando lo persigue
-                else if (chase && ((playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor)) || ((playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall)))
+                }
+                }
+                //cuando lo persigue
+                else if (chase && (playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor) || (playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall) )
                 {
                     //saltar
                     if (JumpObstacles && !isJumping && onGround)
@@ -621,14 +615,12 @@ public class Enemy : MonoBehaviour
         {
             canChase = false;
         }
-
         
         if (meleeDamage > 0)
         {
             canAttack = false;
         }
-
-        
+                
         if (flee)
         {
             canFlee = false;
@@ -636,7 +628,7 @@ public class Enemy : MonoBehaviour
 
         canFlip = false;
 
-        if (patrol)
+        if (patrol && !trigger)
         {
             canPatrol = false;
         }
@@ -647,7 +639,6 @@ public class Enemy : MonoBehaviour
         {
             canChase = true;
         }
-
         
         if (meleeDamage > 0)
         {
@@ -662,7 +653,7 @@ public class Enemy : MonoBehaviour
 
         canFlip = true;
        
-        if (patrol)
+        if (patrol && !trigger)
         {
             canPatrol = true;
         }
