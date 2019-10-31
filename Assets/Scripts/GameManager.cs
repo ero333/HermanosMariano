@@ -318,35 +318,38 @@ public class GameManager : MonoBehaviour
         if (levelIndex != 0 && levelIndex != 2)
         {
             Analytics.CustomEvent("Morir", new Dictionary<string, object>
-                {
-                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelNumber },
-                    {"Recolectado", instance.money },
-                    {"VidasRestantes", instance.lives },
-                    {"ObjetoQueLoMato", instance.ultimoCulpable },
-                    {"Posicion", player.transform.position }
-                });
+            {
+                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Nivel", instance.levelNumber },
+                {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+                {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
+                {"Recolectado", instance.money },
+                {"VidasRestantes", instance.lives },
+                {"ObjetoQueLoMato", instance.ultimoCulpable }
+            });
         }
     }
 
     void PerderAnalyticsEvent()
-    {
-        
+    {        
         if (levelIndex != 0 && levelIndex != 2)
         {
             Analytics.CustomEvent("PerderNivel", new Dictionary<string, object>
-                {
-                    {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-                    {"Nivel", instance.levelNumber },
-                    {"Ahorros", ahorros },
-                    {"Recolectado", instance.money },
-                    {"VidasRestantes", instance.lives },
-                    {"CondicionVictoria", instance.CondicionDeVictoria },
-                    {"Timer", instance.isTimer },
-                    {"TiempoDeJuego", instance.GameTime },
-                    {"ObjetoQueLoMato", instance.ultimoCulpable },
-                    {"Posicion", player.transform.position }
-                });
+            {
+                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Nivel", instance.levelNumber },
+                {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+                {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
+                //{"Ahorros", ahorros },
+                {"Recolectado", instance.money },
+                {"VidasRestantes", instance.lives },
+                //{"CondicionVictoria", instance.CondicionDeVictoria },
+                //{"Timer", instance.isTimer },
+                {"TiempoDeJuego", instance.GameTime },
+                {"ObjetoQueLoMato", instance.ultimoCulpable },
+                {"BalasGastadas", instance.bulletCounter },
+                {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
+            });
         }
     }
 
@@ -360,11 +363,13 @@ public class GameManager : MonoBehaviour
             {
                 {"Zona", levelIndex == 1 ? 0 : zoneProgress },
                 {"Nivel", instance.levelNumber },
+                {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+                {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
                 {"Recolectado", instance.money },
                 {"VidasRestantes", instance.lives },
                 {"EnergiaRestante", instance.energy },
-                {"CondicionVictoria", instance.CondicionDeVictoria },
-                {"Posicion", player.transform.position }
+                {"TiempoDeJuego", instance.GameTime }
+                //{"CondicionVictoria", instance.CondicionDeVictoria }                
             });
         }
     }
