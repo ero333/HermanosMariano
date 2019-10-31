@@ -73,10 +73,6 @@ public class Enemy : MonoBehaviour
     public float sprintDelay = 5f;
     bool canSprint = true;
     bool sprintOn = false;
-    //public bool aumentarVelocidad;
-    //float timeToIncrease = 2.0f; //this is the time between "speedups"
-    //float currentTime;  //to keep track
-    //float speedIncrement = 0.5f; //how much to increase the speed by
     
     [Header("Huir")]
     public bool flee = false;

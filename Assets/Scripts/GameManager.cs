@@ -298,17 +298,18 @@ public class GameManager : MonoBehaviour
         {
             {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
             {"Nivel", instance.levelNumber },
-            //{"Posicion", player.transform.position },
-            {"Ahorros", ahorros },
+            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
+            //{"Ahorros", ahorros },
             {"Recolectado", instance.money },
-            {"Ganancias", ganancia },
+            //{"Ganancias", ganancia },
             {"Vidas", instance.lives },
             {"Energia", instance.energy },
-            {"CondicionVictoria", instance.CondicionDeVictoria },
-            {"Timer", instance.isTimer },
+            //{"CondicionVictoria", instance.CondicionDeVictoria },
+            //{"Timer", instance.isTimer },
             {"TiempoDeJuego", instance.GameTime },
-            //{"BalasGastadas", instance.bulletCounter },
-            //{"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
+            {"BalasGastadas", instance.bulletCounter },
+            {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
         });
     }
 
