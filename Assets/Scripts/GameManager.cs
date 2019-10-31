@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
                 levelNumber = 4;
             }
 
-            Debug.Log(levelNumber);
+            //Debug.Log(levelNumber);
         }       
 
         if (resetCount == 0)
@@ -136,13 +136,7 @@ public class GameManager : MonoBehaviour
             Reset();
         }
 
-        if(CountGameTime) GameTime += 1 * Time.deltaTime;
-
-        //if(player != null)
-        //{
-        //    //player = FindObjectOfType<Player>();
-        //    Debug.Log(player.transform.position);
-        //}
+        if(CountGameTime) GameTime += 1 * Time.deltaTime;        
     }    
 
     public void Reset()

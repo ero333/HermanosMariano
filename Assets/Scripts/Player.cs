@@ -223,7 +223,7 @@ public class Player : MonoBehaviour
         {
             gm.ultimoCulpable = "Abismo";
 
-            Debug.Log("Death");
+            //Debug.Log("Death");
             GameManager.instance.lives -= 1;
             GameManager.instance.Reset();            
         }
