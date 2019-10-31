@@ -221,11 +221,11 @@ public class Player : MonoBehaviour
         //Choco con un Abismo
         if (collision.gameObject.tag == "Fall")
         {
+            gm.ultimoCulpable = "Abismo";
+
             Debug.Log("Death");
             GameManager.instance.lives -= 1;
-            GameManager.instance.Reset();
-
-            gm.ultimoCulpable = "Abismo";
+            GameManager.instance.Reset();            
         }
     }
 

@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
 
         if (levelIndex != 0 && levelIndex != 2)
         {
+            player = FindObjectOfType<Player>();
+
             levelNumber = -1;
             for (int i = 0; i < levelName.Length; i++)
             {
@@ -135,6 +137,12 @@ public class GameManager : MonoBehaviour
         }
 
         if(CountGameTime) GameTime += 1 * Time.deltaTime;
+
+        //if(player != null)
+        //{
+        //    //player = FindObjectOfType<Player>();
+        //    Debug.Log(player.transform.position);
+        //}
     }    
 
     public void Reset()
@@ -162,15 +170,16 @@ public class GameManager : MonoBehaviour
             }           
 
             //mandar jugador al checkpoint
-            player = GameObject.FindObjectOfType<Player>();
+            player = FindObjectOfType<Player>();
+
+            MorirAnalyticsEvent();
+
             player.transform.position = instance.lastCheckpos;
 
             //reiniciar camara
             CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
             //cam.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y);
-            cam.Follow = player.transform;
-
-            MorirAnalyticsEvent();
+            cam.Follow = player.transform;            
         }
         energy = maxEnergy;
     }
@@ -345,7 +354,7 @@ public class GameManager : MonoBehaviour
     }
 
     void MorirAnalyticsEvent()
-    {
+    {        
         if (levelIndex != 0 && levelIndex != 2)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -426,8 +435,8 @@ public class GameManager : MonoBehaviour
             {"UltimoDialogo", ultimo }
         };
 
-        analyticsTrace(dictionary, "SalirNivelPausa");
+        analyticsTrace(dictionary, "CompletarCutscene");
 
-        Analytics.CustomEvent("SalirNivelPausa", dictionary);
+        Analytics.CustomEvent("CompletarCutscene", dictionary);
     }
 }
