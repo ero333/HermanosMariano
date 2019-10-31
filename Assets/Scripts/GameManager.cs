@@ -264,37 +264,64 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    void analyticsTrace(Dictionary<string, object> dictionary)
+    {
+        string traceHolder = "Evento    haz clic para ver más detalles" + "\n";
+        foreach (var key in dictionary)
+        {
+            traceHolder += key.Key + " > " + key.Value + "\n";
+        }
+
+        Debug.Log(traceHolder);
+    }
+
+    void analyticsTrace(Dictionary<string, object> dictionary, string name)
+    {
+        string traceHolder = name + "    haz clic para ver más detalles" + "\n";
+        foreach (var key in dictionary)
+        {
+            traceHolder += key.Key + " > " + key.Value + "\n";
+        }
+
+        Debug.Log(traceHolder);
+    }
 
     //EVENTOS PARA EL UNITY ANALYTICS
     void ContinuarAnalyticsEvent()
     {
-        Analytics.CustomEvent("ContinuarPartida", new Dictionary<string, object>
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
             {"UltimaZona", levelIndex == 1 ? 0 : zoneProgress },
             //{"Nivel", instance.levelNumber },
             {"Ahorros", ahorros }
-        });
+        };
+
+        analyticsTrace(dictionary, "ContinuarPartida");
+        Analytics.CustomEvent("ContinuarPartida", dictionary);
     }
 
     void IniciarNivelAnalyticsEvent()
     {
         if (levelIndex != 0 && levelIndex != 2)
         {
-            Analytics.CustomEvent("IniciarNivel", new Dictionary<string, object>
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
                 {"Zona", levelIndex == 1 ? 0 : zoneProgress },
                 {"Nivel", instance.levelNumber },
                 {"Ahorros", ahorros }//,
                 //{"CuantasVeces", 1 }
-            });
+            };
+
+            analyticsTrace(dictionary, "IniciarNivel");
+            Analytics.CustomEvent("IniciarNivel", dictionary);
         }
     }
 
     public void GanarAnalyticsEvent(int ganancia)
     {
         CountGameTime = false;
-        //Player player = FindObjectOfType<Player>();
-        Analytics.CustomEvent("GanarNivel", new Dictionary<string, object>
+
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
             {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
             {"Nivel", instance.levelNumber },
@@ -310,14 +337,18 @@ public class GameManager : MonoBehaviour
             {"TiempoDeJuego", instance.GameTime },
             {"BalasGastadas", instance.bulletCounter },
             {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
-        });
+        };
+
+        analyticsTrace(dictionary, "GanarNivel");
+
+        Analytics.CustomEvent("GanarNivel", dictionary);
     }
 
     void MorirAnalyticsEvent()
     {
         if (levelIndex != 0 && levelIndex != 2)
         {
-            Analytics.CustomEvent("Morir", new Dictionary<string, object>
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
                 {"Zona", levelIndex == 1 ? 0 : zoneProgress },
                 {"Nivel", instance.levelNumber },
@@ -326,7 +357,11 @@ public class GameManager : MonoBehaviour
                 {"Recolectado", instance.money },
                 {"VidasRestantes", instance.lives },
                 {"ObjetoQueLoMato", instance.ultimoCulpable }
-            });
+            };
+
+            analyticsTrace(dictionary, "Morir");
+
+            Analytics.CustomEvent("Morir", dictionary);
         }
     }
 
@@ -334,7 +369,7 @@ public class GameManager : MonoBehaviour
     {        
         if (levelIndex != 0 && levelIndex != 2)
         {
-            Analytics.CustomEvent("PerderNivel", new Dictionary<string, object>
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
                 {"Zona", levelIndex == 1 ? 0 : zoneProgress },
                 {"Nivel", instance.levelNumber },
@@ -349,7 +384,11 @@ public class GameManager : MonoBehaviour
                 {"ObjetoQueLoMato", instance.ultimoCulpable },
                 {"BalasGastadas", instance.bulletCounter },
                 {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
-            });
+            };
+
+            analyticsTrace(dictionary, "PerderNivel");
+
+            Analytics.CustomEvent("PerderNivel", dictionary);
         }
     }
 
@@ -357,9 +396,7 @@ public class GameManager : MonoBehaviour
     {
         if (levelIndex != 0 && levelIndex != 2)
         {
-            //Player player = FindObjectOfType<Player>();
-
-            Analytics.CustomEvent("SalirNivelPausa", new Dictionary<string, object>
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
                 {"Zona", levelIndex == 1 ? 0 : zoneProgress },
                 {"Nivel", instance.levelNumber },
@@ -369,20 +406,28 @@ public class GameManager : MonoBehaviour
                 {"VidasRestantes", instance.lives },
                 {"EnergiaRestante", instance.energy },
                 {"TiempoDeJuego", instance.GameTime }
-                //{"CondicionVictoria", instance.CondicionDeVictoria }                
-            });
+                //{"CondicionVictoria", instance.CondicionDeVictoria }
+            };
+
+            analyticsTrace(dictionary, "SalirNivelPausa");
+
+            Analytics.CustomEvent("SalirNivelPausa", dictionary);
         }
     }
 
     public void CutsceneAnalyticsEvent(string tipo, int total, int ultimo)
     {
-        Analytics.CustomEvent("SalirNivelPausa", new Dictionary<string, object>
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
             {"Zona", levelIndex == 1 ? 0 : zoneProgress },
             {"Nivel", instance.levelNumber },
             {"Tipo", tipo },
             {"DialogosTotales", total},
             {"UltimoDialogo", ultimo }
-        });
+        };
+
+        analyticsTrace(dictionary, "SalirNivelPausa");
+
+        Analytics.CustomEvent("SalirNivelPausa", dictionary);
     }
 }
