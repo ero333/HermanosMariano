@@ -447,5 +447,19 @@ public class GameManager : MonoBehaviour
 
         analyticsTrace(dictionary, "ReiniciarNivelGameOver");
     }
+
+    public void RecolectarObjeto(string name, float x, float y)
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( x ) },
+            {"EjeY", Mathf.FloorToInt( y ) },
+            {"Nombre", name }
+        };
+
+        analyticsTrace(dictionary, "RecolectarObjeto");
+    }
 }
 
