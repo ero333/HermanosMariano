@@ -44,4 +44,19 @@ public class MapZoneButton : MonoBehaviour
             }
         }        
     }
+
+    private void OnMouseDown()
+    {
+        string name = gameObject.name;
+        int zone = 0;
+        for (int i = 0; i < name.Length; i++)
+        {
+            if(char.IsNumber(name[i]) )
+            {
+                zone = (int)char.GetNumericValue(name[i]);
+            }
+        }
+
+        GameManager.instance.MapaClicErroneo(zone);
+    }
 }

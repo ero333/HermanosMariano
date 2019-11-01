@@ -561,9 +561,15 @@ public class GameManager : MonoBehaviour
         //Analytics.CustomEvent("MapaClicNivel");
     }
 
-    public void MapaClicErroneo()
+    public void MapaClicErroneo(int zone)
     {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", GetZone(zone) }        
+        };
 
+        analyticsTrace(dictionary, "MapaClicErroneo");
+        Analytics.CustomEvent("MapaClicErroneo");
     }
 
 }
