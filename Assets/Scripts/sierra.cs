@@ -58,7 +58,7 @@ public class sierra : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
-
+            collision.GetComponent<Enemy>().culpable = gameObject.name;
             collision.GetComponent<Enemy>().TakeDamage(damage, dir * 2);
         }
     }
