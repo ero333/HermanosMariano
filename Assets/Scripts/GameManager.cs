@@ -549,9 +549,20 @@ public class GameManager : MonoBehaviour
     }
 
     //Inputs del Mapa
-    public void EntrarEnNivel(int levelIndex)
+    public void MapaClicNivel(int level)
     {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", GetZone(level) },
+            {"Nivel", level }            
+        };
 
+        analyticsTrace(dictionary, "MapaClicNivel");
+        //Analytics.CustomEvent("MapaClicNivel");
+    }
+
+    public void MapaClicErroneo()
+    {
 
     }
 
