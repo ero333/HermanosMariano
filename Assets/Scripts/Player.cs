@@ -329,6 +329,7 @@ public class Player : MonoBehaviour
 
                 if(enemy.lives > 0)
                 {
+                    enemy.culpable = "Player";
                     enemy.TakeDamage(meleeDamage, dir);                    
                 }                
             }
