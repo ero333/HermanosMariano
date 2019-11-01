@@ -433,4 +433,19 @@ public class GameManager : MonoBehaviour
 
         Analytics.CustomEvent("CompletarCutscene", dictionary);
     }
+
+    public void ReiniciarNivelGameOver()
+    {
+        Debug.Log("AAA");
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
+        };
+
+        analyticsTrace(dictionary, "ReiniciarNivelGameOver");
+    }
 }
+
