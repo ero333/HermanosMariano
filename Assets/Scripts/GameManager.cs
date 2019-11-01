@@ -476,4 +476,18 @@ public class GameManager : MonoBehaviour
         Analytics.CustomEvent("VolverAlMapaGameOver");
     }
 
+    public void MatarEnemigo(float EjeX, float EjeY, string culpable)
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( EjeX ) },
+            {"EjeY", Mathf.FloorToInt( EjeY ) },
+            {"ObjetoQueLoMato", culpable },
+        };
+
+        analyticsTrace(dictionary, "MatarEnemigo");
+    }
+
 }

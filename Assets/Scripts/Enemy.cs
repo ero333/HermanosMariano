@@ -684,7 +684,8 @@ public class Enemy : MonoBehaviour
     IEnumerator DeathDelay(float delay)
     {
 
-        Debug.Log("me mato " + culpable);
+        GameManager.instance.MatarEnemigo(transform.position.x, transform.position.y, culpable);
+
         if (dropOnDeath != null && !droped)
         {
             droped = true;
