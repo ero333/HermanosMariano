@@ -294,6 +294,21 @@ public class GameManager : MonoBehaviour
         return levelNumber;
     }
 
+    public int GetZone(int levelIndex)
+    {
+        if (levelIndex == 1) return 0;
+
+        if (levelIndex >= 3 && levelIndex <= 6) return 1;
+
+        if (levelIndex >= 7 && levelIndex <= 10) return 2;
+
+        if (levelIndex >= 11 && levelIndex <= 14) return 3;
+
+        if (levelIndex >= 15 && levelIndex <= 18) return 4;
+
+        return -1;
+    }
+
     void analyticsTrace(Dictionary<string, object> dictionary, string name)
     {
         string traceHolder = name + "    haz clic para ver más detalles" + "\n";
@@ -306,7 +321,7 @@ public class GameManager : MonoBehaviour
     }
 
     //EVENTOS PARA EL UNITY ANALYTICS
-    void ContinuarAnalyticsEvent()
+    public void ContinuarAnalyticsEvent()
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
@@ -325,7 +340,7 @@ public class GameManager : MonoBehaviour
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
-                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Zona", GetZone(levelIndex) },
                 {"Nivel", instance.levelNumber },
                 {"Ahorros", ahorros }//,
                 //{"CuantasVeces", 1 }
@@ -342,7 +357,7 @@ public class GameManager : MonoBehaviour
 
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", instance.levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
             {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
@@ -369,7 +384,7 @@ public class GameManager : MonoBehaviour
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
-                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Zona", GetZone(levelIndex) },
                 {"Nivel", instance.levelNumber },
                 {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
                 {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
@@ -392,7 +407,7 @@ public class GameManager : MonoBehaviour
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
-                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Zona", GetZone(levelIndex) },
                 {"Nivel", instance.levelNumber },
                 {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
                 {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
@@ -421,7 +436,7 @@ public class GameManager : MonoBehaviour
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
-                {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+                {"Zona", GetZone(levelIndex) },
                 {"Nivel", instance.levelNumber },
                 {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
                 {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
@@ -444,7 +459,7 @@ public class GameManager : MonoBehaviour
 
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
             {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
@@ -458,14 +473,13 @@ public class GameManager : MonoBehaviour
 
         analyticsTrace(dictionary, "ReiniciarNivelPausa");
         Analytics.CustomEvent("ReiniciarNivelPausa", dictionary);
-
     }
 
     public void CutsceneAnalyticsEvent(string tipo, int total, int ultimo)
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"Tipo", tipo },
             {"DialogosTotales", total - 1},
@@ -473,16 +487,14 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "CompletarCutscene");
-
         Analytics.CustomEvent("CompletarCutscene", dictionary);
     }
 
     public void ReiniciarNivelGameOver()
-    {
-        
+    {        
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
             {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
@@ -496,11 +508,12 @@ public class GameManager : MonoBehaviour
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
             {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
         };
+
         analyticsTrace(dictionary, "VolverAlMapaGameOver");
         Analytics.CustomEvent("VolverAlMapaGameOver");
     }
@@ -509,7 +522,7 @@ public class GameManager : MonoBehaviour
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( x ) },
             {"EjeY", Mathf.FloorToInt( y ) },
@@ -524,7 +537,7 @@ public class GameManager : MonoBehaviour
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( EjeX ) },
             {"EjeY", Mathf.FloorToInt( EjeY ) },
@@ -533,6 +546,13 @@ public class GameManager : MonoBehaviour
 
         analyticsTrace(dictionary, "MatarEnemigo");
         Analytics.CustomEvent("MatarEnemigo");
+    }
+
+    //Inputs del Mapa
+    public void EntrarEnNivel(int levelIndex)
+    {
+
+
     }
 
 }

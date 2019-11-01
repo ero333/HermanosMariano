@@ -59,6 +59,7 @@ public class MapZone : MonoBehaviour
         else
         {
             int levelNumber = GameManager.instance.LevelIndexer(levelName);
+            
             //cargar nivel
             Debug.Log("clic" + levelNumber);
 

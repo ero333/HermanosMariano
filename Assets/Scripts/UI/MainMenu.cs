@@ -47,6 +47,8 @@ public class MainMenu : MonoBehaviour
 
             GameManager.seenDialogues = GameManager.zoneProgress - 1;
 
+            GameManager.instance.ContinuarAnalyticsEvent();
+
             SceneManager.LoadScene("MapaZonas");
         }        
     }   
