@@ -67,7 +67,7 @@ public class NewDialogueManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
         {
             index += 1;
-            indexAna = index;
+            indexAna = index - 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -127,7 +127,7 @@ public class NewDialogueManager : MonoBehaviour
             }
             else
             {
-                GameManager.instance.CutsceneAnalyticsEvent("intro", StartCutscene.Dialogues.Length, indexAna + 1);
+                GameManager.instance.CutsceneAnalyticsEvent("intro", StartCutscene.Dialogues.Length, indexAna);
 
                 Time.timeScale = 1;
                 index = 0;
@@ -187,7 +187,7 @@ public class NewDialogueManager : MonoBehaviour
             }
             else
             {
-                GameManager.instance.CutsceneAnalyticsEvent("final", EndCutscene.Dialogues.Length, indexAna + 1);
+                GameManager.instance.CutsceneAnalyticsEvent("final", EndCutscene.Dialogues.Length, indexAna);
 
                 end = true;
                 Debug.Log("Ended end dialogue");

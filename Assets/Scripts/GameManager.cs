@@ -425,7 +425,7 @@ public class GameManager : MonoBehaviour
             {"Zona", levelIndex == 1 ? 0 : zoneProgress },
             {"Nivel", instance.levelNumber },
             {"Tipo", tipo },
-            {"DialogosTotales", total},
+            {"DialogosTotales", total - 1},
             {"UltimoDialogo", ultimo }
         };
 
