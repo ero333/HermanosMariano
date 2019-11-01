@@ -133,6 +133,12 @@ public class UserInterface : MonoBehaviour
         GameManager.instance.BackToMap();
     }
 
+    public void MapGameOver()
+    {
+        GameManager.instance.VolverAlMapaGameOver();
+        GameManager.instance.BackToMap();
+    }
+
     public void Victory(int gananciaMaxima, bool obli)
     {
         menuPausa.enabled = false;
