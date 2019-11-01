@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     Player player;
 
     int levelIndex;
-    public string levelName;
+    public string level;
 
     [Header("Datos que se mantienen")]
     public static int maxEnergy = 6;
@@ -63,24 +63,26 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
-        levelName = SceneManager.GetActiveScene().name;
+        level = SceneManager.GetActiveScene().name;
         //levelName = AddSpacesToSentence(levelName);
         player = FindObjectOfType<Player>();
 
+
+        //level indexer
         if (levelIndex != 0 && levelIndex != 2)
         {
             player = FindObjectOfType<Player>();
 
             levelNumber = -1;
-            for (int i = 0; i < levelName.Length; i++)
+            for (int i = 0; i < level.Length; i++)
             {
-                if (char.IsNumber(levelName[i]))
+                if (char.IsNumber(level[i]))
                 {
-                    levelNumber = (int)char.GetNumericValue(levelName[i]);
+                    levelNumber = (int)char.GetNumericValue(level[i]);
                     break;
                 }
             }
-            if(levelName == "NivelIntroduccion")
+            if(level == "NivelIntroduccion")
             {
                 levelNumber = 1;
             }
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         if (resetCount == 0)
         {
-            Debug.Log(levelName + " loaded for the first time");
+            Debug.Log(level + " loaded for the first time");
             
             victory = false;
             lives = maxLives;
@@ -265,6 +267,34 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public int LevelIndexer(string level)
+    {
+        if (levelIndex != 0)
+        {
+            levelNumber = -1;
+            for (int i = 0; i < level.Length; i++)
+            {
+                if (char.IsNumber(level[i]))
+                {
+                    levelNumber = (int)char.GetNumericValue(level[i]);
+                    break;
+                }
+            }
+            if (level == "NivelIntroduccion")
+            {
+                levelNumber = 1;
+            }
+            else if (levelNumber == -1)
+            {
+                levelNumber = 4;
+            }
+            
+            //Debug.Log(levelNumber);
+        }
+
+        return levelNumber;
     }
 
     void analyticsTrace(Dictionary<string, object> dictionary)

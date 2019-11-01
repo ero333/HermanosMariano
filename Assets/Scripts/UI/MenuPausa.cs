@@ -17,7 +17,7 @@ public class MenuPausa : MonoBehaviour
 
         if(textoNivel.text == "Nivel")
         {
-            textoNivel.text = GameManager.instance.levelName;
+            textoNivel.text = GameManager.instance.level;
         }        
     }
 

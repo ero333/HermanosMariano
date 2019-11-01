@@ -19,6 +19,8 @@ public class MapZone : MonoBehaviour
 
         gm.SaveData();
 
+        //evento mapa
+
         for (int i = 0; i < Zonas.Length; i++)
         {
             Zonas[i].GetComponent<Selectable>().interactable = false;
@@ -51,9 +53,15 @@ public class MapZone : MonoBehaviour
             DialogueManagerMap dialog = Zonas[GameManager.zoneProgress - 1].GetComponent<DialogueManagerMap>();
             dialog.background.gameObject.SetActive(true);
             dialog.active = true;
+
+            //ver dialogo
         }
         else
         {
+            int levelNumber = GameManager.instance.LevelIndexer(levelName);
+            //cargar nivel
+            Debug.Log("clic" + levelNumber);
+
             SceneManager.LoadScene(levelName);
         }        
     }
