@@ -72,7 +72,7 @@ public class MenuPausa : MonoBehaviour
     public void ReiniciarNivelGameOver()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("BBB");
+        //Debug.Log("ReiniciarNivelGameOver");
         GameManager.instance.ReiniciarNivelGameOver();
         GameManager.instance.LevelReset();
     }
