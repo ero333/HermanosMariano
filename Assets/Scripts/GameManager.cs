@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
-        }       
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -82,7 +82,8 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
-            if(level == "NivelIntroduccion")
+
+            if (level == "NivelIntroduccion")
             {
                 levelNumber = 1;
             }
@@ -92,12 +93,12 @@ public class GameManager : MonoBehaviour
             }
 
             //Debug.Log(levelNumber);
-        }       
+        }
 
         if (resetCount == 0)
         {
-            Debug.Log(level + " loaded for the first time");
-            
+            Debug.Log(level + " loaded for the first time");            
+
             victory = false;
             lives = maxLives;
             energy = maxEnergy;
@@ -107,12 +108,12 @@ public class GameManager : MonoBehaviour
             CountGameTime = true;
             GameTime = 0;
             bulletCounter = 0;
-            if(FindObjectOfType<CountDown>())
+            if (FindObjectOfType<CountDown>())
             {
                 isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
             }
 
-            IniciarNivelAnalyticsEvent();            
+            IniciarNivelAnalyticsEvent();
         }
         else
         {
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(energy > maxEnergy)
+        if (energy > maxEnergy)
         {
             energy = maxEnergy;
         }
@@ -138,8 +139,8 @@ public class GameManager : MonoBehaviour
             Reset();
         }
 
-        if(CountGameTime) GameTime += 1 * Time.deltaTime;        
-    }    
+        if (CountGameTime) GameTime += 1 * Time.deltaTime;
+    }
 
     public void Reset()
     {
@@ -163,7 +164,7 @@ public class GameManager : MonoBehaviour
                 {
                     enemies[i].trigger = false;
                 }
-            }           
+            }
 
             //mandar jugador al checkpoint
             player = FindObjectOfType<Player>();
@@ -175,7 +176,7 @@ public class GameManager : MonoBehaviour
             //reiniciar camara
             CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
             //cam.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y);
-            cam.Follow = player.transform;            
+            cam.Follow = player.transform;
         }
         energy = maxEnergy;
     }
@@ -185,7 +186,7 @@ public class GameManager : MonoBehaviour
         resetCount = 0;
         SceneManager.LoadScene(levelIndex);
     }
-    
+
     public void GainMoney(int gain)
     {
         instance.money += gain;
@@ -208,7 +209,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         victory = false;
         SaveData();
-        SceneManager.LoadScene("MapaZonas");        
+        SceneManager.LoadScene("MapaZonas");
     }
 
     public void VictoryCondition()
@@ -221,9 +222,9 @@ public class GameManager : MonoBehaviour
         CountGameTime = false;
     }
 
-    public void UnlockZone (int currentZone)
+    public void UnlockZone(int currentZone)
     {
-        if(currentZone == zoneProgress)
+        if (currentZone == zoneProgress)
         {
             zoneProgress++;
             maxEnergy++;
@@ -261,8 +262,8 @@ public class GameManager : MonoBehaviour
         {
             sound = true;
             Debug.Log("The game now has sound");
-        }        
-    }    
+        }
+    }
 
     public void LoadScene(string sceneName)
     {
@@ -378,7 +379,7 @@ public class GameManager : MonoBehaviour
     }
 
     void MorirAnalyticsEvent()
-    {        
+    {
         if (levelIndex != 0 && levelIndex != 2)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -399,7 +400,7 @@ public class GameManager : MonoBehaviour
     }
 
     void PerderAnalyticsEvent()
-    {        
+    {
         if (levelIndex != 0 && levelIndex != 2)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -463,4 +464,61 @@ public class GameManager : MonoBehaviour
 
         Analytics.CustomEvent("CompletarCutscene", dictionary);
     }
+
+    public void ReiniciarNivelGameOver()
+    {
+        
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
+        };
+
+        analyticsTrace(dictionary, "ReiniciarNivelGameOver");
+    }
+
+
+    public void RecolectarObjeto(string name, float x, float y)
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( x ) },
+            {"EjeY", Mathf.FloorToInt( y ) },
+            {"Nombre", name }
+        };
+
+        analyticsTrace(dictionary, "RecolectarObjeto");         
+    }
+
+    public void VolverAlMapaGameOver()
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
+        };
+        analyticsTrace(dictionary, "VolverAlMapaGameOver");
+        Analytics.CustomEvent("VolverAlMapaGameOver");
+    }
+
+    public void MatarEnemigo(float EjeX, float EjeY, string culpable)
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( EjeX ) },
+            {"EjeY", Mathf.FloorToInt( EjeY ) },
+            {"ObjetoQueLoMato", culpable },
+        };
+
+        analyticsTrace(dictionary, "MatarEnemigo");
+    }
+
 }

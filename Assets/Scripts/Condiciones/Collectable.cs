@@ -11,6 +11,8 @@ public class Collectable : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            GameManager.instance.RecolectarObjeto(gameObject.name, transform.position.x, transform.position.y);
+
             if(GameObject.FindObjectOfType<Collect>() != null)
             {
                 collect = FindObjectOfType<Collect>();
@@ -30,7 +32,7 @@ public class Collectable : MonoBehaviour
                     player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mySprite;
                     Destroy(gameObject);
                 }                
-            }            
+            }       
         }
     }
 }

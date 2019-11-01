@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour
         {
             if(collision.GetComponent<Enemy>().lives > 0)
             {
+                collision.GetComponent<Enemy>().culpable = gameObject.name;
                 collision.GetComponent<Enemy>().TakeDamage(damage, dir);
             }            
             Destroy(gameObject);
