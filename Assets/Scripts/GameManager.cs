@@ -438,6 +438,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetLevelPauseMenu()
+    {
+        float endTime = Time.time - instance.GameTime;
+
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
+            {"Recolectado", instance.money },
+            {"VidasRestantes", instance.lives },
+            {"EnergiaRestante", instance.energy },
+            {"TiempoDeJuego", endTime },
+            {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
+            //{"CondicionVictoria", instance.CondicionDeVictoria }
+        };
+
+        analyticsTrace(dictionary, "ReiniciarNivelPausa");
+        Analytics.CustomEvent("ReiniciarNivelPausa", dictionary);
+
+    }
+
     public void CutsceneAnalyticsEvent(string tipo, int total, int ultimo)
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -469,6 +492,18 @@ public class GameManager : MonoBehaviour
         Analytics.CustomEvent("ReiniciarNivelGameOver", dictionary);
     }
 
+    public void VolverAlMapaGameOver()
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
+        };
+        analyticsTrace(dictionary, "VolverAlMapaGameOver");
+        Analytics.CustomEvent("VolverAlMapaGameOver");
+    }
 
     public void RecolectarObjeto(string name, float x, float y)
     {
@@ -483,20 +518,7 @@ public class GameManager : MonoBehaviour
 
         analyticsTrace(dictionary, "RecolectarObjeto");
         Analytics.CustomEvent("RecolectarObjeto", dictionary);
-    }
-
-    public void VolverAlMapaGameOver()
-    {
-        Dictionary<string, object> dictionary = new Dictionary<string, object>
-        {
-            {"Zona", levelIndex == 1 ? 0 : zoneProgress },
-            {"Nivel", instance.levelNumber },
-            {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
-            {"EjeY", Mathf.FloorToInt( player.transform.position.y ) }
-        };
-        analyticsTrace(dictionary, "VolverAlMapaGameOver");
-        Analytics.CustomEvent("VolverAlMapaGameOver");
-    }
+    }    
 
     public void MatarEnemigo(float EjeX, float EjeY, string culpable)
     {

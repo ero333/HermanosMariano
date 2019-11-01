@@ -65,7 +65,7 @@ public class MenuPausa : MonoBehaviour
 
     public void ReiniciarNivel()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.ResetLevelPauseMenu();
         GameManager.instance.LevelReset();
     }
 
