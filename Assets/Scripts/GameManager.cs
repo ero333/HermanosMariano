@@ -36,11 +36,12 @@ public class GameManager : MonoBehaviour
 
     //Analitics
     int levelNumber;
-    //bool CountGameTime = true;
     float GameTime = 0;
+    [HideInInspector]
     public string CondicionDeVictoria;
-   //bool isTimer;
+    [HideInInspector]
     public string ultimoCulpable;
+    [HideInInspector]
     public int bulletCounter = 0;
 
     private void Awake()
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             instance = this;
 
-            //gameObject.SendMessage("OnLevelWasLoaded", Application.loadedLevel);
+            //gameObject.SendMessage("OnLevelWasLoaded", Application.loadedLevel); <- manera desactualizada de hacerlo, tira errores
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
@@ -103,10 +104,8 @@ public class GameManager : MonoBehaviour
             energy = maxEnergy;
             money = 0;
 
-            //Analytics
-            //CountGameTime = true;
-            GameTime = Time.time;
-            Debug.Log(GameTime);
+            //Analytics            
+            GameTime = Time.time;            
             bulletCounter = 0;
             //if (FindObjectOfType<CountDown>())
             //{
@@ -138,12 +137,6 @@ public class GameManager : MonoBehaviour
             lives -= 1;
             Reset();
         }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(GameTime);
-        }
-        //if (CountGameTime) GameTime += 1 * Time.deltaTime;
     }
 
     public void Reset()
@@ -152,8 +145,7 @@ public class GameManager : MonoBehaviour
         {
             resetCount = 0;
             //Game over
-
-            //CountGameTime = false;
+            
             PerderAnalyticsEvent();
         }
         else
