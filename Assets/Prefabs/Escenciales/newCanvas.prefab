@@ -2620,7 +2620,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 3504927928021617719}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5412,7 +5412,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9084913953437495231}
-        m_MethodName: ReiniciarNivel
+        m_MethodName: ReiniciarNivelGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5652,7 +5652,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4930693348137077011}
-        m_MethodName: BackToMap
+        m_MethodName: MapGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -752,7 +752,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4271781039972550987}
-        m_MethodName: BackToMap
+        m_MethodName: MapGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -992,7 +992,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 85889844049752039}
-        m_MethodName: ReiniciarNivel
+        m_MethodName: ReiniciarNivelGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
