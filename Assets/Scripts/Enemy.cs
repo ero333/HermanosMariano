@@ -111,6 +111,9 @@ public class Enemy : MonoBehaviour
     IEnumerator SprintDelay;
     IEnumerator Flip;
 
+    //[HideInInspector]
+    public string culpable;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -562,6 +565,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fall")
         {
+
+            culpable = "Abismo";
             if (dropOnDeath != null && !droped)
             {
                 if (dropOnDeath.GetComponent<Collectable>())
@@ -678,6 +683,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DeathDelay(float delay)
     {
+
+        Debug.Log("me mato " + culpable);
         if (dropOnDeath != null && !droped)
         {
             droped = true;
