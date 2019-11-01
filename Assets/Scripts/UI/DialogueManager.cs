@@ -193,7 +193,7 @@ public class DialogueManager : MonoBehaviour
                 GameManager.instance.CutsceneAnalyticsEvent("final", DialoguesEnd.Length, indexAna);
 
                 end = true;
-                Debug.Log("Ended end dialogue");
+                //Debug.Log("Ended end dialogue");
                 Time.timeScale = 1;
                 ui.Victory(ui.gananciaMaxBK, obli);
                 gameObject.SetActive(false);

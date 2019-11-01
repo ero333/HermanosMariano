@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Text;
+//using System.Text;
 using Cinemachine;
 using UnityEngine.Analytics;
 
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
 
     //Analitics
     int levelNumber;
-    bool CountGameTime = true;
+    //bool CountGameTime = true;
     float GameTime = 0;
     public string CondicionDeVictoria;
-    bool isTimer;
+   //bool isTimer;
     public string ultimoCulpable;
     public int bulletCounter = 0;
 
@@ -91,13 +91,12 @@ public class GameManager : MonoBehaviour
             {
                 levelNumber = 4;
             }
-
             //Debug.Log(levelNumber);
         }
 
         if (resetCount == 0)
         {
-            Debug.Log(level + " loaded for the first time");            
+            //Debug.Log(level + " loaded for the first time");            
 
             victory = false;
             lives = maxLives;
@@ -105,13 +104,14 @@ public class GameManager : MonoBehaviour
             money = 0;
 
             //Analytics
-            CountGameTime = true;
-            GameTime = 0;
+            //CountGameTime = true;
+            GameTime = Time.time;
+            Debug.Log(GameTime);
             bulletCounter = 0;
-            if (FindObjectOfType<CountDown>())
-            {
-                isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
-            }
+            //if (FindObjectOfType<CountDown>())
+            //{
+            //    isTimer = FindObjectOfType<CountDown>().isActiveAndEnabled;
+            //}
 
             IniciarNivelAnalyticsEvent();
         }
@@ -139,7 +139,11 @@ public class GameManager : MonoBehaviour
             Reset();
         }
 
-        if (CountGameTime) GameTime += 1 * Time.deltaTime;
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(GameTime);
+        }
+        //if (CountGameTime) GameTime += 1 * Time.deltaTime;
     }
 
     public void Reset()
@@ -149,7 +153,7 @@ public class GameManager : MonoBehaviour
             resetCount = 0;
             //Game over
 
-            CountGameTime = false;
+            //CountGameTime = false;
             PerderAnalyticsEvent();
         }
         else
@@ -214,12 +218,12 @@ public class GameManager : MonoBehaviour
 
     public void VictoryCondition()
     {
-        Debug.Log("Gano");
+        //Debug.Log("Gano");
         victory = true;
         resetCount = 0;
         FindObjectOfType<CutsceneManager>().onVictory();
 
-        CountGameTime = false;
+        //CountGameTime = false;
     }
 
     public void UnlockZone(int currentZone)
@@ -231,20 +235,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    string AddSpacesToSentence(string text)
-    {
-        if (string.IsNullOrWhiteSpace(text))
-            return "";
-        StringBuilder newText = new StringBuilder(text.Length * 2);
-        newText.Append(text[0]);
-        for (int i = 1; i < text.Length; i++)
-        {
-            if (char.IsUpper(text[i]) && text[i - 1] != ' ')
-                newText.Append(' ');
-            newText.Append(text[i]);
-        }
-        return newText.ToString();
-    }
+    //string AddSpacesToSentence(string text)
+    //{
+    //    if (string.IsNullOrWhiteSpace(text))
+    //        return "";
+    //    StringBuilder newText = new StringBuilder(text.Length * 2);
+    //    newText.Append(text[0]);
+    //    for (int i = 1; i < text.Length; i++)
+    //    {
+    //        if (char.IsUpper(text[i]) && text[i - 1] != ' ')
+    //            newText.Append(' ');
+    //        newText.Append(text[i]);
+    //    }
+    //    return newText.ToString();
+    //}
 
     public void Cheat()
     {
@@ -298,17 +302,6 @@ public class GameManager : MonoBehaviour
         return levelNumber;
     }
 
-    void analyticsTrace(Dictionary<string, object> dictionary)
-    {
-        string traceHolder = "Evento    haz clic para ver más detalles" + "\n";
-        foreach (var key in dictionary)
-        {
-            traceHolder += key.Key + " > " + key.Value + "\n";
-        }
-
-        Debug.Log(traceHolder);
-    }
-
     void analyticsTrace(Dictionary<string, object> dictionary, string name)
     {
         string traceHolder = name + "    haz clic para ver más detalles" + "\n";
@@ -353,7 +346,7 @@ public class GameManager : MonoBehaviour
 
     public void GanarAnalyticsEvent(int ganancia)
     {
-        CountGameTime = false;
+        float endTime = Time.time - instance.GameTime;
 
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
@@ -368,7 +361,7 @@ public class GameManager : MonoBehaviour
             {"Energia", instance.energy },
             //{"CondicionVictoria", instance.CondicionDeVictoria },
             //{"Timer", instance.isTimer },
-            {"TiempoDeJuego", instance.GameTime },
+            {"TiempoDeJuego", endTime },
             {"BalasGastadas", instance.bulletCounter },
             {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
         };
@@ -401,6 +394,8 @@ public class GameManager : MonoBehaviour
 
     void PerderAnalyticsEvent()
     {
+        float endTime = Time.time - instance.GameTime;
+
         if (levelIndex != 0 && levelIndex != 2)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -414,7 +409,7 @@ public class GameManager : MonoBehaviour
                 {"VidasRestantes", instance.lives },
                 //{"CondicionVictoria", instance.CondicionDeVictoria },
                 //{"Timer", instance.isTimer },
-                {"TiempoDeJuego", instance.GameTime },
+                {"TiempoDeJuego", endTime },
                 {"ObjetoQueLoMato", instance.ultimoCulpable },
                 {"BalasGastadas", instance.bulletCounter },
                 {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
@@ -428,6 +423,8 @@ public class GameManager : MonoBehaviour
 
     public void ExitLevelAnalyticsEvent()
     {
+        float endTime = Time.time - instance.GameTime;
+
         if (levelIndex != 0 && levelIndex != 2)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -439,12 +436,12 @@ public class GameManager : MonoBehaviour
                 {"Recolectado", instance.money },
                 {"VidasRestantes", instance.lives },
                 {"EnergiaRestante", instance.energy },
-                {"TiempoDeJuego", instance.GameTime }
+                {"TiempoDeJuego", endTime },
+                {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
                 //{"CondicionVictoria", instance.CondicionDeVictoria }
             };
 
             analyticsTrace(dictionary, "SalirNivelPausa");
-
             Analytics.CustomEvent("SalirNivelPausa", dictionary);
         }
     }
@@ -477,6 +474,7 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "ReiniciarNivelGameOver");
+        Analytics.CustomEvent("ReiniciarNivelGameOver", dictionary);
     }
 
 
@@ -488,10 +486,11 @@ public class GameManager : MonoBehaviour
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( x ) },
             {"EjeY", Mathf.FloorToInt( y ) },
-            {"Nombre", name }
+            {"Objeto", name }
         };
 
-        analyticsTrace(dictionary, "RecolectarObjeto");         
+        analyticsTrace(dictionary, "RecolectarObjeto");
+        Analytics.CustomEvent("RecolectarObjeto", dictionary);
     }
 
     public void VolverAlMapaGameOver()
@@ -519,6 +518,7 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "MatarEnemigo");
+        Analytics.CustomEvent("MatarEnemigo");
     }
 
 }

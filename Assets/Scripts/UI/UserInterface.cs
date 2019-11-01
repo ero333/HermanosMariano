@@ -153,7 +153,7 @@ public class UserInterface : MonoBehaviour
         }
         ganancias.text = "" + GameManager.instance.money;
 
-        Debug.Log(GameManager.instance.money);
+        //Debug.Log(GameManager.instance.money);
 
         if (GameManager.instance.money > gananciaMaxima)
         {
@@ -169,7 +169,7 @@ public class UserInterface : MonoBehaviour
         }
 
         impuestos.text = "" + impuesto;
-        Debug.Log(impuesto);
+        //Debug.Log(impuesto);
         total.text = "" + (GameManager.instance.money - impuesto);
         GameManager.ahorros += (GameManager.instance.money - impuesto);
 
