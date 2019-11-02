@@ -51,5 +51,11 @@ public class MainMenu : MonoBehaviour
 
             SceneManager.LoadScene("MapaZonas");
         }        
-    }   
+
+    }
+    public void Calificar()
+    {
+        SceneManager.LoadScene("Calificar");
+    }
 }
+
