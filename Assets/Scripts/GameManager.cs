@@ -477,17 +477,20 @@ public class GameManager : MonoBehaviour
 
     public void CutsceneAnalyticsEvent(string tipo, int total, int ultimo)
     {
-        Dictionary<string, object> dictionary = new Dictionary<string, object>
-        {
-            {"Zona", GetZone(levelIndex) },
-            {"Nivel", instance.levelNumber },
-            {"Tipo", tipo },
-            {"DialogosTotales", total - 1},
-            {"UltimoDialogo", ultimo }
-        };
-
-        analyticsTrace(dictionary, "CompletarCutscene");
-        Analytics.CustomEvent("CompletarCutscene", dictionary);
+        if(ultimo == total-1)
+        {        
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                {"Zona", GetZone(levelIndex) },
+                {"Nivel", instance.levelNumber },
+                {"Tipo", tipo },
+                {"DialogosTotales", total - 1},
+                //{"UltimoDialogo", ultimo }
+            };
+        
+            analyticsTrace(dictionary, "CompletarCutscene");
+            //Analytics.CustomEvent("CompletarCutscene", dictionary);
+        }
     }
 
     public void ReiniciarNivelGameOver()
