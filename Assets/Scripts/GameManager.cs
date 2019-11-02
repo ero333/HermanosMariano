@@ -489,7 +489,7 @@ public class GameManager : MonoBehaviour
             };
         
             analyticsTrace(dictionary, "CompletarCutscene");
-            //Analytics.CustomEvent("CompletarCutscene", dictionary);
+            Analytics.CustomEvent("CompletarCutscene", dictionary);
         }
     }
 
