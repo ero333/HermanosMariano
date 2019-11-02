@@ -20,6 +20,7 @@ public class MapZone : MonoBehaviour
         gm.SaveData();
 
         //evento mapa
+        GameManager.instance.IniciarMapa();
 
         for (int i = 0; i < Zonas.Length; i++)
         {

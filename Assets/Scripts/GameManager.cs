@@ -515,7 +515,7 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "VolverAlMapaGameOver");
-        Analytics.CustomEvent("VolverAlMapaGameOver");
+        Analytics.CustomEvent("VolverAlMapaGameOver", dictionary);
     }
 
     public void RecolectarObjeto(string name, float x, float y)
@@ -545,10 +545,22 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "MatarEnemigo");
-        Analytics.CustomEvent("MatarEnemigo");
+        Analytics.CustomEvent("MatarEnemigo", dictionary);
     }
 
     //Inputs del Mapa
+    public void IniciarMapa()
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"ZonasDesbloqueadas", zoneProgress },
+            {"Ahorros", ahorros }
+        };
+
+        analyticsTrace(dictionary, "IniciarMapa");
+        Analytics.CustomEvent("IniciarMapa", dictionary);
+    }
+
     public void MapaClicNivel(int level)
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
@@ -569,7 +581,7 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "MapaClicErroneo");
-        Analytics.CustomEvent("MapaClicErroneo");
+        Analytics.CustomEvent("MapaClicErroneo", dictionary);
     }
 
 }
