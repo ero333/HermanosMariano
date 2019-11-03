@@ -587,4 +587,15 @@ public class GameManager : MonoBehaviour
         Analytics.CustomEvent("MapaClicErroneo", dictionary);
     }
 
+    public void Calificar(int stars)
+    {
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+          {"Nota", stars }
+
+        };
+
+        analyticsTrace(dictionary, "Calificar");
+        Analytics.CustomEvent("Calificar", dictionary);
+    }
 }
