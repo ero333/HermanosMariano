@@ -7,14 +7,7 @@ public class Calificacion : MonoBehaviour
 {
     public void Calificar(int stars)
     {
-        Dictionary<string, object> dictionary = new Dictionary<string, object>
-        {
-          {"Nota", stars }
-
-        };
-
-        Debug.Log("Nota; " + stars);
-        //Analytics.CustomEvent("Calificar", dictionary);
+        GameManager.instance.Calificar(stars);
 
         SceneManager.LoadScene("MenuInicio");
     }

@@ -645,7 +645,6 @@ public class GameManager : MonoBehaviour
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
             {"Nota", stars }
-
         };
 
         analyticsTrace(dictionary, "Calificar");
