@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManagerMap : MonoBehaviour
 {
     public bool seen = false;
+    public string loadLevel = "MenuInicio";
 
     [Header("Start")]
     public Sprite charAstart;
@@ -109,6 +110,7 @@ public class DialogueManagerMap : MonoBehaviour
             GameManager.seenDialogues = GameManager.zoneProgress;
             GameManager.instance.SaveData();
             background.gameObject.SetActive(false);
+            GameManager.instance.LoadScene(loadLevel);
         }
     }
 }
