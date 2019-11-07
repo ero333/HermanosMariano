@@ -31,6 +31,7 @@ public class DialogueManagerMap : MonoBehaviour
         if (Dialogues.Length == 0 || seen)
         {
             background.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
         else
         {
@@ -39,11 +40,7 @@ public class DialogueManagerMap : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
@@ -110,6 +107,7 @@ public class DialogueManagerMap : MonoBehaviour
             active = false;
             seen = true;
             GameManager.seenDialogues = GameManager.zoneProgress;
+            GameManager.instance.SaveData();
             background.gameObject.SetActive(false);
         }
     }

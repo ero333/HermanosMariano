@@ -29,7 +29,19 @@ public class MapZoneButton : MonoBehaviour
             {
                 levelBoton.SetActive(true);
             }
-        }        
+
+            string name = gameObject.name;
+            int zone = 0;
+            for (int i = 0; i < name.Length; i++)
+            {
+                if (char.IsNumber(name[i]))
+                {
+                    zone = name[i] - '0';
+                }
+            }
+
+            FindObjectOfType<MapZone>().clicZone = zone;
+        }
     }
 
     private void OnMouseExit()

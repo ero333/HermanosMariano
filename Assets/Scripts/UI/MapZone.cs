@@ -12,6 +12,9 @@ public class MapZone : MonoBehaviour
 
     public Text ahorrostexto;
 
+    [HideInInspector]
+    public int clicZone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +52,9 @@ public class MapZone : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        if(GameManager.seenDialogues < GameManager.zoneProgress)
+        Debug.Log(clicZone);
+
+        if (clicZone == GameManager.zoneProgress && GameManager.seenDialogues < GameManager.zoneProgress)
         {
             DialogueManagerMap dialog = Zonas[GameManager.zoneProgress - 1].GetComponent<DialogueManagerMap>();
             dialog.background.gameObject.SetActive(true);

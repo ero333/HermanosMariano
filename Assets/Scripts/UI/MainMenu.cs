@@ -39,7 +39,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("DeudasPagadas", GameManager.paidDeudas);
         PlayerPrefs.SetInt("Ahorros", GameManager.ahorros);
         PlayerPrefs.SetInt("MaxLives", newMaxLives);
-        PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);        
+        PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);
+        PlayerPrefs.SetInt("DialogosMapa", 0);
 
         SceneManager.LoadScene("NivelIntroduccion");
     }
@@ -54,7 +55,7 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.maxLives = PlayerPrefs.GetInt("MaxLives");
             GameManager.maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
 
-            GameManager.seenDialogues = GameManager.zoneProgress - 1;
+            GameManager.seenDialogues = PlayerPrefs.GetInt("DialogosMapa");
 
             GameManager.instance.ContinuarAnalyticsEvent();
 

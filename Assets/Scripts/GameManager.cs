@@ -40,8 +40,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public string CondicionDeVictoria;
     [HideInInspector]
-    public string ultimoCulpable;
-    //public string ultimoCulpableTipo;
+    public string ultimoCulpable;    
     [HideInInspector]
     public int bulletCounter = 0;
 
@@ -196,6 +195,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Ahorros", ahorros);
         PlayerPrefs.SetInt("MaxLives", maxLives);
         PlayerPrefs.SetInt("MaxEnergy", maxEnergy);
+        PlayerPrefs.SetInt("DialogosMapa", seenDialogues);
     }
 
     public void BackToMap()
@@ -450,7 +450,7 @@ public class GameManager : MonoBehaviour
 
             analyticsTrace(dictionary, "Morir");
 
-            //Analytics.CustomEvent("Morir", dictionary);
+            Analytics.CustomEvent("Morir", dictionary);
         }
     }
 
