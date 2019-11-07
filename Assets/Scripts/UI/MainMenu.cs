@@ -9,11 +9,20 @@ public class MainMenu : MonoBehaviour
 
     public int newMaxEnergy;
     public int newMaxLives;
+
+    public GameObject calificar;
     
 
     void Start()
     {
         gm = GameManager.instance;
+        if (PlayerPrefs.HasKey("Calificado"))
+        {
+            if(PlayerPrefs.GetInt("Calificado") == 1)
+            {
+                calificar.SetActive(false);
+            }
+        }
     }
 
     public void NewGame()
@@ -30,7 +39,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("DeudasPagadas", GameManager.paidDeudas);
         PlayerPrefs.SetInt("Ahorros", GameManager.ahorros);
         PlayerPrefs.SetInt("MaxLives", newMaxLives);
-        PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);
+        PlayerPrefs.SetInt("MaxEnergy", newMaxEnergy);        
 
         SceneManager.LoadScene("NivelIntroduccion");
     }
@@ -55,7 +64,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Calificar()
     {
-        SceneManager.LoadScene("Calificar");
+        SceneManager.LoadScene("Calificar");        
     }
 }
 

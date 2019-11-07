@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 49041552}
   - component: {fileID: 49041551}
   - component: {fileID: 49041550}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Calificar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 309317048}
   - component: {fileID: 309317050}
   - component: {fileID: 309317049}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 380735198}
   - component: {fileID: 380735197}
   - component: {fileID: 380735196}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 474972326}
   - component: {fileID: 474972325}
   - component: {fileID: 474972324}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Continuar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 604338845}
   - component: {fileID: 604338847}
   - component: {fileID: 604338846}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 828510315}
   - component: {fileID: 828510317}
   - component: {fileID: 828510316}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 906474851}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MenuPrincipal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,6 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMaxEnergy: 6
   newMaxLives: 3
+  calificar: {fileID: 49041548}
 --- !u!1 &1004489320
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +997,7 @@ GameObject:
   - component: {fileID: 1004489321}
   - component: {fileID: 1004489323}
   - component: {fileID: 1004489322}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SoundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1072,7 @@ GameObject:
   - component: {fileID: 1069785900}
   - component: {fileID: 1069785902}
   - component: {fileID: 1069785901}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1152,7 @@ GameObject:
   - component: {fileID: 1199783120}
   - component: {fileID: 1199783119}
   - component: {fileID: 1199783118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NuevaPartida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1440,7 +1441,7 @@ GameObject:
   - component: {fileID: 1890158208}
   - component: {fileID: 1890158210}
   - component: {fileID: 1890158209}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

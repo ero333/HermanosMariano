@@ -8,7 +8,7 @@ public class Calificacion : MonoBehaviour
     public void Calificar(int stars)
     {
         GameManager.instance.Calificar(stars);
-
+        PlayerPrefs.SetInt("Calificado", 1);
         SceneManager.LoadScene("MenuInicio");
     }
 }
