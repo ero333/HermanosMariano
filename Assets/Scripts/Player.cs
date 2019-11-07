@@ -176,6 +176,7 @@ public class Player : MonoBehaviour
         {
             GameObject firedbullet = Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
             firedbullet.GetComponent<Bullet>().damage = shootDamage;
+            firedbullet.GetComponent<Bullet>().shooter = "Player";
 
             bullets -= 1;
             gm.bulletCounter += 1;
@@ -212,7 +213,7 @@ public class Player : MonoBehaviour
             StopCoroutine(invenTimer);
             StartCoroutine(invenTimer);
 
-            gm.ultimoCulpable = name;
+            gm.ultimoCulpable = name;            
         }        
     }
 
@@ -222,6 +223,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Fall")
         {
             gm.ultimoCulpable = "Abismo";
+            //gm.ultimoCulpableTipo = "Abismo";
 
             //Debug.Log("Death");
             GameManager.instance.lives -= 1;

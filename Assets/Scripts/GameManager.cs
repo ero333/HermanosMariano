@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public string CondicionDeVictoria;
     [HideInInspector]
     public string ultimoCulpable;
+    //public string ultimoCulpableTipo;
     [HideInInspector]
     public int bulletCounter = 0;
 
@@ -145,7 +146,7 @@ public class GameManager : MonoBehaviour
         {
             resetCount = 0;
             //Game over
-            
+            MorirAnalyticsEvent();
             PerderAnalyticsEvent();
         }
         else
@@ -161,12 +162,12 @@ public class GameManager : MonoBehaviour
                     enemies[i].trigger = false;
                 }
             }
-
-            //mandar jugador al checkpoint
+           
             player = FindObjectOfType<Player>();
 
             MorirAnalyticsEvent();
 
+            //mandar jugador al checkpoint
             player.transform.position = instance.lastCheckpos;
 
             //reiniciar camara
@@ -296,7 +297,7 @@ public class GameManager : MonoBehaviour
 
     public int GetZone(int levelIndex)
     {
-        if (levelIndex == 1) return 0;
+        if (levelIndex == 2) return 0;
 
         if (levelIndex >= 3 && levelIndex <= 6) return 1;
 
@@ -307,6 +308,59 @@ public class GameManager : MonoBehaviour
         if (levelIndex >= 15 && levelIndex <= 18) return 4;
 
         return -1;
+    }
+
+    string ConvertToType(string input)
+    {
+        string output = "";
+        //filtrado de nombre para el "tipo"      
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (input[i] != '(')
+            {
+                output += input[i];
+            }
+            else
+            {
+                if (input[i-1] == ' ')
+                {
+                    output = output.Remove(i - 1);
+                }
+                else
+                {
+                    return output;
+                }
+
+                return output;                
+            }
+        }
+
+        return output;
+    }
+
+    string FormatQueLoMato(string input)
+    {
+        string output = "";
+        if (input == "Abismo")
+        {
+            output = input;
+            int x = Mathf.FloorToInt(player.transform.position.x/10);
+
+            output += "Z" + GetZone(levelIndex) + "N" + instance.levelNumber + "X" + x;
+            return output;
+        }
+        
+        for (int i = 0; i < input.Length; i++)
+        {
+            if(input[i] != ' ')
+            {
+                output += input[i];
+            }
+        }
+
+        output += "Z" + GetZone(levelIndex) + "N" + instance.levelNumber;
+
+        return output;
     }
 
     void analyticsTrace(Dictionary<string, object> dictionary, string name)
@@ -336,7 +390,7 @@ public class GameManager : MonoBehaviour
 
     void IniciarNivelAnalyticsEvent()
     {
-        if (levelIndex != 0 && levelIndex != 2)
+        if (levelIndex != 0 && levelIndex != 1 && levelIndex != 3)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
@@ -380,7 +434,7 @@ public class GameManager : MonoBehaviour
 
     void MorirAnalyticsEvent()
     {
-        if (levelIndex != 0 && levelIndex != 2)
+        if (levelIndex != 0 && levelIndex != 1 && levelIndex != 3)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
@@ -390,12 +444,13 @@ public class GameManager : MonoBehaviour
                 {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
                 {"Recolectado", instance.money },
                 {"VidasRestantes", instance.lives },
-                {"ObjetoQueLoMato", instance.ultimoCulpable }
+                {"ObjetoQueLoMato", FormatQueLoMato(instance.ultimoCulpable) },
+                {"TipoDeObjetoQueLoMato", ConvertToType(instance.ultimoCulpable) }
             };
 
             analyticsTrace(dictionary, "Morir");
 
-            Analytics.CustomEvent("Morir", dictionary);
+            //Analytics.CustomEvent("Morir", dictionary);
         }
     }
 
@@ -403,7 +458,7 @@ public class GameManager : MonoBehaviour
     {
         float endTime = Time.time - instance.GameTime;
 
-        if (levelIndex != 0 && levelIndex != 2)
+        if (levelIndex != 0 && levelIndex != 1 && levelIndex != 3)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
@@ -411,13 +466,10 @@ public class GameManager : MonoBehaviour
                 {"Nivel", instance.levelNumber },
                 {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
                 {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
-                //{"Ahorros", ahorros },
                 {"Recolectado", instance.money },
-                {"VidasRestantes", instance.lives },
-                //{"CondicionVictoria", instance.CondicionDeVictoria },
-                //{"Timer", instance.isTimer },
                 {"TiempoDeJuego", endTime },
-                {"ObjetoQueLoMato", instance.ultimoCulpable },
+                {"ObjetoQueLoMato", FormatQueLoMato(instance.ultimoCulpable) },
+                {"TipoDeObjetoQueLoMato", ConvertToType(instance.ultimoCulpable) },
                 {"BalasGastadas", instance.bulletCounter },
                 {"EnemigosVivos", FindObjectsOfType<Enemy>().Length }
             };
@@ -432,7 +484,7 @@ public class GameManager : MonoBehaviour
     {
         float endTime = Time.time - instance.GameTime;
 
-        if (levelIndex != 0 && levelIndex != 2)
+        if (levelIndex != 0 && levelIndex != 1 && levelIndex != 3)
         {
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
@@ -544,7 +596,8 @@ public class GameManager : MonoBehaviour
             {"Nivel", instance.levelNumber },
             {"EjeX", Mathf.FloorToInt( EjeX ) },
             {"EjeY", Mathf.FloorToInt( EjeY ) },
-            {"ObjetoQueLoMato", culpable },
+            {"ObjetoQueLoMato", culpable + "Z" + GetZone(levelIndex) + "N" + instance.levelNumber},
+            {"TipoDeObjetoQueLoMato", ConvertToType(culpable) }
         };
 
         analyticsTrace(dictionary, "MatarEnemigo");
@@ -572,7 +625,7 @@ public class GameManager : MonoBehaviour
             {"Nivel", level }            
         };
 
-        analyticsTrace(dictionary, "MapaClicNivel");
+        //analyticsTrace(dictionary, "MapaClicNivel");
         //Analytics.CustomEvent("MapaClicNivel");
     }
 
@@ -580,7 +633,7 @@ public class GameManager : MonoBehaviour
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-            {"Zona", GetZone(zone) }        
+            {"Zona", zone }
         };
 
         analyticsTrace(dictionary, "MapaClicErroneo");
@@ -591,7 +644,7 @@ public class GameManager : MonoBehaviour
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
-          {"Nota", stars }
+            {"Nota", stars }
 
         };
 

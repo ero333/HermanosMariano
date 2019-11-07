@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 16f;
     public int damage = 2;
+    public string shooter;
 
     private void Awake()
     {
@@ -39,22 +40,19 @@ public class Bullet : MonoBehaviour
         {
             if(collision.GetComponent<Enemy>().lives > 0)
             {
-                collision.GetComponent<Enemy>().culpable = gameObject.name;
+                collision.GetComponent<Enemy>().culpable = "Bullet (" + shooter + ")";
                 collision.GetComponent<Enemy>().TakeDamage(damage, dir);
             }            
             Destroy(gameObject);
         }
         else if (collision.tag == "Player")
         {
-            collision.GetComponent<Player>().TakeDamage(damage, dir, gameObject.name);
+            collision.GetComponent<Player>().TakeDamage(damage, dir, "Bullet ("+shooter+")");
             Destroy(gameObject);
         }
         else if (collision.gameObject.layer == 8)
         {
             Destroy(gameObject);
-        }
-
-        
+        }        
     }
-
 }

@@ -52,8 +52,8 @@ public class MapZoneButton : MonoBehaviour
         for (int i = 0; i < name.Length; i++)
         {
             if(char.IsNumber(name[i]) )
-            {
-                zone = (int)char.GetNumericValue(name[i]);
+            {                
+                zone = name[i] - '0';
             }
         }
 

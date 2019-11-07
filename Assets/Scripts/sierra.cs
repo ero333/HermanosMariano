@@ -53,6 +53,7 @@ public class sierra : MonoBehaviour
             player = collision.GetComponent<Player>();
             player.TakeDamage(damage, dir, gameObject.name);
 
+
             damageTimer = DamageTimer();
             StartCoroutine(damageTimer);
         }
