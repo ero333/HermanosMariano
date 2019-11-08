@@ -346,7 +346,7 @@ public class GameManager : MonoBehaviour
             output = input;
             int x = Mathf.FloorToInt(player.transform.position.x/10);
 
-            output += "Z" + GetZone(levelIndex) + "N" + instance.levelNumber + "X" + x;
+            output += "X" + x;
             return output;
         }
         
@@ -358,7 +358,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        output += "Z" + GetZone(levelIndex) + "N" + instance.levelNumber;
+        //output += "Z" + GetZone(levelIndex) + "N" + instance.levelNumber;
 
         return output;
     }
@@ -440,17 +440,54 @@ public class GameManager : MonoBehaviour
             {
                 {"Zona", GetZone(levelIndex) },
                 {"Nivel", instance.levelNumber },
-                {"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
-                {"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
+                //{"EjeX", Mathf.FloorToInt( player.transform.position.x ) },
+                //{"EjeY", Mathf.FloorToInt( player.transform.position.y ) },
                 {"Recolectado", instance.money },
                 {"VidasRestantes", instance.lives },
-                {"ObjetoQueLoMato", FormatQueLoMato(instance.ultimoCulpable) },
+                //{"ObjetoQueLoMato", FormatQueLoMato(instance.ultimoCulpable) },
                 {"TipoDeObjetoQueLoMato", ConvertToType(instance.ultimoCulpable) }
             };
 
             analyticsTrace(dictionary, "Morir");
-
             Analytics.CustomEvent("Morir", dictionary);
+
+            MorirNZ(GetZone(levelIndex), instance.levelNumber);
+        }
+    }
+
+    void MorirNZ(int zona, int nivel)
+    {
+        if (levelIndex != 0 && levelIndex != 1 && levelIndex != 3)
+        {
+            float X = player.transform.position.x;
+            float Y = player.transform.position.y;
+
+            int n = Mathf.Abs( Mathf.CeilToInt(X) )/ 3 * 10000 + Mathf.Abs(Mathf.CeilToInt(Y) / 3);
+            if(Y < 0)
+            {
+                n = n + 1000;
+            }
+            if (X < 0)
+            {
+                n = n * -1;
+            }
+
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                {"EjeX", Mathf.CeilToInt( X ) },
+                {"EjeY", Mathf.CeilToInt( Y ) },
+                {"Recolectado", instance.money },
+                {"VidasRestantes", instance.lives },
+                {"ObjetoQueLoMato", FormatQueLoMato(instance.ultimoCulpable) },
+                {"TipoDeObjetoQueLoMato", ConvertToType(instance.ultimoCulpable) },
+                {"PuntoDeMuerte", n }
+            };
+
+            Debug.Log("X: " + X + " / " + Mathf.CeilToInt(X) + ", X/3: " + Mathf.CeilToInt(X) / 3);
+            Debug.Log("Y: " + Y + " / " + Mathf.CeilToInt(Y) + ", Y/3: " + Mathf.CeilToInt(Y) / 3);
+
+            analyticsTrace(dictionary, "MorirZ"+zona+"N"+nivel);
+            //Analytics.CustomEvent("Morir", dictionary);
         }
     }
 
