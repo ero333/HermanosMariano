@@ -344,7 +344,7 @@ public class GameManager : MonoBehaviour
         if (input == "Abismo")
         {
             output = input;
-            int x = Mathf.FloorToInt(player.transform.position.x / 10);
+            int x = Mathf.FloorToInt(player.transform.position.x) / 10;
 
             output += "X" + x;
             return output;
