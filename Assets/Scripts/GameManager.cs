@@ -344,7 +344,7 @@ public class GameManager : MonoBehaviour
         if (input == "Abismo")
         {
             output = input;
-            int x = Mathf.FloorToInt(player.transform.position.x/10);
+            int x = Mathf.FloorToInt(player.transform.position.x / 10);
 
             output += "X" + x;
             return output;
@@ -451,18 +451,18 @@ public class GameManager : MonoBehaviour
             analyticsTrace(dictionary, "Morir");
             Analytics.CustomEvent("Morir", dictionary);
 
-            MorirNZ(GetZone(levelIndex), instance.levelNumber);
+            MorirZN(GetZone(levelIndex), instance.levelNumber);
         }
     }
 
-    void MorirNZ(int zona, int nivel)
+    void MorirZN(int zona, int nivel)
     {
         if (levelIndex != 0 && levelIndex != 1 && levelIndex != 3)
         {
             float X = player.transform.position.x;
             float Y = player.transform.position.y;
 
-            int n = Mathf.Abs( Mathf.CeilToInt(X) )/ 3 * 10000 + Mathf.Abs(Mathf.CeilToInt(Y) / 3);
+            int n = Mathf.Abs( Mathf.CeilToInt(X) / 3) * 10000 + Mathf.Abs(Mathf.CeilToInt(Y) / 3);
             if(Y < 0)
             {
                 n = n + 1000;
@@ -483,11 +483,11 @@ public class GameManager : MonoBehaviour
                 {"PuntoDeMuerte", n }
             };
 
-            Debug.Log("X: " + X + " / " + Mathf.CeilToInt(X) + ", X/3: " + Mathf.CeilToInt(X) / 3);
-            Debug.Log("Y: " + Y + " / " + Mathf.CeilToInt(Y) + ", Y/3: " + Mathf.CeilToInt(Y) / 3);
+            //Debug.Log("X: " + X + " / " + Mathf.CeilToInt(X) + ", X/3: " + Mathf.CeilToInt(X) / 3);
+            //Debug.Log("Y: " + Y + " / " + Mathf.CeilToInt(Y) + ", Y/3: " + Mathf.CeilToInt(Y) / 3);
 
             analyticsTrace(dictionary, "MorirZ"+zona+"N"+nivel);
-            //Analytics.CustomEvent("Morir", dictionary);
+            Analytics.CustomEvent("Morir", dictionary);
         }
     }
 
