@@ -135,6 +135,7 @@ MonoBehaviour:
   minShootDis: 15
   bullet: {fileID: 8580512828927243988, guid: 62a01b7536d1aac47809ca4583965b5d, type: 3}
   spawnBullet: {fileID: 196256599883303604}
+  culpable: 
 --- !u!212 &1939942560983783921
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -200,7 +201,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 502a14fbf284494469a1a9575faa2827, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
