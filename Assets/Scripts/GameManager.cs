@@ -299,13 +299,13 @@ public class GameManager : MonoBehaviour
     {
         if (levelIndex == 2) return 0;
 
-        if (levelIndex >= 3 && levelIndex <= 6) return 1;
+        if (levelIndex >= 4 && levelIndex <= 7) return 1;
 
-        if (levelIndex >= 7 && levelIndex <= 10) return 2;
+        if (levelIndex >= 8 && levelIndex <= 11) return 2;
 
-        if (levelIndex >= 11 && levelIndex <= 14) return 3;
+        if (levelIndex >= 12 && levelIndex <= 15) return 3;
 
-        if (levelIndex >= 15 && levelIndex <= 18) return 4;
+        if (levelIndex >= 16 && levelIndex <= 19) return 4;
 
         return -1;
     }
