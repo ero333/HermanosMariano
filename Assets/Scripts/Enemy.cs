@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour
     public bool onRightWall;
     public bool onLeftWall;
 
+    public bool colLeft;
+    public bool colRight;
+    public bool colUp;
+    public bool colDown;
+
     [Header("Drops")]
     public GameObject dropOnHit;
     public GameObject dropOnDeath;
@@ -226,13 +231,17 @@ public class Enemy : MonoBehaviour
         if(!onGround && isJumping)
         {
             int dir;
-            if (fRight)
+            if (fRight && !onRightWall && !colRight)
             {
                 dir = 1;
             }
-            else
+            else if (!onLeftWall && !colLeft)
             {
                 dir = -1;
+            }
+            else
+            {
+                dir = 0;
             }
 
             rb.velocity = new Vector2(dir * speed, rb.velocity.y);
@@ -566,6 +575,19 @@ public class Enemy : MonoBehaviour
     //si choco con algo
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //deteccion absoluta e indicriminada de colisiones con superficies solidas
+        if(collision.gameObject.layer == 8)
+        {
+            foreach (ContactPoint2D hitPos in collision.contacts)
+            {
+                //Debug.Log(hitPos.normal);
+                colDown = hitPos.normal.y == 1;
+                colUp = hitPos.normal.y == -1;
+                colLeft = hitPos.normal.x == 1;
+                colRight = hitPos.normal.x == -1;
+            }
+        }
+
         if (collision.gameObject.tag == "Fall")
         {
 
