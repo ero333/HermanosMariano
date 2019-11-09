@@ -486,8 +486,8 @@ public class GameManager : MonoBehaviour
             //Debug.Log("X: " + X + " / " + Mathf.CeilToInt(X) + ", X/3: " + Mathf.CeilToInt(X) / 3);
             //Debug.Log("Y: " + Y + " / " + Mathf.CeilToInt(Y) + ", Y/3: " + Mathf.CeilToInt(Y) / 3);
 
-            analyticsTrace(dictionary, "MorirZ"+zona+"N"+nivel);
-            Analytics.CustomEvent("Morir", dictionary);
+            analyticsTrace(dictionary, "MorirZ" + zona + "N" + nivel);
+            Analytics.CustomEvent("MorirZ" + zona + "N" + nivel, dictionary);
         }
     }
 
