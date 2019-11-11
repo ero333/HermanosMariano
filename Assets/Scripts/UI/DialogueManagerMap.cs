@@ -37,10 +37,9 @@ public class DialogueManagerMap : MonoBehaviour
         else
         {
             charA.sprite = charAstart;
-            charB.sprite = charBstart;
+            charB.sprite = charBstart;            
         }
     }
-
     
     void Update()
     {
@@ -55,7 +54,6 @@ public class DialogueManagerMap : MonoBehaviour
             index += 100;
             seen = true;
         }
-
 
         if (index < Dialogues.Length && active && !seen)
         {
@@ -103,7 +101,8 @@ public class DialogueManagerMap : MonoBehaviour
         }
         else if (active)
         {
-            Time.timeScale = 1;
+            GameManager.instance.MapaCutscene(Dialogues.Length);
+            Time.timeScale = 1;            
             index = 0;
             active = false;
             seen = true;

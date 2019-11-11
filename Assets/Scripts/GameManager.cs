@@ -677,6 +677,23 @@ public class GameManager : MonoBehaviour
         Analytics.CustomEvent("MapaClicErroneo", dictionary);
     }
 
+    public void MapaCutscene(int total, string levelName)
+    {
+
+        int index = SceneManager.GetSceneByName(levelName).buildIndex;
+        
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", GetZone(index) },
+            //{"Nivel", instance.levelNumber },
+            {"DialogosTotales", total - 1},
+            //{"UltimoDialogo", ultimo }
+        };
+        
+        analyticsTrace(dictionary, "MapaCutscene");
+        //Analytics.CustomEvent("CompletarCutscene", dictionary);        
+    }
+
     public void Calificar(int stars)
     {
         Dictionary<string, object> dictionary = new Dictionary<string, object>

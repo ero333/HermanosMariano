@@ -52,7 +52,7 @@ public class MapZone : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        Debug.Log(clicZone);
+        //Debug.Log(clicZone);
 
         if (clicZone == GameManager.zoneProgress && GameManager.seenDialogues < GameManager.zoneProgress)
         {
