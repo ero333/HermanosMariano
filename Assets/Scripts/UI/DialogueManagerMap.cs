@@ -101,7 +101,7 @@ public class DialogueManagerMap : MonoBehaviour
         }
         else if (active)
         {
-            GameManager.instance.MapaCutscene(Dialogues.Length);
+            GameManager.instance.MapaCutscene(Dialogues.Length, loadLevel);
             Time.timeScale = 1;            
             index = 0;
             active = false;
