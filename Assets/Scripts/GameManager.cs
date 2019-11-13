@@ -170,9 +170,12 @@ public class GameManager : MonoBehaviour
             player.transform.position = instance.lastCheckpos;
 
             //reiniciar camara
-            CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
-            //cam.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y);
-            cam.Follow = player.transform;
+            //CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
+            ////cam.Follow = player.transform;
+            //var composer = cam.GetCinemachineComponent<CinemachineComposer>();
+            //float bk = composer.m_LookaheadTime;
+            //composer.m_LookaheadTime = 0;
+            //composer.m_LookaheadTime = bk;
         }
         energy = maxEnergy;
     }

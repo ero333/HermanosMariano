@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
     GameManager gm;
+    CinemachineVirtualCamera cam;
+    CinemachineFramingTransposer composer;
 
     //No tocar >:(
     [Header("Debug (No tocar)")]
@@ -63,6 +66,9 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float runTimeSinc;
 
+    //para bajar la camara
+    float camTimer = 1.2f;
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
@@ -84,7 +90,10 @@ public class Player : MonoBehaviour
     {
         gm = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();        
+        anim = GetComponent<Animator>();
+
+        cam = FindObjectOfType<CinemachineVirtualCamera>();
+        composer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
 
         if (gm.resetCount == 0)
         {
@@ -197,6 +206,21 @@ public class Player : MonoBehaviour
             StartCoroutine(invenTimer);
             rb.velocity = new Vector2(0, 0);
         }
+
+        if(Input.GetButton("Crouch") && onGround)
+        {
+            camTimer -= Time.deltaTime;
+            if(camTimer < 0)
+            {                
+                composer.m_ScreenY = 0.4f;
+            }
+        }
+        else
+        {
+            camTimer = 0.8f;
+            composer.m_ScreenY = 0.583f;
+        }
+
         SetAnimations(x);
     }
 
