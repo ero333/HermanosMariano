@@ -218,7 +218,7 @@ public class Player : MonoBehaviour
         else
         {
             camTimer = 0.8f;
-            composer.m_ScreenY = 0.583f;
+            composer.m_ScreenY = 0.55f;
         }
 
         SetAnimations(x);
