@@ -313,10 +313,18 @@ public class GameManager : MonoBehaviour
         return -1;
     }
 
-    string ConvertToType(string input)
+    public string ConvertToType(string input)
     {
         string output = "";
-        //filtrado de nombre para el "tipo"      
+        
+        //filtrado de nombre para el "tipo"
+        if(input.Contains("Bullet"))
+        {
+            input = input.Remove(0, 8);
+            input = input.Remove(input.Length - 1);
+            //Debug.Log(input);
+        }
+
         for (int i = 0; i < input.Length; i++)
         {
             if (input[i] != '(')
@@ -331,12 +339,15 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log(output);
                     return output;
                 }
-
+                Debug.Log(output);
                 return output;                
             }
         }
+
+        //Debug.Log(output);
 
         return output;
     }
@@ -642,7 +653,7 @@ public class GameManager : MonoBehaviour
 
         analyticsTrace(dictionary, "RecolectarObjeto");
         Analytics.CustomEvent("RecolectarObjeto", dictionary);
-    }    
+    }
 
     public void MatarEnemigo(float EjeX, float EjeY, string culpable)
     {
@@ -650,13 +661,45 @@ public class GameManager : MonoBehaviour
         {
             {"Zona", GetZone(levelIndex) },
             {"Nivel", instance.levelNumber },
-            {"EjeX", Mathf.FloorToInt( EjeX ) },
-            {"EjeY", Mathf.FloorToInt( EjeY ) },
-            {"ObjetoQueLoMato", culpable + "Z" + GetZone(levelIndex) + "N" + instance.levelNumber},
+            //{"EjeX", Mathf.FloorToInt( EjeX ) },
+            //{"EjeY", Mathf.FloorToInt( EjeY ) },
+            //{"ObjetoQueLoMato", culpable + "Z" + GetZone(levelIndex) + "N" + instance.levelNumber},
             {"TipoDeObjetoQueLoMato", ConvertToType(culpable) }
         };
 
         analyticsTrace(dictionary, "MatarEnemigo");
+        Analytics.CustomEvent("MatarEnemigo", dictionary);
+
+        MatarEnemigoNZ(EjeX, EjeY, culpable);
+    }
+
+    public void MatarEnemigoNZ(float EjeX, float EjeY, string culpable)
+    {
+        float X = EjeX;
+        float Y = EjeY;
+
+        int n = Mathf.Abs(Mathf.CeilToInt(X) / 3) * 10000 + Mathf.Abs(Mathf.CeilToInt(Y) / 3);
+        if (Y < 0)
+        {
+            n = n + 1000;
+        }
+        if (X < 0)
+        {
+            n = n * -1;
+        }
+
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", GetZone(levelIndex) },
+            {"Nivel", instance.levelNumber },
+            {"EjeX", Mathf.FloorToInt( EjeX ) },
+            {"EjeY", Mathf.FloorToInt( EjeY ) },
+            {"PuntoDeMuerte", n },
+            {"ObjetoQueLoMato", culpable + "Z" + GetZone(levelIndex) + "N" + instance.levelNumber},
+            {"TipoDeObjetoQueLoMato", ConvertToType(culpable) }
+        };
+
+        analyticsTrace(dictionary, "MatarEnemigo" + "Z" + dictionary["Zona"] + "N" + dictionary["Nivel"]);
         Analytics.CustomEvent("MatarEnemigo", dictionary);
     }
 

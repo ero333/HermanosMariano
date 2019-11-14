@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         physicMaterial.bounciness = 0;
         physicMaterial.friction = 0;
 
-        rb.sharedMaterial = physicMaterial;
+        rb.sharedMaterial = physicMaterial;        
     }
 
     void Update()
@@ -237,7 +237,7 @@ public class Player : MonoBehaviour
             StopCoroutine(invenTimer);
             StartCoroutine(invenTimer);
 
-            gm.ultimoCulpable = name;            
+            gm.ultimoCulpable = name;
         }        
     }
 
