@@ -567,7 +567,7 @@ public class GameManager : MonoBehaviour
         Analytics.CustomEvent("ReiniciarNivelPausa", dictionary);
     }
 
-    public void CutsceneAnalyticsEvent(string tipo, int total, int ultimo)
+    public void CompletarCutscene(string tipo, int total, int ultimo)
     {
         if(ultimo == total-1)
         {        
@@ -583,6 +583,22 @@ public class GameManager : MonoBehaviour
             analyticsTrace(dictionary, "CompletarCutscene");
             Analytics.CustomEvent("CompletarCutscene", dictionary);
         }
+    }
+
+    public void SaltearCutscene(string tipo, int total, int ultimo)
+    {      
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", GetZone(levelIndex) },
+            {"Nivel", instance.levelNumber },
+            {"Tipo", tipo },
+            {"DialogosTotales", total - 1},
+            {"UltimoDialogo", ultimo }
+        };
+
+        analyticsTrace(dictionary, "SaltearCutscene");
+        //Analytics.CustomEvent("SaltearCutscene", dictionary);
+        
     }
 
     public void ReiniciarNivelGameOver()
@@ -680,7 +696,7 @@ public class GameManager : MonoBehaviour
         Analytics.CustomEvent("MapaClicErroneo", dictionary);
     }
 
-    public void MapaCutscene(int total, string levelName)
+    public void MapaCompletarCutscene(int total, string levelName)
     {
 
         int index = SceneManager.GetSceneByName(levelName).buildIndex;
@@ -693,8 +709,25 @@ public class GameManager : MonoBehaviour
             //{"UltimoDialogo", ultimo }
         };
         
-        analyticsTrace(dictionary, "MapaCutscene");
-        //Analytics.CustomEvent("CompletarCutscene", dictionary);        
+        analyticsTrace(dictionary, "MapaCompletarCutscene");
+        //Analytics.CustomEvent("MapaCompletarCutscene", dictionary);        
+    }
+
+    public void MapaSaltearCutscene(int total, int ultimo, string levelName)
+    {
+
+        int index = SceneManager.GetSceneByName(levelName).buildIndex;
+
+        Dictionary<string, object> dictionary = new Dictionary<string, object>
+        {
+            {"Zona", GetZone(index) },
+            //{"Nivel", instance.levelNumber },
+            {"DialogosTotales", total - 1},
+            {"UltimoDialogo", ultimo }
+        };
+
+        analyticsTrace(dictionary, "MapaSaltearCutscene");
+        //Analytics.CustomEvent("MapaSaltearCutscene", dictionary);        
     }
 
     public void Calificar(int stars)

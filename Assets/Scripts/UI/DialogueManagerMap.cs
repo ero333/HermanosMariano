@@ -24,6 +24,7 @@ public class DialogueManagerMap : MonoBehaviour
     public Text ESC;
 
     int index = 0;
+    int indexAN = 0;
 
     public bool active = false;
 
@@ -50,6 +51,8 @@ public class DialogueManagerMap : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            indexAN = index;
+
             Time.timeScale = 1;
             index += 100;
             seen = true;
@@ -101,7 +104,15 @@ public class DialogueManagerMap : MonoBehaviour
         }
         else if (active)
         {
-            GameManager.instance.MapaCutscene(Dialogues.Length, loadLevel);
+            if(index < 100) //leyo los dialogos
+            {
+                GameManager.instance.MapaCompletarCutscene(Dialogues.Length, loadLevel);
+            }
+            else //se los salteo
+            {
+                GameManager.instance.MapaSaltearCutscene(Dialogues.Length, indexAN, loadLevel);
+            }
+            
             Time.timeScale = 1;            
             index = 0;
             active = false;

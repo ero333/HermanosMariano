@@ -132,7 +132,15 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                GameManager.instance.CutsceneAnalyticsEvent("intro", Dialogues.Length, indexAna);
+                if(index < 100)
+                {
+                    GameManager.instance.CompletarCutscene("intro", Dialogues.Length, indexAna);
+                }
+                else
+                {
+                    GameManager.instance.SaltearCutscene("intro", Dialogues.Length, indexAna);
+                }
+                
 
                 Time.timeScale = 1;
                 index = 0;
@@ -190,7 +198,14 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                GameManager.instance.CutsceneAnalyticsEvent("final", DialoguesEnd.Length, indexAna);
+                if(index < 100)
+                {
+                    GameManager.instance.CompletarCutscene("final", DialoguesEnd.Length, indexAna);
+                }
+                else
+                {
+                    GameManager.instance.SaltearCutscene("final", Dialogues.Length, indexAna);
+                }
 
                 end = true;
                 //Debug.Log("Ended end dialogue");
