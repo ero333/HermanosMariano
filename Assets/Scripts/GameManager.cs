@@ -727,7 +727,7 @@ public class GameManager : MonoBehaviour
         };
         
         analyticsTrace(dictionary, "MapaCompletarCutscene");
-        //Analytics.CustomEvent("MapaCompletarCutscene", dictionary);        
+        Analytics.CustomEvent("MapaCompletarCutscene", dictionary);        
     }
 
     public void MapaSaltearCutscene(int total, int ultimo, string levelName, int zone)
@@ -761,7 +761,7 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "MapaSaltearCutscene");
-        //Analytics.CustomEvent("MapaSaltearCutscene", dictionary);        
+        Analytics.CustomEvent("MapaSaltearCutscene", dictionary);        
     }
 
     public void Calificar(int stars)
