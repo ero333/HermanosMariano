@@ -104,13 +104,23 @@ public class DialogueManagerMap : MonoBehaviour
         }
         else if (active)
         {
-            if(index < 100) //leyo los dialogos
+            string name = gameObject.name;
+            int zone = 0;
+            for (int i = 0; i < name.Length; i++)
             {
-                GameManager.instance.MapaCompletarCutscene(Dialogues.Length, loadLevel);
+                if (char.IsNumber(name[i]))
+                {
+                    zone = name[i] - '0';
+                }
+            }
+
+            if (index < 100) //leyo los dialogos
+            {   
+                GameManager.instance.MapaCompletarCutscene(Dialogues.Length, loadLevel, zone);
             }
             else //se los salteo
             {
-                GameManager.instance.MapaSaltearCutscene(Dialogues.Length, indexAN, loadLevel);
+                GameManager.instance.MapaSaltearCutscene(Dialogues.Length, indexAN, loadLevel, zone);
             }
             
             Time.timeScale = 1;            

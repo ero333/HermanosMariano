@@ -696,10 +696,27 @@ public class GameManager : MonoBehaviour
         //Analytics.CustomEvent("MapaClicErroneo", dictionary);
     }
 
-    public void MapaCompletarCutscene(int total, string levelName)
+    public void MapaCompletarCutscene(int total, string levelName, int zone)
     {
+        string zonePath = "";
+        if(zone == 1)
+        {
+            zonePath = "Zona 1 - Oficina/";
+        }
+        else if(zone == 2)
+        {
+            zonePath = "Zona 2 - Ciudad/";
+        }
+        else if(zone == 3)
+        {
+            zonePath = "Zona 3 - Prision/";
+        }
+        else if (zone == 4)
+        {
+            zonePath = "Zona 4 - Ciudad Inundada/";
+        }
 
-        int index = SceneManager.GetSceneByName(levelName).buildIndex;
+        int index = SceneUtility.GetBuildIndexByScenePath("Assets/Scenes/" + zonePath + levelName + ".unity");   
         
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
@@ -713,10 +730,27 @@ public class GameManager : MonoBehaviour
         //Analytics.CustomEvent("MapaCompletarCutscene", dictionary);        
     }
 
-    public void MapaSaltearCutscene(int total, int ultimo, string levelName)
+    public void MapaSaltearCutscene(int total, int ultimo, string levelName, int zone)
     {
+        string zonePath = "";
+        if (zone == 1)
+        {
+            zonePath = "Zona 1 - Oficina/";
+        }
+        else if (zone == 2)
+        {
+            zonePath = "Zona 2 - Ciudad/";
+        }
+        else if (zone == 3)
+        {
+            zonePath = "Zona 3 - Prision/";
+        }
+        else if (zone == 4)
+        {
+            zonePath = "Zona 4 - Ciudad Inundada/";
+        }
 
-        int index = SceneManager.GetSceneByName(levelName).buildIndex;
+        int index = SceneUtility.GetBuildIndexByScenePath("Assets/Scenes/" + zonePath + levelName + ".unity");
 
         Dictionary<string, object> dictionary = new Dictionary<string, object>
         {
