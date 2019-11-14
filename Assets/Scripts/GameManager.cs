@@ -693,7 +693,7 @@ public class GameManager : MonoBehaviour
         };
 
         analyticsTrace(dictionary, "MapaClicErroneo");
-        Analytics.CustomEvent("MapaClicErroneo", dictionary);
+        //Analytics.CustomEvent("MapaClicErroneo", dictionary);
     }
 
     public void MapaCompletarCutscene(int total, string levelName)

@@ -69,6 +69,17 @@ public class MapZoneButton : MonoBehaviour
             }
         }
 
-        GameManager.instance.MapaClicErroneo(zone);
+        StartCoroutine(SendEvent(zone));
+              
+    }
+
+    IEnumerator SendEvent(int zone)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        if (!GetComponent<DialogueManagerMap>().active)
+        {
+            GameManager.instance.MapaClicErroneo(zone);
+        }
     }
 }
