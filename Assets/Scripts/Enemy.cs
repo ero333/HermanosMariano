@@ -512,7 +512,7 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Sprint", false);
         }
 
-        if(!onGround && isJumping)
+        if(!onGround && isJumping && lives > 0)
         {
             anim.SetTrigger("Jump");
         }
