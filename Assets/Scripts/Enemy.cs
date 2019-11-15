@@ -194,18 +194,10 @@ public class Enemy : MonoBehaviour
         rb.sharedMaterial = physicMaterial;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         DetectCollisions();
 
-        //if(lives < 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyDeath"))
-        //{
-        //    Debug.Log("No se esta muriendo");
-        //}
-    }
-
-    void Update()
-    {
         getPlayerDir();
 
         //si el jugador me salta por arriba, freno
