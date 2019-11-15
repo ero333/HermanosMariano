@@ -194,7 +194,7 @@ public class Enemy : MonoBehaviour
         rb.sharedMaterial = physicMaterial;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         DetectCollisions();
 
