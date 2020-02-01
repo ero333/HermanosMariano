@@ -256,24 +256,24 @@ public class Enemy : MonoBehaviour
                 //cuando huye, es invertido
                 if (flee && canFlee && fleeActive)
                 {                
-                if ( (playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor) || 
-                     (playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall) )
-                {
-                    //saltar
-                    if (JumpObstacles && !isJumping && onGround)
+                    if ( (playerDirection.x == -1 && !onRightFloor) || (playerDirection.x == 1 && !onLeftFloor) || 
+                         (playerDirection.x == -1 && onRightWall) || (playerDirection.x == 1 && onLeftWall) )
                     {
-                        isJumping = true;
-                        rb.velocity = new Vector2(rb.velocity.x, 0);
-                        rb.velocity += Vector2.up * jumpForce;                        
-                    }
-                    else //acorralado, se queda quieto
-                    {
-                        cornered = true;
-                        playerDirection.x = 0;
-                        //Debug.Log("No puedo huir hasta el vacio");
-                    }
+                        //saltar
+                        if (JumpObstacles && !isJumping && onGround)
+                        {
+                            isJumping = true;
+                            rb.velocity = new Vector2(rb.velocity.x, 0);
+                            rb.velocity += Vector2.up * jumpForce;                        
+                        }
+                        else //acorralado, se queda quieto
+                        {
+                            cornered = true;
+                            playerDirection.x = 0;
+                            //Debug.Log("No puedo huir hasta el vacio");
+                        }
 
-                }
+                    }
                 }
                 //cuando lo persigue
                 else if (chase && (playerDirection.x == 1 && !onRightFloor) || (playerDirection.x == -1 && !onLeftFloor) || (playerDirection.x == -1 && onLeftWall) || (playerDirection.x == 1 && onRightWall) )
@@ -318,7 +318,7 @@ public class Enemy : MonoBehaviour
                 fleeActive = false;
             }
 
-            //perseguir (el onGround puede joder el salto ¿sacarlo podria arreglarlo?)
+            //perseguir
             if (chase && canChase && onGround && playerDirection.x != 0 && !fleeActive)
             {
                 if (flee && canFlee && (playerDistanceAbs.x > safeDistance && playerDistanceAbs.x < safeDistance + 1f))
@@ -481,8 +481,6 @@ public class Enemy : MonoBehaviour
         //hacer daño cuando el jugador este en la hitbox y el enemigo este en el frame de la animacion correcta
         if (hit && frameDamage && !hited && meleeDamage > 0 && lives > 0)
         {
-            
-
             player.TakeDamage(meleeDamage, playerDirection.x, gameObject.name);
             hited = true;
         }
@@ -567,7 +565,7 @@ public class Enemy : MonoBehaviour
     //si choco con algo
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //deteccion absoluta e indicriminada de colisiones con superficies solidas
+        //deteccion absoluta e indicriminada de colisiones con superficies solidas, devuelve una "direccion" de colision en forma de bools
         if(collision.gameObject.layer == 8)
         {
             foreach (ContactPoint2D hitPos in collision.contacts)
@@ -580,14 +578,14 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        //si tenia un objeto recolectable y callo a un abismo, hacerlo aparecer en donde aparece el enemigo
         if (collision.gameObject.tag == "Fall")
         {
-
             culpable = "Abismo";
             if (dropOnDeath != null && !droped)
             {
                 if (dropOnDeath.GetComponent<Collectable>())
-                {
+                {                    
                     Instantiate(dropOnDeath, safeGuard, Quaternion.identity);
                 }
             }
@@ -677,6 +675,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //cada cuanto puede disparar
     IEnumerator ShootDelayCou(float delay)
     {
         canShoot = false;
@@ -684,6 +683,7 @@ public class Enemy : MonoBehaviour
         canShoot = true;
     }
 
+    //cada cuanto puede correr
     IEnumerator Sprint(float delay, float duration)
     {
         //canSprint = true;
@@ -698,6 +698,7 @@ public class Enemy : MonoBehaviour
 
     }
 
+    //dejar el fiambre luego de morir
     IEnumerator DeathDelay(float delay)
     {
 

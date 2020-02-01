@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     CinemachineVirtualCamera cam;
     CinemachineFramingTransposer composer;
 
-    //No tocar >:(
+    //No tocar >:( solo sirve para asegurarse que el jugador funcione correctamente durante la partida
     [Header("Debug (No tocar)")]
     public bool onGround;
     public bool onWall;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     IEnumerator invenTimer;
 
     //animaciones
-    //Idle
+    //Idle (cuando cierra los ojos)
     private bool isIdleCount = false;
     float idleTimer = 5f;
     //correr sincro
@@ -120,11 +120,12 @@ public class Player : MonoBehaviour
         float x;
         float xRaw = Input.GetAxisRaw("Horizontal");
 
+        //si no es 0, va a hacer un decimal en incremento o resta hasta llegar a 1 o -1, cuando se multiplique por la velocidad causara el efecto de acceleracion
         if (xRaw != 0)
         {
             x = Input.GetAxis("Horizontal");
         }
-        else
+        else //para que el jugador para de golpe en vez de desacelerar
         {
             x = 0;
         }
@@ -321,6 +322,7 @@ public class Player : MonoBehaviour
 
     void DetectCollisions()
     {
+        //bools para checkear las posibles colisiones
         onGround = Physics2D.OverlapBox((Vector2)transform.position + bottomOffset, (Vector2)bottomSize, 0f, groundLayer);
         onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
             || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
@@ -331,13 +333,13 @@ public class Player : MonoBehaviour
         //wallSide = onRightWall ? -1 : 1;
 
 
-        //Hitbox de cuchillo
+        //Hitbox de cuchillo(es necesario hacerlo de esta manera para diferenciarlo del colider principal)
         Collider2D[] hitBox = Physics2D.OverlapBoxAll((Vector2)transform.position + meleeHitBoxOffset, (Vector2)meleeHitBoxSize, 0f, EnemyLayer);
 
-        //evento de colision con el jugador
+        //evento de colision con enemigos
         if (hitBox.Length > 0 && hitInput)
         {
-            hitInput = false;
+            hitInput = false; //que checkea 1 sola vez
             //do damage
             for (int i = 0; i < hitBox.Length; i++)
             {
@@ -361,7 +363,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        //hitbox de salto tipo mario
+        //hitbox de salto tipo mario, para detectar enemigos debajo
         Collider2D[] stompBox = Physics2D.OverlapBoxAll((Vector2)transform.position + stompBoxOffset, (Vector2)stompBoxSize, 0f, EnemyLayer);
 
         if (stompBox.Length > 0)
@@ -378,7 +380,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //Corutinas
+    //Corutinas, timers
 
     //activar la idle alternativa
     IEnumerator IdleTrigger(float timer)
@@ -389,7 +391,7 @@ public class Player : MonoBehaviour
         isIdleCount = false;
     }
 
-
+    //cada cuanto puedo usar el cuchillo
     IEnumerator HitDelay(float delay)
     {
         attackLock = true;
@@ -398,6 +400,7 @@ public class Player : MonoBehaviour
         hitInput = false;
     }
 
+    //duracion de la invencivilidad
     IEnumerator InvenTimer(float timer)
     {
         inven = true;
@@ -407,7 +410,7 @@ public class Player : MonoBehaviour
         inven = false;
     }
 
-
+    //dejar terminar la animacion de victoria
     public void Win()
     {
         StopAllCoroutines();

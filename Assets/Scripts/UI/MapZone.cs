@@ -80,30 +80,30 @@ public class MapZone : MonoBehaviour
 
 
         //trucos del mapa
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    GameManager.ahorros += 10000;
-        //}
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameManager.ahorros += 10000;
+        }
 
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    gm.Cheat();
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            gm.Cheat();
 
-        //    for (int i = 0; i < Zonas.Length; i++)
-        //    {
-        //        Zonas[i].GetComponent<Selectable>().interactable = false;
+            for (int i = 0; i < Zonas.Length; i++)
+            {
+                Zonas[i].GetComponent<Selectable>().interactable = false;
 
-        //        if (i <= GameManager.zoneProgress - 1)
-        //        {
-        //            Zonas[i].GetComponent<Selectable>().interactable = true;
-        //        }
+                if (i <= GameManager.zoneProgress - 1)
+                {
+                    Zonas[i].GetComponent<Selectable>().interactable = true;
+                }
 
-        //        if (i < GameManager.seenDialogues)
-        //        {
-        //            Zonas[i].GetComponent<DialogueManagerMap>().seen = true;
-        //        }
-        //    }
+                if (i < GameManager.seenDialogues)
+                {
+                    Zonas[i].GetComponent<DialogueManagerMap>().seen = true;
+                }
+            }
 
-        //}
+        }
     }
 }

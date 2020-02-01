@@ -270,6 +270,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+
+    //Herramientas para los eventos de unity
+
+    //obtener el nivel como parte de una zona, si da -1 hubo un error, busca entre los caracteres del nombre de la escena un numero
     public int LevelIndexer(string level)
     {
         if (levelIndex != 0)
@@ -298,6 +302,7 @@ public class GameManager : MonoBehaviour
         return levelNumber;
     }
 
+    //obtener zona a la que pertenece el nivel
     public int GetZone(int levelIndex)
     {
         if (levelIndex == 2) return 0;
@@ -313,6 +318,8 @@ public class GameManager : MonoBehaviour
         return -1;
     }
 
+    //convierte los mismos objetos para que tengan el mismo nombre en los analytics, haciendo más facil su generalizacion
+    //simplemente borra los (1) que agrega unity automaticamente a los objetos repetidos
     public string ConvertToType(string input)
     {
         string output = "";
@@ -352,6 +359,7 @@ public class GameManager : MonoBehaviour
         return output;
     }
 
+    //le agrega a los abismos la cordenada x
     string FormatQueLoMato(string input)
     {
         string output = "";
@@ -377,6 +385,7 @@ public class GameManager : MonoBehaviour
         return output;
     }
 
+    //crea un debug detallado en la consola sobre un diccionario destinado al unity analytics
     void analyticsTrace(Dictionary<string, object> dictionary, string name)
     {
         string traceHolder = name + "    haz clic para ver más detalles" + "\n";
@@ -695,12 +704,12 @@ public class GameManager : MonoBehaviour
             {"EjeX", Mathf.FloorToInt( EjeX ) },
             {"EjeY", Mathf.FloorToInt( EjeY ) },
             {"PuntoDeMuerte", n },
-            {"ObjetoQueLoMato", culpable + "Z" + GetZone(levelIndex) + "N" + instance.levelNumber},
+            {"ObjetoQueLoMato", culpable },
             {"TipoDeObjetoQueLoMato", ConvertToType(culpable) }
         };
 
         analyticsTrace(dictionary, "MatarEnemigo" + "Z" + dictionary["Zona"] + "N" + dictionary["Nivel"]);
-        Analytics.CustomEvent("MatarEnemigo", dictionary);
+        Analytics.CustomEvent("MatarEnemigo" + "Z" + dictionary["Zona"] + "N" + dictionary["Nivel"], dictionary);
     }
 
     //Inputs del Mapa
@@ -770,7 +779,7 @@ public class GameManager : MonoBehaviour
         };
         
         analyticsTrace(dictionary, "MapaCompletarCutscene");
-        Analytics.CustomEvent("MapaCompletarCutscene", dictionary);        
+        Analytics.CustomEvent("MapaCompletarCutscene", dictionary);
     }
 
     public void MapaSaltearCutscene(int total, int ultimo, string levelName, int zone)
